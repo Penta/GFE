@@ -50,6 +50,9 @@ namespace Gestionnaire_de_Fond_d_Écran
 
             if (question == DialogResult.Yes)
             {
+                changement = true;
+                changementFichier = true;
+
                 Principale.logiciel = @"C:\Windows\System32\mspaint.exe";
                 Principale.affichage = "étirer";
                 Principale.extension = "png;jpg;jpeg;bmp";

@@ -33,7 +33,7 @@ namespace Gestionnaire_de_Fond_d_Écran
         // Fonction chargeant le fond lié à la variable id dans l'array fichiers
         private void chargerFond()
         {
-            if (id > 0 && id < fichiers.Length)
+            if (id >= 0 && id < fichiers.Length)
             {
                 // Si le fichier actuel n'est pas listé dans les fichiers illisibles
                 if (!mauvaisFichiers.Contains(fichiers[id].FullName))
