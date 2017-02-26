@@ -7,5 +7,5 @@ Pour la version 1.0 du Gestionnaire de Fond d'Écran, voici les fonctionalités 
  - Restorer la première fenêtre si le processus est réouvert une seconde fois.
  - Mise en place d'une fenêtre d'attente lors du chargement de la liste des fichiers
 	
-Idée pouvant venir le jour un jour, mais n'étant pas des prioritées :
- - Mise en place d'un système de diaporamas qui a pour but de remplacer celui par défaut de windows. Il changera le fond d'écranautomatiquement, il sera configurable, et aura les avantages qui sont déjà présent dans le logiciel
+Idée pouvant voir le jour un jour, mais n'étant pas des prioritées :
+ - Mise en place d'un système de diaporamas qui a pour but de remplacer celui par défaut de windows. Il changera le fond d'écran automatiquement, il sera configurable, et aura les avantages qui sont déjà présent dans le logiciel
