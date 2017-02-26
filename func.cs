@@ -1,8 +1,6 @@
 ﻿using Gulix.Wallpaper;
-using System;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace Gestionnaire_de_Fond_d_Écran
 {

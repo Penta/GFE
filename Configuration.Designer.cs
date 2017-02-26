@@ -39,6 +39,7 @@
             this.txt_extension = new System.Windows.Forms.TextBox();
             this.check_sousdossier = new System.Windows.Forms.CheckBox();
             this.check_constanteVerif = new System.Windows.Forms.CheckBox();
+            this.btn_reset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_dispo_info
@@ -105,10 +106,20 @@
             this.check_constanteVerif.Name = "check_constanteVerif";
             this.check_constanteVerif.UseVisualStyleBackColor = true;
             // 
+            // btn_reset
+            // 
+            this.btn_reset.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btn_reset.ForeColor = System.Drawing.Color.Red;
+            resources.ApplyResources(this.btn_reset, "btn_reset");
+            this.btn_reset.Name = "btn_reset";
+            this.btn_reset.UseVisualStyleBackColor = false;
+            this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
+            // 
             // Configuration
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_reset);
             this.Controls.Add(this.check_constanteVerif);
             this.Controls.Add(this.check_sousdossier);
             this.Controls.Add(this.txt_extension);
@@ -141,5 +152,6 @@
         private System.Windows.Forms.TextBox txt_extension;
         private System.Windows.Forms.CheckBox check_sousdossier;
         private System.Windows.Forms.CheckBox check_constanteVerif;
+        private System.Windows.Forms.Button btn_reset;
     }
 }

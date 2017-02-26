@@ -33,38 +33,41 @@ namespace Gestionnaire_de_Fond_d_Écran
         // Fonction chargeant le fond lié à la variable id dans l'array fichiers
         private void chargerFond()
         {
-            // Si le fichier actuel n'est pas listé dans les fichiers illisibles
-            if (!mauvaisFichiers.Contains(fichiers[id].FullName))
+            if (id > 0 && id < fichiers.Length)
             {
-                lbl_nom.ForeColor = Color.Black;
-                infobulle_nom.SetToolTip(this.lbl_nom, "");
-                lbl_nom.Text = "Chargement...";
-                this.Refresh();
-
-                // On prépare l'application du fond
-                Wallpaper fond = new Wallpaper(fichiers[id].FullName, func.convertirAffichage(affichage), couleur);
-
-                // On compte le nombre de fond affichés
-                Registre.compterFond();
-
-                try { fond.Afficher(); } // On tente d'afficher le fond
-                catch // Si il y a eu une erreur
+                // Si le fichier actuel n'est pas listé dans les fichiers illisibles
+                if (!mauvaisFichiers.Contains(fichiers[id].FullName))
                 {
-                    lbl_nom.ForeColor = Color.Red;
-                    supprimerFichier(true); // On demande à l'utilisateur si il veut supprimer le fichier (et on le liste en tant que fichier illisible
+                    lbl_nom.ForeColor = Color.Black;
+                    infobulle_nom.SetToolTip(this.lbl_nom, "");
+                    lbl_nom.Text = "Chargement...";
+                    this.Refresh();
 
-                    // On compte l'erreur
-                    Registre.compterErreur();
+                    // On prépare l'application du fond
+                    Wallpaper fond = new Wallpaper(fichiers[id].FullName, func.convertirAffichage(affichage), couleur);
+
+                    // On compte le nombre de fond affichés
+                    Registre.compterFond();
+
+                    try { fond.Afficher(); } // On tente d'afficher le fond
+                    catch // Si il y a eu une erreur
+                    {
+                        lbl_nom.ForeColor = Color.Red;
+                        supprimerFichier(true); // On demande à l'utilisateur si il veut supprimer le fichier (et on le liste en tant que fichier illisible
+
+                        // On compte l'erreur
+                        Registre.compterErreur();
+                    }
+
+                    // On recharge les infos
+                    rechargerInfo();
                 }
-
-                // On recharge les infos
-                rechargerInfo();
-            }
-            else // Si le fichier est listé en tant que fichier illisible
-            {
-                // On affiche son nom en rouge, et on ne le l'affiche pas
-                lbl_nom.ForeColor = Color.Red;
-                rechargerInfo();
+                else // Si le fichier est listé en tant que fichier illisible
+                {
+                    // On affiche son nom en rouge, et on ne le l'affiche pas
+                    lbl_nom.ForeColor = Color.Red;
+                    rechargerInfo();
+                }
             }
         }
 
@@ -169,8 +172,16 @@ namespace Gestionnaire_de_Fond_d_Écran
         // Fonction liée au bouton suivant
         private void fichierSuivant()
         {
+            DialogResult question = new DialogResult();
+
             if (btn_suivant.Text == "Terminer")
-                fermerProgramme();
+            {
+                question = MessageBox.Show("Vous avez fini le dossier !\n\nVoulez-vous fermer le programme ?", "Dossier terminé", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+                if (question == DialogResult.Yes)
+                    fermerProgramme();
+            }
+                
             else
             {
                 id++;
