@@ -1,5 +1,4 @@
-﻿## Bienvenue sur la page GIT du Gestionnaire de Fond d'Écran
-
+## Bienvenue sur la page GIT du Gestionnaire de Fond d'Écran
 
 Le Gestionnaire de Fond d'Écran est un petit utilitaire codé en C# par Andy Esnard sous licence GNU GPLv3.
 
