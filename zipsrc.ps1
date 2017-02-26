@@ -1,10 +1,13 @@
 #########################################
 #                                       #
-#    Script de l'archive des sources    #
-#    fourni dans l'executable.          #
+#               zipsrc.ps1              #
+#               ==========              #
 #                                       #
-#    Par Andy Esnard - Décembre 2017    #
-#           Sous Licence BSD            #
+#   Script de l'archivage des sources   #
+#    fournisent dans l'executable.      #
+#                                       #
+#    Par Andy Esnard - Février 2017     #
+#        Sous Licence GNU GPLv3         #
 #                                       #
 #########################################
 
