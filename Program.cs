@@ -51,7 +51,7 @@ namespace Gestionnaire_de_Fond_d_Écran
         {
             if (Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).Length > 1)
             {
-                MessageBox.Show("Une seule instance du logiciel n'est autorisée !", "Erreur de lancement", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Seulement une seule instance du logiciel est autorisée !", "Erreur de lancement", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 Environment.Exit(0);
             }
 

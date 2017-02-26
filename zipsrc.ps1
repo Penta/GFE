@@ -17,18 +17,18 @@ $output = ".\Resources\source.zip"
 echo "Copie des sources..."
 
 # On supprime les fichiers/dossiers anciens
-Remove-Item $tmp -Recurse
-Remove-Item $output
+If (Test-Path $tmp   ) { Remove-Item $tmp -Recurse    }
+if (Test-Path $output) { Remove-Item $output -Recurse }
 
 # On créé le dossier temporaire
-New-Item -ItemType Directory -Force -Path $tmp
+New-Item -ItemType Directory -Force -Path $tmp >> null
+Remove-Item null
 
 Copy-Item "*.csproj" $tmp
 Copy-Item "*sln" $tmp
 Copy-Item "zipsrc.ps1" $tmp
 Copy-Item "app.config" $tmp
 Copy-Item "cleanup.cmd" $tmp
-Copy-Item "icone.ico" $tmp
 Copy-Item "*sln" $tmp
 Copy-Item "*.cs" $tmp
 Copy-Item "*.resx" $tmp
@@ -39,13 +39,14 @@ Copy-Item "Resources/" $tmp -Recurse
 
 # Nettoyage des sources
 cd ".\tmp\"
-d
 cmd /c ".\cleanup.cmd"
 cd ..
 
 # On zip le tout
-Add-Type -assembly "system.io.compression.filesystem"
-[io.compression.zipfile]::CreateFromDirectory($tmp, $output)
+Add-Type -assembly "System.IO.Compression.Filesystem"
+[IO.Compression.ZipFile]::CreateFromDirectory($tmp, $output)
+
+echo "L'archive Zip des sources a été créée !"
 
 # On supprime le dossier temporaire
 Remove-Item $tmp -Recurse
