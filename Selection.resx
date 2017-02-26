@@ -192,7 +192,7 @@
     <value>2</value>
   </data>
   <data name="btn_valider.Location" type="System.Drawing.Point, System.Drawing">
-    <value>294, 62</value>
+    <value>290, 60</value>
   </data>
   <data name="btn_valider.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 33</value>
@@ -215,34 +215,31 @@
   <data name="&gt;&gt;btn_valider.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="lbl_apropos.AutoSize" type="System.Boolean, mscorlib">
+  <data name="check_sousdossier.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbl_apropos.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 7pt</value>
+  <data name="check_sousdossier.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 68</value>
   </data>
-  <data name="lbl_apropos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 72</value>
+  <data name="check_sousdossier.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 17</value>
   </data>
-  <data name="lbl_apropos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>275, 13</value>
+  <data name="check_sousdossier.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="lbl_apropos.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="check_sousdossier.Text" xml:space="preserve">
+    <value>Inclure les fonds d'écran des sous-dossiers.</value>
   </data>
-  <data name="lbl_apropos.Text" xml:space="preserve">
-    <value>Par Andy Esnard - 2014/2017 - Sous licence GNU GPLv3</value>
+  <data name="&gt;&gt;check_sousdossier.Name" xml:space="preserve">
+    <value>check_sousdossier</value>
   </data>
-  <data name="&gt;&gt;lbl_apropos.Name" xml:space="preserve">
-    <value>lbl_apropos</value>
+  <data name="&gt;&gt;check_sousdossier.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbl_apropos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_apropos.Parent" xml:space="preserve">
+  <data name="&gt;&gt;check_sousdossier.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lbl_apropos.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;check_sousdossier.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -252,7 +249,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>388, 99</value>
+    <value>388, 101</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -37,6 +37,8 @@
             this.check_rappel = new System.Windows.Forms.CheckBox();
             this.lbl_info_extension = new System.Windows.Forms.Label();
             this.txt_extension = new System.Windows.Forms.TextBox();
+            this.check_sousdossier = new System.Windows.Forms.CheckBox();
+            this.check_constanteVerif = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lbl_dispo_info
@@ -91,10 +93,24 @@
             resources.ApplyResources(this.txt_extension, "txt_extension");
             this.txt_extension.Name = "txt_extension";
             // 
+            // check_sousdossier
+            // 
+            resources.ApplyResources(this.check_sousdossier, "check_sousdossier");
+            this.check_sousdossier.Name = "check_sousdossier";
+            this.check_sousdossier.UseVisualStyleBackColor = true;
+            // 
+            // check_constanteVerif
+            // 
+            resources.ApplyResources(this.check_constanteVerif, "check_constanteVerif");
+            this.check_constanteVerif.Name = "check_constanteVerif";
+            this.check_constanteVerif.UseVisualStyleBackColor = true;
+            // 
             // Configuration
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.check_constanteVerif);
+            this.Controls.Add(this.check_sousdossier);
             this.Controls.Add(this.txt_extension);
             this.Controls.Add(this.lbl_info_extension);
             this.Controls.Add(this.check_rappel);
@@ -123,5 +139,7 @@
         private System.Windows.Forms.CheckBox check_rappel;
         private System.Windows.Forms.Label lbl_info_extension;
         private System.Windows.Forms.TextBox txt_extension;
+        private System.Windows.Forms.CheckBox check_sousdossier;
+        private System.Windows.Forms.CheckBox check_constanteVerif;
     }
 }

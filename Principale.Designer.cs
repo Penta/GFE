@@ -39,6 +39,7 @@
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.rechargerLeFondToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rechargerLaListeDesFichiersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mettreEnFondDécranToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.changerDeDossierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,6 +101,7 @@
             this.changerDeDossierToolStripMenuItem,
             this.allezÀLimageNuméroToolStripMenuItem,
             this.minimiserToutesLesFenêtresToolStripMenuItem,
+            this.rechargerLaListeDesFichiersToolStripMenuItem,
             this.toolStripSeparator2,
             this.quitterToolStripMenuItem});
             this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
@@ -139,6 +141,12 @@
             resources.ApplyResources(this.rechargerLeFondToolStripMenuItem, "rechargerLeFondToolStripMenuItem");
             this.rechargerLeFondToolStripMenuItem.Name = "rechargerLeFondToolStripMenuItem";
             this.rechargerLeFondToolStripMenuItem.Click += new System.EventHandler(this.rechargerLeFondToolStripMenuItem_Click);
+            // 
+            // rechargerLaListeDesFichiersToolStripMenuItem
+            // 
+            this.rechargerLaListeDesFichiersToolStripMenuItem.Name = "rechargerLaListeDesFichiersToolStripMenuItem";
+            resources.ApplyResources(this.rechargerLaListeDesFichiersToolStripMenuItem, "rechargerLaListeDesFichiersToolStripMenuItem");
+            this.rechargerLaListeDesFichiersToolStripMenuItem.Click += new System.EventHandler(this.rechargerLaListeDesFichiersToolStripMenuItem_Click);
             // 
             // mettreEnFondDécranToolStripMenuItem
             // 
@@ -356,5 +364,6 @@
         private System.Windows.Forms.ToolStripMenuItem minimiserToutesLesFenêtresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aléatoireToolStripMenuItem;
         private System.Windows.Forms.ToolTip infobulle_chemin;
+        private System.Windows.Forms.ToolStripMenuItem rechargerLaListeDesFichiersToolStripMenuItem;
     }
 }

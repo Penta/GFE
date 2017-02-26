@@ -246,6 +246,15 @@
   <data name="minimiserToutesLesFenêtresToolStripMenuItem.Text" xml:space="preserve">
     <value>Minimiser toutes les fenêtres</value>
   </data>
+  <data name="rechargerLaListeDesFichiersToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>F6</value>
+  </data>
+  <data name="rechargerLaListeDesFichiersToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 22</value>
+  </data>
+  <data name="rechargerLaListeDesFichiersToolStripMenuItem.Text" xml:space="preserve">
+    <value>Recharger la liste des fichiers</value>
+  </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>264, 6</value>
   </data>
@@ -2450,6 +2459,12 @@
     <value>rechargerLeFondToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;rechargerLeFondToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rechargerLaListeDesFichiersToolStripMenuItem.Name" xml:space="preserve">
+    <value>rechargerLaListeDesFichiersToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;rechargerLaListeDesFichiersToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;mettreEnFondDécranToolStripMenuItem.Name" xml:space="preserve">

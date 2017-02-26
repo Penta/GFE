@@ -1,4 +1,8 @@
 ﻿using Gulix.Wallpaper;
+using System;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Gestionnaire_de_Fond_d_Écran
 {
@@ -64,6 +68,28 @@ namespace Gestionnaire_de_Fond_d_Écran
             }
             else
                 resultat = chemin;
+
+            return resultat;
+        }
+
+        static public FileInfo[] rechercheRecursive(string chemin, ref int erreur)
+        {
+            FileInfo[] resultat = new FileInfo[65535];
+            FileInfo[] temp = new FileInfo[65535];
+            int i = 0;
+
+            try
+            {
+                resultat = new DirectoryInfo(chemin).GetFiles();
+                DirectoryInfo[] dossiersInfo = new DirectoryInfo(chemin).GetDirectories();
+
+                while (i < dossiersInfo.Length && dossiersInfo.Length > 0)
+                {
+                    resultat = resultat.Concat(rechercheRecursive(dossiersInfo[i].FullName, ref erreur)).ToArray();
+                    i++;
+                }
+            }
+            catch { erreur++; }
 
             return resultat;
         }

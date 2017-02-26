@@ -83,12 +83,6 @@
     <Compile Include="Saut.Designer.cs">
       <DependentUpon>Saut.cs</DependentUpon>
     </Compile>
-    <Compile Include="SelectionAlt.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SelectionAlt.Designer.cs">
-      <DependentUpon>SelectionAlt.cs</DependentUpon>
-    </Compile>
     <Compile Include="Selection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,9 +104,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Saut.resx">
       <DependentUpon>Saut.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SelectionAlt.resx">
-      <DependentUpon>SelectionAlt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Selection.resx">
       <DependentUpon>Selection.cs</DependentUpon>

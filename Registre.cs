@@ -54,17 +54,11 @@ namespace Gestionnaire_de_Fond_d_Écran
                     else
                         registre.SetValue("AncienID", 0);
 
-                    // Clef pour l'activation du Rappel du fond d'écran au démarrage du logiciel
-                    if (registre.GetValue("Rappel") is bool)
-                        Principale.rappel = Convert.ToBoolean(registre.GetValue("Rappel"));
-                    else
-                        registre.SetValue("Rappel", true);
-
-                    // Clef pour vérifier si il y a eu une mise à jour
-                    if (registre.GetValue("MiseAJour") is bool)
-                        miseAJour = Convert.ToBoolean(registre.GetValue("MiseAJour"));
-                    else
-                        registre.SetValue("MiseAJour", false);
+                    // Quelques clefs booléennes
+                    Principale.rappel = Convert.ToBoolean(registre.GetValue("Rappel"));
+                    Principale.sousDossier = Convert.ToBoolean(registre.GetValue("SousDossier"));
+                    Principale.rechargementConstant = Convert.ToBoolean(registre.GetValue("VerifConstante"));
+                    miseAJour = Convert.ToBoolean(registre.GetValue("MiseAJour"));
                 }
                 catch
                 {
@@ -83,12 +77,13 @@ namespace Gestionnaire_de_Fond_d_Écran
             registre.SetValue("LogicielExterne", Principale.logiciel);
             registre.SetValue("nbErreur", 0);
             registre.SetValue("nbFond", 0);
-            registre.SetValue("Rappel", true);
+            registre.SetValue("Rappel", Principale.rappel);
             registre.SetValue("AncienChemin", "");
             registre.SetValue("AncienID", 0);
             registre.SetValue("MiseAJour", false);
             registre.SetValue("Extensions", Principale.extension);
-
+            registre.SetValue("SousDossier", Principale.sousDossier);
+            registre.SetValue("VerifConstante", Principale.rechargementConstant);
         }
 
         static public void miseAjourConfig()
@@ -99,6 +94,8 @@ namespace Gestionnaire_de_Fond_d_Écran
             registre.SetValue("AncienChemin", Principale.chemin);
             registre.SetValue("AncienID", Principale.id);
             registre.SetValue("Extensions", Principale.extension);
+            registre.SetValue("SousDossier", Principale.sousDossier);
+            registre.SetValue("VerifConstante", Principale.rechargementConstant);
         }
 
         static public void compterErreur()

@@ -33,7 +33,7 @@
             this.btn_explorer = new System.Windows.Forms.Button();
             this.txt_chemin = new System.Windows.Forms.TextBox();
             this.btn_valider = new System.Windows.Forms.Button();
-            this.lbl_apropos = new System.Windows.Forms.Label();
+            this.check_sousdossier = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lbl_info_selection
@@ -60,17 +60,18 @@
             this.btn_valider.UseVisualStyleBackColor = true;
             this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
             // 
-            // lbl_apropos
+            // check_sousdossier
             // 
-            resources.ApplyResources(this.lbl_apropos, "lbl_apropos");
-            this.lbl_apropos.Name = "lbl_apropos";
+            resources.ApplyResources(this.check_sousdossier, "check_sousdossier");
+            this.check_sousdossier.Name = "check_sousdossier";
+            this.check_sousdossier.UseVisualStyleBackColor = true;
             // 
             // Selection
             // 
             this.AcceptButton = this.btn_valider;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lbl_apropos);
+            this.Controls.Add(this.check_sousdossier);
             this.Controls.Add(this.btn_valider);
             this.Controls.Add(this.txt_chemin);
             this.Controls.Add(this.btn_explorer);
@@ -90,7 +91,7 @@
         private System.Windows.Forms.Button btn_explorer;
         private System.Windows.Forms.TextBox txt_chemin;
         private System.Windows.Forms.Button btn_valider;
-        private System.Windows.Forms.Label lbl_apropos;
+        private System.Windows.Forms.CheckBox check_sousdossier;
     }
 }
 

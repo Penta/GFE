@@ -372,31 +372,31 @@ along with this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.</valu
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="linkLabel3.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lbl_link_github.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="linkLabel3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lbl_link_github.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 302</value>
   </data>
-  <data name="linkLabel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 13</value>
+  <data name="lbl_link_github.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 13</value>
   </data>
-  <data name="linkLabel3.TabIndex" type="System.Int32, mscorlib">
+  <data name="lbl_link_github.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="linkLabel3.Text" xml:space="preserve">
-    <value>Site Web</value>
+  <data name="lbl_link_github.Text" xml:space="preserve">
+    <value>GitHub du projet</value>
   </data>
-  <data name="&gt;&gt;linkLabel3.Name" xml:space="preserve">
-    <value>linkLabel3</value>
+  <data name="&gt;&gt;lbl_link_github.Name" xml:space="preserve">
+    <value>lbl_link_github</value>
   </data>
-  <data name="&gt;&gt;linkLabel3.Type" xml:space="preserve">
+  <data name="&gt;&gt;lbl_link_github.Type" xml:space="preserve">
     <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;linkLabel3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lbl_link_github.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;linkLabel3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lbl_link_github.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

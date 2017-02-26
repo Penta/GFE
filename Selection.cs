@@ -9,26 +9,16 @@ namespace Gestionnaire_de_Fond_d_Écran
     {
         private FolderBrowserDialog selectionDossier;
         private string chemin;
+        private bool valide = false, desactivation = false;
 
         private void ouvrirPrincipale() { Application.Run(new Principale(chemin)); }
 
-
-        public Selection()
+        private void changerDossier()
         {
-            InitializeComponent();
+            FolderBrowserDialog selectionDossier = new FolderBrowserDialog();
 
-            if (Principale.chemin != null)
-            {
-                txt_chemin.Text = Principale.chemin;
-                chemin = Principale.chemin;
-            }
-        }
-
-        private void btn_explorer_Click(object sender, EventArgs e)
-        {
-            this.selectionDossier = new FolderBrowserDialog();
-            this.selectionDossier.Description = "Veuillez choisir le dossier de fond d'écran.";
-            this.selectionDossier.ShowNewFolderButton = false;
+            selectionDossier.Description = "Veuillez choisir le dossier de fond d'écran.";
+            selectionDossier.ShowNewFolderButton = false;
 
             if (chemin != "")
                 selectionDossier.SelectedPath = chemin;
@@ -38,7 +28,62 @@ namespace Gestionnaire_de_Fond_d_Écran
             if (result == DialogResult.OK)
             {
                 chemin = selectionDossier.SelectedPath;
-                txt_chemin.Text = chemin; 
+                valide = true;
+            }
+            else
+                valide = false;
+
+            desactivation = false;
+        }
+
+        public Selection()
+        {
+            InitializeComponent();
+
+            if (Principale.chemin != null)
+            {
+                txt_chemin.Text = Principale.chemin;
+                chemin = Principale.chemin;
+                check_sousdossier.Checked = Principale.sousDossier;
+            }
+        }
+
+        private void btn_explorer_Click(object sender, EventArgs e)
+        {
+            if (Principale.selectionPremierLancement)
+            {
+                this.selectionDossier = new FolderBrowserDialog();
+                this.selectionDossier.Description = "Veuillez choisir le dossier de fond d'écran.";
+                this.selectionDossier.ShowNewFolderButton = false;
+
+                if (chemin != "")
+                    selectionDossier.SelectedPath = chemin;
+
+                DialogResult result = selectionDossier.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    chemin = selectionDossier.SelectedPath;
+                    txt_chemin.Text = chemin;
+                }
+            }
+            else
+            {
+                this.Enabled = false;
+                desactivation = true;
+
+                Thread proc = new Thread(new ThreadStart(changerDossier));
+                proc.SetApartmentState(ApartmentState.STA);
+                proc.Start();
+
+                while (desactivation == true) { Thread.Sleep(100); }
+
+                if (valide)
+                    txt_chemin.Text = chemin;
+
+                this.Enabled = true;
+                this.Activate();
+                this.Show();
             }
         }
 
@@ -55,10 +100,20 @@ namespace Gestionnaire_de_Fond_d_Écran
                 {
                     chemin = txt_chemin.Text;
 
-                    this.DestroyHandle();
+                    Principale.sousDossier = check_sousdossier.Checked;
+                    Registre.miseAjourConfig();
 
-                    Thread principale = new Thread(new ThreadStart(ouvrirPrincipale));
-                    principale.Start();
+                    if(Principale.selectionPremierLancement)
+                    {
+                        Thread principale = new Thread(new ThreadStart(ouvrirPrincipale));
+                        principale.Start();
+
+                        Principale.selectionPremierLancement = false;
+                    }
+                    else
+                        Principale.chemin = txt_chemin.Text;
+
+                    this.DestroyHandle();
                 }
                 else
                     MessageBox.Show("Le dossier n'existe pas ou n'est pas valide !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);

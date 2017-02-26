@@ -11,7 +11,7 @@ using System.Resources;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Andy Esnard")]
 [assembly: AssemblyProduct("Gestionnaire de Fond d'Écran")]
-[assembly: AssemblyCopyright("Copyright Andy Esnard © 2017")]
+[assembly: AssemblyCopyright("Copyright Andy Esnard © 2014/2017")]
 [assembly: AssemblyTrademark("Andy Esnard")]
 [assembly: AssemblyCulture("")]
 
@@ -33,6 +33,6 @@ using System.Resources;
 // Vous pouvez spécifier toutes les valeurs ou indiquer les numéros de build et de révision par défaut 
 // en utilisant '*', comme indiqué ci-dessous :
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.7.2")]
-[assembly: AssemblyFileVersion("0.7.2")]
+[assembly: AssemblyVersion("0.8.0")]
+[assembly: AssemblyFileVersion("0.8.0")]
 [assembly: NeutralResourcesLanguage("fr")]

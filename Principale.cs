@@ -6,8 +6,9 @@ using System.Diagnostics;
 using Microsoft.Win32;
 using System.Linq;
 
-// Classe sous licence GNU GPL
+// Classe sous licence GNU GPLv3
 using Gulix.Wallpaper;
+using System.Threading;
 
 namespace Gestionnaire_de_Fond_d_Écran
 {
@@ -15,63 +16,69 @@ namespace Gestionnaire_de_Fond_d_Écran
     {
 
         // VERSION DU LOGICIEL
-        public const string VERSION = "0.7.2";
+        public const string VERSION = "0.8.0";
 
+        // Variables globales
         static public int id = -1, nbFichier = 0, mid = 0;
         static public Color couleur = Color.Black;
-
         static public string affichage = "etirer", logiciel = @"C:\Windows\System32\mspaint.exe";
         static public string chemin = null, ancienAffichage = null;
-        static public bool rappel = true;
-        static public string[] fichiers = new string[65536], mauvaisFichiers = new string[65536], AncienfondEcran = new string[3];
+        static public bool rappel = true, sousDossier = false, rechargementConstant = false;
+        static public string[] mauvaisFichiers = new string[65536], AncienfondEcran = new string[3];
         static public string extension = "jpg;jpeg;png;bmp";
+        static private bool premierChargement = true;
+        static public bool selectionPremierLancement = true;
+        FileInfo[] fichiers = new FileInfo[65536];
 
-
+        // Fonction chargeant le fond lié à la variable id dans l'array fichiers
         private void chargerFond()
         {
-            if (!mauvaisFichiers.Contains(fichiers[id]))
+            // Si le fichier actuel n'est pas listé dans les fichiers illisibles
+            if (!mauvaisFichiers.Contains(fichiers[id].FullName))
             {
                 lbl_nom.ForeColor = Color.Black;
                 infobulle_nom.SetToolTip(this.lbl_nom, "");
                 lbl_nom.Text = "Chargement...";
                 this.Refresh();
 
-                Wallpaper fond = new Wallpaper(null, Affichage.etirer, Color.Black);
+                // On prépare l'application du fond
+                Wallpaper fond = new Wallpaper(fichiers[id].FullName, func.convertirAffichage(affichage), couleur);
 
-                fond = new Wallpaper(chemin + "\\" + fichiers[id], func.convertirAffichage(affichage), couleur);
-
-                rechargerInfo();
-
+                // On compte le nombre de fond affichés
                 Registre.compterFond();
 
-                try
-                {
-                    fond.Afficher();
-                }
-                catch
+                try { fond.Afficher(); } // On tente d'afficher le fond
+                catch // Si il y a eu une erreur
                 {
                     lbl_nom.ForeColor = Color.Red;
-                    supprimerFichier(true);
+                    supprimerFichier(true); // On demande à l'utilisateur si il veut supprimer le fichier (et on le liste en tant que fichier illisible
 
+                    // On compte l'erreur
                     Registre.compterErreur();
                 }
+
+                // On recharge les infos
+                rechargerInfo();
             }
-            else
+            else // Si le fichier est listé en tant que fichier illisible
             {
+                // On affiche son nom en rouge, et on ne le l'affiche pas
                 lbl_nom.ForeColor = Color.Red;
                 rechargerInfo();
             }
         }
 
+        // Met à jour les informations à l'écran
         private void rechargerInfo()
         {
-            recupererFichiers();
-
-            lbl_chemin.Text = func.traitementChemin(chemin);
-            infobulle_chemin.SetToolTip(this.lbl_chemin, chemin);
+            if (rechargementConstant)
+                recupererFichiers(false);
 
             if (id >= 0)
             {
+                lbl_chemin.Text = func.traitementChemin(fichiers[id].DirectoryName);
+                infobulle_chemin.SetToolTip(this.lbl_chemin, fichiers[id].DirectoryName);
+
                 btn_supprimer.Enabled = true;
                 supprimerToolStripMenuItem.Enabled = true;
                 mettreEnFondDécranToolStripMenuItem.Enabled = true;
@@ -85,8 +92,8 @@ namespace Gestionnaire_de_Fond_d_Écran
 
                 lbl_num.Text = (id + 1).ToString() + " sur " + nbFichier;
 
-                infobulle_nom.SetToolTip(this.lbl_nom, fichiers[id]);
-                lbl_nom.Text = func.traitementNom(fichiers[id]);
+                infobulle_nom.SetToolTip(this.lbl_nom, fichiers[id].Name);
+                lbl_nom.Text = func.traitementNom(fichiers[id].Name);
 
                 rechargerLeFondToolStripMenuItem.Enabled = true;
 
@@ -114,6 +121,9 @@ namespace Gestionnaire_de_Fond_d_Écran
             }
             else if (id == -1)
             {
+                lbl_chemin.Text = func.traitementChemin(chemin);
+                infobulle_chemin.SetToolTip(this.lbl_chemin, chemin);
+
                 btn_supprimer.Enabled = false;
                 supprimerToolStripMenuItem.Enabled = false;
                 mettreEnFondDécranToolStripMenuItem.Enabled = false;
@@ -152,8 +162,11 @@ namespace Gestionnaire_de_Fond_d_Écran
                 btn_precedent.Enabled = false;
                 précédentToolStripMenuItem.Enabled = false;
             }
+
+            this.Refresh();
         }
 
+        // Fonction liée au bouton suivant
         private void fichierSuivant()
         {
             if (btn_suivant.Text == "Terminer")
@@ -167,6 +180,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             }
         }
 
+        // Fonction liée au bouton précédent
         private void fichierPrecedent()
         {
             id--;
@@ -177,20 +191,23 @@ namespace Gestionnaire_de_Fond_d_Écran
 
         private void supprimerFichier(bool mode)
         {
+            // On créé une boite de dialogue de confirmation
             DialogResult reponse = new DialogResult();
 
+            // Selon le cas, on affiche un message different
             if (!mode)
                 reponse = MessageBox.Show("Voulez-vous vraiment supprimer ce fond d'écran ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             else
-                reponse = MessageBox.Show("Le fichier '" + fichiers[id] + "' n'a pas pu être chargé, voulez-vous le supprimer ?", "Erreur", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                reponse = MessageBox.Show("Le fichier '" + fichiers[id].Name + "' n'a pas pu être chargé, voulez-vous le supprimer ?", "Erreur", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
 
-            if (reponse == DialogResult.Yes)
+            if (reponse == DialogResult.Yes) // Si la réponse est oui
             {
-                File.Delete(chemin + @"\" + fichiers[id]);
+                File.Delete(fichiers[id].FullName); // On supprime le fichier en question
                 nbFichier--;
 
-                recupererFichiers();
+                recupererFichiers(true); // On refait la liste des fichiers
 
+                // Si il reste des fichiers dans le dossier, on affiche le précédent
                 if (nbFichier != 0)
                 {
                     if (id == nbFichier)
@@ -198,26 +215,29 @@ namespace Gestionnaire_de_Fond_d_Écran
 
                     chargerFond();
                 }
-                else
+                else 
                     rechargerInfo();
             }
-            else if (reponse == DialogResult.No & mode == true)
+            else if (reponse == DialogResult.No & mode == true) // Si le fichier est illisible, mais que l'utilisateur ne veut pas le supprimer
             {
-                mauvaisFichiers[mid] = fichiers[id];
+                // On le liste dans les fichiers illisibles
+                mauvaisFichiers[mid] = fichiers[id].FullName;
                 mid++;
 
-                recupererFichiers();
+                if(rechargementConstant)
+                    recupererFichiers(false);
             }
         }
 
+        // Fonction qui réaffiche le fond d'écran initial
         private void ancienFond()
         {
-            try
+            try // On essaye de remettre le fond
             {
                 Wallpaper fond = new Wallpaper(Path.GetTempPath() + @"\GFE_tmp.bmp", func.convertirAffichage(ancienAffichage), couleur);
                 fond.Afficher();
             }
-            catch (Exception e)
+            catch (Exception e) // Si il y a eu une erreur, on l'affiche
             {
                 MessageBox.Show("Une erreur est survenue durant la remise de votre ancien fond d'écran !\n\n" +
                                 "DEBUG :\nFichier : " + Path.GetTempPath() + "GFE_tmp.bmp\nMode : " + ancienAffichage + "\n\nErreur :\n" + e
@@ -225,6 +245,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             }
         }
         
+        // Fonction de fermeture du programme
         private void fermerProgramme()
         {
             this.Visible = false;
@@ -238,12 +259,32 @@ namespace Gestionnaire_de_Fond_d_Écran
             this.DestroyHandle();
         }
 
-        private void recupererFichiers()
+        // Fonction qui liste les fichiers d'un dossier
+        private void recupererFichiers(bool afficherTexte)
         {
-            string ext = null;
+            FileInfo[] fichiersInfo = new FileInfo[65535];
+            DirectoryInfo[] dossiersInfo = new DirectoryInfo[2048];
+            int erreur = 0;
+            string ext = "";
 
-            DirectoryInfo dossier = new DirectoryInfo(chemin);
-            FileInfo[] fichiersInfo = dossier.GetFiles();
+            fichiers.Initialize();
+
+            try { fichiersInfo = new DirectoryInfo(chemin).GetFiles(); }
+            catch { MessageBox.Show("Impossible de le lire ce dossier !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+
+            if (sousDossier)
+            {
+                try
+                {
+                    fichiersInfo = func.rechercheRecursive(chemin, ref erreur);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Une erreur est survenue à la récupération de la liste des fichiers !\n\nErreur :\n" + e.ToString(), "Erreur durant la récupération des fichiers", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    premierChargement = false;
+                }
+            }
+
             nbFichier = 0;
 
             foreach (FileInfo fichier in fichiersInfo)
@@ -252,13 +293,24 @@ namespace Gestionnaire_de_Fond_d_Écran
                 ext = fichier.Extension.ToLower();
 
                 // On compare l'extension sans le point à celles autorisées
-                if (extension.Split(';').Contains(ext.Substring(1)))
+                if (ext != "")
                 {
-                    // On ajoute le fichier dans la liste des fichiers autorisés
-                    fichiers[nbFichier] = fichier.Name;
-                    nbFichier++;
+                    if (extension.Split(';').Contains(ext.Substring(1)))
+                    {
+                        // On ajoute le fichier dans la liste des fichiers autorisés
+                        fichiers[nbFichier] = fichier;
+                        nbFichier++;
+                    }
                 }
-             }
+            }
+
+            if (erreur > 0 && premierChargement) // Si il y a une erreur durant la lecture d'un sous-dossier
+            {
+                MessageBox.Show(erreur.ToString() + " sous-dossiers n'ont pas été lus !\n\nCette erreur est non fatale.", "Erreur de lecture", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                erreur = 0;
+            }
+
+            premierChargement = false;
         }
 
         private void modifierFichier()
@@ -275,6 +327,33 @@ namespace Gestionnaire_de_Fond_d_Écran
         }
 
         public Principale(string pChemin)
+        {
+            chemin = pChemin;
+
+            InitializeComponent();
+        }
+
+        private void modificationExterne()
+        {
+            // Création du processus du logiciel externe
+            try
+            {
+                ProcessStartInfo logicielExterne = new ProcessStartInfo(logiciel, "\"" + fichiers[id].FullName + "\"");
+                Process proc = new Process();
+
+                proc.StartInfo = logicielExterne;
+                proc.Start();
+
+                btn_modifier.Text = "Recharger";
+            }
+            catch
+            {
+                MessageBox.Show("Une erreur est survenue durant le lancement du logiciel externe !\n\n" +
+                                "Commande executée :\n\"" + logiciel + " " + fichiers[id].FullName + "\"", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+            }
+        }
+
+        private void Principale_Load(object sender, EventArgs e)
         {
             RegistryKey registre = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
             int tmpId = 0;
@@ -302,10 +381,8 @@ namespace Gestionnaire_de_Fond_d_Écran
             if (!File.Exists(Path.GetTempPath() + @"GFE_tmp.bmp"))
                 File.Copy(@AncienfondEcran[0], Path.GetTempPath() + @"GFE_tmp.bmp");
 
-            chemin = pChemin;
-            recupererFichiers();
-
-            InitializeComponent();
+            recupererFichiers(true);
+            rechargerInfo();
 
             if (rappel && Registre.ancienChemin == chemin)
             {
@@ -319,31 +396,6 @@ namespace Gestionnaire_de_Fond_d_Écran
                     chargerFond();
                 }
             }
-        }
-
-        private void modificationExterne()
-        {
-            // Création du processus du logiciel externe
-            try
-            {
-                ProcessStartInfo logicielExterne = new ProcessStartInfo(logiciel, "\"" + chemin + "\\" + fichiers[id] + "\"");
-                Process proc = new Process();
-
-                proc.StartInfo = logicielExterne;
-                proc.Start();
-
-                btn_modifier.Text = "Recharger";
-            }
-            catch
-            {
-                MessageBox.Show("Une erreur est survenue durant le lancement du logiciel externe !\n\n" +
-                                "Commande executée :\n\"" + logiciel + " " + chemin + "\\" + fichiers[id] + "\"", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-            }
-        }
-
-        private void Principale_Load(object sender, EventArgs e)
-        {
-            rechargerInfo();
         }
 
         private void btn_suivant_Click(object sender, EventArgs e) { fichierSuivant(); }
@@ -382,20 +434,22 @@ namespace Gestionnaire_de_Fond_d_Écran
         private void changerDeDossierToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string ancien = chemin;
+            bool ancienSousDossier = sousDossier;
 
             if (id != -1)
                 ancienFond();
 
-            SelectionAlt fenetre = new SelectionAlt();
+            Selection fenetre = new Selection();
             fenetre.ShowDialog();
 
-            if (ancien != chemin)
+            if (ancien != chemin | ancienSousDossier != sousDossier)
             {
+                premierChargement = true;
                 mauvaisFichiers.Initialize();
 
                 id = -1;
 
-                recupererFichiers();
+                recupererFichiers(true);
                 rechargerInfo();
             }
             else
@@ -429,7 +483,7 @@ namespace Gestionnaire_de_Fond_d_Écran
                 File.Delete(Path.GetTempPath() + @"GFE_tmp.bmp");
 
                 if (!File.Exists(Path.GetTempPath() + @"GFE_tmp.bmp"))
-                    File.Copy(chemin + @"\" + fichiers[id], Path.GetTempPath() + @"GFE_tmp.bmp");
+                    File.Copy(fichiers[id].FullName, Path.GetTempPath() + @"GFE_tmp.bmp");
 
                 ancienAffichage = affichage;
 
@@ -449,6 +503,11 @@ namespace Gestionnaire_de_Fond_d_Écran
             // Et on réaffiche celle là
             this.Show();
     }
+
+        private void rechargerLaListeDesFichiersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            recupererFichiers(true);
+        }
 
         private void mettreÀJourToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -478,18 +537,19 @@ namespace Gestionnaire_de_Fond_d_Écran
             {
                 Configuration.changement = false;
 
-                recupererFichiers();
-
                 if (id != -1)
                     chargerFond();
 
-                if (Configuration.changementExt)
+                if (Configuration.changementFichier)
                 {
                     id = -1;
-                    Configuration.changementExt = false;
+                    Configuration.changementFichier = false;
 
+                    recupererFichiers(true);
                     ancienFond();
                 }
+                else if (rechargementConstant)
+                    recupererFichiers(true);
 
                 rechargerInfo();
             }
