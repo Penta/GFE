@@ -15,5 +15,3 @@ IF EXIST "%CD%\.vs" RMDIR "%CD%\.vs" /S /Q
 IF EXIST "%CD%\bin" RMDIR "%CD%\bin" /S /Q
 IF EXIST "%CD%\obj" RMDIR "%CD%\obj" /S /Q
 IF EXIST "%CD%\tmp" RMDIR "%CD%\tmp" /S /Q
-
-ECHO Sources nettoyées !
