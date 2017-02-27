@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principale));
             this.btn_suivant = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menu = new System.Windows.Forms.MenuStrip();
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.suivantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.précédentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,12 +39,12 @@
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.rechargerLeFondToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rechargerLaListeDesFichiersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mettreEnFondDécranToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.changerDeDossierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allezÀLimageNuméroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimiserToutesLesFenêtresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rechargerLaListeDesFichiersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,7 +67,7 @@
             this.infobulle_nom = new System.Windows.Forms.ToolTip(this.components);
             this.btn_modifier = new System.Windows.Forms.Button();
             this.infobulle_chemin = new System.Windows.Forms.ToolTip(this.components);
-            this.menuStrip1.SuspendLayout();
+            this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_suivant
@@ -77,15 +77,15 @@
             this.btn_suivant.UseVisualStyleBackColor = true;
             this.btn_suivant.Click += new System.EventHandler(this.btn_suivant_Click);
             // 
-            // menuStrip1
+            // menu
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.actionsToolStripMenuItem,
             this.optionsToolStripMenuItem,
             this.aléatoireToolStripMenuItem,
             this.toolStripMenuItem1});
-            resources.ApplyResources(this.menuStrip1, "menuStrip1");
-            this.menuStrip1.Name = "menuStrip1";
+            resources.ApplyResources(this.menu, "menu");
+            this.menu.Name = "menu";
             // 
             // actionsToolStripMenuItem
             // 
@@ -142,12 +142,6 @@
             this.rechargerLeFondToolStripMenuItem.Name = "rechargerLeFondToolStripMenuItem";
             this.rechargerLeFondToolStripMenuItem.Click += new System.EventHandler(this.rechargerLeFondToolStripMenuItem_Click);
             // 
-            // rechargerLaListeDesFichiersToolStripMenuItem
-            // 
-            this.rechargerLaListeDesFichiersToolStripMenuItem.Name = "rechargerLaListeDesFichiersToolStripMenuItem";
-            resources.ApplyResources(this.rechargerLaListeDesFichiersToolStripMenuItem, "rechargerLaListeDesFichiersToolStripMenuItem");
-            this.rechargerLaListeDesFichiersToolStripMenuItem.Click += new System.EventHandler(this.rechargerLaListeDesFichiersToolStripMenuItem_Click);
-            // 
             // mettreEnFondDécranToolStripMenuItem
             // 
             this.mettreEnFondDécranToolStripMenuItem.Name = "mettreEnFondDécranToolStripMenuItem";
@@ -176,6 +170,12 @@
             this.minimiserToutesLesFenêtresToolStripMenuItem.Name = "minimiserToutesLesFenêtresToolStripMenuItem";
             resources.ApplyResources(this.minimiserToutesLesFenêtresToolStripMenuItem, "minimiserToutesLesFenêtresToolStripMenuItem");
             this.minimiserToutesLesFenêtresToolStripMenuItem.Click += new System.EventHandler(this.minimiserToutesLesFenêtresToolStripMenuItem_Click);
+            // 
+            // rechargerLaListeDesFichiersToolStripMenuItem
+            // 
+            this.rechargerLaListeDesFichiersToolStripMenuItem.Name = "rechargerLaListeDesFichiersToolStripMenuItem";
+            resources.ApplyResources(this.rechargerLaListeDesFichiersToolStripMenuItem, "rechargerLaListeDesFichiersToolStripMenuItem");
+            this.rechargerLaListeDesFichiersToolStripMenuItem.Click += new System.EventHandler(this.rechargerLaListeDesFichiersToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -219,6 +219,7 @@
             // 
             this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
             resources.ApplyResources(this.statistiquesToolStripMenuItem, "statistiquesToolStripMenuItem");
+            this.statistiquesToolStripMenuItem.Click += new System.EventHandler(this.statistiquesToolStripMenuItem_Click);
             // 
             // aléatoireToolStripMenuItem
             // 
@@ -311,16 +312,16 @@
             this.Controls.Add(this.lbl_info_nom);
             this.Controls.Add(this.lbl_info_chemin);
             this.Controls.Add(this.btn_suivant);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menu);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menu;
             this.MaximizeBox = false;
             this.Name = "Principale";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Principale_FormClosed);
             this.Load += new System.EventHandler(this.Principale_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menu.ResumeLayout(false);
+            this.menu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,7 +330,7 @@
         #endregion
 
         private System.Windows.Forms.Button btn_suivant;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem actionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem suivantToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem précédentToolStripMenuItem;

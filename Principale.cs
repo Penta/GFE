@@ -51,8 +51,10 @@ namespace Gestionnaire_de_Fond_d_Écran
                     try { fond.Afficher(); } // On tente d'afficher le fond
                     catch // Si il y a eu une erreur
                     {
-                        lbl_nom.ForeColor = Color.Red;
                         supprimerFichier(true); // On demande à l'utilisateur si il veut supprimer le fichier (et on le liste en tant que fichier illisible
+
+                        lbl_nom.ForeColor = Color.Red;
+                        this.Refresh();
 
                         // On compte l'erreur
                         Registre.compterErreur();
@@ -449,10 +451,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             modifierFichier();
         }
 
-        private void rechargerLeFondToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            chargerFond();
-        }
+        private void rechargerLeFondToolStripMenuItem_Click(object sender, EventArgs e) { chargerFond(); }
 
         private void changerDeDossierToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -467,16 +466,21 @@ namespace Gestionnaire_de_Fond_d_Écran
 
             if (ancien != chemin | ancienSousDossier != sousDossier)
             {
+                lbl_nom.Text = "";
+                lbl_num.Text = "Création de la liste des fichiers...";
+                this.Refresh();
+
                 premierChargement = true;
                 mauvaisFichiers.Initialize();
 
                 id = -1;
 
                 recupererFichiers(true);
-                rechargerInfo();
             }
             else
                 chargerFond();
+
+            rechargerInfo();
         }
 
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e) { modificationExterne(); }
@@ -527,9 +531,11 @@ namespace Gestionnaire_de_Fond_d_Écran
             this.Show();
     }
 
-        private void rechargerLaListeDesFichiersToolStripMenuItem_Click(object sender, EventArgs e)
+        private void rechargerLaListeDesFichiersToolStripMenuItem_Click(object sender, EventArgs e) { recupererFichiers(true); }
+
+        private void statistiquesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            recupererFichiers(true);
+
         }
 
         private void mettreÀJourToolStripMenuItem_Click(object sender, EventArgs e)
@@ -541,7 +547,7 @@ namespace Gestionnaire_de_Fond_d_Écran
 
         private void précédentToolStripMenuItem_Click(object sender, EventArgs e) { fichierPrecedent(); }
         private void supprimerToolStripMenuItem_Click(object sender, EventArgs e) { supprimerFichier(false); }
-        private void aideEnLigneToolStripMenuItem_Click(object sender, EventArgs e) { Process.Start("http://penta.fr.cr/GFE/aide.html"); }
+        private void aideEnLigneToolStripMenuItem_Click(object sender, EventArgs e) { Process.Start("https://github.com/Penta/GFE/wiki/Accueil"); }
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
         {

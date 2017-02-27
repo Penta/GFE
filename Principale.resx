@@ -143,8 +143,8 @@
   <data name="&gt;&gt;btn_suivant.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>116, 17</value>
+  <metadata name="menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>142, 18</value>
   </metadata>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="suivantToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
@@ -348,28 +348,28 @@
   <data name="toolStripMenuItem1.Text" xml:space="preserve">
     <value>?</value>
   </data>
-  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="menu.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="menu.Size" type="System.Drawing.Size, System.Drawing">
     <value>436, 24</value>
   </data>
-  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+  <data name="menu.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="menuStrip1.Text" xml:space="preserve">
+  <data name="menu.Text" xml:space="preserve">
     <value>menuStrip1</value>
   </data>
-  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
-    <value>menuStrip1</value>
+  <data name="&gt;&gt;menu.Name" xml:space="preserve">
+    <value>menu</value>
   </data>
-  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+  <data name="&gt;&gt;menu.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;menu.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;menu.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
   <data name="lbl_info_chemin.AutoSize" type="System.Boolean, mscorlib">
@@ -628,7 +628,7 @@
     <value>0</value>
   </data>
   <metadata name="infobulle_chemin.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>231, 17</value>
+    <value>213, 23</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -2461,12 +2461,6 @@
   <data name="&gt;&gt;rechargerLeFondToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;rechargerLaListeDesFichiersToolStripMenuItem.Name" xml:space="preserve">
-    <value>rechargerLaListeDesFichiersToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;rechargerLaListeDesFichiersToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;mettreEnFondDécranToolStripMenuItem.Name" xml:space="preserve">
     <value>mettreEnFondDécranToolStripMenuItem</value>
   </data>
@@ -2495,6 +2489,12 @@
     <value>minimiserToutesLesFenêtresToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;minimiserToutesLesFenêtresToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rechargerLaListeDesFichiersToolStripMenuItem.Name" xml:space="preserve">
+    <value>rechargerLaListeDesFichiersToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;rechargerLaListeDesFichiersToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
