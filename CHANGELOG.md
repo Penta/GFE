@@ -7,6 +7,7 @@
  - Bouton pour réinitialiser les paramètres.
  - Suppression d'une fenêtre inutile "SelectionAlt" et utilisation plus intélligente de la fenêtre "Selection".
  - Mise en place d'une fenêtre d'attente lors du chargement de la liste des fichiers.
+ - Passage au Framework .NET 4.6.2.
 	
 ### Version 0.7.2 (24 Février 2017) :
  - Création du changelog.
