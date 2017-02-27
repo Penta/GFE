@@ -67,6 +67,7 @@
             this.infobulle_nom = new System.Windows.Forms.ToolTip(this.components);
             this.btn_modifier = new System.Windows.Forms.Button();
             this.infobulle_chemin = new System.Windows.Forms.ToolTip(this.components);
+            this.renommerLeFichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,6 +96,7 @@
             this.supprimerToolStripMenuItem,
             this.modifierToolStripMenuItem,
             this.toolStripSeparator4,
+            this.renommerLeFichierToolStripMenuItem,
             this.rechargerLeFondToolStripMenuItem,
             this.mettreEnFondDécranToolStripMenuItem,
             this.toolStripSeparator1,
@@ -217,8 +219,8 @@
             // 
             // statistiquesToolStripMenuItem
             // 
-            this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
             resources.ApplyResources(this.statistiquesToolStripMenuItem, "statistiquesToolStripMenuItem");
+            this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
             this.statistiquesToolStripMenuItem.Click += new System.EventHandler(this.statistiquesToolStripMenuItem_Click);
             // 
             // aléatoireToolStripMenuItem
@@ -272,7 +274,9 @@
             // lbl_nom
             // 
             resources.ApplyResources(this.lbl_nom, "lbl_nom");
+            this.lbl_nom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_nom.Name = "lbl_nom";
+            this.lbl_nom.Click += new System.EventHandler(this.lbl_nom_Click);
             // 
             // btn_supprimer
             // 
@@ -297,6 +301,12 @@
             this.btn_modifier.Name = "btn_modifier";
             this.btn_modifier.UseVisualStyleBackColor = true;
             this.btn_modifier.Click += new System.EventHandler(this.btn_modifier_Click);
+            // 
+            // renommerLeFichierToolStripMenuItem
+            // 
+            this.renommerLeFichierToolStripMenuItem.Name = "renommerLeFichierToolStripMenuItem";
+            resources.ApplyResources(this.renommerLeFichierToolStripMenuItem, "renommerLeFichierToolStripMenuItem");
+            this.renommerLeFichierToolStripMenuItem.Click += new System.EventHandler(this.renommerLeFichierToolStripMenuItem_Click);
             // 
             // Principale
             // 
@@ -366,5 +376,6 @@
         private System.Windows.Forms.ToolStripMenuItem aléatoireToolStripMenuItem;
         private System.Windows.Forms.ToolTip infobulle_chemin;
         private System.Windows.Forms.ToolStripMenuItem rechargerLaListeDesFichiersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renommerLeFichierToolStripMenuItem;
     }
 }

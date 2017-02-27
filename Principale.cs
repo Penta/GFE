@@ -15,7 +15,7 @@ namespace Gestionnaire_de_Fond_d_Écran
     {
 
         // VERSION DU LOGICIEL
-        public const string VERSION = "0.8.0";
+        public const string VERSION = "0.8.1";
 
         // Variables globales
         static public int id = -1, nbFichier = 0, mid = 0;
@@ -80,6 +80,7 @@ namespace Gestionnaire_de_Fond_d_Écran
 
             if (id >= 0)
             {
+                lbl_nom.Cursor = Cursors.Hand;
                 lbl_chemin.Text = func.traitementChemin(fichiers[id].DirectoryName);
                 infobulle_chemin.SetToolTip(this.lbl_chemin, fichiers[id].DirectoryName);
 
@@ -125,6 +126,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             }
             else if (id == -1)
             {
+                lbl_nom.Cursor = Cursors.Default;
                 lbl_chemin.Text = func.traitementChemin(chemin);
                 infobulle_chemin.SetToolTip(this.lbl_chemin, chemin);
 
@@ -378,6 +380,36 @@ namespace Gestionnaire_de_Fond_d_Écran
             }
         }
 
+        private void renommerFichier()
+        {
+            if (id >= 0 && id < nbFichier)
+            {
+                Renommer.fichier = fichiers[id].Name;
+                Renommer fenetre = new Renommer();
+                fenetre.ShowDialog();
+
+                if (Renommer.resultat != "")
+                {
+                    if (Renommer.resultat != fichiers[id].Name)
+                    {
+                        try
+                        {
+                            File.Move(fichiers[id].FullName, fichiers[id].DirectoryName + @"\" + Renommer.resultat);
+                            fichiers[id] = new FileInfo(fichiers[id].DirectoryName + @"\" + Renommer.resultat);
+
+                            MessageBox.Show("Le fichier a bien été renommé !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Une erreur est survenue durant la modification du nom !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+
+                rechargerInfo();
+            }
+        }
+
         private void Principale_Load(object sender, EventArgs e)
         {
             RegistryKey registre = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
@@ -446,10 +478,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             }
         }
 
-        private void btn_modifier_Click(object sender, EventArgs e)
-        {
-            modifierFichier();
-        }
+        private void btn_modifier_Click(object sender, EventArgs e) { modifierFichier(); }
 
         private void rechargerLeFondToolStripMenuItem_Click(object sender, EventArgs e) { chargerFond(); }
 
@@ -537,6 +566,10 @@ namespace Gestionnaire_de_Fond_d_Écran
         {
 
         }
+
+        private void lbl_nom_Click(object sender, EventArgs e) { renommerFichier(); }
+
+        private void renommerLeFichierToolStripMenuItem_Click(object sender, EventArgs e) { renommerFichier(); }
 
         private void mettreÀJourToolStripMenuItem_Click(object sender, EventArgs e)
         {

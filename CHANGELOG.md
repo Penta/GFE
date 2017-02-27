@@ -3,6 +3,7 @@
 
 ### Version à venir :
  - Correction de l'affichage lors d'un changement de dossier.
+ - Un bouton pour renommer les fichiers.
 
 ### Version 0.8.0 (26 Février 2017) :
  - Ajout du support des sous-dossiers.

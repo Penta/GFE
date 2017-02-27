@@ -39,15 +39,14 @@
             this.lbl_description.Size = new System.Drawing.Size(240, 13);
             this.lbl_description.TabIndex = 0;
             this.lbl_description.Text = "Création de la liste des fichiers de fonds d\'écran...";
-            this.lbl_description.UseWaitCursor = true;
             // 
             // Attente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(256, 34);
+            this.ClientSize = new System.Drawing.Size(260, 34);
             this.Controls.Add(this.lbl_description);
-            this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -57,7 +56,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Patientez s\'il vous plaît...";
-            this.UseWaitCursor = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Attente_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
