@@ -6,6 +6,8 @@
  - Faire un historique intélligent des dossiers parcourus.
  - Restorer la première fenêtre si le processus est réouvert une seconde fois.
  - Pouvoir choisir son exécutable graphiquement dans la fenêtre de configuration pour l'édition des fonds d'écran.
-	
+ - Support de plusieurs dossiers en même temps (séparés par un ;).
+ - Un bouton pour renommer les fichiers.
+ 
 ### Idées pouvant voir le jour un jour, mais n'étant pas des prioritées :
  - Mise en place d'un système de diaporamas qui a pour but de remplacer celui par défaut de windows. Il changera le fond d'écran automatiquement, il sera configurable, et aura les avantages qui sont déjà présent dans le logiciel
