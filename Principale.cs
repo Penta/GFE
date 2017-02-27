@@ -81,6 +81,8 @@ namespace Gestionnaire_de_Fond_d_Écran
             if (id >= 0)
             {
                 lbl_nom.Cursor = Cursors.Hand;
+                renommerLeFichierToolStripMenuItem.Enabled = true;
+
                 lbl_chemin.Text = func.traitementChemin(fichiers[id].DirectoryName);
                 infobulle_chemin.SetToolTip(this.lbl_chemin, fichiers[id].DirectoryName);
 
@@ -127,6 +129,8 @@ namespace Gestionnaire_de_Fond_d_Écran
             else if (id == -1)
             {
                 lbl_nom.Cursor = Cursors.Default;
+                renommerLeFichierToolStripMenuItem.Enabled = false;
+
                 lbl_chemin.Text = func.traitementChemin(chemin);
                 infobulle_chemin.SetToolTip(this.lbl_chemin, chemin);
 
