@@ -9,12 +9,12 @@ namespace Gestionnaire_de_Fond_d_Écran
         {
             InitializeComponent();
 
-            lbl_max.Text = "/ " +Principale.nbFichier.ToString();
+            lbl_max.Text = "/ " + Principale.nbFichier.ToString();
         }
 
         private void btn_valider_Click(object sender, EventArgs e)
         {
-            int valeur = -1; 
+            int valeur = -1;
 
             try
             {
@@ -34,10 +34,7 @@ namespace Gestionnaire_de_Fond_d_Écran
                 else
                     MessageBox.Show("Veuillez choisir un nombre superieur à 0 !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
-            catch
-            {
-                MessageBox.Show("Veuillez rentrer un nombre !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-            }
+            catch { MessageBox.Show("Veuillez rentrer un nombre !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1); }
         }
     }
 }

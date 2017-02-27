@@ -25,7 +25,6 @@ using System.Runtime.InteropServices;
 using System.IO;
 using System.Windows.Forms;
 using Microsoft.Win32;
-using Gestionnaire_de_Fond_d_Écran;
 
 namespace Gulix.Wallpaper
 {

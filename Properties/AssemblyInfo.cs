@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Resources;
 
@@ -7,7 +6,7 @@ using System.Resources;
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
 [assembly: AssemblyTitle("Gestionnaire de Fond d'Écran")]
-[assembly: AssemblyDescription("Permet de gérer plus facilement les images de fond d'écran.")]
+[assembly: AssemblyDescription("Permet de gérer plus facilement ses dossiers de fonds d'écran.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Andy Esnard")]
 [assembly: AssemblyProduct("Gestionnaire de Fond d'Écran")]
@@ -33,6 +32,6 @@ using System.Resources;
 // Vous pouvez spécifier toutes les valeurs ou indiquer les numéros de build et de révision par défaut 
 // en utilisant '*', comme indiqué ci-dessous :
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.8.1.2")]
+[assembly: AssemblyVersion("0.8.1.3")]
 //[assembly: AssemblyFileVersion("0.8.1")]
 [assembly: NeutralResourcesLanguage("fr")]
