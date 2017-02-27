@@ -52,8 +52,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Attente";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Patientez s\'il vous plaît...";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Attente_FormClosed);

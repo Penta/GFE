@@ -8,6 +8,8 @@ namespace Gestionnaire_de_Fond_d_Écran
     {
         public APropos()
         {
+            this.Icon = Properties.Resources.icone;
+
             InitializeComponent();
 
             lbl_version.Text += Principale.VERSION;

@@ -61,6 +61,16 @@ namespace Gestionnaire_de_Fond_d_Écran.Properties {
         }
         
         /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Icon semblable à (Icône).
+        /// </summary>
+        public static System.Drawing.Icon icone {
+            get {
+                object obj = ResourceManager.GetObject("icone", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Byte[].
         /// </summary>
         public static byte[] source {

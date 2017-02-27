@@ -5,6 +5,7 @@ using System.IO;
 using System.Diagnostics;
 using Microsoft.Win32;
 using System.Linq;
+using System.Reflection;
 
 // Classe sous licence GNU GPLv3
 using Gulix.Wallpaper;
@@ -13,9 +14,8 @@ namespace Gestionnaire_de_Fond_d_Écran
 {
     public partial class Principale : Form
     {
-
         // VERSION DU LOGICIEL
-        public const string VERSION = "0.8.1";
+        static public string VERSION = Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5);
 
         // Variables globales
         static public int id = -1, nbFichier = 0, mid = 0;
@@ -338,6 +338,9 @@ namespace Gestionnaire_de_Fond_d_Écran
 
             if(afficherTexte)
                 message.Close();
+
+            if(Attente.montrerIconeTaskbar)
+                Attente.montrerIconeTaskbar = false;
         }
 
         private void modifierFichier()
@@ -356,6 +359,7 @@ namespace Gestionnaire_de_Fond_d_Écran
         public Principale(string pChemin)
         {
             chemin = pChemin;
+            this.Icon = Properties.Resources.icone;
 
             InitializeComponent();
         }
@@ -532,7 +536,7 @@ namespace Gestionnaire_de_Fond_d_Écran
         {
             DialogResult reponse = new DialogResult();
 
-            reponse = MessageBox.Show("Voulez-vous vraiment appliquer cette image en tant que fond d'écran ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            reponse = MessageBox.Show("Voulez-vous vraiment appliquer cette image en tant que fond d'écran de votre bureau ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
             if (reponse == DialogResult.Yes)
             {

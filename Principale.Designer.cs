@@ -38,6 +38,7 @@
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.renommerLeFichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rechargerLeFondToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mettreEnFondDécranToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -67,7 +68,6 @@
             this.infobulle_nom = new System.Windows.Forms.ToolTip(this.components);
             this.btn_modifier = new System.Windows.Forms.Button();
             this.infobulle_chemin = new System.Windows.Forms.ToolTip(this.components);
-            this.renommerLeFichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,6 +137,12 @@
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
+            // 
+            // renommerLeFichierToolStripMenuItem
+            // 
+            this.renommerLeFichierToolStripMenuItem.Name = "renommerLeFichierToolStripMenuItem";
+            resources.ApplyResources(this.renommerLeFichierToolStripMenuItem, "renommerLeFichierToolStripMenuItem");
+            this.renommerLeFichierToolStripMenuItem.Click += new System.EventHandler(this.renommerLeFichierToolStripMenuItem_Click);
             // 
             // rechargerLeFondToolStripMenuItem
             // 
@@ -301,12 +307,6 @@
             this.btn_modifier.Name = "btn_modifier";
             this.btn_modifier.UseVisualStyleBackColor = true;
             this.btn_modifier.Click += new System.EventHandler(this.btn_modifier_Click);
-            // 
-            // renommerLeFichierToolStripMenuItem
-            // 
-            this.renommerLeFichierToolStripMenuItem.Name = "renommerLeFichierToolStripMenuItem";
-            resources.ApplyResources(this.renommerLeFichierToolStripMenuItem, "renommerLeFichierToolStripMenuItem");
-            this.renommerLeFichierToolStripMenuItem.Click += new System.EventHandler(this.renommerLeFichierToolStripMenuItem_Click);
             // 
             // Principale
             // 
