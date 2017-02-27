@@ -50,12 +50,6 @@ If ( Test-Path "$tmp\Resources\source.zip"                     ) { Remove-Item "
 If ( Test-Path "$tmp\Gestionnaire de Fond d'Écran.exe"         ) { Remove-Item "$tmp\Gestionnaire de Fond d'Écran.exe"         }
 If ( Test-Path "$tmp\Gestionnaire de Fond d'Écran.csproj.user" ) { Remove-Item "$tmp\Gestionnaire de Fond d'Écran.csproj.user" }
 
-# Suppression des dossiers inutiles
-If ( Test-Path "$tmp\.vs"  ) { Remove-Item "$tmp\.vs" -Recurse }
-If ( Test-Path "$tmp\bin"  ) { Remove-Item "$tmp\bin" -Recurse }
-If ( Test-Path "$tmp\obj"  ) { Remove-Item "$tmp\obj" -Recurse }
-If ( Test-Path "$tmp\tmp"  ) { Remove-Item "$tmp\tmp" -Recurse }
-
 echo "Archivage des sources..."
 
 # On zip les sources dans le dossier de sortie
