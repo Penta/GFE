@@ -1,4 +1,4 @@
-## Bienvenue sur la page GIT du Gestionnaire de Fond d'Écran
+## Bienvenue sur la page GitHub du Gestionnaire de Fond d'Écran
 
 ### Présentation
 
