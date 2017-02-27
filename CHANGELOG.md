@@ -1,6 +1,9 @@
 ﻿
 ## Changelog du Gestionnaire de Fond d'Écran
 
+### Version à venir :
+ - Correction de l'affichage lors d'un changement de dossier.
+
 ### Version 0.8.0 (26 Février 2017) :
  - Ajout du support des sous-dossiers.
  - Corrections de quelques bugs.
