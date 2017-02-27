@@ -8,7 +8,6 @@ using System.Linq;
 
 // Classe sous licence GNU GPLv3
 using Gulix.Wallpaper;
-using System.Threading;
 
 namespace Gestionnaire_de_Fond_d_Écran
 {
@@ -270,13 +269,20 @@ namespace Gestionnaire_de_Fond_d_Écran
             this.DestroyHandle();
         }
 
+
+
         // Fonction qui liste les fichiers d'un dossier
         private void recupererFichiers(bool afficherTexte)
         {
             FileInfo[] fichiersInfo = new FileInfo[65535];
             DirectoryInfo[] dossiersInfo = new DirectoryInfo[2048];
+            Attente message = new Attente();
+
             int erreur = 0;
             string ext = "";
+
+            if(afficherTexte)
+                message.Show();
 
             fichiers.Initialize();
 
@@ -300,28 +306,34 @@ namespace Gestionnaire_de_Fond_d_Écran
 
             foreach (FileInfo fichier in fichiersInfo)
             {
-                // On récupère l'extension du fichier
-                ext = fichier.Extension.ToLower();
-
-                // On compare l'extension sans le point à celles autorisées
-                if (ext != "")
+                if (fichier != null)
                 {
-                    if (extension.Split(';').Contains(ext.Substring(1)))
+                    // On récupère l'extension du fichier
+                    ext = fichier.Extension.ToLower();
+
+                    // On compare l'extension sans le point à celles autorisées
+                    if (ext != "")
                     {
-                        // On ajoute le fichier dans la liste des fichiers autorisés
-                        fichiers[nbFichier] = fichier;
-                        nbFichier++;
+                        if (extension.Split(';').Contains(ext.Substring(1)))
+                        {
+                            // On ajoute le fichier dans la liste des fichiers autorisés
+                            fichiers[nbFichier] = fichier;
+                            nbFichier++;
+                        }
                     }
                 }
             }
 
             if (erreur > 0 && premierChargement) // Si il y a une erreur durant la lecture d'un sous-dossier
             {
-                MessageBox.Show(erreur.ToString() + " sous-dossiers n'ont pas été lus !\n\nCette erreur est non fatale.", "Erreur de lecture", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // MessageBox.Show(erreur.ToString() + " sous-dossiers n'ont pas été lus !\n\nCette erreur est non fatale.", "Erreur de lecture", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 erreur = 0;
             }
 
             premierChargement = false;
+
+            if(afficherTexte)
+                message.Close();
         }
 
         private void modifierFichier()

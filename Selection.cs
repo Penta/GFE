@@ -38,6 +38,11 @@ namespace Gestionnaire_de_Fond_d_Écran
 
         public Selection()
         {
+            if (!Principale.selectionPremierLancement)
+            {
+                this.ShowInTaskbar = false;
+                this.ShowIcon = false;
+            }
             InitializeComponent();
 
             if (Principale.chemin != null)
