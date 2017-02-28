@@ -1,7 +1,7 @@
 ﻿
 ## Changelog du Gestionnaire de Fond d'Écran
 
-### Version à venir :
+### Version 0.8.1 (28 Février 2017) :
  - Correction de l'affichage lors d'un changement de dossier.
  - Un bouton pour renommer les fichiers.
  - Restorer la première fenêtre si le processus est réouvert une seconde fois.
