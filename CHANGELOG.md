@@ -18,4 +18,4 @@
 	
 ### Version 0.7.2 (24 Février 2017) :
  - Création du changelog.
- - Version de developpement manquant de fonctionnalités.
+ - Version de developpement manquante de fonctionnalités.
