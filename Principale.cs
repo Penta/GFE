@@ -128,6 +128,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             }
             else if (id == -1)
             {
+                lbl_nom.ForeColor = Color.Black;
                 lbl_nom.Cursor = Cursors.Default;
                 renommerLeFichierToolStripMenuItem.Enabled = false;
 
@@ -277,8 +278,6 @@ namespace Gestionnaire_de_Fond_d_Écran
             this.DestroyHandle();
         }
 
-
-
         // Fonction qui liste les fichiers d'un dossier
         private void recupererFichiers(bool afficherTexte)
         {
@@ -289,8 +288,11 @@ namespace Gestionnaire_de_Fond_d_Écran
             int erreur = 0;
             string ext = "";
 
-            if(afficherTexte)
+            if (afficherTexte)
+            {
+                this.Visible= false;
                 message.Show();
+            }
 
             fichiers.Initialize();
 
@@ -340,11 +342,12 @@ namespace Gestionnaire_de_Fond_d_Écran
 
             premierChargement = false;
 
-            if(afficherTexte)
+            if (afficherTexte)
+            {
                 message.Close();
+                this.Visible = true;
+            }
 
-            if(Attente.montrerIconeTaskbar)
-                Attente.montrerIconeTaskbar = false;
         }
 
         private void modifierFichier()
@@ -503,10 +506,6 @@ namespace Gestionnaire_de_Fond_d_Écran
 
             if (ancien != chemin | ancienSousDossier != sousDossier)
             {
-                lbl_nom.Text = "";
-                lbl_num.Text = "Création de la liste des fichiers...";
-                this.Refresh();
-
                 premierChargement = true;
                 mauvaisFichiers.Initialize();
 
@@ -579,6 +578,15 @@ namespace Gestionnaire_de_Fond_d_Écran
 
         private void renommerLeFichierToolStripMenuItem_Click(object sender, EventArgs e) { renommerFichier(); }
 
+        // On raffraichi la fenêtre quand elle est restaurée pour éviter du noir tout moche partout
+        private void Principale_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.Refresh();
+            }
+        }
+
         private void mettreÀJourToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ancienFond();
@@ -607,19 +615,23 @@ namespace Gestionnaire_de_Fond_d_Écran
             {
                 Configuration.changement = false;
 
-                if (id != -1)
-                    chargerFond();
-
                 if (Configuration.changementFichier)
                 {
                     id = -1;
                     Configuration.changementFichier = false;
 
-                    recupererFichiers(true);
                     ancienFond();
-                }
-                else if (rechargementConstant)
+
                     recupererFichiers(true);
+                }
+                else
+                {
+                    if (id != -1)
+                        chargerFond();
+
+                    if (rechargementConstant)
+                        recupererFichiers(false);
+                }
 
                 rechargerInfo();
             }

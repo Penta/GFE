@@ -6,6 +6,7 @@
  - Un bouton pour renommer les fichiers.
  - Restorer la première fenêtre si le processus est réouvert une seconde fois.
  - Gain sur la taille du fichier.
+ - Correction de bugs d'affichage.
 
 ### Version 0.8.0 (26 Février 2017) :
  - Ajout du support des sous-dossiers.

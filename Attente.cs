@@ -7,7 +7,6 @@ namespace Gestionnaire_de_Fond_d_Écran
     public partial class Attente : Form
     {
         Thread t = new Thread(new ThreadStart(ThreadProc));
-        static public bool montrerIconeTaskbar = true;
 
         public new void Show(){ t.Start(); }
         public new void Close() { t.Abort(); }
@@ -19,7 +18,6 @@ namespace Gestionnaire_de_Fond_d_Écran
         }
 
         public Attente() {
-            this.ShowInTaskbar = montrerIconeTaskbar;
             this.Icon = Properties.Resources.icone;
 
             InitializeComponent();

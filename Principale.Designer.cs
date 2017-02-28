@@ -330,6 +330,7 @@
             this.Name = "Principale";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Principale_FormClosed);
             this.Load += new System.EventHandler(this.Principale_Load);
+            this.Resize += new System.EventHandler(this.Principale_Resize);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.ResumeLayout(false);
