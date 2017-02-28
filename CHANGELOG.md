@@ -4,8 +4,8 @@
 ### Version 0.8.1 (28 Février 2017) :
  - Correction de l'affichage lors d'un changement de dossier.
  - Un bouton pour renommer les fichiers.
- - Restorer la première fenêtre si le processus est réouvert une seconde fois.
- - Gain sur la taille du fichier.
+ - Restaurer la première fenêtre si le processus est ré-ouvert une seconde fois.
+ - Gain sur la taille du fichier (optimisation de l'icône de l'application.
  - Correction de bugs d'affichage.
 
 ### Version 0.8.0 (26 Février 2017) :
