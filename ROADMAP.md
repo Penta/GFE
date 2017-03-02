@@ -8,4 +8,4 @@
  - Support de plusieurs dossiers en même temps (séparés par un ;).
  
 ### Idées pouvant voir le jour un jour, mais n'étant pas des prioritées :
- - Mise en place d'un système de diaporamas qui a pour but de remplacer celui par défaut de windows. Il changera le fond d'écran automatiquement, il sera configurable, et aura les avantages qui sont déjà présent dans le logiciel
+ - Mise en place d'un système de diaporama de fond d'écran qui a pour but de remplacer celui par défaut de windows. Il changera le fond d'écran automatiquement, il sera configurable, et aura les avantages qui sont déjà présent dans le logiciel
