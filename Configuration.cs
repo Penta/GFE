@@ -55,7 +55,7 @@ namespace Gestionnaire_de_Fond_d_Écran
 
                 Principale.logiciel = @"C:\Windows\System32\mspaint.exe";
                 Principale.affichage = "étirer";
-                Principale.extension = "png;jpg;jpeg;bmp";
+                Principale.extension = "png;jpg;jpeg;bmp;tiff;tif";
                 Principale.rappel = true;
                 Principale.sousDossier = false;
                 Principale.rechargementConstant = false;

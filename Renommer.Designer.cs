@@ -36,7 +36,7 @@
             // 
             // btn_valider
             // 
-            this.btn_valider.Location = new System.Drawing.Point(200, 67);
+            this.btn_valider.Location = new System.Drawing.Point(200, 64);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Size = new System.Drawing.Size(75, 23);
             this.btn_valider.TabIndex = 0;
@@ -47,7 +47,7 @@
             // lbl_extension
             // 
             this.lbl_extension.AutoSize = true;
-            this.lbl_extension.Location = new System.Drawing.Point(240, 42);
+            this.lbl_extension.Location = new System.Drawing.Point(240, 37);
             this.lbl_extension.Name = "lbl_extension";
             this.lbl_extension.Size = new System.Drawing.Size(24, 13);
             this.lbl_extension.TabIndex = 1;
@@ -55,7 +55,7 @@
             // 
             // txt_nom
             // 
-            this.txt_nom.Location = new System.Drawing.Point(12, 39);
+            this.txt_nom.Location = new System.Drawing.Point(12, 35);
             this.txt_nom.Name = "txt_nom";
             this.txt_nom.Size = new System.Drawing.Size(229, 20);
             this.txt_nom.TabIndex = 2;
@@ -63,7 +63,7 @@
             // lbl_description
             // 
             this.lbl_description.AutoSize = true;
-            this.lbl_description.Location = new System.Drawing.Point(9, 14);
+            this.lbl_description.Location = new System.Drawing.Point(9, 12);
             this.lbl_description.Name = "lbl_description";
             this.lbl_description.Size = new System.Drawing.Size(195, 13);
             this.lbl_description.TabIndex = 3;
@@ -73,7 +73,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 98);
+            this.ClientSize = new System.Drawing.Size(284, 95);
             this.Controls.Add(this.lbl_description);
             this.Controls.Add(this.txt_nom);
             this.Controls.Add(this.lbl_extension);

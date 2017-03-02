@@ -11,15 +11,11 @@ namespace Gestionnaire_de_Fond_d_Écran
         public new void Show(){ t.Start(); }
         public new void Close() { t.Abort(); }
 
-        static public void ThreadProc()
+        static public void ThreadProc() { Application.Run(new Attente()); }
+
+        public Attente()
         {
-            Thread.Sleep(500);
-            Application.Run(new Attente());
-        }
-
-        public Attente() {
             this.Icon = Properties.Resources.icone;
-
             InitializeComponent();
         }
 

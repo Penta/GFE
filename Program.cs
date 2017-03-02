@@ -48,7 +48,7 @@ namespace Gestionnaire_de_Fond_d_Écran
         [STAThread]
         static void Main(string[] args)
         {
-            string var = "";
+            string var = "", chemin = "";
 
             if (args.Length > 0) // Si des arguments ont été fournis
             {
@@ -60,8 +60,6 @@ namespace Gestionnaire_de_Fond_d_Écran
                 }
                 else if (var == "/U")
                 {
-                    string chemin = "";
-
                     if (args.Length == 2)
                         chemin = args[1];
                     else
@@ -75,6 +73,27 @@ namespace Gestionnaire_de_Fond_d_Écran
 
                     MessageBox.Show("Les sources du logiciel ont été extraites dans le dossier courant.", "Extraction des sources", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                else if (var == "/O")
+                {
+                    if (args.Length == 2)
+                    {
+                        chemin = @args[1];
+
+                        if(Directory.Exists(chemin))
+                        {
+                            verifierInstance();
+                            Registre.Initialisation();
+
+                            Application.EnableVisualStyles();
+                            Application.SetCompatibleTextRenderingDefault(false);
+                            Application.Run(new Principale(chemin));
+                        }
+                        else
+                            MessageBox.Show("Vous devez spécifier un chemin valide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                        MessageBox.Show("Vous devez spécifier un chemin !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 else
                     MessageBox.Show("Argument invalide.", "Erreur d'argument", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -83,6 +102,20 @@ namespace Gestionnaire_de_Fond_d_Écran
         }
 
         static private void demarrageNormal()
+        {
+            verifierInstance();
+
+            Registre.Initialisation();
+
+            if (Registre.miseAJour)
+                maj.finalisationMaj();
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Selection());
+        }
+
+        static private void verifierInstance()
         {
             Process[] proc = Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName);
 
@@ -106,25 +139,17 @@ namespace Gestionnaire_de_Fond_d_Écran
 
                 Environment.Exit(0);
             }
-
-            Registre.Initialisation();
-
-            if (Registre.miseAJour)
-                maj.finalisationMaj();
-
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Selection());
         }
 
         static private void afficherAide()
         {
             MessageBox.Show(
-            "/H ou /?     : Affiche cette aide.\n" +
-            "/S                : Extrait les sources dans le dossier courant.\n" +
-            "/U <path> : Télécharge la nouvelle version du logiciel.\n" +
+            "/H ou /?       : Affiche cette aide.\n" +
+            "/S                  : Extrait les sources dans le dossier courant.\n" +
+            "/U [<path>] : Télécharge la nouvelle version du logiciel.\n" +
+            "/O <path>   : Ouvre le chemin sans demander à l'utilisateur.\n" +
             "\n" +
-            "Pour plus d'aide, allez sur l'aide en ligne : http://penta.fr.cr/GFE/aide.html",
+            "Pour plus d'aide, allez sur l'aide en ligne : http://github.com/Penta/GFE/wiki",
             "Aide du Gestionaire de Fond d'écran", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
     }

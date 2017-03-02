@@ -50,8 +50,9 @@
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mettreÀJourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.mettreÀJourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajouterAuMenuContextuelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statistiquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aléatoireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,6 +69,7 @@
             this.infobulle_nom = new System.Windows.Forms.ToolTip(this.components);
             this.btn_modifier = new System.Windows.Forms.Button();
             this.infobulle_chemin = new System.Windows.Forms.ToolTip(this.components);
+            this.voirLeContenuDuDossierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,6 +102,7 @@
             this.rechargerLeFondToolStripMenuItem,
             this.mettreEnFondDécranToolStripMenuItem,
             this.toolStripSeparator1,
+            this.voirLeContenuDuDossierToolStripMenuItem,
             this.changerDeDossierToolStripMenuItem,
             this.allezÀLimageNuméroToolStripMenuItem,
             this.minimiserToutesLesFenêtresToolStripMenuItem,
@@ -200,8 +203,9 @@
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.configurationToolStripMenuItem,
-            this.mettreÀJourToolStripMenuItem,
             this.toolStripSeparator3,
+            this.mettreÀJourToolStripMenuItem,
+            this.ajouterAuMenuContextuelToolStripMenuItem,
             this.statistiquesToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             resources.ApplyResources(this.optionsToolStripMenuItem, "optionsToolStripMenuItem");
@@ -212,16 +216,22 @@
             resources.ApplyResources(this.configurationToolStripMenuItem, "configurationToolStripMenuItem");
             this.configurationToolStripMenuItem.Click += new System.EventHandler(this.configurationToolStripMenuItem_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
+            // 
             // mettreÀJourToolStripMenuItem
             // 
             this.mettreÀJourToolStripMenuItem.Name = "mettreÀJourToolStripMenuItem";
             resources.ApplyResources(this.mettreÀJourToolStripMenuItem, "mettreÀJourToolStripMenuItem");
             this.mettreÀJourToolStripMenuItem.Click += new System.EventHandler(this.mettreÀJourToolStripMenuItem_Click);
             // 
-            // toolStripSeparator3
+            // ajouterAuMenuContextuelToolStripMenuItem
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
+            this.ajouterAuMenuContextuelToolStripMenuItem.Name = "ajouterAuMenuContextuelToolStripMenuItem";
+            resources.ApplyResources(this.ajouterAuMenuContextuelToolStripMenuItem, "ajouterAuMenuContextuelToolStripMenuItem");
+            this.ajouterAuMenuContextuelToolStripMenuItem.Click += new System.EventHandler(this.ajouterAuMenuContextuelToolStripMenuItem_Click);
             // 
             // statistiquesToolStripMenuItem
             // 
@@ -275,7 +285,9 @@
             // lbl_chemin
             // 
             resources.ApplyResources(this.lbl_chemin, "lbl_chemin");
+            this.lbl_chemin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_chemin.Name = "lbl_chemin";
+            this.lbl_chemin.Click += new System.EventHandler(this.lbl_chemin_Click);
             // 
             // lbl_nom
             // 
@@ -307,6 +319,12 @@
             this.btn_modifier.Name = "btn_modifier";
             this.btn_modifier.UseVisualStyleBackColor = true;
             this.btn_modifier.Click += new System.EventHandler(this.btn_modifier_Click);
+            // 
+            // voirLeContenuDuDossierToolStripMenuItem
+            // 
+            this.voirLeContenuDuDossierToolStripMenuItem.Name = "voirLeContenuDuDossierToolStripMenuItem";
+            resources.ApplyResources(this.voirLeContenuDuDossierToolStripMenuItem, "voirLeContenuDuDossierToolStripMenuItem");
+            this.voirLeContenuDuDossierToolStripMenuItem.Click += new System.EventHandler(this.voirLeContenuDuDossierToolStripMenuItem_Click);
             // 
             // Principale
             // 
@@ -378,5 +396,7 @@
         private System.Windows.Forms.ToolTip infobulle_chemin;
         private System.Windows.Forms.ToolStripMenuItem rechargerLaListeDesFichiersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renommerLeFichierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajouterAuMenuContextuelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem voirLeContenuDuDossierToolStripMenuItem;
     }
 }

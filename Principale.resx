@@ -228,6 +228,15 @@
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>264, 6</value>
   </data>
+  <data name="voirLeContenuDuDossierToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>F3</value>
+  </data>
+  <data name="voirLeContenuDuDossierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 22</value>
+  </data>
+  <data name="voirLeContenuDuDossierToolStripMenuItem.Text" xml:space="preserve">
+    <value>Voir le contenu du dossier</value>
+  </data>
   <data name="changerDeDossierToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+Space</value>
   </data>
@@ -286,22 +295,28 @@
     <value>Ctrl+O</value>
   </data>
   <data name="configurationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 22</value>
+    <value>221, 22</value>
   </data>
   <data name="configurationToolStripMenuItem.Text" xml:space="preserve">
     <value>Configuration...</value>
+  </data>
+  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 6</value>
   </data>
   <data name="mettreÀJourToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+U</value>
   </data>
   <data name="mettreÀJourToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 22</value>
+    <value>221, 22</value>
   </data>
   <data name="mettreÀJourToolStripMenuItem.Text" xml:space="preserve">
     <value>Mettre à Jour</value>
   </data>
-  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 6</value>
+  <data name="ajouterAuMenuContextuelToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 22</value>
+  </data>
+  <data name="ajouterAuMenuContextuelToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ajouter au menu contextuel</value>
   </data>
   <data name="statistiquesToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -310,7 +325,7 @@
     <value>Ctrl+S</value>
   </data>
   <data name="statistiquesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 22</value>
+    <value>221, 22</value>
   </data>
   <data name="statistiquesToolStripMenuItem.Text" xml:space="preserve">
     <value>Statistiques</value>
@@ -765,17 +780,23 @@
   <data name="&gt;&gt;configurationToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripSeparator3.Name" xml:space="preserve">
+    <value>toolStripSeparator3</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;mettreÀJourToolStripMenuItem.Name" xml:space="preserve">
     <value>mettreÀJourToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;mettreÀJourToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator3.Name" xml:space="preserve">
-    <value>toolStripSeparator3</value>
+  <data name="&gt;&gt;ajouterAuMenuContextuelToolStripMenuItem.Name" xml:space="preserve">
+    <value>ajouterAuMenuContextuelToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;ajouterAuMenuContextuelToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;statistiquesToolStripMenuItem.Name" xml:space="preserve">
     <value>statistiquesToolStripMenuItem</value>
@@ -818,6 +839,12 @@
   </data>
   <data name="&gt;&gt;infobulle_chemin.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;voirLeContenuDuDossierToolStripMenuItem.Name" xml:space="preserve">
+    <value>voirLeContenuDuDossierToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;voirLeContenuDuDossierToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Principale</value>

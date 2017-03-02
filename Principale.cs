@@ -9,6 +9,7 @@ using System.Reflection;
 
 // Classe sous licence GNU GPLv3
 using Gulix.Wallpaper;
+using System.Threading;
 
 namespace Gestionnaire_de_Fond_d_Écran
 {
@@ -24,7 +25,7 @@ namespace Gestionnaire_de_Fond_d_Écran
         static public string chemin = null, ancienAffichage = null;
         static public bool rappel = true, sousDossier = false, rechargementConstant = false;
         static public string[] mauvaisFichiers = new string[65536], AncienfondEcran = new string[3];
-        static public string extension = "jpg;jpeg;png;bmp";
+        static public string extension = "jpg;jpeg;png;bmp;tiff;tif";
         static private bool premierChargement = true;
         static public bool selectionPremierLancement = true;
         FileInfo[] fichiers = new FileInfo[65536];
@@ -292,6 +293,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             {
                 this.Visible= false;
                 message.Show();
+                Thread.Sleep(250);
             }
 
             fichiers.Initialize();
@@ -336,7 +338,7 @@ namespace Gestionnaire_de_Fond_d_Écran
 
             if (erreur > 0 && premierChargement) // Si il y a une erreur durant la lecture d'un sous-dossier
             {
-                // MessageBox.Show(erreur.ToString() + " sous-dossiers n'ont pas été lus !\n\nCette erreur est non fatale.", "Erreur de lecture", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(erreur.ToString() + " sous-dossiers n'ont pas été lus !\n\nCette erreur est non fatale.", "Erreur de lecture", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 erreur = 0;
             }
 
@@ -421,10 +423,31 @@ namespace Gestionnaire_de_Fond_d_Écran
             }
         }
 
+        private void voirDossier()
+        {
+            string parametre = "";
+
+            if (lbl_chemin.Text != "Une erreur est survenue.")
+            {
+                if (nbFichier > 0 && id >= 0 && id < nbFichier)
+                    parametre = fichiers[id].DirectoryName;
+                else
+                    parametre = chemin;
+
+                if (Directory.Exists(parametre))
+                {
+                    try { Process.Start("explorer.exe", "\"" + parametre + "\""); }
+                    catch (Exception err) { MessageBox.Show("Une erreur est survenue à l'ouverture du dossier '" + parametre + "' dans l'explorateur de fichier.\n\nErreur :\n" + err, "Erreur durant l'ouverture de l'explorateur", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                }
+            }
+        }
+
         private void Principale_Load(object sender, EventArgs e)
         {
             RegistryKey registre = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
             int tmpId = 0;
+
+            ajouterAuMenuContextuelToolStripMenuItem.Checked = Registre.verifierContextuel();
 
             AncienfondEcran[0] = registre.GetValue("Wallpaper").ToString();
             AncienfondEcran[1] = registre.GetValue(@"WallpaperStyle").ToString();
@@ -582,10 +605,38 @@ namespace Gestionnaire_de_Fond_d_Écran
         private void Principale_Resize(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Normal)
-            {
                 this.Refresh();
+        }
+
+        private void lbl_chemin_Click(object sender, EventArgs e)
+        {
+            voirDossier();
+        }
+
+        private void ajouterAuMenuContextuelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ajouterAuMenuContextuelToolStripMenuItem.Checked)
+                {
+                    Registre.retirerContextuel();
+                    ajouterAuMenuContextuelToolStripMenuItem.Checked = false;
+                    MessageBox.Show("L'entrée dans le menu contextuel a bien été supprimée.", "Désactivation de l'entrée", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    Registre.ajouterContextuel();
+                    ajouterAuMenuContextuelToolStripMenuItem.Checked = true;
+                    MessageBox.Show("Vous pouvez maintenant lancer le Gestionnaire de Fond d'Écran dans le menu contextuel d'un dossier ! (clic droit)\n\nVeuillez désactiver cette option avant de supprimer ou déplacer cet exécutable.", "Bravo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Une erreur est surevenue durant la modification du registre !\n\nErreur :\n" + err.ToString(), "Erreur durant l'ajout au menu contextuel", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
+
+        private void voirLeContenuDuDossierToolStripMenuItem_Click(object sender, EventArgs e) { voirDossier(); }
 
         private void mettreÀJourToolStripMenuItem_Click(object sender, EventArgs e)
         {

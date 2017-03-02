@@ -1,12 +1,15 @@
 ﻿using System;
 using Microsoft.Win32;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Gestionnaire_de_Fond_d_Écran
 {
     class Registre
     {
         public const string emplacement = @"SOFTWARE\Gestionnaire de Fond d'Écran";
+        private const string nomContextuel = "Visualiser les fonds d'écran du dossier";
+
         static public RegistryKey registre = Registry.CurrentUser.OpenSubKey(emplacement, RegistryKeyPermissionCheck.ReadWriteSubTree);
 
         public static string ancienChemin = null;
@@ -116,6 +119,40 @@ namespace Gestionnaire_de_Fond_d_Écran
             catch { var = 1; }
 
             registre.SetValue("nbFond", var);
+        }
+
+        static public void ajouterContextuel()
+        {
+            RegistryKey _key = Registry.CurrentUser.CreateSubKey(@"Software\Classes\Directory\shell", true);
+            RegistryKey newkey = _key.CreateSubKey(nomContextuel);
+            RegistryKey subNewkey = newkey.CreateSubKey("command");
+            subNewkey.SetValue("", "\"" + System.Reflection.Assembly.GetEntryAssembly().Location + "\" /O %1");
+            subNewkey.Close();
+            newkey.Close();
+            _key.Close();
+        }
+
+        static public void retirerContextuel()
+        {
+            RegistryKey _key = Registry.CurrentUser.OpenSubKey(@"Software\Classes\Directory\shell", true);
+            _key.DeleteSubKeyTree(nomContextuel);
+            _key.Close();
+        }
+
+        static public bool verifierContextuel()
+        {
+            bool resultat = false;
+
+            RegistryKey _key = Registry.CurrentUser.OpenSubKey(@"Software\Classes\Directory\shell\" + nomContextuel + @"\command", false);
+
+            try
+            {
+                if (_key.GetValue("") != null)
+                    resultat = true;
+            }
+            catch { resultat = false; }
+
+            return resultat;
         }
     }
 }
