@@ -126,7 +126,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             RegistryKey _key = Registry.CurrentUser.CreateSubKey(@"Software\Classes\Directory\shell", true);
             RegistryKey newkey = _key.CreateSubKey(nomContextuel);
             RegistryKey subNewkey = newkey.CreateSubKey("command");
-            subNewkey.SetValue("", "\"" + System.Reflection.Assembly.GetEntryAssembly().Location + "\" /O %1");
+            subNewkey.SetValue("", "\"" + System.Reflection.Assembly.GetEntryAssembly().Location + "\" /O \"%1\"");
             subNewkey.Close();
             newkey.Close();
             _key.Close();
