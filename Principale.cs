@@ -21,7 +21,7 @@ namespace Gfe
         // Variables globales
         static public int id = -1, nbFichier = 0, mid = 0;
         static public Color couleur = Color.Black;
-        static public string affichage = "etirer", logiciel = @"C:\Windows\System32\mspaint.exe";
+        static public string affichage = "Étirer", logiciel = @"C:\Windows\System32\mspaint.exe";
         static public string chemin = null, ancienAffichage = null;
         static public bool rappel = true, sousDossier = false, rechargementConstant = false;
         static public string[] mauvaisFichiers = new string[65536], AncienfondEcran = new string[3];

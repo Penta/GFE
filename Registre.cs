@@ -72,6 +72,12 @@ namespace Gfe
             }
         }
 
+        static public void ViderRegistre()
+        {
+            Registry.CurrentUser.DeleteSubKeyTree(@"Software\Classes\Directory\shell\" + nomContextuel, false);
+            Registry.CurrentUser.DeleteSubKeyTree(emplacement, false);
+        }
+
         static public void ResetRegistre()
         {
             registre.SetValue("Disposition", Principale.affichage);
@@ -92,11 +98,13 @@ namespace Gfe
             registre.SetValue("LogicielExterne", Principale.logiciel);
             registre.SetValue("Disposition", Principale.affichage);
             registre.SetValue("Rappel", Principale.rappel);
-            registre.SetValue("AncienChemin", Principale.chemin);
             registre.SetValue("AncienID", Principale.id);
             registre.SetValue("Extensions", Principale.extension);
             registre.SetValue("SousDossier", Principale.sousDossier);
             registre.SetValue("VerifConstante", Principale.rechargementConstant);
+
+            if(!string.IsNullOrEmpty(Principale.chemin))
+                registre.SetValue("AncienChemin", Principale.chemin);
         }
 
         static public void CompterErreur()

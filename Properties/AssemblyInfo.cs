@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Resources;
+using System;
 
 // Les informations générales relatives à un assembly dépendent de 
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
@@ -32,6 +33,9 @@ using System.Resources;
 // Vous pouvez spécifier toutes les valeurs ou indiquer les numéros de build et de révision par défaut 
 // en utilisant '*', comme indiqué ci-dessous :
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.8.2.10")]
-//[assembly: AssemblyFileVersion("0.8.1")]
+[assembly: AssemblyVersion("0.8.2.11")]
+//[assembly: AssemblyFileVersion("0.8.2")]
 [assembly: NeutralResourcesLanguage("fr")]
+
+// Mes ajouts
+[assembly: CLSCompliant(false)]

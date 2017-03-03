@@ -4,7 +4,6 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-[assembly: CLSCompliant(false)]
 namespace Gfe
 {
     static class Program
@@ -46,7 +45,7 @@ namespace Gfe
                     {
                         chemin = @args[1];
 
-                        if(Directory.Exists(chemin))
+                        if (Directory.Exists(chemin))
                         {
                             VerifierInstance();
                             Registre.Initialisation();
@@ -61,11 +60,27 @@ namespace Gfe
                     else
                         MessageBox.Show("Vous devez spécifier un chemin !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else if (var == "/R")
+                {
+                    ResetLogiciel();
+                }
                 else
                     MessageBox.Show("Argument invalide.", "Erreur d'argument", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
                 DemarrageNormal();
+        }
+        
+        static private void ResetLogiciel()
+        {
+            string dossierAppdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Gestionnaire de Fond d'Écran\";
+
+            Registre.ViderRegistre();
+
+            if (Directory.Exists(dossierAppdata))
+            Directory.Delete(dossierAppdata, true);
+
+            MessageBox.Show("Tous les fichiers et les données laissés par le Gestionnaire de Fond d'Écran on été supprimés, vous maintenant supprimer cet exécutable pour supprimer totalement le Gestionnaire de Fond d'Écran de votre ordinateur !", "Suppression effectuée", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         static private void DemarrageNormal()
@@ -115,6 +130,7 @@ namespace Gfe
             "/S                  : Extrait les sources dans le dossier courant.\n" +
             "/U [<path>] : Télécharge la nouvelle version du logiciel.\n" +
             "/O <path>   : Ouvre le chemin sans demander à l'utilisateur.\n" +
+            "/R                  : Supprime toutes les données stockées sur le PC.\n" +
             "\n" +
             "Pour plus d'aide, allez sur l'aide en ligne : http://github.com/Penta/GFE/wiki",
             "Aide du Gestionaire de Fond d'écran", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
