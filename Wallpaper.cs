@@ -17,7 +17,6 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -25,6 +24,7 @@ using System.Runtime.InteropServices;
 using System.IO;
 using System.Windows.Forms;
 using Microsoft.Win32;
+
 
 namespace Gulix.Wallpaper
 {
@@ -60,21 +60,16 @@ namespace Gulix.Wallpaper
 	/// </summary>
 	public class Wallpaper
     {
-        
 		#region Variables
         
         private const int SPI_SETDESKWALLPAPER = 20;
         private const int SPIF_UPDATEINIFILE = 0x01;
         private const int SPIF_SENDWININICHANGE = 0x02;
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        private static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
-        [DllImport("user32.dll")]
-        private static extern void SetSysColors(int elementCount, int[] colorNames, int[] colorValues);
 
         /// <summary>
         /// Permet de spécifier l'affichage du fond d'écran via la méthode ToString()
         /// </summary>
-        protected static string sToStringConfig = "%R%F";
+        protected string sToStringConfig = "%R%F";
         
         /// <summary>
         /// Nom complet du fichier image
@@ -146,7 +141,7 @@ namespace Gulix.Wallpaper
         /// </summary>
         public Affichage Affichage
         {
-        	get {return this.affichage;}
+        	get {return affichage; }
         	set {this.affichage = value;}
         }
         
@@ -155,14 +150,14 @@ namespace Gulix.Wallpaper
         /// </summary>
         public Color CouleurFondBureau
         {
-        	get {return this.couleurFond;}
-        	set {this.couleurFond = value;}
+        	get { return couleurFond; }
+        	set { couleurFond = value; }
         }
         
 		/// <summary>
 		/// Chaine de configuration de la sortie de la fonction ToString()
 		/// </summary>
-        public static string ConfigurationToString
+        public string ConfigurationToString
         {
         	get {return sToStringConfig;}
         	set {sToStringConfig = value;}
@@ -299,12 +294,12 @@ namespace Gulix.Wallpaper
             }
 
             // On utilise les fonctions de la DLL user32 pour afficher le wallpaper
-            SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, fichierTemporaire, SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
+            NativeMethods.SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, fichierTemporaire, SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
             int[] elementArray = { 1 };
             int[] elementValues = { ColorTranslator.ToWin32(this.couleurFond) };
 
             // et modifier la couleur de fond du bureau
-            SetSysColors(1, elementArray, elementValues);
+            NativeMethods.SetSysColors(1, elementArray, elementValues);
 
             if (binaire && File.Exists(Path.GetTempPath() + @"wallpaper2.bmp"))
                 File.Delete(Path.GetTempPath() + @"wallpaper2.bmp");
@@ -341,7 +336,7 @@ namespace Gulix.Wallpaper
 
                 // On crée la nouvelle image à partir de l'original, et de la nouvelle taille
                 imageAjuster = new Bitmap(Image.FromFile(this.nomfichier), tailleAjuster);
-                imageAjuster.Save(Path.Combine(Path.GetTempPath(), "ajuster.bmp"), System.Drawing.Imaging.ImageFormat.Bmp);
+                imageAjuster.Save(Path.Combine(Path.GetTempPath(), "ajuster.bmp"), ImageFormat.Bmp);
                 imageAjuster.Dispose();
                 fichierRetour = Path.Combine(Path.GetTempPath(), "ajuster.bmp");
             }
@@ -363,10 +358,11 @@ namespace Gulix.Wallpaper
             // La chaîne retournée dépend de la variable sToStringConfig
             // et de la configuration indiquée
             string sRetour = sToStringConfig;
-            if (sRetour.IndexOf("%F")!=-1)
+
+            if (sRetour.IndexOf("%F") != -1)
 	            sRetour = sRetour.Replace("%F",this.GetNomCourt());
             
-            if (sRetour.IndexOf("%f")!=-1)
+            if (sRetour.IndexOf("%f") != -1)
             {
             	string sNomCourt = this.GetNomCourt();
             	sNomCourt = sNomCourt.Remove(sNomCourt.LastIndexOf("."),sNomCourt.Length-sNomCourt.LastIndexOf("."));
@@ -401,5 +397,16 @@ namespace Gulix.Wallpaper
             }
             return null;
         }
+    }
+
+    internal static class NativeMethods
+    {
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern Boolean SetSysColors(int elementCount, int[] colorNames, int[] colorValues);
     }
 }

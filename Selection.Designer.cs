@@ -1,4 +1,4 @@
-﻿namespace Gestionnaire_de_Fond_d_Écran
+﻿namespace Gfe
 {
     partial class Selection
     {
@@ -46,7 +46,7 @@
             resources.ApplyResources(this.btn_explorer, "btn_explorer");
             this.btn_explorer.Name = "btn_explorer";
             this.btn_explorer.UseVisualStyleBackColor = true;
-            this.btn_explorer.Click += new System.EventHandler(this.btn_explorer_Click);
+            this.btn_explorer.Click += new System.EventHandler(this.BoutonExplorer_Clic);
             // 
             // txt_chemin
             // 
@@ -58,7 +58,7 @@
             resources.ApplyResources(this.btn_valider, "btn_valider");
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.UseVisualStyleBackColor = true;
-            this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
+            this.btn_valider.Click += new System.EventHandler(this.BoutonValider_Clic);
             // 
             // check_sousdossier
             // 

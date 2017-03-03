@@ -11,12 +11,12 @@ using System.Threading;
 // Classe sous licence GNU GPLv3
 using Gulix.Wallpaper;
 
-namespace Gestionnaire_de_Fond_d_Écran
+namespace Gfe
 {
     public partial class Principale : Form
     {
         // VERSION DU LOGICIEL
-        static public string VERSION = Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5);
+        public static string VERSION = Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5);
 
         // Variables globales
         static public int id = -1, nbFichier = 0, mid = 0;
@@ -31,10 +31,13 @@ namespace Gestionnaire_de_Fond_d_Écran
         FileInfo[] fichiers = new FileInfo[65536];
 
         // Fonction chargeant le fond lié à la variable id dans l'array fichiers
-        private void chargerFond()
+        private void ChargerFond(bool retry)
         {
             if (id >= 0 && id < fichiers.Length)
             {
+                // On prépare l'application du fond
+                Wallpaper fond = new Wallpaper(fichiers[id].FullName, Func.ConvertirAffichage(affichage), couleur);
+
                 // Si le fichier actuel n'est pas listé dans les fichiers illisibles
                 if (!mauvaisFichiers.Contains(fichiers[id].FullName))
                 {
@@ -43,48 +46,60 @@ namespace Gestionnaire_de_Fond_d_Écran
                     lbl_nom.Text = "Chargement...";
                     this.Refresh();
 
-                    // On prépare l'application du fond
-                    Wallpaper fond = new Wallpaper(fichiers[id].FullName, func.convertirAffichage(affichage), couleur);
-
                     // On compte le nombre de fond affichés
-                    Registre.compterFond();
+                    Registre.CompterFond();
 
                     try { fond.Afficher(); } // On tente d'afficher le fond
                     catch // Si il y a eu une erreur
                     {
-                        supprimerFichier(true); // On demande à l'utilisateur si il veut supprimer le fichier (et on le liste en tant que fichier illisible
+                        SupprimerFichier(true); // On demande à l'utilisateur si il veut supprimer le fichier (et on le liste en tant que fichier illisible
 
                         lbl_nom.ForeColor = Color.Red;
                         this.Refresh();
 
                         // On compte l'erreur
-                        Registre.compterErreur();
+                        Registre.CompterErreur();
                     }
 
                     // On recharge les infos
-                    rechargerInfo();
+                    RechargerInfo();
                 }
                 else // Si le fichier est listé en tant que fichier illisible
                 {
-                    // On affiche son nom en rouge, et on ne le l'affiche pas
-                    lbl_nom.ForeColor = Color.Red;
-                    rechargerInfo();
+                    if (!retry)
+                    {
+                        // On affiche son nom en rouge, et on ne le l'affiche pas
+                        lbl_nom.ForeColor = Color.Red;
+                        RechargerInfo();
+                    }
+                    else
+                    {
+                        try
+                        {
+                            fond.Afficher();
+                            lbl_nom.ForeColor = Color.Black;
+                            mauvaisFichiers = mauvaisFichiers.Where(val => val != fichiers[id].FullName).ToArray();
+                            RechargerInfo();
+                            Registre.CompterFond();
+                        }
+                        catch {}
+                    }
                 }
             }
         }
 
         // Met à jour les informations à l'écran
-        private void rechargerInfo()
+        private void RechargerInfo()
         {
             if (rechargementConstant)
-                recupererFichiers(false);
+                RecupererFichiers(false);
 
             if (id >= 0)
             {
                 lbl_nom.Cursor = Cursors.Hand;
                 renommerLeFichierToolStripMenuItem.Enabled = true;
 
-                lbl_chemin.Text = func.traitementChemin(fichiers[id].DirectoryName);
+                lbl_chemin.Text = Func.TraitementChemin(fichiers[id].DirectoryName);
                 infobulle_chemin.SetToolTip(this.lbl_chemin, fichiers[id].DirectoryName);
 
                 btn_supprimer.Enabled = true;
@@ -101,7 +116,7 @@ namespace Gestionnaire_de_Fond_d_Écran
                 lbl_num.Text = (id + 1).ToString() + " sur " + nbFichier;
 
                 infobulle_nom.SetToolTip(this.lbl_nom, fichiers[id].Name);
-                lbl_nom.Text = func.traitementNom(fichiers[id].Name);
+                lbl_nom.Text = Func.TraitementNom(fichiers[id].Name);
 
                 rechargerLeFondToolStripMenuItem.Enabled = true;
 
@@ -133,7 +148,7 @@ namespace Gestionnaire_de_Fond_d_Écran
                 lbl_nom.Cursor = Cursors.Default;
                 renommerLeFichierToolStripMenuItem.Enabled = false;
 
-                lbl_chemin.Text = func.traitementChemin(chemin);
+                lbl_chemin.Text = Func.TraitementChemin(chemin);
                 infobulle_chemin.SetToolTip(this.lbl_chemin, chemin);
 
                 btn_supprimer.Enabled = false;
@@ -179,7 +194,7 @@ namespace Gestionnaire_de_Fond_d_Écran
         }
 
         // Fonction liée au bouton suivant
-        private void fichierSuivant()
+        private void FichierSuivant()
         {
             DialogResult question = new DialogResult();
 
@@ -188,28 +203,28 @@ namespace Gestionnaire_de_Fond_d_Écran
                 question = MessageBox.Show("Vous avez fini le dossier !\n\nVoulez-vous fermer le programme ?", "Dossier terminé", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
                 if (question == DialogResult.Yes)
-                    fermerProgramme();
+                    FermerProgramme();
             }
                 
             else
             {
                 id++;
 
-                chargerFond();
-                rechargerInfo();
+                ChargerFond(false);
+                RechargerInfo();
             }
         }
 
         // Fonction liée au bouton précédent
-        private void fichierPrecedent()
+        private void FichierPrecedent()
         {
             id--;
 
-            chargerFond();
-            rechargerInfo();
+            ChargerFond(false);
+            RechargerInfo();
         }
 
-        private void supprimerFichier(bool mode)
+        private void SupprimerFichier(bool mode)
         {
             // On créé une boite de dialogue de confirmation
             DialogResult reponse = new DialogResult();
@@ -225,7 +240,7 @@ namespace Gestionnaire_de_Fond_d_Écran
                 File.Delete(fichiers[id].FullName); // On supprime le fichier en question
                 nbFichier--;
 
-                recupererFichiers(true); // On refait la liste des fichiers
+                fichiers = fichiers.Where(val => val != fichiers[id]).ToArray();
 
                 // Si il reste des fichiers dans le dossier, on affiche le précédent
                 if (nbFichier != 0)
@@ -233,10 +248,10 @@ namespace Gestionnaire_de_Fond_d_Écran
                     if (id == nbFichier)
                         id--;
 
-                    chargerFond();
+                    ChargerFond(false);
                 }
                 else 
-                    rechargerInfo();
+                    RechargerInfo();
             }
             else if (reponse == DialogResult.No & mode == true) // Si le fichier est illisible, mais que l'utilisateur ne veut pas le supprimer
             {
@@ -245,16 +260,16 @@ namespace Gestionnaire_de_Fond_d_Écran
                 mid++;
 
                 if(rechargementConstant)
-                    recupererFichiers(false);
+                    RecupererFichiers(true);
             }
         }
 
         // Fonction qui réaffiche le fond d'écran initial
-        private void ancienFond()
+        private void AncienFond()
         {
             try // On essaye de remettre le fond
             {
-                Wallpaper fond = new Wallpaper(Path.GetTempPath() + @"\GFE_tmp.bmp", func.convertirAffichage(ancienAffichage), couleur);
+                Wallpaper fond = new Wallpaper(Path.GetTempPath() + @"\GFE_tmp.bmp", Func.ConvertirAffichage(ancienAffichage), couleur);
                 fond.Afficher();
             }
             catch (Exception e) // Si il y a eu une erreur, on l'affiche
@@ -266,21 +281,21 @@ namespace Gestionnaire_de_Fond_d_Écran
         }
         
         // Fonction de fermeture du programme
-        private void fermerProgramme()
+        private void FermerProgramme()
         {
             this.Visible = false;
 
             if (id != -1)
-                ancienFond();
+                AncienFond();
 
             File.Delete(Path.GetTempPath() + @"GFE_tmp.bmp");
-            Registre.miseAjourConfig(); 
+            Registre.MiseAjourConfig(); 
 
             this.DestroyHandle();
         }
 
         // Fonction qui liste les fichiers d'un dossier
-        private void recupererFichiers(bool afficherTexte)
+        private void RecupererFichiers(bool afficherTexte)
         {
             FileInfo[] fichiersInfo = new FileInfo[65535];
             DirectoryInfo[] dossiersInfo = new DirectoryInfo[2048];
@@ -305,7 +320,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             {
                 try
                 {
-                    fichiersInfo = func.rechercheRecursive(chemin, ref erreur);
+                    fichiersInfo = Func.RechercheRecursive(chemin, ref erreur);
                 }
                 catch (Exception e)
                 {
@@ -324,7 +339,7 @@ namespace Gestionnaire_de_Fond_d_Écran
                     ext = fichier.Extension.ToLower();
 
                     // On compare l'extension sans le point à celles autorisées
-                    if (ext != "")
+                    if (!string.IsNullOrEmpty(ext))
                     {
                         if (extension.Split(';').Contains(ext.Substring(1)))
                         {
@@ -352,15 +367,19 @@ namespace Gestionnaire_de_Fond_d_Écran
 
         }
 
-        private void modifierFichier()
+        private void ModifierFichier()
         {
             if (btn_modifier.Text == "Modifier")
             {
-                modificationExterne();
+                ModificationExterne();
             }
             else
             {
-                chargerFond();
+                if (lbl_nom.ForeColor == Color.Black)
+                    ChargerFond(false);
+                else
+                    ChargerFond(true);
+
                 btn_modifier.Text = "Modifier";
             }
         }
@@ -373,17 +392,14 @@ namespace Gestionnaire_de_Fond_d_Écran
             InitializeComponent();
         }
 
-        private void modificationExterne()
+        private void ModificationExterne()
         {
             // Création du processus du logiciel externe
             try
             {
-                ProcessStartInfo logicielExterne = new ProcessStartInfo(logiciel, "\"" + fichiers[id].FullName + "\"");
-                Process proc = new Process();
+                Process proc = new Process() { StartInfo = new ProcessStartInfo(logiciel, "\"" + fichiers[id].FullName + "\"") };
 
-                proc.StartInfo = logicielExterne;
                 proc.Start();
-
                 btn_modifier.Text = "Recharger";
             }
             catch
@@ -393,7 +409,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             }
         }
 
-        private void renommerFichier()
+        private void RenommerFichier()
         {
             if (id >= 0 && id < nbFichier)
             {
@@ -401,7 +417,7 @@ namespace Gestionnaire_de_Fond_d_Écran
                 Renommer fenetre = new Renommer();
                 fenetre.ShowDialog();
 
-                if (Renommer.resultat != "")
+                if (!string.IsNullOrEmpty(Renommer.resultat))
                 {
                     if (Renommer.resultat != fichiers[id].Name)
                     {
@@ -419,11 +435,11 @@ namespace Gestionnaire_de_Fond_d_Écran
                     }
                 }
 
-                rechargerInfo();
+                RechargerInfo();
             }
         }
 
-        private void voirDossier()
+        private void VoirDossier()
         {
             string parametre = "";
 
@@ -447,7 +463,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             RegistryKey registre = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
             int tmpId = 0;
 
-            ajouterAuMenuContextuelToolStripMenuItem.Checked = Registre.verifierContextuel();
+            ajouterAuMenuContextuelToolStripMenuItem.Checked = Registre.VerifierContextuel();
 
             AncienfondEcran[0] = registre.GetValue("Wallpaper").ToString();
             AncienfondEcran[1] = registre.GetValue(@"WallpaperStyle").ToString();
@@ -472,8 +488,8 @@ namespace Gestionnaire_de_Fond_d_Écran
             if (!File.Exists(Path.GetTempPath() + @"GFE_tmp.bmp"))
                 File.Copy(@AncienfondEcran[0], Path.GetTempPath() + @"GFE_tmp.bmp");
 
-            recupererFichiers(true);
-            rechargerInfo();
+            RecupererFichiers(true);
+            RechargerInfo();
 
             if (rappel && Registre.ancienChemin == chemin)
             {
@@ -483,20 +499,13 @@ namespace Gestionnaire_de_Fond_d_Écran
                 {
                     id = tmpId;
 
-                    rechargerInfo();
-                    chargerFond();
+                    RechargerInfo();
+                    ChargerFond(false);
                 }
             }
         }
 
-        private void btn_suivant_Click(object sender, EventArgs e) { fichierSuivant(); }
-        private void btn_precedent_Click(object sender, EventArgs e) { fichierPrecedent(); }
-        private void btn_supprimer_Click(object sender, EventArgs e) { supprimerFichier(false); }
-
-        private void suivantToolStripMenuItem_Click(object sender, EventArgs e) { fichierSuivant(); }
-        private void quitterToolStripMenuItem_Click(object sender, EventArgs e) { fermerProgramme(); }
-
-        private void allezÀLimageNuméroToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MenuAllezÀ_Clic (object sender, EventArgs e)
         {
             int ancientId = id;
 
@@ -508,21 +517,17 @@ namespace Gestionnaire_de_Fond_d_Écran
                 if (!rechargerLeFondToolStripMenuItem.Enabled && id != -1)
                     rechargerLeFondToolStripMenuItem.Enabled = true;
 
-                chargerFond();
+                ChargerFond(false);
             }
         }
 
-        private void btn_modifier_Click(object sender, EventArgs e) { modifierFichier(); }
-
-        private void rechargerLeFondToolStripMenuItem_Click(object sender, EventArgs e) { chargerFond(); }
-
-        private void changerDeDossierToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MenuChangerDossier_Clic (object sender, EventArgs e)
         {
             string ancien = chemin;
             bool ancienSousDossier = sousDossier;
 
             if (id != -1)
-                ancienFond();
+                AncienFond();
 
             Selection fenetre = new Selection();
             fenetre.ShowDialog();
@@ -534,17 +539,15 @@ namespace Gestionnaire_de_Fond_d_Écran
 
                 id = -1;
 
-                recupererFichiers(true);
+                RecupererFichiers(true);
             }
             else
-                chargerFond();
+                ChargerFond(false);
 
-            rechargerInfo();
+            RechargerInfo();
         }
 
-        private void modifierToolStripMenuItem_Click(object sender, EventArgs e) { modificationExterne(); }
-
-        private void aléatoireToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MenuAléatoire_Clic(object sender, EventArgs e)
         {
             Random rndId = new Random();
             int tmpId = id;
@@ -554,11 +557,11 @@ namespace Gestionnaire_de_Fond_d_Écran
             while(tmpId == id && nbFichier >= 2)
                 id = rndId.Next(nbFichier);
 
-            chargerFond();
-            rechargerInfo();
+            ChargerFond(false);
+            RechargerInfo();
         }
 
-        private void mettreEnFondDécranToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MenuMettreEnFond_Clic(object sender, EventArgs e)
         {
             DialogResult reponse = new DialogResult();
 
@@ -577,7 +580,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             }
         }
 
-        private void minimiserToutesLesFenêtresToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MenuMinimiser_Clic(object sender, EventArgs e)
         {
             this.Visible = false;
 
@@ -590,16 +593,16 @@ namespace Gestionnaire_de_Fond_d_Écran
             this.Show();
     }
 
-        private void rechargerLaListeDesFichiersToolStripMenuItem_Click(object sender, EventArgs e) { recupererFichiers(true); }
+        private void MenuRechargerListe_Clic(object sender, EventArgs e) { RecupererFichiers(true); }
 
-        private void statistiquesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MenuStatistique_Clic(object sender, EventArgs e)
         {
 
         }
 
-        private void lbl_nom_Click(object sender, EventArgs e) { renommerFichier(); }
+        private void LabelNomClic(object sender, EventArgs e) { RenommerFichier(); }
 
-        private void renommerLeFichierToolStripMenuItem_Click(object sender, EventArgs e) { renommerFichier(); }
+        private void MenuRenommer_Clic(object sender, EventArgs e) { RenommerFichier(); }
 
         // On raffraichi la fenêtre quand elle est restaurée pour éviter du noir tout moche partout
         private void Principale_Resize(object sender, EventArgs e)
@@ -608,9 +611,7 @@ namespace Gestionnaire_de_Fond_d_Écran
                 this.Refresh();
         }
 
-        private void lbl_chemin_Click(object sender, EventArgs e) { voirDossier(); }
-
-        private void ajouterAuMenuContextuelToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MenuAjouterContextuel_Clic(object sender, EventArgs e)
         {
             string cheminIcone = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Gestionnaire de Fond d'Écran\";
 
@@ -618,7 +619,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             {
                 if (ajouterAuMenuContextuelToolStripMenuItem.Checked)
                 {
-                    Registre.retirerContextuel();
+                    Registre.RetirerContextuel();
                     ajouterAuMenuContextuelToolStripMenuItem.Checked = false;
                     File.Delete(cheminIcone + "icone.ico");
 
@@ -626,7 +627,7 @@ namespace Gestionnaire_de_Fond_d_Écran
                 }
                 else
                 {
-                    Registre.ajouterContextuel();
+                    Registre.AjouterContextuel();
                     ajouterAuMenuContextuelToolStripMenuItem.Checked = true;
 
                     if (!Directory.Exists(cheminIcone))
@@ -645,62 +646,64 @@ namespace Gestionnaire_de_Fond_d_Écran
             catch (Exception err) { MessageBox.Show("Une erreur est surevenue durant la modification du registre !\n\nErreur :\n" + err.ToString(), "Erreur durant l'ajout au menu contextuel", MessageBoxButtons.OK, MessageBoxIcon.Hand); }
         }
 
-        private void voirLeContenuDuDossierToolStripMenuItem_Click(object sender, EventArgs e) { voirDossier(); }
-
-        private void noteDeVersionToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MenuMettreAJour_Clic(object sender, EventArgs e)
         {
-            string url = "https://github.com/Penta/GFE/releases/tag/" + VERSION;
-            Process.Start(url);
+            AncienFond();
+            Maj.VerifierMaj();
+            ChargerFond(false);
         }
 
-        private void mettreÀJourToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ancienFond();
-            maj.verifierMaj();
-            chargerFond();
-        }
-
-        private void précédentToolStripMenuItem_Click(object sender, EventArgs e) { fichierPrecedent(); }
-        private void supprimerToolStripMenuItem_Click(object sender, EventArgs e) { supprimerFichier(false); }
-        private void aideEnLigneToolStripMenuItem_Click(object sender, EventArgs e) { Process.Start("https://github.com/Penta/GFE/wiki/Accueil"); }
-
-        private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MenuAPropos_Clic(object sender, EventArgs e)
         {
             APropos fenetre = new APropos();
             fenetre.ShowDialog();
         }
 
-        private void Principale_FormClosed(object sender, FormClosedEventArgs e) { fermerProgramme(); }
-
-        private void configurationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MenuConfiguration_Clic(object sender, EventArgs e)
         {
-            Configuration fenetre = new Configuration();
+            ConfigurationGfe fenetre = new ConfigurationGfe();
             fenetre.ShowDialog();
 
-            if (Configuration.changement)
+            if (ConfigurationGfe.changement)
             {
-                Configuration.changement = false;
+                ConfigurationGfe.changement = false;
 
-                if (Configuration.changementFichier)
+                if (ConfigurationGfe.changementFichier)
                 {
                     id = -1;
-                    Configuration.changementFichier = false;
+                    ConfigurationGfe.changementFichier = false;
 
-                    ancienFond();
+                    AncienFond();
 
-                    recupererFichiers(true);
+                    RecupererFichiers(true);
                 }
                 else
                 {
                     if (id != -1)
-                        chargerFond();
+                        ChargerFond(true);
 
                     if (rechargementConstant)
-                        recupererFichiers(false);
+                        RecupererFichiers(false);
                 }
 
-                rechargerInfo();
+                RechargerInfo();
             }
         }
+
+        private void MenuPrécédent_Clic (object sender, EventArgs e) { FichierPrecedent(); }
+        private void MenuSupprimer_Clic (object sender, EventArgs e) { SupprimerFichier(false); }
+        private void MenuAide_Clic (object sender, EventArgs e) { Process.Start("https://github.com/Penta/GFE/wiki/Accueil"); }
+        private void Principale_FormClosed (object sender, FormClosedEventArgs e) { FermerProgramme(); }
+        private void MenuVoirLeContenu_Clic (object sender, EventArgs e) { VoirDossier(); }
+        private void MenuNoteDeVersion_Clic (object sender, EventArgs e) { Process.Start("https://github.com/Penta/GFE/releases/tag/" + VERSION); }
+        private void LabelCheminClic (object sender, EventArgs e) { VoirDossier(); }
+        private void BoutonSuivant_Clic (object sender, EventArgs e) { FichierSuivant(); }
+        private void BoutonPrécédent_Clic (object sender, EventArgs e) { FichierPrecedent(); }
+        private void BoutonSupprimer_Clic (object sender, EventArgs e) { SupprimerFichier(false); }
+        private void MenuSuivant_Clic (object sender, EventArgs e) { FichierSuivant(); }
+        private void MenuQuitter_Clic (object sender, EventArgs e) { FermerProgramme(); }
+        private void BoutonModifier_Clic (object sender, EventArgs e) { ModifierFichier(); }
+        private void MenuRecharger_Clic (object sender, EventArgs e) { ChargerFond(true); }
+        private void MenuModifier_Clic (object sender, EventArgs e) { ModificationExterne(); }
     }
 }

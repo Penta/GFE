@@ -1,4 +1,4 @@
-﻿namespace Gestionnaire_de_Fond_d_Écran
+﻿namespace Gfe
 {
     partial class Principale
     {
@@ -80,7 +80,7 @@
             resources.ApplyResources(this.btn_suivant, "btn_suivant");
             this.btn_suivant.Name = "btn_suivant";
             this.btn_suivant.UseVisualStyleBackColor = true;
-            this.btn_suivant.Click += new System.EventHandler(this.btn_suivant_Click);
+            this.btn_suivant.Click += new System.EventHandler(this.BoutonSuivant_Clic);
             // 
             // menu
             // 
@@ -118,25 +118,25 @@
             // 
             this.suivantToolStripMenuItem.Name = "suivantToolStripMenuItem";
             resources.ApplyResources(this.suivantToolStripMenuItem, "suivantToolStripMenuItem");
-            this.suivantToolStripMenuItem.Click += new System.EventHandler(this.suivantToolStripMenuItem_Click);
+            this.suivantToolStripMenuItem.Click += new System.EventHandler(this.MenuSuivant_Clic);
             // 
             // précédentToolStripMenuItem
             // 
             resources.ApplyResources(this.précédentToolStripMenuItem, "précédentToolStripMenuItem");
             this.précédentToolStripMenuItem.Name = "précédentToolStripMenuItem";
-            this.précédentToolStripMenuItem.Click += new System.EventHandler(this.précédentToolStripMenuItem_Click);
+            this.précédentToolStripMenuItem.Click += new System.EventHandler(this.MenuPrécédent_Clic);
             // 
             // supprimerToolStripMenuItem
             // 
             resources.ApplyResources(this.supprimerToolStripMenuItem, "supprimerToolStripMenuItem");
             this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
-            this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
+            this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.MenuSupprimer_Clic);
             // 
             // modifierToolStripMenuItem
             // 
             resources.ApplyResources(this.modifierToolStripMenuItem, "modifierToolStripMenuItem");
             this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
+            this.modifierToolStripMenuItem.Click += new System.EventHandler(this.MenuModifier_Clic);
             // 
             // toolStripSeparator4
             // 
@@ -147,19 +147,19 @@
             // 
             this.renommerLeFichierToolStripMenuItem.Name = "renommerLeFichierToolStripMenuItem";
             resources.ApplyResources(this.renommerLeFichierToolStripMenuItem, "renommerLeFichierToolStripMenuItem");
-            this.renommerLeFichierToolStripMenuItem.Click += new System.EventHandler(this.renommerLeFichierToolStripMenuItem_Click);
+            this.renommerLeFichierToolStripMenuItem.Click += new System.EventHandler(this.MenuRenommer_Clic);
             // 
             // rechargerLeFondToolStripMenuItem
             // 
             resources.ApplyResources(this.rechargerLeFondToolStripMenuItem, "rechargerLeFondToolStripMenuItem");
             this.rechargerLeFondToolStripMenuItem.Name = "rechargerLeFondToolStripMenuItem";
-            this.rechargerLeFondToolStripMenuItem.Click += new System.EventHandler(this.rechargerLeFondToolStripMenuItem_Click);
+            this.rechargerLeFondToolStripMenuItem.Click += new System.EventHandler(this.MenuRecharger_Clic);
             // 
             // mettreEnFondDécranToolStripMenuItem
             // 
             this.mettreEnFondDécranToolStripMenuItem.Name = "mettreEnFondDécranToolStripMenuItem";
             resources.ApplyResources(this.mettreEnFondDécranToolStripMenuItem, "mettreEnFondDécranToolStripMenuItem");
-            this.mettreEnFondDécranToolStripMenuItem.Click += new System.EventHandler(this.mettreEnFondDécranToolStripMenuItem_Click);
+            this.mettreEnFondDécranToolStripMenuItem.Click += new System.EventHandler(this.MenuMettreEnFond_Clic);
             // 
             // toolStripSeparator1
             // 
@@ -170,31 +170,31 @@
             // 
             this.voirLeContenuDuDossierToolStripMenuItem.Name = "voirLeContenuDuDossierToolStripMenuItem";
             resources.ApplyResources(this.voirLeContenuDuDossierToolStripMenuItem, "voirLeContenuDuDossierToolStripMenuItem");
-            this.voirLeContenuDuDossierToolStripMenuItem.Click += new System.EventHandler(this.voirLeContenuDuDossierToolStripMenuItem_Click);
+            this.voirLeContenuDuDossierToolStripMenuItem.Click += new System.EventHandler(this.MenuVoirLeContenu_Clic);
             // 
             // changerDeDossierToolStripMenuItem
             // 
             this.changerDeDossierToolStripMenuItem.Name = "changerDeDossierToolStripMenuItem";
             resources.ApplyResources(this.changerDeDossierToolStripMenuItem, "changerDeDossierToolStripMenuItem");
-            this.changerDeDossierToolStripMenuItem.Click += new System.EventHandler(this.changerDeDossierToolStripMenuItem_Click);
+            this.changerDeDossierToolStripMenuItem.Click += new System.EventHandler(this.MenuChangerDossier_Clic);
             // 
             // allezÀLimageNuméroToolStripMenuItem
             // 
             this.allezÀLimageNuméroToolStripMenuItem.Name = "allezÀLimageNuméroToolStripMenuItem";
             resources.ApplyResources(this.allezÀLimageNuméroToolStripMenuItem, "allezÀLimageNuméroToolStripMenuItem");
-            this.allezÀLimageNuméroToolStripMenuItem.Click += new System.EventHandler(this.allezÀLimageNuméroToolStripMenuItem_Click);
+            this.allezÀLimageNuméroToolStripMenuItem.Click += new System.EventHandler(this.MenuAllezÀ_Clic);
             // 
             // minimiserToutesLesFenêtresToolStripMenuItem
             // 
             this.minimiserToutesLesFenêtresToolStripMenuItem.Name = "minimiserToutesLesFenêtresToolStripMenuItem";
             resources.ApplyResources(this.minimiserToutesLesFenêtresToolStripMenuItem, "minimiserToutesLesFenêtresToolStripMenuItem");
-            this.minimiserToutesLesFenêtresToolStripMenuItem.Click += new System.EventHandler(this.minimiserToutesLesFenêtresToolStripMenuItem_Click);
+            this.minimiserToutesLesFenêtresToolStripMenuItem.Click += new System.EventHandler(this.MenuMinimiser_Clic);
             // 
             // rechargerLaListeDesFichiersToolStripMenuItem
             // 
             this.rechargerLaListeDesFichiersToolStripMenuItem.Name = "rechargerLaListeDesFichiersToolStripMenuItem";
             resources.ApplyResources(this.rechargerLaListeDesFichiersToolStripMenuItem, "rechargerLaListeDesFichiersToolStripMenuItem");
-            this.rechargerLaListeDesFichiersToolStripMenuItem.Click += new System.EventHandler(this.rechargerLaListeDesFichiersToolStripMenuItem_Click);
+            this.rechargerLaListeDesFichiersToolStripMenuItem.Click += new System.EventHandler(this.MenuRechargerListe_Clic);
             // 
             // toolStripSeparator2
             // 
@@ -205,7 +205,7 @@
             // 
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
             resources.ApplyResources(this.quitterToolStripMenuItem, "quitterToolStripMenuItem");
-            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
+            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.MenuQuitter_Clic);
             // 
             // optionsToolStripMenuItem
             // 
@@ -223,7 +223,7 @@
             // 
             this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
             resources.ApplyResources(this.configurationToolStripMenuItem, "configurationToolStripMenuItem");
-            this.configurationToolStripMenuItem.Click += new System.EventHandler(this.configurationToolStripMenuItem_Click);
+            this.configurationToolStripMenuItem.Click += new System.EventHandler(this.MenuConfiguration_Clic);
             // 
             // toolStripSeparator3
             // 
@@ -234,13 +234,13 @@
             // 
             this.mettreÀJourToolStripMenuItem.Name = "mettreÀJourToolStripMenuItem";
             resources.ApplyResources(this.mettreÀJourToolStripMenuItem, "mettreÀJourToolStripMenuItem");
-            this.mettreÀJourToolStripMenuItem.Click += new System.EventHandler(this.mettreÀJourToolStripMenuItem_Click);
+            this.mettreÀJourToolStripMenuItem.Click += new System.EventHandler(this.MenuMettreAJour_Clic);
             // 
             // ajouterAuMenuContextuelToolStripMenuItem
             // 
             this.ajouterAuMenuContextuelToolStripMenuItem.Name = "ajouterAuMenuContextuelToolStripMenuItem";
             resources.ApplyResources(this.ajouterAuMenuContextuelToolStripMenuItem, "ajouterAuMenuContextuelToolStripMenuItem");
-            this.ajouterAuMenuContextuelToolStripMenuItem.Click += new System.EventHandler(this.ajouterAuMenuContextuelToolStripMenuItem_Click);
+            this.ajouterAuMenuContextuelToolStripMenuItem.Click += new System.EventHandler(this.MenuAjouterContextuel_Clic);
             // 
             // toolStripSeparator5
             // 
@@ -251,13 +251,13 @@
             // 
             resources.ApplyResources(this.statistiquesToolStripMenuItem, "statistiquesToolStripMenuItem");
             this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
-            this.statistiquesToolStripMenuItem.Click += new System.EventHandler(this.statistiquesToolStripMenuItem_Click);
+            this.statistiquesToolStripMenuItem.Click += new System.EventHandler(this.MenuStatistique_Clic);
             // 
             // aléatoireToolStripMenuItem
             // 
             resources.ApplyResources(this.aléatoireToolStripMenuItem, "aléatoireToolStripMenuItem");
             this.aléatoireToolStripMenuItem.Name = "aléatoireToolStripMenuItem";
-            this.aléatoireToolStripMenuItem.Click += new System.EventHandler(this.aléatoireToolStripMenuItem_Click);
+            this.aléatoireToolStripMenuItem.Click += new System.EventHandler(this.MenuAléatoire_Clic);
             // 
             // toolStripMenuItem1
             // 
@@ -272,19 +272,19 @@
             // 
             this.aideEnLigneToolStripMenuItem.Name = "aideEnLigneToolStripMenuItem";
             resources.ApplyResources(this.aideEnLigneToolStripMenuItem, "aideEnLigneToolStripMenuItem");
-            this.aideEnLigneToolStripMenuItem.Click += new System.EventHandler(this.aideEnLigneToolStripMenuItem_Click);
+            this.aideEnLigneToolStripMenuItem.Click += new System.EventHandler(this.MenuAide_Clic);
             // 
             // noteDeVersionToolStripMenuItem
             // 
             this.noteDeVersionToolStripMenuItem.Name = "noteDeVersionToolStripMenuItem";
             resources.ApplyResources(this.noteDeVersionToolStripMenuItem, "noteDeVersionToolStripMenuItem");
-            this.noteDeVersionToolStripMenuItem.Click += new System.EventHandler(this.noteDeVersionToolStripMenuItem_Click);
+            this.noteDeVersionToolStripMenuItem.Click += new System.EventHandler(this.MenuNoteDeVersion_Clic);
             // 
             // aProposToolStripMenuItem
             // 
             this.aProposToolStripMenuItem.Name = "aProposToolStripMenuItem";
             resources.ApplyResources(this.aProposToolStripMenuItem, "aProposToolStripMenuItem");
-            this.aProposToolStripMenuItem.Click += new System.EventHandler(this.aProposToolStripMenuItem_Click);
+            this.aProposToolStripMenuItem.Click += new System.EventHandler(this.MenuAPropos_Clic);
             // 
             // lbl_info_chemin
             // 
@@ -301,28 +301,28 @@
             resources.ApplyResources(this.btn_precedent, "btn_precedent");
             this.btn_precedent.Name = "btn_precedent";
             this.btn_precedent.UseVisualStyleBackColor = true;
-            this.btn_precedent.Click += new System.EventHandler(this.btn_precedent_Click);
+            this.btn_precedent.Click += new System.EventHandler(this.BoutonPrécédent_Clic);
             // 
             // lbl_chemin
             // 
             resources.ApplyResources(this.lbl_chemin, "lbl_chemin");
             this.lbl_chemin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_chemin.Name = "lbl_chemin";
-            this.lbl_chemin.Click += new System.EventHandler(this.lbl_chemin_Click);
+            this.lbl_chemin.Click += new System.EventHandler(this.LabelCheminClic);
             // 
             // lbl_nom
             // 
             resources.ApplyResources(this.lbl_nom, "lbl_nom");
             this.lbl_nom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_nom.Name = "lbl_nom";
-            this.lbl_nom.Click += new System.EventHandler(this.lbl_nom_Click);
+            this.lbl_nom.Click += new System.EventHandler(this.LabelNomClic);
             // 
             // btn_supprimer
             // 
             resources.ApplyResources(this.btn_supprimer, "btn_supprimer");
             this.btn_supprimer.Name = "btn_supprimer";
             this.btn_supprimer.UseVisualStyleBackColor = true;
-            this.btn_supprimer.Click += new System.EventHandler(this.btn_supprimer_Click);
+            this.btn_supprimer.Click += new System.EventHandler(this.BoutonSupprimer_Clic);
             // 
             // lbl_info_num
             // 
@@ -339,7 +339,7 @@
             resources.ApplyResources(this.btn_modifier, "btn_modifier");
             this.btn_modifier.Name = "btn_modifier";
             this.btn_modifier.UseVisualStyleBackColor = true;
-            this.btn_modifier.Click += new System.EventHandler(this.btn_modifier_Click);
+            this.btn_modifier.Click += new System.EventHandler(this.BoutonModifier_Clic);
             // 
             // Principale
             // 

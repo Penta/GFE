@@ -1,4 +1,4 @@
-﻿namespace Gestionnaire_de_Fond_d_Écran
+﻿namespace Gfe
 {
     partial class Attente
     {
@@ -34,7 +34,7 @@
             // lbl_description
             // 
             this.lbl_description.AutoSize = true;
-            this.lbl_description.Location = new System.Drawing.Point(12, 10);
+            this.lbl_description.Location = new System.Drawing.Point(10, 10);
             this.lbl_description.Name = "lbl_description";
             this.lbl_description.Size = new System.Drawing.Size(240, 13);
             this.lbl_description.TabIndex = 0;

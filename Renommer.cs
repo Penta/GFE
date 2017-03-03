@@ -2,12 +2,12 @@
 using System.IO;
 using System.Windows.Forms;
 
-namespace Gestionnaire_de_Fond_d_Écran
+namespace Gfe
 {
     public partial class Renommer : Form
     {
-        static public string fichier;
-        static public string resultat = "";
+        public static string fichier;
+        public static string resultat = "";
 
         public Renommer()
         {
@@ -21,9 +21,9 @@ namespace Gestionnaire_de_Fond_d_Écran
             txt_nom.Focus();
         }
 
-        private void btn_valider_Click(object sender, EventArgs e)
+        private void BoutonValiderClic(object sender, EventArgs e)
         {
-            if (txt_nom.Text != "")
+            if (!string.IsNullOrEmpty(txt_nom.Text))
             {
                 resultat = txt_nom.Text + Path.GetExtension(fichier);
                 this.DestroyHandle();
@@ -32,7 +32,7 @@ namespace Gestionnaire_de_Fond_d_Écran
                 MessageBox.Show("Le nom du fichier ne peut pas être vide !", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void txt_nom_KeyPress(object sender, KeyPressEventArgs e)
+        private void TexteNomTouchePresse(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {

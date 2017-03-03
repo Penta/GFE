@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.IO;
 
-namespace Gestionnaire_de_Fond_d_Écran
+namespace Gfe
 {
     public partial class Selection : Form
     {
@@ -11,16 +11,17 @@ namespace Gestionnaire_de_Fond_d_Écran
         private string chemin;
         private bool valide = false, desactivation = false;
 
-        private void ouvrirPrincipale() { Application.Run(new Principale(chemin)); }
+        private void OuvrirPrincipale() { Application.Run(new Principale(chemin)); }
 
-        private void changerDossier()
+        private void ChangerDossier()
         {
-            FolderBrowserDialog selectionDossier = new FolderBrowserDialog();
+            FolderBrowserDialog selectionDossier = new FolderBrowserDialog()
+            {
+                Description = "Veuillez choisir le dossier de fond d'écran.",
+                ShowNewFolderButton = false
+            };
 
-            selectionDossier.Description = "Veuillez choisir le dossier de fond d'écran.";
-            selectionDossier.ShowNewFolderButton = false;
-
-            if (chemin != "")
+            if (!string.IsNullOrEmpty(chemin))
                 selectionDossier.SelectedPath = chemin;
 
             DialogResult result = selectionDossier.ShowDialog();
@@ -56,15 +57,17 @@ namespace Gestionnaire_de_Fond_d_Écran
             }
         }
 
-        private void btn_explorer_Click(object sender, EventArgs e)
+        private void BoutonExplorer_Clic (object sender, EventArgs e)
         {
             if (Principale.selectionPremierLancement)
             {
-                this.selectionDossier = new FolderBrowserDialog();
-                this.selectionDossier.Description = "Veuillez choisir le dossier de fond d'écran.";
-                this.selectionDossier.ShowNewFolderButton = false;
+                this.selectionDossier = new FolderBrowserDialog()
+                {
+                    Description = "Veuillez choisir le dossier de fond d'écran.",
+                    ShowNewFolderButton = false
+                };
 
-                if (chemin != "")
+                if (!string.IsNullOrEmpty(chemin))
                     selectionDossier.SelectedPath = chemin;
 
                 DialogResult result = selectionDossier.ShowDialog();
@@ -80,7 +83,7 @@ namespace Gestionnaire_de_Fond_d_Écran
                 this.Enabled = false;
                 desactivation = true;
 
-                Thread proc = new Thread(new ThreadStart(changerDossier));
+                Thread proc = new Thread(new ThreadStart(ChangerDossier));
                 proc.SetApartmentState(ApartmentState.STA);
                 proc.Start();
 
@@ -95,25 +98,22 @@ namespace Gestionnaire_de_Fond_d_Écran
             }
         }
 
-        private void btn_valider_Click(object sender, EventArgs e)
-        {
-            validation();
-        }
+        private void BoutonValider_Clic(object sender, EventArgs e) { Validation(); }
 
-        private void validation()
+        private void Validation ()
         {
-            if (txt_chemin.Text != "")
+            if (!string.IsNullOrEmpty(txt_chemin.Text))
             {
                 if (Directory.Exists(txt_chemin.Text))
                 {
                     chemin = txt_chemin.Text;
 
                     Principale.sousDossier = check_sousdossier.Checked;
-                    Registre.miseAjourConfig();
+                    Registre.MiseAjourConfig();
 
                     if(Principale.selectionPremierLancement)
                     {
-                        Thread principale = new Thread(new ThreadStart(ouvrirPrincipale));
+                        Thread principale = new Thread(new ThreadStart(OuvrirPrincipale));
                         principale.Start();
 
                         Principale.selectionPremierLancement = false;

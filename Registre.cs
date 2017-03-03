@@ -3,7 +3,7 @@ using Microsoft.Win32;
 using System.Windows.Forms;
 using System.Linq;
 
-namespace Gestionnaire_de_Fond_d_Écran
+namespace Gfe
 {
     class Registre
     {
@@ -23,7 +23,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             {
                 registre = Registry.CurrentUser.CreateSubKey(emplacement);
 
-                resetRegistre();
+                ResetRegistre();
             }
             else
             {
@@ -67,14 +67,14 @@ namespace Gestionnaire_de_Fond_d_Écran
                 {
                     MessageBox.Show("Une erreur est survenue durant la lecture du registre !\n\nVotre configuration va être réinitialisée.", "Erreur du registre", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-                    resetRegistre();
+                    ResetRegistre();
                 }
 
                 Principale.chemin = ancienChemin;
             }
         }
 
-        static public void resetRegistre()
+        static public void ResetRegistre()
         {
             registre.SetValue("Disposition", Principale.affichage);
             registre.SetValue("LogicielExterne", Principale.logiciel);
@@ -89,7 +89,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             registre.SetValue("VerifConstante", Principale.rechargementConstant);
         }
 
-        static public void miseAjourConfig()
+        static public void MiseAjourConfig()
         {
             registre.SetValue("LogicielExterne", Principale.logiciel);
             registre.SetValue("Disposition", Principale.affichage);
@@ -101,7 +101,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             registre.SetValue("VerifConstante", Principale.rechargementConstant);
         }
 
-        static public void compterErreur()
+        static public void CompterErreur()
         {
             int var = 0;
 
@@ -111,7 +111,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             registre.SetValue("nbErreur", var);
         }
 
-        static public void compterFond()
+        static public void CompterFond()
         {
             int var = 0;
 
@@ -121,10 +121,10 @@ namespace Gestionnaire_de_Fond_d_Écran
             registre.SetValue("nbFond", var);
         }
 
-        static public void ajouterContextuel()
+        static public void AjouterContextuel()
         {
-            RegistryKey clef = Registry.CurrentUser.CreateSubKey(@"Software\Classes\Directory\shell\" + nomContextuel, true);
-            RegistryKey sousClef = clef.CreateSubKey("command", true);
+            RegistryKey clef = Registry.CurrentUser.CreateSubKey(@"Software\Classes\Directory\shell\" + nomContextuel, RegistryKeyPermissionCheck.ReadWriteSubTree);
+            RegistryKey sousClef = clef.CreateSubKey("command", RegistryKeyPermissionCheck.ReadWriteSubTree);
 
             clef.SetValue("", "Visualiser les fonds d'écran du dossier");
             clef.SetValue("Icon", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Gestionnaire de Fond d'Écran\icone.ico");
@@ -133,7 +133,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             clef.Close();
         }
 
-        static public void retirerContextuel()
+        static public void RetirerContextuel()
         {
             RegistryKey clef = Registry.CurrentUser.OpenSubKey(@"Software\Classes\Directory\shell", true);
 
@@ -141,7 +141,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             clef.Close();
         }
 
-        static public bool verifierContextuel()
+        static public bool VerifierContextuel()
         {
             bool resultat = false;
 

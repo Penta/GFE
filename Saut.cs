@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Gestionnaire_de_Fond_d_Écran
+namespace Gfe
 {
     public partial class Saut : Form
     {
@@ -12,7 +12,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             lbl_max.Text = "/ " + Principale.nbFichier.ToString();
         }
 
-        private void btn_valider_Click(object sender, EventArgs e)
+        private void BoutonValider_Clic(object sender, EventArgs e)
         {
             int valeur = -1;
 

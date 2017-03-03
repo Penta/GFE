@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Gestionnaire_de_Fond_d_Écran
+namespace Gfe
 {
     public partial class Attente : Form
     {

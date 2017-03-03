@@ -3,11 +3,11 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 
-namespace Gestionnaire_de_Fond_d_Écran
+namespace Gfe
 {
-    class func
+    internal class Func
     {
-        static public Affichage convertirAffichage(string affichage)
+        static public Affichage ConvertirAffichage(string affichage)
         {
             Affichage resultat = Affichage.etirer;
             affichage = affichage.ToLower();
@@ -30,7 +30,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             return resultat;
         }
 
-        static public string traitementNom(string nom)
+        static public string TraitementNom(string nom)
         {
             string resultat = null;
             string[] tmp = null;
@@ -49,7 +49,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             return resultat;
         }
 
-        static public string traitementChemin(string chemin)
+        static public string TraitementChemin(string chemin)
         {
             string resultat = null;
             string[] tmp = null;
@@ -71,7 +71,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             return resultat;
         }
 
-        static public FileInfo[] rechercheRecursive(string chemin, ref int erreur)
+        static public FileInfo[] RechercheRecursive(string chemin, ref int erreur)
         {
             FileInfo[] resultat = new FileInfo[65535];
             FileInfo[] temp = new FileInfo[65535];
@@ -84,7 +84,7 @@ namespace Gestionnaire_de_Fond_d_Écran
 
                 while (i < dossiersInfo.Length && dossiersInfo.Length > 0)
                 {
-                    resultat = resultat.Concat(rechercheRecursive(dossiersInfo[i].FullName, ref erreur)).ToArray();
+                    resultat = resultat.Concat(RechercheRecursive(dossiersInfo[i].FullName, ref erreur)).ToArray();
                     i++;
                 }
             }
@@ -93,7 +93,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             return resultat;
         }
 
-        static public byte[] imageVersBytes(Image image)
+        static public byte[] ImageVersBytes(Image image)
         {
             using (var ms = new MemoryStream())
             {

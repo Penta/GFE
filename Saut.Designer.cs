@@ -1,4 +1,4 @@
-﻿namespace Gestionnaire_de_Fond_d_Écran
+﻿namespace Gfe
 {
     partial class Saut
     {
@@ -55,7 +55,7 @@
             resources.ApplyResources(this.btn_valider, "btn_valider");
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.UseVisualStyleBackColor = true;
-            this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
+            this.btn_valider.Click += new System.EventHandler(this.BoutonValider_Clic);
             // 
             // Saut
             // 

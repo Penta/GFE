@@ -1,4 +1,4 @@
-﻿namespace Gestionnaire_de_Fond_d_Écran
+﻿namespace Gfe
 {
     partial class APropos
     {
@@ -56,7 +56,7 @@
             resources.ApplyResources(this.linkLabel1, "linkLabel1");
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LienLicence_Clic);
             // 
             // lbl_version
             // 
@@ -73,7 +73,7 @@
             resources.ApplyResources(this.linkLabel2, "linkLabel2");
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.TabStop = true;
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LienClasse_Clic);
             // 
             // label5
             // 
@@ -93,14 +93,14 @@
             resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.BoutonOK_Clic);
             // 
             // lbl_link_github
             // 
             resources.ApplyResources(this.lbl_link_github, "lbl_link_github");
             this.lbl_link_github.Name = "lbl_link_github";
             this.lbl_link_github.TabStop = true;
-            this.lbl_link_github.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            this.lbl_link_github.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LienGitHub_Clic);
             // 
             // APropos
             // 

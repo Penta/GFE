@@ -5,11 +5,11 @@ using System.Net;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Gestionnaire_de_Fond_d_Écran
+namespace Gfe
 {
-    public partial class maj
+    public partial class Maj
     {
-        static public void verifierMaj()
+        static public void VerifierMaj()
         {
             WebClient web = new WebClient();
 
@@ -25,8 +25,8 @@ namespace Gestionnaire_de_Fond_d_Écran
 
                     MessageBox.Show("Une mise à jour est disponible !\n\nLe logiciel doit redémarrer pour se mettre à jour.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
-                    maj fonc = new maj();
-                    fonc.miseEnPlace();
+                    Maj fonc = new Maj();
+                    fonc.MiseEnPlace();
                 }
                 else
                 {
@@ -40,7 +40,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             }
         }
 
-        private void miseEnPlace()
+        private void MiseEnPlace()
         {
             if (File.Exists(Path.GetTempPath() + "GFE_updt.exe"))
                 File.Delete(Path.GetTempPath() + "GFE_updt.exe");
@@ -51,7 +51,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             Environment.Exit(0);
         }
 
-        static public void installerMaj(string chemin)
+        static public void InstallerMaj(string chemin)
         {
             WebClient web = new WebClient();
             string nouvelleVersion = nouvelleVersion = web.DownloadString("http://penta.fr.cr/GFE/ver").Substring(0, 3); ;
@@ -75,7 +75,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             }
         }
 
-        static public void finalisationMaj()
+        static public void FinalisationMaj()
         {
             Thread.Sleep(250);
             File.Delete(Path.GetTempPath() + "GFE_updt.exe");

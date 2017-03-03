@@ -1,4 +1,4 @@
-﻿namespace Gestionnaire_de_Fond_d_Écran
+﻿namespace Gfe
 {
     partial class Renommer
     {
@@ -42,7 +42,7 @@
             this.btn_valider.TabIndex = 2;
             this.btn_valider.Text = "Valider";
             this.btn_valider.UseVisualStyleBackColor = true;
-            this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
+            this.btn_valider.Click += new System.EventHandler(this.BoutonValiderClic);
             // 
             // lbl_extension
             // 
@@ -59,7 +59,7 @@
             this.txt_nom.Name = "txt_nom";
             this.txt_nom.Size = new System.Drawing.Size(229, 20);
             this.txt_nom.TabIndex = 1;
-            this.txt_nom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nom_KeyPress);
+            this.txt_nom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TexteNomTouchePresse);
             // 
             // lbl_description
             // 
