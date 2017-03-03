@@ -153,7 +153,7 @@
     <value>75, 21</value>
   </data>
   <data name="btn_explorer.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btn_explorer.Text" xml:space="preserve">
     <value>Explorer</value>
@@ -177,7 +177,7 @@
     <value>281, 20</value>
   </data>
   <data name="txt_chemin.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;txt_chemin.Name" xml:space="preserve">
     <value>txt_chemin</value>
@@ -198,7 +198,7 @@
     <value>88, 33</value>
   </data>
   <data name="btn_valider.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="btn_valider.Text" xml:space="preserve">
     <value>Valider</value>
@@ -225,7 +225,7 @@
     <value>230, 17</value>
   </data>
   <data name="check_sousdossier.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>3</value>
   </data>
   <data name="check_sousdossier.Text" xml:space="preserve">
     <value>Inclure les fonds d'écran des sous-dossiers.</value>

@@ -39,7 +39,7 @@
             this.btn_valider.Location = new System.Drawing.Point(200, 64);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Size = new System.Drawing.Size(75, 23);
-            this.btn_valider.TabIndex = 0;
+            this.btn_valider.TabIndex = 2;
             this.btn_valider.Text = "Valider";
             this.btn_valider.UseVisualStyleBackColor = true;
             this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
@@ -58,7 +58,8 @@
             this.txt_nom.Location = new System.Drawing.Point(12, 35);
             this.txt_nom.Name = "txt_nom";
             this.txt_nom.Size = new System.Drawing.Size(229, 20);
-            this.txt_nom.TabIndex = 2;
+            this.txt_nom.TabIndex = 1;
+            this.txt_nom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nom_KeyPress);
             // 
             // lbl_description
             // 

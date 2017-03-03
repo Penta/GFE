@@ -1,7 +1,7 @@
 @ECHO OFF
 CHCP 28591 > nul
 
-REM Script pour nettoyer les sources du Gestionnaire de Fond d'écran
+REM Script pour nettoyer les sources du Gestionnaire de Fond d'Écran
 REM Par Andy Esnard - Février 2017
 REM Sous Licence GNU GPLv3
 

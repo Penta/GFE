@@ -17,6 +17,8 @@ namespace Gestionnaire_de_Fond_d_Écran
 
             txt_nom.Text = Path.GetFileNameWithoutExtension(fichier);
             lbl_extension.Text = Path.GetExtension(fichier);
+
+            txt_nom.Focus();
         }
 
         private void btn_valider_Click(object sender, EventArgs e)
@@ -28,6 +30,15 @@ namespace Gestionnaire_de_Fond_d_Écran
             }
             else
                 MessageBox.Show("Le nom du fichier ne peut pas être vide !", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void txt_nom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                btn_valider.PerformClick();
+            }
         }
     }
 }
