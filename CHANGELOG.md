@@ -1,6 +1,13 @@
 ﻿
 ## Changelog du Gestionnaire de Fond d'Écran
 
+### Version à venir :
+ - Ajout d'une option pour ajouter l'application au menu contextuel.
+ - Amélioration de la fenêtre renommer.
+ - Bouton pour acceder au dossier dans l'explorateur de fichiers.
+ - Ajout du menu "Note de version" (qui redirige vers les releases de GitHub).
+ - Ajout du paramètre : /D <path> permettant de démarrer l'application sans passer par la fenêtre de selection du dossier.
+
 ### Version 0.8.1 (28 Février 2017) :
  - Correction de l'affichage lors d'un changement de dossier.
  - Un bouton pour renommer les fichiers.

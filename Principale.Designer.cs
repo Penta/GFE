@@ -42,6 +42,7 @@
             this.rechargerLeFondToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mettreEnFondDécranToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.voirLeContenuDuDossierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changerDeDossierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allezÀLimageNuméroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimiserToutesLesFenêtresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,10 +54,12 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.mettreÀJourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterAuMenuContextuelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.statistiquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aléatoireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aideEnLigneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.noteDeVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl_info_chemin = new System.Windows.Forms.Label();
             this.lbl_info_nom = new System.Windows.Forms.Label();
@@ -69,7 +72,6 @@
             this.infobulle_nom = new System.Windows.Forms.ToolTip(this.components);
             this.btn_modifier = new System.Windows.Forms.Button();
             this.infobulle_chemin = new System.Windows.Forms.ToolTip(this.components);
-            this.voirLeContenuDuDossierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -164,6 +166,12 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
+            // voirLeContenuDuDossierToolStripMenuItem
+            // 
+            this.voirLeContenuDuDossierToolStripMenuItem.Name = "voirLeContenuDuDossierToolStripMenuItem";
+            resources.ApplyResources(this.voirLeContenuDuDossierToolStripMenuItem, "voirLeContenuDuDossierToolStripMenuItem");
+            this.voirLeContenuDuDossierToolStripMenuItem.Click += new System.EventHandler(this.voirLeContenuDuDossierToolStripMenuItem_Click);
+            // 
             // changerDeDossierToolStripMenuItem
             // 
             this.changerDeDossierToolStripMenuItem.Name = "changerDeDossierToolStripMenuItem";
@@ -206,6 +214,7 @@
             this.toolStripSeparator3,
             this.mettreÀJourToolStripMenuItem,
             this.ajouterAuMenuContextuelToolStripMenuItem,
+            this.toolStripSeparator5,
             this.statistiquesToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             resources.ApplyResources(this.optionsToolStripMenuItem, "optionsToolStripMenuItem");
@@ -233,6 +242,11 @@
             resources.ApplyResources(this.ajouterAuMenuContextuelToolStripMenuItem, "ajouterAuMenuContextuelToolStripMenuItem");
             this.ajouterAuMenuContextuelToolStripMenuItem.Click += new System.EventHandler(this.ajouterAuMenuContextuelToolStripMenuItem_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
+            // 
             // statistiquesToolStripMenuItem
             // 
             resources.ApplyResources(this.statistiquesToolStripMenuItem, "statistiquesToolStripMenuItem");
@@ -249,6 +263,7 @@
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aideEnLigneToolStripMenuItem,
+            this.noteDeVersionToolStripMenuItem,
             this.aProposToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
@@ -258,6 +273,12 @@
             this.aideEnLigneToolStripMenuItem.Name = "aideEnLigneToolStripMenuItem";
             resources.ApplyResources(this.aideEnLigneToolStripMenuItem, "aideEnLigneToolStripMenuItem");
             this.aideEnLigneToolStripMenuItem.Click += new System.EventHandler(this.aideEnLigneToolStripMenuItem_Click);
+            // 
+            // noteDeVersionToolStripMenuItem
+            // 
+            this.noteDeVersionToolStripMenuItem.Name = "noteDeVersionToolStripMenuItem";
+            resources.ApplyResources(this.noteDeVersionToolStripMenuItem, "noteDeVersionToolStripMenuItem");
+            this.noteDeVersionToolStripMenuItem.Click += new System.EventHandler(this.noteDeVersionToolStripMenuItem_Click);
             // 
             // aProposToolStripMenuItem
             // 
@@ -319,12 +340,6 @@
             this.btn_modifier.Name = "btn_modifier";
             this.btn_modifier.UseVisualStyleBackColor = true;
             this.btn_modifier.Click += new System.EventHandler(this.btn_modifier_Click);
-            // 
-            // voirLeContenuDuDossierToolStripMenuItem
-            // 
-            this.voirLeContenuDuDossierToolStripMenuItem.Name = "voirLeContenuDuDossierToolStripMenuItem";
-            resources.ApplyResources(this.voirLeContenuDuDossierToolStripMenuItem, "voirLeContenuDuDossierToolStripMenuItem");
-            this.voirLeContenuDuDossierToolStripMenuItem.Click += new System.EventHandler(this.voirLeContenuDuDossierToolStripMenuItem_Click);
             // 
             // Principale
             // 
@@ -398,5 +413,7 @@
         private System.Windows.Forms.ToolStripMenuItem renommerLeFichierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajouterAuMenuContextuelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem voirLeContenuDuDossierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem noteDeVersionToolStripMenuItem;
     }
 }

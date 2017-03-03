@@ -318,6 +318,9 @@
   <data name="ajouterAuMenuContextuelToolStripMenuItem.Text" xml:space="preserve">
     <value>Ajouter au menu contextuel</value>
   </data>
+  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 6</value>
+  </data>
   <data name="statistiquesToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -355,16 +358,25 @@
     <value>F1</value>
   </data>
   <data name="aideEnLigneToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 22</value>
+    <value>200, 22</value>
   </data>
   <data name="aideEnLigneToolStripMenuItem.Text" xml:space="preserve">
     <value>Aide en ligne</value>
+  </data>
+  <data name="noteDeVersionToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+N</value>
+  </data>
+  <data name="noteDeVersionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 22</value>
+  </data>
+  <data name="noteDeVersionToolStripMenuItem.Text" xml:space="preserve">
+    <value>Note de version</value>
   </data>
   <data name="aProposToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+A</value>
   </data>
   <data name="aProposToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 22</value>
+    <value>200, 22</value>
   </data>
   <data name="aProposToolStripMenuItem.Text" xml:space="preserve">
     <value>À Propos</value>
@@ -732,6 +744,12 @@
   <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;voirLeContenuDuDossierToolStripMenuItem.Name" xml:space="preserve">
+    <value>voirLeContenuDuDossierToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;voirLeContenuDuDossierToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;changerDeDossierToolStripMenuItem.Name" xml:space="preserve">
     <value>changerDeDossierToolStripMenuItem</value>
   </data>
@@ -798,6 +816,12 @@
   <data name="&gt;&gt;ajouterAuMenuContextuelToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripSeparator5.Name" xml:space="preserve">
+    <value>toolStripSeparator5</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;statistiquesToolStripMenuItem.Name" xml:space="preserve">
     <value>statistiquesToolStripMenuItem</value>
   </data>
@@ -822,6 +846,12 @@
   <data name="&gt;&gt;aideEnLigneToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;noteDeVersionToolStripMenuItem.Name" xml:space="preserve">
+    <value>noteDeVersionToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;noteDeVersionToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;aProposToolStripMenuItem.Name" xml:space="preserve">
     <value>aProposToolStripMenuItem</value>
   </data>
@@ -839,12 +869,6 @@
   </data>
   <data name="&gt;&gt;infobulle_chemin.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;voirLeContenuDuDossierToolStripMenuItem.Name" xml:space="preserve">
-    <value>voirLeContenuDuDossierToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;voirLeContenuDuDossierToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Principale</value>

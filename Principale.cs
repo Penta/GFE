@@ -6,11 +6,10 @@ using System.Diagnostics;
 using Microsoft.Win32;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 
 // Classe sous licence GNU GPLv3
 using Gulix.Wallpaper;
-using System.Threading;
-using System.Drawing.Imaging;
 
 namespace Gestionnaire_de_Fond_d_Écran
 {
@@ -294,7 +293,7 @@ namespace Gestionnaire_de_Fond_d_Écran
             {
                 this.Visible= false;
                 message.Show();
-                Thread.Sleep(250);
+                Thread.Sleep(333);
             }
 
             fichiers.Initialize();
@@ -647,6 +646,12 @@ namespace Gestionnaire_de_Fond_d_Écran
         }
 
         private void voirLeContenuDuDossierToolStripMenuItem_Click(object sender, EventArgs e) { voirDossier(); }
+
+        private void noteDeVersionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string url = "https://github.com/Penta/GFE/releases/tag/" + VERSION;
+            Process.Start(url);
+        }
 
         private void mettreÀJourToolStripMenuItem_Click(object sender, EventArgs e)
         {
