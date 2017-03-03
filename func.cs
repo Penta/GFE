@@ -1,4 +1,5 @@
 ﻿using Gulix.Wallpaper;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 
@@ -90,6 +91,15 @@ namespace Gestionnaire_de_Fond_d_Écran
             catch { erreur++; }
 
             return resultat;
+        }
+
+        static public byte[] imageVersBytes(Image image)
+        {
+            using (var ms = new MemoryStream())
+            {
+                image.Save(ms, image.RawFormat);
+                return ms.ToArray();
+            }
         }
     }
 }

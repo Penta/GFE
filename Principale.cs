@@ -10,6 +10,7 @@ using System.Reflection;
 // Classe sous licence GNU GPLv3
 using Gulix.Wallpaper;
 using System.Threading;
+using System.Drawing.Imaging;
 
 namespace Gestionnaire_de_Fond_d_Écran
 {
@@ -608,32 +609,41 @@ namespace Gestionnaire_de_Fond_d_Écran
                 this.Refresh();
         }
 
-        private void lbl_chemin_Click(object sender, EventArgs e)
-        {
-            voirDossier();
-        }
+        private void lbl_chemin_Click(object sender, EventArgs e) { voirDossier(); }
 
         private void ajouterAuMenuContextuelToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            string cheminIcone = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Gestionnaire de Fond d'Écran\";
+
             try
             {
                 if (ajouterAuMenuContextuelToolStripMenuItem.Checked)
                 {
                     Registre.retirerContextuel();
                     ajouterAuMenuContextuelToolStripMenuItem.Checked = false;
+                    File.Delete(cheminIcone + "icone.ico");
+
                     MessageBox.Show("L'entrée dans le menu contextuel a bien été supprimée.", "Désactivation de l'entrée", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     Registre.ajouterContextuel();
                     ajouterAuMenuContextuelToolStripMenuItem.Checked = true;
+
+                    if (!Directory.Exists(cheminIcone))
+                        Directory.CreateDirectory(cheminIcone);
+
+                    if (!File.Exists(cheminIcone + "icone.ico"))
+                    {
+                        FileStream fs = new FileStream(cheminIcone + "icone.ico", FileMode.Create);
+                        Properties.Resources.icone.Save(fs);
+                        fs.Close();
+                    }
+
                     MessageBox.Show("Vous pouvez maintenant lancer le Gestionnaire de Fond d'Écran dans le menu contextuel d'un dossier ! (clic droit)\n\nVeuillez désactiver cette option avant de supprimer ou déplacer cet exécutable.", "Bravo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (Exception err)
-            {
-                MessageBox.Show("Une erreur est surevenue durant la modification du registre !\n\nErreur :\n" + err.ToString(), "Erreur durant l'ajout au menu contextuel", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            }
+            catch (Exception err) { MessageBox.Show("Une erreur est surevenue durant la modification du registre !\n\nErreur :\n" + err.ToString(), "Erreur durant l'ajout au menu contextuel", MessageBoxButtons.OK, MessageBoxIcon.Hand); }
         }
 
         private void voirLeContenuDuDossierToolStripMenuItem_Click(object sender, EventArgs e) { voirDossier(); }

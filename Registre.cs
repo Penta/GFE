@@ -8,7 +8,7 @@ namespace Gestionnaire_de_Fond_d_Écran
     class Registre
     {
         public const string emplacement = @"SOFTWARE\Gestionnaire de Fond d'Écran";
-        private const string nomContextuel = "Visualiser les fonds d'écran du dossier";
+        private const string nomContextuel = "Gestionnaire de Fond d'Écran";
 
         static public RegistryKey registre = Registry.CurrentUser.OpenSubKey(emplacement, RegistryKeyPermissionCheck.ReadWriteSubTree);
 
@@ -123,31 +123,33 @@ namespace Gestionnaire_de_Fond_d_Écran
 
         static public void ajouterContextuel()
         {
-            RegistryKey _key = Registry.CurrentUser.CreateSubKey(@"Software\Classes\Directory\shell", true);
-            RegistryKey newkey = _key.CreateSubKey(nomContextuel);
-            RegistryKey subNewkey = newkey.CreateSubKey("command");
-            subNewkey.SetValue("", "\"" + System.Reflection.Assembly.GetEntryAssembly().Location + "\" /O \"%1\"");
-            subNewkey.Close();
-            newkey.Close();
-            _key.Close();
+            RegistryKey clef = Registry.CurrentUser.CreateSubKey(@"Software\Classes\Directory\shell\" + nomContextuel, true);
+            RegistryKey sousClef = clef.CreateSubKey("command", true);
+
+            clef.SetValue("", "Visualiser les fonds d'écran du dossier");
+            clef.SetValue("Icon", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Gestionnaire de Fond d'Écran\icone.ico");
+            sousClef.SetValue("", "\"" + System.Reflection.Assembly.GetEntryAssembly().Location + "\" /O \"%1\"");
+            sousClef.Close();
+            clef.Close();
         }
 
         static public void retirerContextuel()
         {
-            RegistryKey _key = Registry.CurrentUser.OpenSubKey(@"Software\Classes\Directory\shell", true);
-            _key.DeleteSubKeyTree(nomContextuel);
-            _key.Close();
+            RegistryKey clef = Registry.CurrentUser.OpenSubKey(@"Software\Classes\Directory\shell", true);
+
+            clef.DeleteSubKeyTree(nomContextuel);
+            clef.Close();
         }
 
         static public bool verifierContextuel()
         {
             bool resultat = false;
 
-            RegistryKey _key = Registry.CurrentUser.OpenSubKey(@"Software\Classes\Directory\shell\" + nomContextuel + @"\command", false);
+            RegistryKey clef = Registry.CurrentUser.OpenSubKey(@"Software\Classes\Directory\shell\" + nomContextuel + @"\command", false);
 
             try
             {
-                if (_key.GetValue("") != null)
+                if (clef.GetValue("") != null)
                     resultat = true;
             }
             catch { resultat = false; }
