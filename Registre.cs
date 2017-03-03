@@ -11,10 +11,8 @@ namespace Gfe
         private const string nomContextuel = "Gestionnaire de Fond d'Écran";
 
         static public RegistryKey registre = Registry.CurrentUser.OpenSubKey(emplacement, RegistryKeyPermissionCheck.ReadWriteSubTree);
-
         public static string ancienChemin = null;
         public static int ancienId = 0;
-
         public static bool miseAJour = false;
 
         static public void Initialisation()

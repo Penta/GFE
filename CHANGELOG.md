@@ -9,6 +9,7 @@
  - Ajout du paramètre : "/D PATH" permettant de démarrer l'application sans passer par la fenêtre de selection du dossier.
  - Suppression automatique des points et des espaces dans les parametres des extensions (pour faciliter son utilisation).
  - Recharger un fichier illisible (après sa correction) l'enlève de la liste des mauvais fichiers.
+ - Mise en place d'un bouton explorer sur la fenêtre de configuration pour choisir son exécutable externe graphiquement.
 
 ### Version 0.8.1 (28 Février 2017) :
  - Correction de l'affichage lors d'un changement de dossier.

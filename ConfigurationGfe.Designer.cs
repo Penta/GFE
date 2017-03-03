@@ -40,6 +40,7 @@
             this.check_sousdossier = new System.Windows.Forms.CheckBox();
             this.check_constanteVerif = new System.Windows.Forms.CheckBox();
             this.btn_reset = new System.Windows.Forms.Button();
+            this.btn_explorer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_dispo_info
@@ -115,10 +116,18 @@
             this.btn_reset.UseVisualStyleBackColor = false;
             this.btn_reset.Click += new System.EventHandler(this.BoutonReset_Clic);
             // 
-            // Configuration
+            // btn_explorer
+            // 
+            resources.ApplyResources(this.btn_explorer, "btn_explorer");
+            this.btn_explorer.Name = "btn_explorer";
+            this.btn_explorer.UseVisualStyleBackColor = true;
+            this.btn_explorer.Click += new System.EventHandler(this.BoutonExplorer_Clic);
+            // 
+            // ConfigurationGfe
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_explorer);
             this.Controls.Add(this.btn_reset);
             this.Controls.Add(this.check_constanteVerif);
             this.Controls.Add(this.check_sousdossier);
@@ -133,7 +142,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Configuration";
+            this.Name = "ConfigurationGfe";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.ResumeLayout(false);
@@ -154,5 +163,6 @@
         private System.Windows.Forms.CheckBox check_sousdossier;
         private System.Windows.Forms.CheckBox check_constanteVerif;
         private System.Windows.Forms.Button btn_reset;
+        private System.Windows.Forms.Button btn_explorer;
     }
 }

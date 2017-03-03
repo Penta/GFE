@@ -144,7 +144,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_dispo_info.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="cb_dispo.Items" xml:space="preserve">
     <value>Étirer</value>
@@ -165,7 +165,7 @@
     <value>157, 10</value>
   </data>
   <data name="cb_dispo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 21</value>
+    <value>335, 21</value>
   </data>
   <data name="cb_dispo.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -180,10 +180,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cb_dispo.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="btn_appliquer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>313, 195</value>
+    <value>417, 195</value>
   </data>
   <data name="btn_appliquer.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -204,7 +204,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_appliquer.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="lbl_externe.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -231,13 +231,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_externe.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="txt_externe.Location" type="System.Drawing.Point, System.Drawing">
     <value>157, 48</value>
   </data>
   <data name="txt_externe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 20</value>
+    <value>268, 20</value>
   </data>
   <data name="txt_externe.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -252,7 +252,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txt_externe.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="check_rappel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -279,7 +279,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;check_rappel.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="lbl_info_extension.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -306,13 +306,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_info_extension.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="txt_extension.Location" type="System.Drawing.Point, System.Drawing">
     <value>157, 85</value>
   </data>
   <data name="txt_extension.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 20</value>
+    <value>335, 20</value>
   </data>
   <data name="txt_extension.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -327,7 +327,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txt_extension.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="check_sousdossier.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -358,7 +358,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;check_sousdossier.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="check_constanteVerif.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -388,7 +388,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;check_constanteVerif.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btn_reset.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 195</value>
@@ -412,6 +412,30 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_reset.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btn_explorer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>431, 47</value>
+  </data>
+  <data name="btn_explorer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 23</value>
+  </data>
+  <data name="btn_explorer.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="btn_explorer.Text" xml:space="preserve">
+    <value>Explorer</value>
+  </data>
+  <data name="&gt;&gt;btn_explorer.Name" xml:space="preserve">
+    <value>btn_explorer</value>
+  </data>
+  <data name="&gt;&gt;btn_explorer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_explorer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_explorer.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -421,7 +445,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>400, 230</value>
+    <value>504, 230</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
@@ -430,7 +454,7 @@
     <value>Configuration...</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Configuration</value>
+    <value>ConfigurationGfe</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

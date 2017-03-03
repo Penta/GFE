@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Gfe
@@ -7,6 +9,9 @@ namespace Gfe
     {
         static public bool changement = false;
         static public bool changementFichier = false;
+
+        private string logiciel = null;
+        private bool desactivation = false;
 
         private void ChargerConfig()
         {
@@ -18,10 +23,30 @@ namespace Gfe
             check_sousdossier.Checked = Principale.sousDossier;
         }
 
+        private void ChangerDossier()
+        {
+            logiciel = null;
+
+            OpenFileDialog openFileDialog1 = new OpenFileDialog()
+            {
+                InitialDirectory = @"C:\",
+                Filter = "Exécutables (*.exe)|*.exe|Tout les fichiers (*.*)|*.*",
+                Title = "Choisissez le logiciel externe pour la modification des fichiers...",
+                FilterIndex = 1,
+                RestoreDirectory = true
+            };
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                logiciel = openFileDialog1.FileName;
+            }
+
+            desactivation = false;
+        }
+
         public ConfigurationGfe()
         {
             InitializeComponent();
-
             ChargerConfig();
         }
 
@@ -66,6 +91,25 @@ namespace Gfe
                 MessageBox.Show("Votre configuration a été réinitialisée !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
                     
+        }
+
+        private void BoutonExplorer_Clic(object sender, EventArgs e)
+        {
+            this.Enabled = false;
+            desactivation = true;
+
+            Thread proc = new Thread(new ThreadStart(ChangerDossier));
+            proc.SetApartmentState(ApartmentState.STA);
+            proc.Start();
+
+            while (desactivation == true) { Thread.Sleep(100); }
+
+            if(!string.IsNullOrEmpty(logiciel))
+                txt_externe.Text = logiciel;
+
+            this.Enabled = true;
+            this.Activate();
+            this.Show();
         }
     }
 }
