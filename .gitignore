@@ -1,11 +1,14 @@
-﻿################################################################################
-# Ce fichier .gitignore a été automatiquement créé par Microsoft(R) Visual Studio.
-################################################################################
+####################################################################################
+# Ce fichier .gitignore a été automatiquement créé par Microsoft(R) Visual Studio. #
+####################################################################################
 
-/bin/
-/obj/
-/Gestionnaire de Fond d'Écran.exe
-/Resources/source.zip
-/.vs/
-/Gestionnaire de Fond d'Écran.csproj.user
-/*.ruleset
+bin/
+obj/
+tmp/
+.vs/
+
+Resources/source.zip
+
+*.exe
+*.csproj.user
+*.ruleset
