@@ -30,7 +30,7 @@ namespace Gfe
             OpenFileDialog openFileDialog1 = new OpenFileDialog()
             {
                 InitialDirectory = @"C:\",
-                Filter = "Exécutables (*.exe)|*.exe|Tout les fichiers (*.*)|*.*",
+                Filter = "Exécutables (*.exe)|*.exe|Tous les fichiers (*.*)|*.*",
                 Title = "Choisissez le logiciel externe pour la modification des fichiers...",
                 FilterIndex = 1,
                 RestoreDirectory = true
@@ -78,7 +78,7 @@ namespace Gfe
                 changement = true;
                 changementFichier = true;
 
-                Principale.logiciel = @"C:\Windows\System32\mspaint.exe";
+                Principale.logiciel = Environment.SystemDirectory + @"\mspaint.exe";
                 Principale.affichage = "étirer";
                 Principale.extension = "png;jpg;jpeg;bmp;tiff;tif";
                 Principale.rappel = true;

@@ -47,6 +47,7 @@ echo "Nettoyage des sources..."
 
 # Suppression des fichiers inutiles
 If ( Test-Path "$tmp\Resources\source.zip"                     ) { Remove-Item "$tmp\Resources\source.zip"                     }
+If ( Test-Path "$tmp\Resources\icone_original.ico"             ) { Remove-Item "$tmp\Resources\icone_original.ico"             }
 If ( Test-Path "$tmp\Resources\icone.xcf"                      ) { Remove-Item "$tmp\Resources\icone.xcf"                      }
 If ( Test-Path "$tmp\Gestionnaire de Fond d'Écran.exe"         ) { Remove-Item "$tmp\Gestionnaire de Fond d'Écran.exe"         }
 If ( Test-Path "$tmp\Gestionnaire de Fond d'Écran.csproj.user" ) { Remove-Item "$tmp\Gestionnaire de Fond d'Écran.csproj.user" }

@@ -21,14 +21,15 @@ namespace Gfe
         // Variables globales
         static public int id = -1, nbFichier = 0, mid = 0;
         static public Color couleur = Color.Black;
-        static public string affichage = "Étirer", logiciel = @"C:\Windows\System32\mspaint.exe";
+        static public string affichage = "Étirer", logiciel = Environment.SystemDirectory + @"\mspaint.exe";
         static public string chemin = null, ancienAffichage = null;
         static public bool rappel = true, sousDossier = false, rechargementConstant = false;
         static public string[] mauvaisFichiers = new string[65536], AncienfondEcran = new string[3];
         static public string extension = "jpg;jpeg;png;bmp;tiff;tif";
-        static private bool premierChargement = true;
         static public bool selectionPremierLancement = true;
         FileInfo[] fichiers = new FileInfo[65536];
+
+        static private bool premierChargement = true;
 
         // Fonction chargeant le fond lié à la variable id dans l'array fichiers
         private void ChargerFond(bool retry)

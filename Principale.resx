@@ -173,7 +173,7 @@
   </data>
   <data name="supprimerToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+Suppr</value>
-  </data>
+  </data> <!-- Si la ligne d'au dessus provoque une erreur durant la compilation, remplacez-là par : Ctrl+Del -->
   <data name="supprimerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>267, 22</value>
   </data>
