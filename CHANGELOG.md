@@ -11,6 +11,7 @@
  - Recharger un fichier illisible (après sa correction) l'enlève de la liste des mauvais fichiers.
  - Mise en place d'un bouton explorer sur la fenêtre de configuration pour choisir son exécutable externe graphiquement.
  - Ajout du paramètre /R pour supprimer toutes les données et fichiers du Gestionnaire de Fond d'Écran sur le disque dur et le registre.
+ - Correction d'un bug au premier démarrage.
 
 ### Version 0.8.1 (28 Février 2017) :
  - Correction de l'affichage lors d'un changement de dossier.
