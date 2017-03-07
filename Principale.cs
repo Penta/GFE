@@ -238,7 +238,9 @@ namespace Gfe
 
             if (reponse == DialogResult.Yes) // Si la réponse est oui
             {
-                File.Delete(fichiers[id].FullName); // On supprime le fichier en question
+                if(File.Exists(fichiers[id].FullName)) // On vérifie que le fichier existe
+                    File.Delete(fichiers[id].FullName); // On supprime le fichier en question
+
                 nbFichier--;
 
                 fichiers = fichiers.Where(val => val != fichiers[id]).ToArray();
@@ -286,11 +288,11 @@ namespace Gfe
         {
             this.Visible = false;
 
-            if (id != -1)
-                AncienFond();
+            if (id != -1) AncienFond();
 
             File.Delete(Path.GetTempPath() + @"GFE_tmp.bmp");
-            Registre.MiseAjourConfig(); 
+            Registre.MiseAjourConfig();
+            Registre.registre.Close();
 
             this.DestroyHandle();
         }
@@ -412,11 +414,15 @@ namespace Gfe
 
         private void RenommerFichier()
         {
+            int mId = -1;
+
             if (id >= 0 && id < nbFichier)
             {
                 Renommer.fichier = fichiers[id].Name;
                 Renommer fenetre = new Renommer();
                 fenetre.ShowDialog();
+
+                mId = Array.FindIndex(mauvaisFichiers, x => x == fichiers[id].FullName);
 
                 if (!string.IsNullOrEmpty(Renommer.resultat))
                 {
@@ -426,6 +432,9 @@ namespace Gfe
                         {
                             File.Move(fichiers[id].FullName, fichiers[id].DirectoryName + @"\" + Renommer.resultat);
                             fichiers[id] = new FileInfo(fichiers[id].DirectoryName + @"\" + Renommer.resultat);
+
+                            if (mId >= 0)
+                                mauvaisFichiers[mId] = fichiers[id].FullName;
 
                             MessageBox.Show("Le fichier a bien été renommé !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
@@ -555,7 +564,8 @@ namespace Gfe
 
             id = rndId.Next(nbFichier);
 
-            while(tmpId == id && nbFichier >= 2)
+            // On vérifie que l'id n'est pas le même que précédent, qu'il y a plus de 1 fichier et que le fichier n'est pas dans la liste des mauvais fichiers
+            while ((tmpId == id && nbFichier >= 2) | (Array.FindIndex(mauvaisFichiers, x => x == fichiers[id].FullName) >= 0 && mauvaisFichiers.Count(s => s != null) + 1 < nbFichier))
                 id = rndId.Next(nbFichier);
 
             ChargerFond(false);

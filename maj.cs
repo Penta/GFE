@@ -39,6 +39,8 @@ namespace Gfe
             {
                 MessageBox.Show("Impossible de faire la mise à jour ! Avez-vous encore Internet ? Le serveur de mise à jour est-il encore en ligne ?", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
+
+            web.Dispose();
         }
 
         private void MiseEnPlace()
@@ -74,11 +76,14 @@ namespace Gfe
 
                 MessageBox.Show("Une erreur est survenue durant la mise à jour !\n\nErreur :\n" + e, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            web.Dispose();
         }
 
         static public void FinalisationMaj()
         {
             Thread.Sleep(250);
+
             File.Delete(Path.GetTempPath() + "GFE_updt.exe");
             Registre.registre.SetValue("MiseAJour", false);
 

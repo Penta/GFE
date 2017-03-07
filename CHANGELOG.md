@@ -1,6 +1,12 @@
 ﻿
 ## Changelog du Gestionnaire de Fond d'Écran
 
+### Version à venir :
+ - Suppression des sources intégrées et remplacement par un téléchargement via GitHub.
+ - Supression d'un bug si on supprime par le logiciel un fichier déjà supprimé.
+ - La fonction aléatoire ne montre plus que des fichiers valides, sauf si il n'en reste plus qu'un.
+ - Corrections de quelques petits bugs.
+
 ### Version 0.8.2 (3 Mars 2017) :
  - Ajout d'une option pour ajouter l'application au menu contextuel.
  - Amélioration de la fenêtre renommer.
@@ -17,8 +23,8 @@
  - Correction de l'affichage lors d'un changement de dossier.
  - Un bouton pour renommer les fichiers.
  - Restaurer la première fenêtre si le processus est ré-ouvert une seconde fois.
- - Gain sur la taille du fichier (optimisation de l'icône de l'application.
- - Correction de bugs d'affichage.
+ - Gain sur la taille du fichier (optimisation de l'icône de l'application).
+ - Corrections de bugs d'affichage.
 
 ### Version 0.8.0 (26 Février 2017) :
  - Ajout du support des sous-dossiers.

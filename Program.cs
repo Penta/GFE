@@ -37,12 +37,15 @@ namespace Gfe
                 else if (var == "/S")
                 {
                     WebClient web = new WebClient();
+
                     try
                     {
                         web.DownloadFile("https://github.com/Penta/GFE/archive/" + Principale.VERSION + ".zip", Environment.CurrentDirectory + @"\source.zip");
                         MessageBox.Show("Téléchargement des sources via GitHub éffectué !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch { MessageBox.Show("Une erreur est survenue durant le téléchargement des sources !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+
+                    web.Dispose();
                 }
                 else if (var == "/O")
                 {

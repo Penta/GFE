@@ -27,18 +27,18 @@ namespace Gfe
         {
             logiciel = null;
 
-            OpenFileDialog openFileDialog1 = new OpenFileDialog()
+            OpenFileDialog selectionFichier = new OpenFileDialog()
             {
-                InitialDirectory = @"C:\",
+                InitialDirectory = Path.GetPathRoot(Environment.SystemDirectory),
                 Filter = "Exécutables (*.exe)|*.exe|Tous les fichiers (*.*)|*.*",
                 Title = "Choisissez le logiciel externe pour la modification des fichiers...",
                 FilterIndex = 1,
                 RestoreDirectory = true
             };
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (selectionFichier.ShowDialog() == DialogResult.OK)
             {
-                logiciel = openFileDialog1.FileName;
+                logiciel = selectionFichier.FileName;
             }
 
             desactivation = false;
