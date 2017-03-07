@@ -253,8 +253,11 @@ namespace Gfe
 
                     ChargerFond(false);
                 }
-                else 
+                else
+                {
+                    id = -1;
                     RechargerInfo();
+                }
             }
             else if (reponse == DialogResult.No & mode == true) // Si le fichier est illisible, mais que l'utilisateur ne veut pas le supprimer
             {
@@ -604,7 +607,11 @@ namespace Gfe
             this.Show();
     }
 
-        private void MenuRechargerListe_Clic(object sender, EventArgs e) { RecupererFichiers(true); }
+        private void MenuRechargerListe_Clic(object sender, EventArgs e)
+        {
+            RecupererFichiers(true);
+            RechargerInfo();
+        }
 
         private void MenuStatistique_Clic(object sender, EventArgs e)
         {
