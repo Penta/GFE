@@ -266,7 +266,7 @@ namespace Gfe
         }
 
         // Fonction qui réaffiche le fond d'écran initial
-        private void AncienFond()
+        public static void AncienFond()
         {
             try // On essaye de remettre le fond
             {
@@ -649,7 +649,6 @@ namespace Gfe
 
         private void MenuMettreAJour_Clic(object sender, EventArgs e)
         {
-            AncienFond();
             Maj.VerifierMaj();
             ChargerFond(false);
         }

@@ -69,15 +69,5 @@ namespace Gfe.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Byte[].
-        /// </summary>
-        public static byte[] source {
-            get {
-                object obj = ResourceManager.GetObject("source", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }

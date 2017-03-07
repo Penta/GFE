@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -35,9 +36,13 @@ namespace Gfe
                 }
                 else if (var == "/S")
                 {
-                    File.WriteAllBytes(Environment.CurrentDirectory + @"\source.zip", Properties.Resources.source);
-
-                    MessageBox.Show("Les sources du logiciel ont été extraites dans le dossier courant.", "Extraction des sources", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    WebClient web = new WebClient();
+                    try
+                    {
+                        web.DownloadFile("https://github.com/Penta/GFE/archive/" + Principale.VERSION + ".zip", Environment.CurrentDirectory + @"\source.zip");
+                        MessageBox.Show("Téléchargement des sources via GitHub éffectué !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch { MessageBox.Show("Une erreur est survenue durant le téléchargement des sources !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
                 else if (var == "/O")
                 {

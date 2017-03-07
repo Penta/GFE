@@ -25,6 +25,7 @@ namespace Gfe
 
                     MessageBox.Show("Une mise à jour est disponible !\n\nLe logiciel doit redémarrer pour se mettre à jour.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
+                    Principale.AncienFond();
                     Maj fonc = new Maj();
                     fonc.MiseEnPlace();
                 }
@@ -45,8 +46,8 @@ namespace Gfe
             if (File.Exists(Path.GetTempPath() + "GFE_updt.exe"))
                 File.Delete(Path.GetTempPath() + "GFE_updt.exe");
 
-            File.Copy(Path.GetFullPath(this.GetType().Assembly.Lo‌​cation), Path.GetTempPath() + "GFE_updt.exe");
-            Process.Start(Path.GetTempPath() + "GFE_updt.exe", "/U \"" + Path.GetFullPath(this.GetType().Assembly.Lo‌​cation) + "\"");
+            File.Copy(Path.GetFullPath(this.GetType().Assembly.Location), Path.GetTempPath() + "GFE_updt.exe");
+            Process.Start(Path.GetTempPath() + "GFE_updt.exe", "/U \"" + Path.GetFullPath(this.GetType().Assembly.Location) + "\"");
 
             Environment.Exit(0);
         }
