@@ -55,10 +55,16 @@ namespace Gfe
                     else
                         registre.SetValue("AncienID", 0);
 
+                    if (registre.GetValue("Historique").ToString() != null)
+                        Principale.historique = registre.GetValue("Historique").ToString();
+                    else
+                        registre.SetValue("Historique", "");
+
                     // Quelques clefs booléennes
                     Principale.rappel = Convert.ToBoolean(registre.GetValue("Rappel"));
                     Principale.sousDossier = Convert.ToBoolean(registre.GetValue("SousDossier"));
                     Principale.rechargementConstant = Convert.ToBoolean(registre.GetValue("VerifConstante"));
+                    Principale.conversion = Convert.ToBoolean(registre.GetValue("ConversionBitmap"));
                     miseAJour = Convert.ToBoolean(registre.GetValue("MiseAJour"));
                 }
                 catch
@@ -91,6 +97,8 @@ namespace Gfe
             registre.SetValue("Extensions", Principale.extension);
             registre.SetValue("SousDossier", Principale.sousDossier);
             registre.SetValue("VerifConstante", Principale.rechargementConstant);
+            registre.SetValue("Historique", "");
+            registre.SetValue("ConversionBitmap", false);
         }
 
         static public void MiseAjourConfig()
@@ -101,7 +109,14 @@ namespace Gfe
             registre.SetValue("AncienID", Principale.id);
             registre.SetValue("Extensions", Principale.extension);
             registre.SetValue("SousDossier", Principale.sousDossier);
+            registre.SetValue("ConversionBitmap", Principale.conversion);
             registre.SetValue("VerifConstante", Principale.rechargementConstant);
+
+            // Pour l'historique
+            Principale.historique = Func.GenererHistorique(Principale.chemin, Principale.historique);
+
+            if(!string.IsNullOrEmpty(Principale.historique))
+                registre.SetValue("Historique", Principale.historique);
 
             if(!string.IsNullOrEmpty(Principale.chemin))
                 registre.SetValue("AncienChemin", Principale.chemin);

@@ -10,6 +10,7 @@ using System.Threading;
 
 // Classe sous licence GNU GPLv3
 using Gulix.Wallpaper;
+using System.Drawing.Imaging;
 
 namespace Gfe
 {
@@ -24,12 +25,16 @@ namespace Gfe
         static public string affichage = "Étirer", logiciel = Environment.SystemDirectory + @"\mspaint.exe";
         static public string chemin = null, ancienAffichage = null;
         static public bool rappel = true, sousDossier = false, rechargementConstant = false;
-        static public string[] mauvaisFichiers = new string[65536], AncienfondEcran = new string[3];
+        static public string[] mauvaisFichiers = new string[65536];
         static public string extension = "jpg;jpeg;png;bmp;tiff;tif";
         static public bool selectionPremierLancement = true;
+        static public string historique = "";
+        static public bool conversion = false;
+
         FileInfo[] fichiers = new FileInfo[65536];
 
         static private bool premierChargement = true;
+        static private string cheminAncienFond = null;
 
         // Fonction chargeant le fond lié à la variable id dans l'array fichiers
         private void ChargerFond(bool retry)
@@ -42,20 +47,20 @@ namespace Gfe
                 // Si le fichier actuel n'est pas listé dans les fichiers illisibles
                 if (!mauvaisFichiers.Contains(fichiers[id].FullName))
                 {
-                    lbl_nom.ForeColor = Color.Black;
-                    infobulle_nom.SetToolTip(this.lbl_nom, "");
-                    lbl_nom.Text = "Chargement...";
+                    labelNom.ForeColor = Color.Black;
+                    infobulleNom.SetToolTip(this.labelNom, "");
+                    labelNom.Text = "Chargement...";
                     this.Refresh();
 
                     // On compte le nombre de fond affichés
                     Registre.CompterFond();
 
-                    try { fond.Afficher(); } // On tente d'afficher le fond
+                    try { fond.Afficher(conversion); } // On tente d'afficher le fond
                     catch // Si il y a eu une erreur
                     {
                         SupprimerFichier(true); // On demande à l'utilisateur si il veut supprimer le fichier (et on le liste en tant que fichier illisible
 
-                        lbl_nom.ForeColor = Color.Red;
+                        labelNom.ForeColor = Color.Red;
                         this.Refresh();
 
                         // On compte l'erreur
@@ -70,15 +75,15 @@ namespace Gfe
                     if (!retry)
                     {
                         // On affiche son nom en rouge, et on ne le l'affiche pas
-                        lbl_nom.ForeColor = Color.Red;
+                        labelNom.ForeColor = Color.Red;
                         RechargerInfo();
                     }
                     else
                     {
                         try
                         {
-                            fond.Afficher();
-                            lbl_nom.ForeColor = Color.Black;
+                            fond.Afficher(conversion);
+                            labelNom.ForeColor = Color.Black;
                             mauvaisFichiers = mauvaisFichiers.Where(val => val != fichiers[id].FullName).ToArray();
                             RechargerInfo();
                             Registre.CompterFond();
@@ -97,100 +102,100 @@ namespace Gfe
 
             if (id >= 0)
             {
-                lbl_nom.Cursor = Cursors.Hand;
-                renommerLeFichierToolStripMenuItem.Enabled = true;
+                labelNom.Cursor = Cursors.Hand;
+                sousmenuRenommer.Enabled = true;
 
-                lbl_chemin.Text = Func.TraitementChemin(fichiers[id].DirectoryName);
-                infobulle_chemin.SetToolTip(this.lbl_chemin, fichiers[id].DirectoryName);
-                lbl_chemin.Cursor = Cursors.Hand;
+                labelChemin.Text = Func.TraitementChemin(fichiers[id].DirectoryName);
+                infobulleChemin.SetToolTip(this.labelChemin, fichiers[id].DirectoryName);
+                labelChemin.Cursor = Cursors.Hand;
 
-                btn_supprimer.Enabled = true;
-                supprimerToolStripMenuItem.Enabled = true;
-                mettreEnFondDécranToolStripMenuItem.Enabled = true;
+                btnSupprimer.Enabled = true;
+                sousmenuSupprimer.Enabled = true;
+                sousmenuAppliquer.Enabled = true;
 
-                btn_modifier.Enabled = true;
-                btn_modifier.Text = "Modifier";
-                modifierToolStripMenuItem.Enabled = true;
-                allezÀLimageNuméroToolStripMenuItem.Enabled = true;
+                btnModifier.Enabled = true;
+                btnModifier.Text = "Modifier";
+                sousmenuModifier.Enabled = true;
+                sousmenuAllezA.Enabled = true;
 
-                aléatoireToolStripMenuItem.Enabled = true;
+                menuAléatoire.Enabled = true;
 
-                lbl_num.Text = (id + 1).ToString() + " sur " + nbFichier;
+                labelNuméro.Text = (id + 1).ToString() + " sur " + nbFichier;
 
-                infobulle_nom.SetToolTip(this.lbl_nom, fichiers[id].Name);
-                lbl_nom.Text = Func.TraitementNom(fichiers[id].Name);
+                infobulleNom.SetToolTip(this.labelNom, fichiers[id].Name);
+                labelNom.Text = Func.TraitementNom(fichiers[id].Name);
 
-                rechargerLeFondToolStripMenuItem.Enabled = true;
+                sousmenuRechargerFond.Enabled = true;
 
                 if (id + 1 < nbFichier)
                 {
-                    btn_suivant.Text = "Suivant";
-                    suivantToolStripMenuItem.Text = "Suivant";
+                    btnSuivant.Text = "Suivant";
+                    sousmenuSuivant.Text = "Suivant";
                 }
                 else
                 {
-                    btn_suivant.Text = "Terminer";
-                    suivantToolStripMenuItem.Text = "Terminer";
+                    btnSuivant.Text = "Terminer";
+                    sousmenuSuivant.Text = "Terminer";
                 }
 
                 if (id == 0)
                 {
-                    btn_precedent.Enabled = false;
-                    précédentToolStripMenuItem.Enabled = false;
+                    btnPrécédent.Enabled = false;
+                    sousmenuPrécédent.Enabled = false;
                 }
                 else
                 {
-                    btn_precedent.Enabled = true;
-                    précédentToolStripMenuItem.Enabled = true;
+                    btnPrécédent.Enabled = true;
+                    sousmenuPrécédent.Enabled = true;
                 }
             }
             else if (id == -1)
             {
-                lbl_nom.ForeColor = Color.Black;
-                lbl_nom.Cursor = Cursors.Default;
-                renommerLeFichierToolStripMenuItem.Enabled = false;
+                labelNom.ForeColor = Color.Black;
+                labelNom.Cursor = Cursors.Default;
+                sousmenuRenommer.Enabled = false;
 
-                lbl_chemin.Text = Func.TraitementChemin(chemin);
-                infobulle_chemin.SetToolTip(this.lbl_chemin, chemin);
-                lbl_chemin.Cursor = Cursors.Default;
+                labelChemin.Text = Func.TraitementChemin(chemin);
+                infobulleChemin.SetToolTip(this.labelChemin, chemin);
+                labelChemin.Cursor = Cursors.Default;
 
-                btn_supprimer.Enabled = false;
-                supprimerToolStripMenuItem.Enabled = false;
-                mettreEnFondDécranToolStripMenuItem.Enabled = false;
+                btnSupprimer.Enabled = false;
+                sousmenuSupprimer.Enabled = false;
+                sousmenuAppliquer.Enabled = false;
 
-                btn_modifier.Enabled = false;
-                btn_modifier.Text = "Modifier";
-                modifierToolStripMenuItem.Enabled = false;
+                btnModifier.Enabled = false;
+                btnModifier.Text = "Modifier";
+                sousmenuModifier.Enabled = false;
 
-                rechargerLeFondToolStripMenuItem.Enabled = false;
+                sousmenuRechargerFond.Enabled = false;
 
-                lbl_nom.Text = "Aucun fichier n'est selectionné.";
-                infobulle_nom.SetToolTip(this.lbl_nom, "Cliquez sur commencer pour selectionner un fichier.");
+                labelNom.Text = "Aucun fichier n'est selectionné.";
+                infobulleNom.SetToolTip(this.labelNom, "Cliquez sur commencer pour selectionner un fichier.");
 
                 if (nbFichier != 0)
                 {
-                    lbl_num.Text = "0 sur " + nbFichier;
+                    labelNuméro.Text = "0 sur " + nbFichier;
 
-                    btn_suivant.Text = "Commencer";
-                    suivantToolStripMenuItem.Text = "Commencer";
+                    btnSuivant.Text = "Commencer";
+                    sousmenuSuivant.Text = "Commencer";
 
-                    allezÀLimageNuméroToolStripMenuItem.Enabled = true;
-                    aléatoireToolStripMenuItem.Enabled = true;
+                    sousmenuAllezA.Enabled = true;
+                    menuAléatoire.Enabled = true;
                 }
                 else
                 {
-                    lbl_num.Text = "Aucun fichier d'image dans ce dossier !";
-                    lbl_nom.Text = null;
-                    aléatoireToolStripMenuItem.Enabled = false;
+                    labelNuméro.Text = "Aucun fichier d'image dans ce dossier !";
+                    labelNom.Text = null;
+                    menuAléatoire.Enabled = false;
 
-                    btn_suivant.Text = "Terminer";
-                    suivantToolStripMenuItem.Text = "Terminer";
+                    btnSuivant.Text = "Terminer";
+                    sousmenuSuivant.Text = "Terminer";
 
-                    allezÀLimageNuméroToolStripMenuItem.Enabled = false;
+                    sousmenuAllezA.Enabled = false;
                 }
 
-                btn_precedent.Enabled = false;
-                précédentToolStripMenuItem.Enabled = false;
+                btnPrécédent.Enabled = false;
+                sousmenuPrécédent.Enabled = false;
             }
 
             this.Refresh();
@@ -201,7 +206,7 @@ namespace Gfe
         {
             DialogResult question = new DialogResult();
 
-            if (btn_suivant.Text == "Terminer")
+            if (btnSuivant.Text == "Terminer")
             {
                 question = MessageBox.Show("Vous avez fini le dossier !\n\nVoulez-vous fermer le programme ?", "Dossier terminé", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
@@ -277,8 +282,8 @@ namespace Gfe
         {
             try // On essaye de remettre le fond
             {
-                Wallpaper fond = new Wallpaper(Path.GetTempPath() + @"\GFE_tmp.bmp", Func.ConvertirAffichage(ancienAffichage), couleur);
-                fond.Afficher();
+                Wallpaper fond = new Wallpaper(cheminAncienFond, Func.ConvertirAffichage(ancienAffichage), couleur);
+                fond.Afficher(false);
             }
             catch (Exception e) // Si il y a eu une erreur, on l'affiche
             {
@@ -295,7 +300,6 @@ namespace Gfe
 
             if (id != -1) AncienFond();
 
-            File.Delete(Path.GetTempPath() + @"GFE_tmp.bmp");
             Registre.MiseAjourConfig();
             Registre.registre.Close();
 
@@ -334,8 +338,7 @@ namespace Gfe
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show("Une erreur est survenue à la récupération de la liste des fichiers !\n\nErreur :\n" + e.ToString(), "Erreur durant la récupération des fichiers", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        premierChargement = false;
+                        MessageBox.Show("Une erreur est survenue à la récupération de la liste des fichiers du dossier " + emplacement + " !\n\nErreur :\n" + e.ToString(), "Erreur durant la récupération des fichiers", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
@@ -377,18 +380,18 @@ namespace Gfe
 
         private void ModifierFichier()
         {
-            if (btn_modifier.Text == "Modifier")
+            if (btnModifier.Text == "Modifier")
             {
                 ModificationExterne();
             }
             else
             {
-                if (lbl_nom.ForeColor == Color.Black)
+                if (labelNom.ForeColor == Color.Black)
                     ChargerFond(false);
                 else
                     ChargerFond(true);
 
-                btn_modifier.Text = "Modifier";
+                btnModifier.Text = "Modifier";
             }
         }
 
@@ -397,6 +400,7 @@ namespace Gfe
             chemin = pChemin;
             this.Icon = Properties.Resources.icone;
 
+            Registre.MiseAjourConfig();
             InitializeComponent();
         }
 
@@ -408,7 +412,7 @@ namespace Gfe
                 Process proc = new Process() { StartInfo = new ProcessStartInfo(logiciel, "\"" + fichiers[id].FullName + "\"") };
 
                 proc.Start();
-                btn_modifier.Text = "Recharger";
+                btnModifier.Text = "Recharger";
             }
             catch
             {
@@ -458,7 +462,7 @@ namespace Gfe
         {
             string parametre = "";
 
-            if (lbl_chemin.Text != "Une erreur est survenue.")
+            if (labelChemin.Text != "Une erreur est survenue.")
             {
                 if (nbFichier > 0 && id >= 0 && id < nbFichier)
                     parametre = fichiers[id].DirectoryName;
@@ -475,33 +479,30 @@ namespace Gfe
 
         private void Principale_Load(object sender, EventArgs e)
         {
+            string[] ancienFondEcran = new string[3];
             RegistryKey registre = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
             int tmpId = 0;
 
-            ajouterAuMenuContextuelToolStripMenuItem.Checked = Registre.VerifierContextuel();
+            sousmenuContextuel.Checked = Registre.VerifierContextuel();
 
-            AncienfondEcran[0] = registre.GetValue("Wallpaper").ToString();
-            AncienfondEcran[1] = registre.GetValue(@"WallpaperStyle").ToString();
-            AncienfondEcran[2] = registre.GetValue(@"TileWallpaper").ToString();
+            ancienFondEcran[0] = registre.GetValue("Wallpaper").ToString();
+            ancienFondEcran[1] = registre.GetValue(@"WallpaperStyle").ToString();
+            ancienFondEcran[2] = registre.GetValue(@"TileWallpaper").ToString();
 
-            if ((AncienfondEcran[1] == "2") & (AncienfondEcran[2] == "0"))
+            if ((ancienFondEcran[1] == "2") & (ancienFondEcran[2] == "0"))
                 ancienAffichage = "etirer";
-            else if ((AncienfondEcran[1] == "1") & (AncienfondEcran[2] == "0"))
+            else if ((ancienFondEcran[1] == "1") & (ancienFondEcran[2] == "0"))
                 ancienAffichage = "centrer";
-            else if ((AncienfondEcran[1] == "1") & (AncienfondEcran[2] == "1"))
+            else if ((ancienFondEcran[1] == "1") & (ancienFondEcran[2] == "1"))
                 ancienAffichage = "mosaique";
-            else if ((AncienfondEcran[1] == "10") & (AncienfondEcran[2] == "0"))
+            else if ((ancienFondEcran[1] == "10") & (ancienFondEcran[2] == "0"))
                 ancienAffichage = "remplir";
-            else if ((AncienfondEcran[1] == "22") & (AncienfondEcran[2] == "0"))
+            else if ((ancienFondEcran[1] == "22") & (ancienFondEcran[2] == "0"))
                 ancienAffichage = "etendre";
             else
                 ancienAffichage = "etirer";
 
-            // On crée le fichier temporaire où sera stocké le le fond d'écran initial
-            File.Delete(Path.GetTempPath() + @"GFE_tmp.bmp");
-
-            if (!File.Exists(Path.GetTempPath() + @"GFE_tmp.bmp"))
-                File.Copy(@AncienfondEcran[0], Path.GetTempPath() + @"GFE_tmp.bmp");
+            cheminAncienFond = ancienFondEcran[0];
 
             RecupererFichiers(true);
             RechargerInfo();
@@ -529,8 +530,8 @@ namespace Gfe
 
             if (ancientId != id)
             {
-                if (!rechargerLeFondToolStripMenuItem.Enabled && id != -1)
-                    rechargerLeFondToolStripMenuItem.Enabled = true;
+                if (!sousmenuRechargerFond.Enabled && id != -1)
+                    sousmenuRechargerFond.Enabled = true;
 
                 ChargerFond(false);
             }
@@ -577,18 +578,31 @@ namespace Gfe
             RechargerInfo();
         }
 
-        private void MenuMettreEnFond_Clic(object sender, EventArgs e)
+        private void MenuAppliquerFond_Clic(object sender, EventArgs e)
         {
             DialogResult reponse = new DialogResult();
+            string tempChemin = Program.dossierAppdata + "GFE_fond.bmp";
+            Image image;
 
             reponse = MessageBox.Show("Voulez-vous vraiment appliquer cette image en tant que fond d'écran de votre bureau ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
             if (reponse == DialogResult.Yes)
             {
-                File.Delete(Path.GetTempPath() + @"GFE_tmp.bmp");
+                if (conversion)
+                {
+                    if (!Directory.Exists(Program.dossierAppdata))
+                        Directory.CreateDirectory(Program.dossierAppdata);
 
-                if (!File.Exists(Path.GetTempPath() + @"GFE_tmp.bmp"))
-                    File.Copy(fichiers[id].FullName, Path.GetTempPath() + @"GFE_tmp.bmp");
+                    if (File.Exists(tempChemin))
+                        File.Delete(tempChemin);
+
+                    image = Image.FromFile(fichiers[id].FullName);
+                    image.Save(tempChemin, ImageFormat.Bmp);
+
+                    cheminAncienFond = tempChemin;
+                }
+                else
+                    cheminAncienFond = fichiers[id].FullName;
 
                 ancienAffichage = affichage;
 
@@ -637,10 +651,10 @@ namespace Gfe
 
             try
             {
-                if (ajouterAuMenuContextuelToolStripMenuItem.Checked)
+                if (sousmenuContextuel.Checked)
                 {
                     Registre.RetirerContextuel();
-                    ajouterAuMenuContextuelToolStripMenuItem.Checked = false;
+                    sousmenuContextuel.Checked = false;
                     File.Delete(cheminIcone + "icone.ico");
 
                     MessageBox.Show("L'entrée dans le menu contextuel a bien été supprimée.", "Désactivation de l'entrée", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -648,7 +662,7 @@ namespace Gfe
                 else
                 {
                     Registre.AjouterContextuel();
-                    ajouterAuMenuContextuelToolStripMenuItem.Checked = true;
+                    sousmenuContextuel.Checked = true;
 
                     if (!Directory.Exists(cheminIcone))
                         Directory.CreateDirectory(cheminIcone);

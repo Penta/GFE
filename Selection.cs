@@ -20,24 +20,28 @@ namespace Gfe
                 ShowNewFolderButton = false
             };
 
-            if (!string.IsNullOrEmpty(txt_chemin.Text))
-                selectionDossier.SelectedPath = txt_chemin.Text.Split('|')[txt_chemin.Text.Split('|').Length - 1].Trim();
+            try
+            {
+                if (!string.IsNullOrEmpty(combo_chemin.Text))
+                    selectionDossier.SelectedPath = combo_chemin.Text.Split('|')[combo_chemin.Text.Split('|').Length - 1].Trim();
+            }
+            catch { selectionDossier.SelectedPath = @"C:\"; }
 
             DialogResult result = selectionDossier.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                if (!string.IsNullOrEmpty(txt_chemin.Text))
+                if (!string.IsNullOrEmpty(combo_chemin.Text))
                 {
                     DialogResult question = MessageBox.Show("Voulez-vous ajoutez ce chemin à celui ou ceux déjà existants ?\n\nAppuyer sur Non remplacera les valeurs déjà existantes !", "Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
                     if (question == DialogResult.Yes)
-                        txt_chemin.Text = txt_chemin.Text.TrimEnd('|').TrimEnd(' ') + " | " + selectionDossier.SelectedPath;
+                        combo_chemin.Text = combo_chemin.Text.TrimEnd('|').TrimEnd(' ') + " | " + selectionDossier.SelectedPath;
                     else if (question == DialogResult.No)
-                        txt_chemin.Text = selectionDossier.SelectedPath;
+                        combo_chemin.Text = selectionDossier.SelectedPath;
                 }
                 else
-                    txt_chemin.Text = selectionDossier.SelectedPath;
+                    combo_chemin.Text = selectionDossier.SelectedPath;
             }
 
             desactivation = false;
@@ -57,8 +61,14 @@ namespace Gfe
 
             if (Principale.chemin != null)
             {
-                txt_chemin.Text = Principale.chemin;
+                combo_chemin.Text = Principale.chemin;
                 check_sousdossier.Checked = Principale.sousDossier;
+            }
+
+            if (!string.IsNullOrEmpty(Principale.historique))
+            {
+                combo_chemin.Items.Clear();
+                combo_chemin.Items.AddRange(Principale.historique.Split('>'));
             }
         }
 
@@ -84,13 +94,13 @@ namespace Gfe
 
         private void BoutonValider_Clic(object sender, EventArgs e) { Validation(); }
 
-        private void Validation ()
+        private void Validation()
         {
             bool erreur = false;
 
-            if (!string.IsNullOrEmpty(txt_chemin.Text))
+            if (!string.IsNullOrEmpty(combo_chemin.Text))
             {
-                foreach (string var in txt_chemin.Text.Split('|'))
+                foreach (string var in combo_chemin.Text.Split('|'))
                     if (!Directory.Exists(var))
                         erreur = true;
 
@@ -101,14 +111,14 @@ namespace Gfe
 
                     if(Principale.selectionPremierLancement)
                     {
-                        chemin = txt_chemin.Text;
+                        chemin = combo_chemin.Text;
                         Thread principale = new Thread(new ThreadStart(OuvrirPrincipale));
                         principale.Start();
 
                         Principale.selectionPremierLancement = false;
                     }
                     else
-                        Principale.chemin = txt_chemin.Text;
+                        Principale.chemin = combo_chemin.Text;
 
                     this.DestroyHandle();
                 }
@@ -119,6 +129,6 @@ namespace Gfe
                 MessageBox.Show("Veuillez choisir un dossier !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
         }
 
-        private void LabelInfoMultiDossier_Clic(object sender, EventArgs e) { txt_chemin.Text += " | "; }
+        private void LabelInfoMultiDossier_Clic(object sender, EventArgs e) { combo_chemin.Text += " | "; }
     }
 }

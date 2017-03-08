@@ -21,6 +21,7 @@ namespace Gfe
             check_rappel.Checked = Principale.rappel;
             check_constanteVerif.Checked = Principale.rechargementConstant;
             check_sousdossier.Checked = Principale.sousDossier;
+            check_conversion.Checked = Principale.conversion;
         }
 
         private void ChangerDossier()
@@ -63,6 +64,7 @@ namespace Gfe
             Principale.rappel = check_rappel.Checked;
             Principale.rechargementConstant = check_constanteVerif.Checked;
             Principale.sousDossier = check_sousdossier.Checked;
+            Principale.conversion = check_conversion.Checked;
 
             Registre.MiseAjourConfig();
 
@@ -84,6 +86,7 @@ namespace Gfe
                 Principale.rappel = true;
                 Principale.sousDossier = false;
                 Principale.rechargementConstant = false;
+                Principale.conversion = false;
 
                 Registre.MiseAjourConfig();
                 ChargerConfig();

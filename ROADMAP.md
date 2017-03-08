@@ -2,7 +2,6 @@
 
 ### Pour la version 1.0 du Gestionnaire de Fond d'Écran, voici les fonctionalités à ajouter :
  - Création d'une option de recherche ou de filtrage (le filtrage par extension est déjà un début).
- - Faire un historique intélligent des dossiers parcourus.
  - Fenêtre de statistiques du programme (il y a déjà des traces dans le registre).
  
 ### Idées pouvant voir le jour un jour, mais n'étant pas des prioritées :

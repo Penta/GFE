@@ -147,7 +147,7 @@
     <value>5</value>
   </data>
   <data name="btn_explorer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>303, 33</value>
+    <value>303, 34</value>
   </data>
   <data name="btn_explorer.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 21</value>
@@ -169,27 +169,6 @@
   </data>
   <data name="&gt;&gt;btn_explorer.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <data name="txt_chemin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 33</value>
-  </data>
-  <data name="txt_chemin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>281, 20</value>
-  </data>
-  <data name="txt_chemin.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;txt_chemin.Name" xml:space="preserve">
-    <value>txt_chemin</value>
-  </data>
-  <data name="&gt;&gt;txt_chemin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txt_chemin.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txt_chemin.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="btn_valider.Location" type="System.Drawing.Point, System.Drawing">
     <value>290, 93</value>
@@ -213,7 +192,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_valider.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="check_sousdossier.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -240,7 +219,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;check_sousdossier.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="lbl_info_multidossier.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -267,6 +246,30 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_info_multidossier.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="combo_chemin.Items" xml:space="preserve">
+    <value>Aucun historique pour l'instant.</value>
+  </data>
+  <data name="combo_chemin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 34</value>
+  </data>
+  <data name="combo_chemin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>281, 21</value>
+  </data>
+  <data name="combo_chemin.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;combo_chemin.Name" xml:space="preserve">
+    <value>combo_chemin</value>
+  </data>
+  <data name="&gt;&gt;combo_chemin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;combo_chemin.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;combo_chemin.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

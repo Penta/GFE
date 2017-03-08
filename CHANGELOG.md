@@ -7,6 +7,8 @@
  - La fonction aléatoire ne montre plus que des fichiers valides, sauf si il n'en reste plus qu'un.
  - Corrections de quelques petits bugs.
  - Ajout du support multi-dossiers (ils doivent être séparés par des barres verticales (| en faisant Alt Gr + 6) dans la fenêtre de selection ou en paramètre au programme.
+ - Un historique des 15 anciens dossiers parcourus est visible en cliquant sur la flèche du formulaire de la fenêtre de sélection du dossier.
+ - Ajout d'un choix pour une conversion des fichiers au format Bitmap (.bmp) avant affichage.
 
 ### Version 0.8.2 (3 Mars 2017) :
  - Ajout d'une option pour ajouter l'application au menu contextuel.

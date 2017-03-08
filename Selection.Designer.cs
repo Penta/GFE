@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Selection));
             this.lbl_info_selection = new System.Windows.Forms.Label();
             this.btn_explorer = new System.Windows.Forms.Button();
-            this.txt_chemin = new System.Windows.Forms.TextBox();
             this.btn_valider = new System.Windows.Forms.Button();
             this.check_sousdossier = new System.Windows.Forms.CheckBox();
             this.lbl_info_multidossier = new System.Windows.Forms.Label();
+            this.combo_chemin = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lbl_info_selection
@@ -48,11 +48,6 @@
             this.btn_explorer.Name = "btn_explorer";
             this.btn_explorer.UseVisualStyleBackColor = true;
             this.btn_explorer.Click += new System.EventHandler(this.BoutonExplorer_Clic);
-            // 
-            // txt_chemin
-            // 
-            resources.ApplyResources(this.txt_chemin, "txt_chemin");
-            this.txt_chemin.Name = "txt_chemin";
             // 
             // btn_valider
             // 
@@ -74,15 +69,23 @@
             this.lbl_info_multidossier.Name = "lbl_info_multidossier";
             this.lbl_info_multidossier.Click += new System.EventHandler(this.LabelInfoMultiDossier_Clic);
             // 
+            // combo_chemin
+            // 
+            this.combo_chemin.FormattingEnabled = true;
+            this.combo_chemin.Items.AddRange(new object[] {
+            resources.GetString("combo_chemin.Items")});
+            resources.ApplyResources(this.combo_chemin, "combo_chemin");
+            this.combo_chemin.Name = "combo_chemin";
+            // 
             // Selection
             // 
             this.AcceptButton = this.btn_valider;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.combo_chemin);
             this.Controls.Add(this.lbl_info_multidossier);
             this.Controls.Add(this.check_sousdossier);
             this.Controls.Add(this.btn_valider);
-            this.Controls.Add(this.txt_chemin);
             this.Controls.Add(this.btn_explorer);
             this.Controls.Add(this.lbl_info_selection);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -98,10 +101,10 @@
 
         private System.Windows.Forms.Label lbl_info_selection;
         private System.Windows.Forms.Button btn_explorer;
-        private System.Windows.Forms.TextBox txt_chemin;
         private System.Windows.Forms.Button btn_valider;
         private System.Windows.Forms.CheckBox check_sousdossier;
         private System.Windows.Forms.Label lbl_info_multidossier;
+        private System.Windows.Forms.ComboBox combo_chemin;
     }
 }
 

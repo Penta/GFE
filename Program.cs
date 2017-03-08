@@ -9,6 +9,8 @@ namespace Gfe
 {
     static class Program
     {
+        static public string dossierAppdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Gestionnaire de Fond d'Écran\";
+
         /// <summary>
         /// Point d'entrée principal de l'application.
         /// </summary>
@@ -86,12 +88,16 @@ namespace Gfe
         
         static private void ResetLogiciel()
         {
-            string dossierAppdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Gestionnaire de Fond d'Écran\";
-
             Registre.ViderRegistre();
 
             if (Directory.Exists(dossierAppdata))
-            Directory.Delete(dossierAppdata, true);
+                Directory.Delete(dossierAppdata, true);
+
+            if (File.Exists(Path.GetTempPath() + @"wallpaper1.bmp"))
+                File.Delete(Path.GetTempPath() + @"wallpaper1.bmp");
+
+            if (File.Exists(Path.GetTempPath() + @"wallpaper2.bmp"))
+                File.Delete(Path.GetTempPath() + @"wallpaper2.bmp");
 
             MessageBox.Show("Tous les fichiers et les données laissés par le Gestionnaire de Fond d'Écran on été supprimés, vous maintenant supprimer cet exécutable pour supprimer totalement le Gestionnaire de Fond d'Écran de votre ordinateur !", "Suppression effectuée", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }

@@ -41,6 +41,7 @@
             this.check_constanteVerif = new System.Windows.Forms.CheckBox();
             this.btn_reset = new System.Windows.Forms.Button();
             this.btn_explorer = new System.Windows.Forms.Button();
+            this.check_conversion = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lbl_dispo_info
@@ -123,10 +124,17 @@
             this.btn_explorer.UseVisualStyleBackColor = true;
             this.btn_explorer.Click += new System.EventHandler(this.BoutonExplorer_Clic);
             // 
+            // check_conversion
+            // 
+            resources.ApplyResources(this.check_conversion, "check_conversion");
+            this.check_conversion.Name = "check_conversion";
+            this.check_conversion.UseVisualStyleBackColor = true;
+            // 
             // ConfigurationGfe
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.check_conversion);
             this.Controls.Add(this.btn_explorer);
             this.Controls.Add(this.btn_reset);
             this.Controls.Add(this.check_constanteVerif);
@@ -164,5 +172,6 @@
         private System.Windows.Forms.CheckBox check_constanteVerif;
         private System.Windows.Forms.Button btn_reset;
         private System.Windows.Forms.Button btn_explorer;
+        private System.Windows.Forms.CheckBox check_conversion;
     }
 }

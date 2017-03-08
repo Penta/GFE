@@ -84,11 +84,10 @@ namespace Gulix.Wallpaper
         /// <summary>
         /// Couleur de fond du bureau à afficher
         /// </summary>
-        protected System.Drawing.Color couleurFond;
+        protected Color couleurFond;
         #endregion
 
         private bool binaire = false;
-        
         
 		#region Proprietes
         
@@ -238,24 +237,27 @@ namespace Gulix.Wallpaper
         /// Affiche le fond d'écran avec les paramètres renseignés
         /// </summary>
         /// <exception cref="Exception">Renvoie une erreur survenue lors de l'affichage</exception>
-        public void Afficher()
+        public void Afficher(bool conversion)
         {
             string fichierTemporaire = "";
             Image image;
 
-            // On recopie l'image dans les fichiers temporaires au format bitmap
-            if (this.affichage == Affichage.ajuster)
-                image = Image.FromFile(this.Ajustement());
-            else
-                image = Image.FromFile(this.GetRepertoire() + this.GetNomCourt());
+            if (conversion)
+            {
+                // On recopie l'image dans les fichiers temporaires au format bitmap
+                if (this.affichage == Affichage.ajuster)
+                    image = Image.FromFile(this.Ajustement());
+                else
+                    image = Image.FromFile(this.GetRepertoire() + this.GetNomCourt());
 
-            if (binaire)
-                fichierTemporaire = Path.Combine(Path.GetTempPath(), "wallpaper.bmp");
-            else
-                fichierTemporaire = Path.Combine(Path.GetTempPath(), "wallpaper2.bmp");
+                if (binaire) // J'ai été obligé de faire comme ça pour éviter une erreur, il y a sans doute un moyen plus propre, mais ça me suffit. :c
+                    fichierTemporaire = Path.Combine(Path.GetTempPath(), "wallpaper.bmp");
+                else
+                    fichierTemporaire = Path.Combine(Path.GetTempPath(), "wallpaper2.bmp");
 
-            image.Save(fichierTemporaire, ImageFormat.Bmp);
-            image.Dispose();
+                image.Save(fichierTemporaire, ImageFormat.Bmp);
+                image.Dispose();
+            }
 
             // On modifie le style d'affichage dans la base de registre
             RegistryKey cle = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
@@ -294,17 +296,25 @@ namespace Gulix.Wallpaper
             }
 
             // On utilise les fonctions de la DLL user32 pour afficher le wallpaper
-            NativeMethods.SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, fichierTemporaire, SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
+            if (conversion)
+                NativeMethods.SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, fichierTemporaire, SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
+            else
+                NativeMethods.SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, Path.GetFullPath(this.nomfichier), SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
+            
+
             int[] elementArray = { 1 };
             int[] elementValues = { ColorTranslator.ToWin32(this.couleurFond) };
 
             // et modifier la couleur de fond du bureau
             NativeMethods.SetSysColors(1, elementArray, elementValues);
 
-            if (binaire && File.Exists(Path.GetTempPath() + @"wallpaper2.bmp"))
-                File.Delete(Path.GetTempPath() + @"wallpaper2.bmp");
-            else if (!binaire && File.Exists(Path.GetTempPath() + @"wallpaper.bmp"))
-                File.Delete(Path.GetTempPath() + @"wallpaper.bmp");
+            if (conversion)
+            {
+                if (binaire && File.Exists(Path.GetTempPath() + @"wallpaper2.bmp"))
+                    File.Delete(Path.GetTempPath() + @"wallpaper2.bmp");
+                else if (!binaire && File.Exists(Path.GetTempPath() + @"wallpaper.bmp"))
+                    File.Delete(Path.GetTempPath() + @"wallpaper.bmp");
+            }
         }
         
         /// <summary>

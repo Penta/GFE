@@ -1,4 +1,5 @@
 ﻿using Gulix.Wallpaper;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -152,6 +153,33 @@ namespace Gfe
             }
 
             // On renvoie une liste des fichiers propres sans doublons
+            return resultat;
+        }
+
+        // L'historique de l'application, on utilise le > car c'est un caractère interdit par Windows dans les URL
+        static public string GenererHistorique(string nouveau, string ancien, int longueur = 15)
+        {
+            string resultat = null;
+            List<string> temp = new List<String>();
+            int i = 0;
+
+            if (!string.IsNullOrEmpty(ancien))
+                temp = ancien.Split('>').ToList();
+
+            resultat = nouveau;
+
+            foreach (string var in temp)
+            {
+                if (!string.IsNullOrEmpty(var) && i < longueur - 1)
+                {
+                    if (!resultat.Split('>').Contains(var))
+                    {
+                        resultat += ">" + var;
+                        i++;
+                    }
+                }
+            }
+
             return resultat;
         }
     }
