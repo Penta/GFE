@@ -29,7 +29,7 @@ namespace Gfe
         static public string extension = "jpg;jpeg;png;bmp;tiff;tif";
         static public bool selectionPremierLancement = true;
         static public string historique = "";
-        static public bool conversion = false;
+        static public bool conversion = !Program.nonXP;
 
         FileInfo[] fichiers = new FileInfo[65536];
 

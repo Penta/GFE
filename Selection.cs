@@ -9,6 +9,7 @@ namespace Gfe
     {
         private string chemin;
         private bool desactivation = false;
+        private string tempChemin = null;
 
         private void OuvrirPrincipale() { Application.Run(new Principale(chemin)); }
 
@@ -20,28 +21,14 @@ namespace Gfe
                 ShowNewFolderButton = false
             };
 
-            try
-            {
-                if (!string.IsNullOrEmpty(combo_chemin.Text))
-                    selectionDossier.SelectedPath = combo_chemin.Text.Split('|')[combo_chemin.Text.Split('|').Length - 1].Trim();
-            }
-            catch { selectionDossier.SelectedPath = @"C:\"; }
+            if (!string.IsNullOrEmpty(chemin))
+                selectionDossier.SelectedPath = chemin.Split('|')[chemin.Split('|').Length - 1].Trim();
 
             DialogResult result = selectionDossier.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                if (!string.IsNullOrEmpty(combo_chemin.Text))
-                {
-                    DialogResult question = MessageBox.Show("Voulez-vous ajoutez ce chemin à celui ou ceux déjà existants ?\n\nAppuyer sur Non remplacera les valeurs déjà existantes !", "Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
-
-                    if (question == DialogResult.Yes)
-                        combo_chemin.Text = combo_chemin.Text.TrimEnd('|').TrimEnd(' ') + " | " + selectionDossier.SelectedPath;
-                    else if (question == DialogResult.No)
-                        combo_chemin.Text = selectionDossier.SelectedPath;
-                }
-                else
-                    combo_chemin.Text = selectionDossier.SelectedPath;
+                tempChemin = selectionDossier.SelectedPath;
             }
 
             desactivation = false;
@@ -74,6 +61,8 @@ namespace Gfe
 
         private void BoutonExplorer_Clic (object sender, EventArgs e)
         {
+            chemin = combo_chemin.Text;
+
             if (!Principale.selectionPremierLancement)
             {
                 this.Enabled = false;
@@ -90,6 +79,20 @@ namespace Gfe
                 this.Show();
             }
             else { ChangerDossier(); }
+
+            if (!string.IsNullOrEmpty(tempChemin))
+            {
+                DialogResult question = MessageBox.Show("Voulez-vous ajoutez ce chemin à celui ou ceux déjà existants ?\n\nAppuyer sur Non remplacera les valeurs déjà existantes !", "Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+                if (question == DialogResult.Yes)
+                    chemin = chemin.TrimEnd('|').TrimEnd(' ') + " | " + tempChemin;
+                else if (question == DialogResult.No)
+                    chemin = tempChemin;
+
+                tempChemin = null;
+            }
+
+            combo_chemin.Text = chemin;
         }
 
         private void BoutonValider_Clic(object sender, EventArgs e) { Validation(); }
@@ -101,7 +104,7 @@ namespace Gfe
             if (!string.IsNullOrEmpty(combo_chemin.Text))
             {
                 foreach (string var in combo_chemin.Text.Split('|'))
-                    if (!Directory.Exists(var))
+                    if (!Directory.Exists(var.Trim()))
                         erreur = true;
 
                 if(!erreur)

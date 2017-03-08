@@ -10,6 +10,7 @@ namespace Gfe
     static class Program
     {
         static public string dossierAppdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Gestionnaire de Fond d'Écran\";
+        static public bool nonXP = false;
 
         /// <summary>
         /// Point d'entrée principal de l'application.
@@ -19,6 +20,8 @@ namespace Gfe
         {
             string var = "", chemin = "";
             bool erreur = false;
+
+            CompatibilitéOS();
 
             if (args.Length > 0) // Si des arguments ont été fournis
             {
@@ -57,7 +60,7 @@ namespace Gfe
                         chemin = @args[1];
 
                         foreach (string verif in chemin.Split('|'))
-                            if (!Directory.Exists(verif))
+                            if (!Directory.Exists(verif.Trim()))
                                 erreur = true;
 
                         if (!erreur)
@@ -114,6 +117,12 @@ namespace Gfe
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Selection());
+        }
+
+        static private void CompatibilitéOS()
+        {
+            if (Environment.OSVersion.Version.Major >= 6)
+                nonXP = true;
         }
 
         static private void VerifierInstance()

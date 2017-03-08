@@ -22,6 +22,11 @@ namespace Gfe
             check_constanteVerif.Checked = Principale.rechargementConstant;
             check_sousdossier.Checked = Principale.sousDossier;
             check_conversion.Checked = Principale.conversion;
+
+            if(!Program.nonXP)
+            {
+                check_conversion.Enabled = false;
+            }
         }
 
         private void ChangerDossier()
