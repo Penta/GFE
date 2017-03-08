@@ -34,6 +34,7 @@
             this.txt_chemin = new System.Windows.Forms.TextBox();
             this.btn_valider = new System.Windows.Forms.Button();
             this.check_sousdossier = new System.Windows.Forms.CheckBox();
+            this.lbl_info_multidossier = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_info_selection
@@ -66,11 +67,17 @@
             this.check_sousdossier.Name = "check_sousdossier";
             this.check_sousdossier.UseVisualStyleBackColor = true;
             // 
+            // lbl_info_multidossier
+            // 
+            resources.ApplyResources(this.lbl_info_multidossier, "lbl_info_multidossier");
+            this.lbl_info_multidossier.Name = "lbl_info_multidossier";
+            // 
             // Selection
             // 
             this.AcceptButton = this.btn_valider;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lbl_info_multidossier);
             this.Controls.Add(this.check_sousdossier);
             this.Controls.Add(this.btn_valider);
             this.Controls.Add(this.txt_chemin);
@@ -92,6 +99,7 @@
         private System.Windows.Forms.TextBox txt_chemin;
         private System.Windows.Forms.Button btn_valider;
         private System.Windows.Forms.CheckBox check_sousdossier;
+        private System.Windows.Forms.Label lbl_info_multidossier;
     }
 }
 

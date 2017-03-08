@@ -102,6 +102,7 @@ namespace Gfe
 
                 lbl_chemin.Text = Func.TraitementChemin(fichiers[id].DirectoryName);
                 infobulle_chemin.SetToolTip(this.lbl_chemin, fichiers[id].DirectoryName);
+                lbl_chemin.Cursor = Cursors.Hand;
 
                 btn_supprimer.Enabled = true;
                 supprimerToolStripMenuItem.Enabled = true;
@@ -151,6 +152,7 @@ namespace Gfe
 
                 lbl_chemin.Text = Func.TraitementChemin(chemin);
                 infobulle_chemin.SetToolTip(this.lbl_chemin, chemin);
+                lbl_chemin.Cursor = Cursors.Default;
 
                 btn_supprimer.Enabled = false;
                 supprimerToolStripMenuItem.Enabled = false;
@@ -304,11 +306,10 @@ namespace Gfe
         private void RecupererFichiers(bool afficherTexte)
         {
             FileInfo[] fichiersInfo = new FileInfo[65535];
-            DirectoryInfo[] dossiersInfo = new DirectoryInfo[2048];
             Attente message = new Attente();
 
             int erreur = 0;
-            string ext = "";
+            string ext = null;
 
             if (afficherTexte)
             {
@@ -318,40 +319,42 @@ namespace Gfe
             }
 
             fichiers.Initialize();
-
-            try { fichiersInfo = new DirectoryInfo(chemin).GetFiles(); }
-            catch { MessageBox.Show("Impossible de le lire ce dossier !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-
-            if (sousDossier)
-            {
-                try
-                {
-                    fichiersInfo = Func.RechercheRecursive(chemin, ref erreur);
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show("Une erreur est survenue à la récupération de la liste des fichiers !\n\nErreur :\n" + e.ToString(), "Erreur durant la récupération des fichiers", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    premierChargement = false;
-                }
-            }
-
             nbFichier = 0;
 
-            foreach (FileInfo fichier in fichiersInfo)
+            foreach (string emplacement in Func.ListeChemins(chemin, sousDossier))
             {
-                if (fichier != null)
-                {
-                    // On récupère l'extension du fichier
-                    ext = fichier.Extension.ToLower();
+                try { fichiersInfo = new DirectoryInfo(emplacement).GetFiles(); }
+                catch { MessageBox.Show("Impossible de le lire ce dossier !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
-                    // On compare l'extension sans le point à celles autorisées
-                    if (!string.IsNullOrEmpty(ext))
+                if (sousDossier)
+                {
+                    try
                     {
-                        if (extension.Split(';').Contains(ext.Substring(1)))
+                        fichiersInfo = Func.RechercheRecursive(emplacement, ref erreur);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("Une erreur est survenue à la récupération de la liste des fichiers !\n\nErreur :\n" + e.ToString(), "Erreur durant la récupération des fichiers", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        premierChargement = false;
+                    }
+                }
+
+                foreach (FileInfo fichier in fichiersInfo)
+                {
+                    if (fichier != null)
+                    {
+                        // On récupère l'extension du fichier
+                        ext = fichier.Extension.ToLower();
+
+                        // On compare l'extension sans le point à celles autorisées
+                        if (!string.IsNullOrEmpty(ext))
                         {
-                            // On ajoute le fichier dans la liste des fichiers autorisés
-                            fichiers[nbFichier] = fichier;
-                            nbFichier++;
+                            if (extension.Split(';').Contains(ext.Substring(1)))
+                            {
+                                // On ajoute le fichier dans la liste des fichiers autorisés
+                                fichiers[nbFichier] = fichier;
+                                nbFichier++;
+                            }
                         }
                     }
                 }
@@ -370,7 +373,6 @@ namespace Gfe
                 message.Close();
                 this.Visible = true;
             }
-
         }
 
         private void ModifierFichier()

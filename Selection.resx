@@ -144,7 +144,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_info_selection.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="btn_explorer.Location" type="System.Drawing.Point, System.Drawing">
     <value>303, 33</value>
@@ -168,7 +168,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_explorer.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="txt_chemin.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 33</value>
@@ -189,10 +189,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txt_chemin.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="btn_valider.Location" type="System.Drawing.Point, System.Drawing">
-    <value>290, 60</value>
+    <value>290, 93</value>
   </data>
   <data name="btn_valider.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 33</value>
@@ -213,13 +213,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_valider.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="check_sousdossier.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="check_sousdossier.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 68</value>
+    <value>14, 100</value>
   </data>
   <data name="check_sousdossier.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 17</value>
@@ -240,6 +240,33 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;check_sousdossier.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lbl_info_multidossier.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_info_multidossier.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 69</value>
+  </data>
+  <data name="lbl_info_multidossier.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 13</value>
+  </data>
+  <data name="lbl_info_multidossier.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="lbl_info_multidossier.Text" xml:space="preserve">
+    <value>Vous pouvez séparer plusieurs dossiers par une barre verticale : | (Alt Gr + 6)</value>
+  </data>
+  <data name="&gt;&gt;lbl_info_multidossier.Name" xml:space="preserve">
+    <value>lbl_info_multidossier</value>
+  </data>
+  <data name="&gt;&gt;lbl_info_multidossier.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_info_multidossier.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbl_info_multidossier.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -249,7 +276,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>388, 101</value>
+    <value>388, 131</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">

@@ -33,7 +33,7 @@ using System;
 // Vous pouvez spécifier toutes les valeurs ou indiquer les numéros de build et de révision par défaut 
 // en utilisant '*', comme indiqué ci-dessous :
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.8.2.15")]
+[assembly: AssemblyVersion("0.8.2.16")]
 //[assembly: AssemblyFileVersion("0.8.2")]
 [assembly: NeutralResourcesLanguage("fr")]
 

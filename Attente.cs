@@ -6,10 +6,21 @@ namespace Gfe
 {
     public partial class Attente : Form
     {
-        Thread t = new Thread(new ThreadStart(ThreadProc));
+        Thread t = new Thread(new ThreadStart(ThreadProc))
+        {
+            IsBackground = true
+        };
 
         public new void Show(){ t.Start(); }
-        public new void Close() { t.Abort(); }
+
+        public new void Close()
+        {
+            do {
+                Thread.Sleep(100);
+            } while (!Application.AllowQuit);
+
+            t.Abort();
+        }
 
         static public void ThreadProc() { Application.Run(new Attente()); }
 

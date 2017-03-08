@@ -7,9 +7,8 @@ namespace Gfe
 {
     public partial class Selection : Form
     {
-        private FolderBrowserDialog selectionDossier;
         private string chemin;
-        private bool valide = false, desactivation = false;
+        private bool desactivation = false;
 
         private void OuvrirPrincipale() { Application.Run(new Principale(chemin)); }
 
@@ -17,22 +16,29 @@ namespace Gfe
         {
             FolderBrowserDialog selectionDossier = new FolderBrowserDialog()
             {
-                Description = "Veuillez choisir le dossier de fond d'écran.",
+                Description = "Veuillez choisir le dossier de vos fonds d'écran.",
                 ShowNewFolderButton = false
             };
 
-            if (!string.IsNullOrEmpty(chemin))
-                selectionDossier.SelectedPath = chemin;
+            if (!string.IsNullOrEmpty(txt_chemin.Text))
+                selectionDossier.SelectedPath = txt_chemin.Text.Split('|')[txt_chemin.Text.Split('|').Length - 1].Trim();
 
             DialogResult result = selectionDossier.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                chemin = selectionDossier.SelectedPath;
-                valide = true;
+                if (!string.IsNullOrEmpty(txt_chemin.Text))
+                {
+                    DialogResult question = MessageBox.Show("Voulez-vous ajoutez ce chemin à celui ou ceux déjà existants ?\n\nAppuyer sur Non remplacera les valeurs déjà existantes !", "Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+                    if (question == DialogResult.Yes)
+                        txt_chemin.Text += " | " + selectionDossier.SelectedPath;
+                    else if (question == DialogResult.No)
+                        txt_chemin.Text = selectionDossier.SelectedPath;
+                }
+                else
+                    txt_chemin.Text = selectionDossier.SelectedPath;
             }
-            else
-                valide = false;
 
             desactivation = false;
         }
@@ -52,33 +58,13 @@ namespace Gfe
             if (Principale.chemin != null)
             {
                 txt_chemin.Text = Principale.chemin;
-                chemin = Principale.chemin;
                 check_sousdossier.Checked = Principale.sousDossier;
             }
         }
 
         private void BoutonExplorer_Clic (object sender, EventArgs e)
         {
-            if (Principale.selectionPremierLancement)
-            {
-                this.selectionDossier = new FolderBrowserDialog()
-                {
-                    Description = "Veuillez choisir le dossier de fond d'écran.",
-                    ShowNewFolderButton = false
-                };
-
-                if (!string.IsNullOrEmpty(chemin))
-                    selectionDossier.SelectedPath = chemin;
-
-                DialogResult result = selectionDossier.ShowDialog();
-
-                if (result == DialogResult.OK)
-                {
-                    chemin = selectionDossier.SelectedPath;
-                    txt_chemin.Text = chemin;
-                }
-            }
-            else
+            if (!Principale.selectionPremierLancement)
             {
                 this.Enabled = false;
                 desactivation = true;
@@ -89,30 +75,33 @@ namespace Gfe
 
                 while (desactivation == true) { Thread.Sleep(100); }
 
-                if (valide)
-                    txt_chemin.Text = chemin;
-
                 this.Enabled = true;
                 this.Activate();
                 this.Show();
             }
+            else { ChangerDossier(); }
         }
 
         private void BoutonValider_Clic(object sender, EventArgs e) { Validation(); }
 
         private void Validation ()
         {
+            bool erreur = false;
+
             if (!string.IsNullOrEmpty(txt_chemin.Text))
             {
-                if (Directory.Exists(txt_chemin.Text))
-                {
-                    chemin = txt_chemin.Text;
+                foreach (string var in txt_chemin.Text.Split('|'))
+                    if (!Directory.Exists(var))
+                        erreur = true;
 
+                if(!erreur)
+                {
                     Principale.sousDossier = check_sousdossier.Checked;
                     Registre.MiseAjourConfig();
 
                     if(Principale.selectionPremierLancement)
                     {
+                        chemin = txt_chemin.Text;
                         Thread principale = new Thread(new ThreadStart(OuvrirPrincipale));
                         principale.Start();
 
@@ -124,7 +113,7 @@ namespace Gfe
                     this.DestroyHandle();
                 }
                 else
-                    MessageBox.Show("Le dossier n'existe pas ou n'est pas valide !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Au moins un des dossiers rentrés n'est pas valide !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
             else
                 MessageBox.Show("Veuillez choisir un dossier !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);

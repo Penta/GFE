@@ -16,6 +16,7 @@ namespace Gfe
         static void Main(string[] args)
         {
             string var = "", chemin = "";
+            bool erreur = false;
 
             if (args.Length > 0) // Si des arguments ont été fournis
             {
@@ -53,7 +54,11 @@ namespace Gfe
                     {
                         chemin = @args[1];
 
-                        if (Directory.Exists(chemin))
+                        foreach (string verif in chemin.Split('|'))
+                            if (!Directory.Exists(verif))
+                                erreur = true;
+
+                        if (!erreur)
                         {
                             VerifierInstance();
                             Registre.Initialisation();
@@ -63,7 +68,7 @@ namespace Gfe
                             Application.Run(new Principale(chemin));
                         }
                         else
-                            MessageBox.Show("Vous devez spécifier un chemin valide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Vous devez spécifier un ou des chemins valides séparés par un | (Alt Gr + 6).", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                         MessageBox.Show("Vous devez spécifier un chemin !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
