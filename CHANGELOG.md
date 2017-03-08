@@ -1,7 +1,7 @@
 ﻿
 ## Changelog du Gestionnaire de Fond d'Écran
 
-### Version à venir (0.9) :
+### Version 0.9.0 (8 Mars 2017) :
  - Suppression des sources intégrées et remplacement par un téléchargement via GitHub.
  - Supression d'un bug si on supprime par le logiciel un fichier déjà supprimé.
  - La fonction aléatoire ne montre plus que des fichiers valides, sauf si il n'en reste plus qu'un.
