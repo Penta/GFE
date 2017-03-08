@@ -1,11 +1,12 @@
 ﻿
 ## Changelog du Gestionnaire de Fond d'Écran
 
-### Version à venir :
+### Version à venir (0.9) :
  - Suppression des sources intégrées et remplacement par un téléchargement via GitHub.
  - Supression d'un bug si on supprime par le logiciel un fichier déjà supprimé.
  - La fonction aléatoire ne montre plus que des fichiers valides, sauf si il n'en reste plus qu'un.
  - Corrections de quelques petits bugs.
+ - Ajout du support multi-dossiers (ils doivent être séparés par des barres verticales (| en faisant Alt Gr + 6) dans la fenêtre de selection ou en paramètre au programme.
 
 ### Version 0.8.2 (3 Mars 2017) :
  - Ajout d'une option pour ajouter l'application au menu contextuel.
