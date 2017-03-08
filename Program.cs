@@ -116,6 +116,8 @@ namespace Gfe
 
             if (proc.Length > 1)
             {
+                bool retour = false;
+
                 IntPtr wdwIntPtr = NativeMethods.FindWindow(null, "Gestionnaire de Fond d'Écran");
 
                 //get the hWnd of the process
@@ -126,11 +128,14 @@ namespace Gfe
                 if (placement.showCmd == 2)
                 {
                     //the window is hidden so we restore it
-                    NativeMethods.ShowWindow(wdwIntPtr, NativeMethods.ShowWindowEnum.Restore);
+                    retour = NativeMethods.ShowWindow(wdwIntPtr, NativeMethods.ShowWindowEnum.Restore);
                 }
 
                 //set user's focus to the window
-                NativeMethods.SetForegroundWindow(wdwIntPtr);
+                retour = NativeMethods.SetForegroundWindow(wdwIntPtr);
+
+                if (!retour)
+                    MessageBox.Show("Seulement une seule instance du logiciel peut être lancée à la fois !", "Gestionnaire de Fond d'Écran", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 Environment.Exit(0);
             }

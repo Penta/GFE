@@ -1,10 +1,8 @@
 ﻿using Gulix.Wallpaper;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace Gfe
 {
@@ -33,14 +31,14 @@ namespace Gfe
             return resultat;
         }
 
-        static public string TraitementNom(string nom)
+        static public string TraitementNom(string nom, int longueur = 55)
         {
             string resultat = null;
             string[] tmp = null;
 
-            if (nom.Length > 55)
+            if (nom.Length > longueur)
             {
-                resultat = nom.Substring(0, 45);
+                resultat = nom.Substring(0, longueur - 10);
 
                 tmp = nom.Split('.');
 
@@ -52,16 +50,16 @@ namespace Gfe
             return resultat;
         }
 
-        static public string TraitementChemin(string chemin)
+        static public string TraitementChemin(string chemin, int longueur = 55)
         {
             string resultat = null;
             string[] tmp = null;
 
-            if (chemin.Length > 55)
+            if (chemin.Length > longueur)
             {
                 tmp = chemin.Split('\\');
 
-                resultat = chemin.Substring(0, 40) + @"[...]\";
+                resultat = chemin.Substring(0, longueur - 15) + @"[...]\";
 
                 if (tmp[tmp.Length - 1].Length > 10)
                     resultat += tmp[tmp.Length - 1].Substring(tmp[tmp.Length - 1].Length - 10, 10);
@@ -81,9 +79,13 @@ namespace Gfe
 
             try
             {
+                // On ajoute les fichiers du dossier au résultat
                 resultat = new DirectoryInfo(chemin).GetFiles();
+
+                // Et on récupère la liste des dossiers dans le répertoire courant
                 DirectoryInfo[] dossiersInfo = new DirectoryInfo(chemin).GetDirectories();
 
+                // On appelle la même fonction pour les autres dossiers dans ce répertoire
                 while (i < dossiersInfo.Length && dossiersInfo.Length > 0)
                 {
                     resultat = resultat.Concat(RechercheRecursive(dossiersInfo[i].FullName, ref erreur)).ToArray();
@@ -91,6 +93,7 @@ namespace Gfe
                 }
             } catch { erreur++; }
 
+            // On renvoie la liste des fichiers de tout les sous-dossiers
             return resultat;
         }
 
@@ -103,19 +106,26 @@ namespace Gfe
             }
         }
 
-        static public List<string> ListeChemins(string chemins, bool verifSousDossier)
+        static public List<string> ListeChemins(string chemins, bool verifSousDossier = false)
         {
-            string[] temp = chemins.Split('|');
             List<string> resultat = new List<string>();
+            List<string> tempMinus = new List<string>();
+            string[] temp = chemins.Split('|');
             bool present = false;
 
-            foreach (string var in temp)
+            foreach (string var in temp) // On vérifie que le path n'existe pas déjà, même sous une autre forme
             {
-                if (!resultat.Contains(var.Trim()))
-                    resultat.Add(var.Trim());
+
+                if (!tempMinus.Contains(Path.GetFullPath(var.Trim().TrimEnd('\\')).ToLower()))
+                {
+                    tempMinus.Add(Path.GetFullPath(var.Trim().TrimEnd('\\')).ToLower());
+                    resultat.Add(Path.GetFullPath(var.Trim()).TrimEnd('\\'));
+                }
             }
 
-            if (verifSousDossier)
+            tempMinus.Clear();
+
+            if (verifSousDossier) // On vérifie qu'il n'y a pas des sous-dossiers de dossiers que l'on va analyser dans la liste
             {
                 // On tri la liste par ordre de taille et par ordre alphabetique et on le met dans la variable temporaire
                 temp = resultat.OrderBy(q => q).ToArray();
@@ -141,6 +151,7 @@ namespace Gfe
                 }
             }
 
+            // On renvoie une liste des fichiers propres sans doublons
             return resultat;
         }
     }

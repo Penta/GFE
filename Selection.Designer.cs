@@ -70,7 +70,9 @@
             // lbl_info_multidossier
             // 
             resources.ApplyResources(this.lbl_info_multidossier, "lbl_info_multidossier");
+            this.lbl_info_multidossier.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_info_multidossier.Name = "lbl_info_multidossier";
+            this.lbl_info_multidossier.Click += new System.EventHandler(this.LabelInfoMultiDossier_Clic);
             // 
             // Selection
             // 

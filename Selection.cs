@@ -32,7 +32,7 @@ namespace Gfe
                     DialogResult question = MessageBox.Show("Voulez-vous ajoutez ce chemin à celui ou ceux déjà existants ?\n\nAppuyer sur Non remplacera les valeurs déjà existantes !", "Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
                     if (question == DialogResult.Yes)
-                        txt_chemin.Text += " | " + selectionDossier.SelectedPath;
+                        txt_chemin.Text = txt_chemin.Text.TrimEnd('|').TrimEnd(' ') + " | " + selectionDossier.SelectedPath;
                     else if (question == DialogResult.No)
                         txt_chemin.Text = selectionDossier.SelectedPath;
                 }
@@ -118,5 +118,7 @@ namespace Gfe
             else
                 MessageBox.Show("Veuillez choisir un dossier !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
         }
+
+        private void LabelInfoMultiDossier_Clic(object sender, EventArgs e) { txt_chemin.Text += " | "; }
     }
 }
