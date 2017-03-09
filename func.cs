@@ -32,6 +32,41 @@ namespace Gfe
             return resultat;
         }
 
+        static public Color ConvertirCouleur(string couleur)
+        {
+            Color resultat = Color.Black;
+            couleur = couleur.ToLower();
+
+            if (couleur == "rouge")
+                resultat = Color.Red;
+            else if (couleur == "noir")
+                resultat = Color.Black;
+            else if (couleur == "blanc")
+                resultat = Color.White;
+            else if (couleur == "gris")
+                resultat = Color.Gray;
+            else if (couleur == "jaune")
+                resultat = Color.Yellow;
+            else if (couleur == "vert")
+                resultat = Color.Green;
+            else if (couleur == "bleu")
+                resultat = Color.Blue;
+            else if (couleur == "violet")
+                resultat = Color.Purple;
+            else if (couleur == "rose")
+                resultat = Color.Pink;
+            else if (couleur == "marron")
+                resultat = Color.Brown;
+            else if (couleur == "orange")
+                resultat = Color.Orange;
+            else if (couleur == "gris foncé")
+                resultat = Color.DarkGray;
+            else if (couleur == "bleu clair")
+                resultat = Color.LightBlue;
+
+            return resultat;
+        }
+
         static public string TraitementNom(string nom, int longueur = 55)
         {
             string resultat = null;

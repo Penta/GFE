@@ -15,6 +15,7 @@ namespace Gfe
 
         private void ChargerConfig()
         {
+            cb_couleur.Text = Principale.couleur;
             cb_dispo.Text = Principale.affichage;
             txt_externe.Text = Principale.logiciel;
             txt_extension.Text = Principale.extension;
@@ -65,6 +66,7 @@ namespace Gfe
 
             Principale.affichage = cb_dispo.Text;
             Principale.logiciel = txt_externe.Text;
+            Principale.couleur = cb_couleur.Text;
             Principale.extension = txt_extension.Text.Replace(" ", string.Empty).Replace(".", string.Empty);
             Principale.rappel = check_rappel.Checked;
             Principale.rechargementConstant = check_constanteVerif.Checked;
@@ -87,6 +89,7 @@ namespace Gfe
 
                 Principale.logiciel = Environment.SystemDirectory + @"\mspaint.exe";
                 Principale.affichage = "étirer";
+                Principale.couleur = "Noir";
                 Principale.extension = "png;jpg;jpeg;bmp;tiff;tif";
                 Principale.rappel = true;
                 Principale.sousDossier = false;

@@ -43,6 +43,9 @@ namespace Gfe
                     if (registre.GetValue("AncienChemin").ToString() != null)
                         ancienChemin = registre.GetValue("AncienChemin").ToString();
 
+                    if (registre.GetValue("CouleurFond").ToString() != null)
+                        Principale.couleur = registre.GetValue("CouleurFond").ToString();
+
                     // Clef pour les extensions utilisées par le logiciel
                     if (registre.GetValue("Extensions").ToString() != null)
                         Principale.extension = registre.GetValue("Extensions").ToString();
@@ -99,6 +102,7 @@ namespace Gfe
             registre.SetValue("VerifConstante", Principale.rechargementConstant);
             registre.SetValue("Historique", "");
             registre.SetValue("ConversionBitmap", false);
+            registre.SetValue("CouleurFond", Principale.couleur);
         }
 
         static public void MiseAjourConfig()
@@ -111,6 +115,7 @@ namespace Gfe
             registre.SetValue("SousDossier", Principale.sousDossier);
             registre.SetValue("ConversionBitmap", Principale.conversion);
             registre.SetValue("VerifConstante", Principale.rechargementConstant);
+            registre.SetValue("CouleurFond", Principale.couleur);
 
             // Pour l'historique
             Principale.historique = Func.GenererHistorique(Principale.chemin, Principale.historique);
@@ -164,9 +169,9 @@ namespace Gfe
 
         static public bool VerifierContextuel()
         {
-            bool resultat = false;
 
             RegistryKey clef = Registry.CurrentUser.OpenSubKey(@"Software\Classes\Directory\shell\" + nomContextuel + @"\command", false);
+            bool resultat = false;
 
             try
             {

@@ -16,7 +16,7 @@ namespace Gfe
         public new void Close()
         {
             do {
-                Thread.Sleep(100);
+                Thread.Sleep(75);
             } while (!Application.AllowQuit);
 
             t.Abort();

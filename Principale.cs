@@ -21,7 +21,7 @@ namespace Gfe
 
         // Variables globales
         static public int id = -1, nbFichier = 0, mid = 0;
-        static public Color couleur = Color.Black;
+        static public string couleur = "Noir";
         static public string affichage = "Étirer", logiciel = Environment.SystemDirectory + @"\mspaint.exe";
         static public string chemin = null, ancienAffichage = null;
         static public bool rappel = true, sousDossier = false, rechargementConstant = false;
@@ -42,7 +42,7 @@ namespace Gfe
             if (id >= 0 && id < fichiers.Length)
             {
                 // On prépare l'application du fond
-                Wallpaper fond = new Wallpaper(fichiers[id].FullName, Func.ConvertirAffichage(affichage), couleur);
+                Wallpaper fond = new Wallpaper(fichiers[id].FullName, Func.ConvertirAffichage(affichage), Func.ConvertirCouleur(couleur));
 
                 // Si le fichier actuel n'est pas listé dans les fichiers illisibles
                 if (!mauvaisFichiers.Contains(fichiers[id].FullName))
@@ -282,7 +282,7 @@ namespace Gfe
         {
             try // On essaye de remettre le fond
             {
-                Wallpaper fond = new Wallpaper(cheminAncienFond, Func.ConvertirAffichage(ancienAffichage), couleur);
+                Wallpaper fond = new Wallpaper(cheminAncienFond, Func.ConvertirAffichage(ancienAffichage), Func.ConvertirCouleur(couleur));
                 fond.Afficher(false);
             }
             catch (Exception e) // Si il y a eu une erreur, on l'affiche
@@ -365,7 +365,7 @@ namespace Gfe
 
             if (erreur > 0 && premierChargement) // Si il y a une erreur durant la lecture d'un sous-dossier
             {
-                MessageBox.Show(erreur.ToString() + " sous-dossiers n'ont pas été lus !\n\nCette erreur est non fatale.", "Erreur de lecture", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(erreur.ToString() + " sous-dossier(s) n'a ou n'ont pas été lu(s) !\n\nCette erreur est non fatale.", "Erreur de lecture", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 erreur = 0;
             }
 
@@ -373,7 +373,8 @@ namespace Gfe
 
             if (afficherTexte)
             {
-                message.Close();
+                try { message.Close(); } catch { /* Je sais pas comment corriger le problème autrement... */ }
+
                 this.Visible = true;
             }
         }

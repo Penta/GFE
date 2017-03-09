@@ -99,16 +99,15 @@ namespace Gulix.Wallpaper
        		get
        		{
 	            int retour = 0;
+
 	            try
 	            {
 	                Image image = new Bitmap(this.nomfichier);
 	                retour = image.Height;
 	                image.Dispose();
 	            }
-	            catch
-	            {
-	                retour = -1;
-	            }
+	            catch { retour = -1; }
+
 	            return retour;
        		}
         }
@@ -121,16 +120,15 @@ namespace Gulix.Wallpaper
         	get
         	{
 	            int retour = 0;
+
 	            try
 	            {
 	                Image image = new Bitmap(this.nomfichier);
 	                retour = image.Width;
 	                image.Dispose();
 	            }
-	            catch
-	            {
-	                retour = -1;
-	            }
+	            catch { retour = -1; }
+
 	            return retour;
         	}
         }
@@ -140,8 +138,8 @@ namespace Gulix.Wallpaper
         /// </summary>
         public Affichage Affichage
         {
-        	get {return affichage; }
-        	set {this.affichage = value;}
+        	get { return affichage; }
+        	set { this.affichage = value; }
         }
         
         /// <summary>
@@ -158,25 +156,19 @@ namespace Gulix.Wallpaper
 		/// </summary>
         public string ConfigurationToString
         {
-        	get {return sToStringConfig;}
-        	set {sToStringConfig = value;}
+        	get { return sToStringConfig; }
+        	set { sToStringConfig = value; }
         }
         
         /// <summary>
         /// Largeur en pixels de l'écran
         /// </summary>
-        public static int LargeurEcran
-        {
-        	get {return SystemInformation.PrimaryMonitorSize.Width;}
-        }
+        public static int LargeurEcran { get { return SystemInformation.PrimaryMonitorSize.Width; } }
 
         /// <summary>
         /// Hauteur en pixels de l'écran
         /// </summary>
-        public static int HauteurEcran
-        {
-        	get {return SystemInformation.PrimaryMonitorSize.Height;}
-        }
+        public static int HauteurEcran { get { return SystemInformation.PrimaryMonitorSize.Height; } }
         
         #endregion
 
@@ -205,8 +197,10 @@ namespace Gulix.Wallpaper
             string[] split;
             char[] separateur ={ '\\' };
             int max;
+
             split = this.nomfichier.Split(separateur);
             max = split.GetUpperBound(0);
+
             return split[max];
         }
 
@@ -225,10 +219,7 @@ namespace Gulix.Wallpaper
             max = split.GetUpperBound(0);
             join = new string[max];
 
-            for (int i = 0; i < (max); i++)
-            {
-                join[i] = split[i];
-            }
+            for (int i = 0; i < (max); i++) { join[i] = split[i]; }
 
             return String.Join("\\", join) + "\\";
         }
@@ -261,6 +252,7 @@ namespace Gulix.Wallpaper
 
             // On modifie le style d'affichage dans la base de registre
             RegistryKey cle = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
+
             if (this.affichage == Affichage.etirer)
             {
                 cle.SetValue(@"WallpaperStyle", 2.ToString());
@@ -284,11 +276,13 @@ namespace Gulix.Wallpaper
                 cle.SetValue(@"WallpaperStyle", 1.ToString());
                 cle.SetValue(@"TileWallpaper", 0.ToString());
             }
+
             if (this.affichage == Affichage.remplir)
             {
                 cle.SetValue(@"WallpaperStyle", 10.ToString());
                 cle.SetValue(@"TileWallpaper", 0.ToString());
             }
+
             if (this.affichage == Affichage.etendre)
             {
                 cle.SetValue(@"WallpaperStyle", 22.ToString());
@@ -324,6 +318,7 @@ namespace Gulix.Wallpaper
         protected string Ajustement()
         {
             string fichierRetour;
+
             if ((this.Hauteur <= HauteurEcran) && (this.Largeur <= LargeurEcran))
             {
                 // Pas d'ajustement nécessaire, on retourne le nom du fichier original
@@ -333,10 +328,10 @@ namespace Gulix.Wallpaper
             {
                 // On calcule les nouvelles dimensions
                 double ratio = ((double)HauteurEcran) / ((double)this.Hauteur);
+
                 if (ratio > (((double)LargeurEcran) / ((double)this.Largeur)))
-                {
                     ratio = ((double)LargeurEcran) / ((double)this.Largeur);
-                }
+
                 int nouvelleLargeur = (int)(((double)this.Largeur) * ratio);
                 int nouvelleHauteur = (int)(((double)this.Largeur) * ratio);
 
@@ -348,8 +343,10 @@ namespace Gulix.Wallpaper
                 imageAjuster = new Bitmap(Image.FromFile(this.nomfichier), tailleAjuster);
                 imageAjuster.Save(Path.Combine(Path.GetTempPath(), "ajuster.bmp"), ImageFormat.Bmp);
                 imageAjuster.Dispose();
+
                 fichierRetour = Path.Combine(Path.GetTempPath(), "ajuster.bmp");
             }
+
             return fichierRetour;
         }
         
@@ -388,22 +385,21 @@ namespace Gulix.Wallpaper
             	sRepertoireCourt = sRepertoireCourt.Remove(sRepertoireCourt.Length-1,1);
             	sRepertoireCourt = sRepertoireCourt.Remove(0,sRepertoireCourt.LastIndexOf("\\")+1);
             	sRepertoireCourt += "\\";
+
             	sRetour = sRetour.Replace("%r",sRepertoireCourt);
             }
+
             return sRetour;
         }
 
         private ImageCodecInfo GetEncoder(ImageFormat format)
         {
-
             ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
 
             foreach (ImageCodecInfo codec in codecs)
             {
                 if (codec.FormatID == format.Guid)
-                {
                     return codec;
-                }
             }
             return null;
         }

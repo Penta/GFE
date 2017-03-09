@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="Func.cs" />
     <Compile Include="Maj.cs" />
+    <Compile Include="NativeMethods.cs" />
     <Compile Include="Principale.cs">
       <SubType>Form</SubType>
     </Compile>

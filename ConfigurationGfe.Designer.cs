@@ -42,6 +42,8 @@
             this.btn_reset = new System.Windows.Forms.Button();
             this.btn_explorer = new System.Windows.Forms.Button();
             this.check_conversion = new System.Windows.Forms.CheckBox();
+            this.cb_couleur = new System.Windows.Forms.ComboBox();
+            this.labelInfoCouleur = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_dispo_info
@@ -130,10 +132,37 @@
             this.check_conversion.Name = "check_conversion";
             this.check_conversion.UseVisualStyleBackColor = true;
             // 
+            // cb_couleur
+            // 
+            this.cb_couleur.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_couleur.Items.AddRange(new object[] {
+            resources.GetString("cb_couleur.Items"),
+            resources.GetString("cb_couleur.Items1"),
+            resources.GetString("cb_couleur.Items2"),
+            resources.GetString("cb_couleur.Items3"),
+            resources.GetString("cb_couleur.Items4"),
+            resources.GetString("cb_couleur.Items5"),
+            resources.GetString("cb_couleur.Items6"),
+            resources.GetString("cb_couleur.Items7"),
+            resources.GetString("cb_couleur.Items8"),
+            resources.GetString("cb_couleur.Items9"),
+            resources.GetString("cb_couleur.Items10"),
+            resources.GetString("cb_couleur.Items11"),
+            resources.GetString("cb_couleur.Items12")});
+            resources.ApplyResources(this.cb_couleur, "cb_couleur");
+            this.cb_couleur.Name = "cb_couleur";
+            // 
+            // labelInfoCouleur
+            // 
+            resources.ApplyResources(this.labelInfoCouleur, "labelInfoCouleur");
+            this.labelInfoCouleur.Name = "labelInfoCouleur";
+            // 
             // ConfigurationGfe
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelInfoCouleur);
+            this.Controls.Add(this.cb_couleur);
             this.Controls.Add(this.check_conversion);
             this.Controls.Add(this.btn_explorer);
             this.Controls.Add(this.btn_reset);
@@ -173,5 +202,7 @@
         private System.Windows.Forms.Button btn_reset;
         private System.Windows.Forms.Button btn_explorer;
         private System.Windows.Forms.CheckBox check_conversion;
+        private System.Windows.Forms.ComboBox cb_couleur;
+        private System.Windows.Forms.Label labelInfoCouleur;
     }
 }
