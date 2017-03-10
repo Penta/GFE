@@ -1,4 +1,4 @@
-﻿ ## Roadmap du Gestionnaire de Fond d'Écran
+## Roadmap du Gestionnaire de Fond d'Écran
 
 ### Pour la version 1.0 du Gestionnaire de Fond d'Écran, voici les fonctionalités à ajouter :
  - Création d'une option de recherche ou de filtrage (le filtrage par extension est déjà un début).
