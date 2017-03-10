@@ -35,6 +35,8 @@ namespace Gfe
 
         static private bool premierChargement = true;
         static private string cheminAncienFond = null;
+        static private Color ancienneCouleur = Color.Black;
+
 
         // Fonction chargeant le fond lié à la variable id dans l'array fichiers
         private void ChargerFond(bool retry)
@@ -282,14 +284,25 @@ namespace Gfe
         {
             try // On essaye de remettre le fond
             {
-                Wallpaper fond = new Wallpaper(cheminAncienFond, Func.ConvertirAffichage(ancienAffichage), Func.ConvertirCouleur(couleur));
-                fond.Afficher(false);
+                if(File.Exists(cheminAncienFond))
+                {
+                    Wallpaper fond = new Wallpaper(cheminAncienFond, Func.ConvertirAffichage(ancienAffichage), ancienneCouleur);
+                    fond.Afficher(false);
+                }
+                else
+                {
+                    Wallpaper fond = new Wallpaper(null, Func.ConvertirAffichage(ancienAffichage), ancienneCouleur);
+                    fond.Afficher(false, true);
+
+                    if (!string.IsNullOrEmpty(cheminAncienFond))
+                        MessageBox.Show("Le fichier de votre ancien fond d'écran n'existe plus, il n'a donc pas été remit en place.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             catch (Exception e) // Si il y a eu une erreur, on l'affiche
             {
                 MessageBox.Show("Une erreur est survenue durant la remise de votre ancien fond d'écran !\n\n" +
-                                "DEBUG :\nFichier : " + Path.GetTempPath() + "GFE_tmp.bmp\nMode : " + ancienAffichage + "\n\nErreur :\n" + e
-                                , "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                                "DEBUG :\nFichier : " + cheminAncienFond + "\nMode : " + ancienAffichage + "\n\nErreur :\n" + e
+                                , "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         
@@ -484,6 +497,8 @@ namespace Gfe
             RegistryKey registre = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
             int tmpId = 0;
 
+            ancienneCouleur = ColorTranslator.FromWin32(Convert.ToInt32(NativeMethods.GetSysColor(1)));
+
             sousmenuContextuel.Checked = Registre.VerifierContextuel();
 
             ancienFondEcran[0] = registre.GetValue("Wallpaper").ToString();
@@ -606,6 +621,7 @@ namespace Gfe
                     cheminAncienFond = fichiers[id].FullName;
 
                 ancienAffichage = affichage;
+                ancienneCouleur = ColorTranslator.FromWin32(Convert.ToInt32(NativeMethods.GetSysColor(1)));
 
                 MessageBox.Show("Le fond d'écran sera actif une fois le logiciel fermé !", "Fond d'écran appliqué.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

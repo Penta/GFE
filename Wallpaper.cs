@@ -228,9 +228,11 @@ namespace Gulix.Wallpaper
         /// Affiche le fond d'écran avec les paramètres renseignés
         /// </summary>
         /// <exception cref="Exception">Renvoie une erreur survenue lors de l'affichage</exception>
-        public void Afficher(bool conversion)
+        public void Afficher(bool conversion, bool cheminVide = false)
         {
             string fichierTemporaire = "";
+            string paramChemin = "";
+
             Image image;
 
             if (conversion)
@@ -289,12 +291,19 @@ namespace Gulix.Wallpaper
                 cle.SetValue(@"TileWallpaper", 0.ToString());
             }
 
-            // On utilise les fonctions de la DLL user32 pour afficher le wallpaper
-            if (conversion)
-                NativeMethods.SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, fichierTemporaire, SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
+            if (!cheminVide)
+            {
+                if (conversion)
+                    paramChemin = fichierTemporaire;
+                else
+                    paramChemin = Path.GetFullPath(this.nomfichier);
+            }
             else
-                NativeMethods.SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, Path.GetFullPath(this.nomfichier), SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
-            
+                paramChemin = "";
+
+            // On utilise les fonctions de la DLL user32 pour afficher le wallpaper
+
+            NativeMethods.SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, paramChemin, SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
 
             int[] elementArray = { 1 };
             int[] elementValues = { ColorTranslator.ToWin32(this.couleurFond) };
@@ -327,13 +336,13 @@ namespace Gulix.Wallpaper
             else
             {
                 // On calcule les nouvelles dimensions
-                double ratio = ((double)HauteurEcran) / ((double)this.Hauteur);
+                double ratio = ((double) HauteurEcran) / ((double) this.Hauteur);
 
-                if (ratio > (((double)LargeurEcran) / ((double)this.Largeur)))
-                    ratio = ((double)LargeurEcran) / ((double)this.Largeur);
+                if (ratio > (((double) LargeurEcran) / ((double) this.Largeur)))
+                    ratio = ((double) LargeurEcran) / ((double) this.Largeur);
 
-                int nouvelleLargeur = (int)(((double)this.Largeur) * ratio);
-                int nouvelleHauteur = (int)(((double)this.Largeur) * ratio);
+                int nouvelleLargeur = (int) (((double) this.Largeur) * ratio);
+                int nouvelleHauteur = (int) (((double) this.Largeur) * ratio);
 
                 // On crée le support de la nouvelle image
                 Size tailleAjuster = new Size(nouvelleLargeur, nouvelleHauteur);
@@ -390,18 +399,6 @@ namespace Gulix.Wallpaper
             }
 
             return sRetour;
-        }
-
-        private ImageCodecInfo GetEncoder(ImageFormat format)
-        {
-            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
-
-            foreach (ImageCodecInfo codec in codecs)
-            {
-                if (codec.FormatID == format.Guid)
-                    return codec;
-            }
-            return null;
         }
     }
 

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Gfe
 {
-    class Registre
+    public class Registre
     {
         public const string emplacement = @"SOFTWARE\Gestionnaire de Fond d'Écran";
         private const string nomContextuel = "Gestionnaire de Fond d'Écran";

@@ -104,7 +104,7 @@
         private System.Windows.Forms.Button btn_valider;
         private System.Windows.Forms.CheckBox check_sousdossier;
         private System.Windows.Forms.Label lbl_info_multidossier;
-        public System.Windows.Forms.ComboBox combo_chemin;
+        private System.Windows.Forms.ComboBox combo_chemin;
     }
 }
 

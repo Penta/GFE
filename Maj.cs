@@ -19,7 +19,7 @@ namespace Gfe
             {
                 nouvelleVersion = web.DownloadString("http://penta.fr.cr/GFE/ver").Substring(0, 3);
 
-                if (Convert.ToInt32(nouvelleVersion) > Convert.ToInt32(Principale.VERSION.Replace(".", "")))
+                if (Convert.ToInt32(nouvelleVersion) > Convert.ToInt32(Principale.VERSION.Replace(".", "").Substring(0, 3)))
                 {
                     Registre.registre.SetValue("MiseAJour", true);
 
@@ -57,7 +57,7 @@ namespace Gfe
         static public void InstallerMaj(string chemin)
         {
             WebClient web = new WebClient();
-            string nouvelleVersion = nouvelleVersion = web.DownloadString("http://penta.fr.cr/GFE/ver").Substring(0, 3); ;
+            string nouvelleVersion = web.DownloadString("http://penta.fr.cr/GFE/ver").Substring(0, 3); ;
 
             Thread.Sleep(250);
             File.Delete(chemin);

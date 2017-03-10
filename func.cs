@@ -133,15 +133,6 @@ namespace Gfe
             return resultat;
         }
 
-        static public byte[] ImageVersBytes(Image image)
-        {
-            using (var ms = new MemoryStream())
-            {
-                image.Save(ms, image.RawFormat);
-                return ms.ToArray();
-            }
-        }
-
         static public List<string> ListeChemins(string chemins, bool verifSousDossier = false)
         {
             List<string> resultat = new List<string>();

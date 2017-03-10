@@ -25,9 +25,7 @@ namespace Gfe
             check_conversion.Checked = Principale.conversion;
 
             if(!Program.nonXP)
-            {
                 check_conversion.Enabled = false;
-            }
         }
 
         private void ChangerDossier()
@@ -53,6 +51,8 @@ namespace Gfe
 
         public ConfigurationGfe()
         {
+            this.Icon = Properties.Resources.icone;
+
             InitializeComponent();
             ChargerConfig();
         }

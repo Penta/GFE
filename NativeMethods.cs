@@ -21,7 +21,7 @@ namespace Gfe
         internal static extern bool GetWindowPlacement(IntPtr hWnd, ref Windowplacement lpwndpl);
 
         [DllImport("user32.dll")]
-        internal static extern int GetSysColor(int nIndex);
+        internal static extern uint GetSysColor(int nIndex);
 
         internal enum ShowWindowEnum
         {

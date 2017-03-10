@@ -53,8 +53,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <CodeAnalysisRuleSet>
-    </CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup>
@@ -135,6 +134,11 @@
     <Compile Include="Renommer.Designer.cs">
       <DependentUpon>Renommer.cs</DependentUpon>
     </Compile>
+    <Compile Include="TexteFR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TexteFR.resx</DependentUpon>
+    </Compile>
     <Compile Include="Saut.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +170,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Renommer.resx">
       <DependentUpon>Renommer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TexteFR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TexteFR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Saut.resx">
       <DependentUpon>Saut.cs</DependentUpon>
