@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,524 +59,527 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lbl_dispo_info.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbl_dispo_info.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 13</value>
-  </data>
-  <data name="lbl_dispo_info.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 13</value>
-  </data>
-  <data name="lbl_dispo_info.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lbl_dispo_info.Text" xml:space="preserve">
-    <value>Disposition du fond d'écran :</value>
-  </data>
-  <data name="&gt;&gt;lbl_dispo_info.Name" xml:space="preserve">
-    <value>lbl_dispo_info</value>
-  </data>
-  <data name="&gt;&gt;lbl_dispo_info.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_dispo_info.Parent" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="cb_couleur.TabIndex" type="System.Int32, mscorlib">
+		<value>13</value>
+	</data>
+	<data name="&gt;&gt;check_sousdossier.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lbl_dispo_info.ZOrder" xml:space="preserve">
-    <value>14</value>
+	<data name="lbl_info_extension.TabIndex" type="System.Int32, mscorlib">
+		<value>7</value>
+	</data>
+	<data name="cb_couleur.Items8" xml:space="preserve">
+    <value>Purple</value>
   </data>
-  <data name="cb_dispo.Items" xml:space="preserve">
-    <value>Étirer</value>
-  </data>
-  <data name="cb_dispo.Items1" xml:space="preserve">
-    <value>Remplir</value>
-  </data>
-  <data name="cb_dispo.Items2" xml:space="preserve">
-    <value>Étendre</value>
-  </data>
-  <data name="cb_dispo.Items3" xml:space="preserve">
-    <value>Centrer</value>
-  </data>
-  <data name="cb_dispo.Items4" xml:space="preserve">
-    <value>Mosaique</value>
-  </data>
-  <data name="cb_dispo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 10</value>
-  </data>
-  <data name="cb_dispo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>335, 21</value>
-  </data>
-  <data name="cb_dispo.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;cb_dispo.Name" xml:space="preserve">
-    <value>cb_dispo</value>
-  </data>
-  <data name="&gt;&gt;cb_dispo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cb_dispo.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cb_dispo.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="btn_appliquer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>416, 258</value>
-  </data>
-  <data name="btn_appliquer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="btn_appliquer.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="btn_appliquer.Text" xml:space="preserve">
-    <value>Appliquer</value>
-  </data>
-  <data name="&gt;&gt;btn_appliquer.Name" xml:space="preserve">
-    <value>btn_appliquer</value>
-  </data>
-  <data name="&gt;&gt;btn_appliquer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_appliquer.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btn_appliquer.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="lbl_externe.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbl_externe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 85</value>
-  </data>
-  <data name="lbl_externe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 13</value>
-  </data>
-  <data name="lbl_externe.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="lbl_externe.Text" xml:space="preserve">
-    <value>Logiciel d'édition externe :</value>
-  </data>
-  <data name="&gt;&gt;lbl_externe.Name" xml:space="preserve">
-    <value>lbl_externe</value>
-  </data>
-  <data name="&gt;&gt;lbl_externe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_externe.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbl_externe.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="txt_externe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>156, 83</value>
-  </data>
-  <data name="txt_externe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>268, 20</value>
-  </data>
-  <data name="txt_externe.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;txt_externe.Name" xml:space="preserve">
-    <value>txt_externe</value>
-  </data>
-  <data name="&gt;&gt;txt_externe.Type" xml:space="preserve">
+	<data name="&gt;&gt;txt_extension.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;txt_externe.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txt_externe.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="check_rappel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="check_rappel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 180</value>
-  </data>
-  <data name="check_rappel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>375, 17</value>
-  </data>
-  <data name="check_rappel.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="check_rappel.Text" xml:space="preserve">
-    <value>Se rappeler du numéro du fond d'écran au prochain démarrage du logiciel.</value>
-  </data>
-  <data name="&gt;&gt;check_rappel.Name" xml:space="preserve">
-    <value>check_rappel</value>
-  </data>
-  <data name="&gt;&gt;check_rappel.Type" xml:space="preserve">
+	<data name="lbl_dispo_info.TabIndex" type="System.Int32, mscorlib">
+		<value>0</value>
+	</data>
+	<assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	<data name="txt_extension.Size" type="System.Drawing.Size, System.Drawing">
+		<value>335, 20</value>
+	</data>
+	<data name="&gt;&gt;check_conversion.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;check_rappel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;check_rappel.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="lbl_info_extension.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbl_info_extension.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 123</value>
-  </data>
-  <data name="lbl_info_extension.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 13</value>
-  </data>
-  <data name="lbl_info_extension.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="lbl_info_extension.Text" xml:space="preserve">
-    <value>Extensions des images :</value>
-  </data>
-  <data name="&gt;&gt;lbl_info_extension.Name" xml:space="preserve">
-    <value>lbl_info_extension</value>
-  </data>
-  <data name="&gt;&gt;lbl_info_extension.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_info_extension.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbl_info_extension.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="txt_extension.Location" type="System.Drawing.Point, System.Drawing">
-    <value>156, 120</value>
-  </data>
-  <data name="txt_extension.Size" type="System.Drawing.Size, System.Drawing">
-    <value>335, 20</value>
-  </data>
-  <data name="txt_extension.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;txt_extension.Name" xml:space="preserve">
-    <value>txt_extension</value>
-  </data>
-  <data name="&gt;&gt;txt_extension.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txt_extension.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txt_extension.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="check_sousdossier.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="check_sousdossier.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="check_sousdossier.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 226</value>
-  </data>
-  <data name="check_sousdossier.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 17</value>
-  </data>
-  <data name="check_sousdossier.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="check_sousdossier.Text" xml:space="preserve">
-    <value>Inclure les fonds d'écran des sous-dossiers.</value>
-  </data>
-  <data name="&gt;&gt;check_sousdossier.Name" xml:space="preserve">
-    <value>check_sousdossier</value>
-  </data>
-  <data name="&gt;&gt;check_sousdossier.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;check_sousdossier.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;check_sousdossier.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="check_constanteVerif.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="check_constanteVerif.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="check_constanteVerif.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 203</value>
-  </data>
-  <data name="check_constanteVerif.Size" type="System.Drawing.Size, System.Drawing">
-    <value>370, 17</value>
-  </data>
-  <data name="check_constanteVerif.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="check_constanteVerif.Text" xml:space="preserve">
-    <value>Vérifier constament la liste des fichiers. (peut faire perdre en performance)</value>
-  </data>
-  <data name="&gt;&gt;check_constanteVerif.Name" xml:space="preserve">
+	<data name="btn_explorer.TabIndex" type="System.Int32, mscorlib">
+		<value>11</value>
+	</data>
+	<data name="&gt;&gt;check_constanteVerif.Name" xml:space="preserve">
     <value>check_constanteVerif</value>
   </data>
-  <data name="&gt;&gt;check_constanteVerif.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	<data name="lbl_externe.Text" xml:space="preserve">
+    <value>External edition software:</value>
   </data>
-  <data name="&gt;&gt;check_constanteVerif.Parent" xml:space="preserve">
+	<data name="&gt;&gt;cb_dispo.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;check_constanteVerif.ZOrder" xml:space="preserve">
+	<data name="check_rappel.TabIndex" type="System.Int32, mscorlib">
+		<value>6</value>
+	</data>
+	<data name="&gt;&gt;check_constanteVerif.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="btn_reset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 258</value>
-  </data>
-  <data name="btn_reset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 23</value>
-  </data>
-  <data name="btn_reset.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="btn_reset.Text" xml:space="preserve">
-    <value>Réinitialiser</value>
-  </data>
-  <data name="&gt;&gt;btn_reset.Name" xml:space="preserve">
-    <value>btn_reset</value>
-  </data>
-  <data name="&gt;&gt;btn_reset.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_reset.Parent" xml:space="preserve">
+	<data name="&gt;&gt;labelInfoCouleur.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btn_reset.ZOrder" xml:space="preserve">
-    <value>4</value>
+	<data name="cb_dispo.Items4" xml:space="preserve">
+    <value>Mosaique</value>
   </data>
-  <data name="btn_explorer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 82</value>
+	<data name="&gt;&gt;cb_dispo.Name" xml:space="preserve">
+    <value>cb_dispo</value>
   </data>
-  <data name="btn_explorer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 23</value>
-  </data>
-  <data name="btn_explorer.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="btn_explorer.Text" xml:space="preserve">
-    <value>Explorer</value>
-  </data>
-  <data name="&gt;&gt;btn_explorer.Name" xml:space="preserve">
-    <value>btn_explorer</value>
-  </data>
-  <data name="&gt;&gt;btn_explorer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_explorer.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btn_explorer.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="check_conversion.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="check_conversion.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="check_conversion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 157</value>
-  </data>
-  <data name="check_conversion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>488, 17</value>
-  </data>
-  <data name="check_conversion.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="check_conversion.Text" xml:space="preserve">
-    <value>Convertir les images en bitmap avant application. (permet de régler des problèmes de compatibilité)</value>
-  </data>
-  <data name="&gt;&gt;check_conversion.Name" xml:space="preserve">
-    <value>check_conversion</value>
-  </data>
-  <data name="&gt;&gt;check_conversion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;check_conversion.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;check_conversion.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="cb_couleur.Items" xml:space="preserve">
-    <value>Noir</value>
-  </data>
-  <data name="cb_couleur.Items1" xml:space="preserve">
-    <value>Blanc</value>
-  </data>
-  <data name="cb_couleur.Items2" xml:space="preserve">
-    <value>Gris</value>
-  </data>
-  <data name="cb_couleur.Items3" xml:space="preserve">
-    <value>Jaune</value>
-  </data>
-  <data name="cb_couleur.Items4" xml:space="preserve">
-    <value>Orange</value>
-  </data>
-  <data name="cb_couleur.Items5" xml:space="preserve">
-    <value>Rouge</value>
-  </data>
-  <data name="cb_couleur.Items6" xml:space="preserve">
-    <value>Bleu</value>
-  </data>
-  <data name="cb_couleur.Items7" xml:space="preserve">
-    <value>Vert</value>
-  </data>
-  <data name="cb_couleur.Items8" xml:space="preserve">
-    <value>Violet</value>
-  </data>
-  <data name="cb_couleur.Items9" xml:space="preserve">
-    <value>Rose</value>
-  </data>
-  <data name="cb_couleur.Items10" xml:space="preserve">
-    <value>Marron</value>
-  </data>
-  <data name="cb_couleur.Items11" xml:space="preserve">
-    <value>Gris foncé</value>
-  </data>
-  <data name="cb_couleur.Items12" xml:space="preserve">
-    <value>Bleu clair</value>
-  </data>
-  <data name="cb_couleur.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 46</value>
-  </data>
-  <data name="cb_couleur.Size" type="System.Drawing.Size, System.Drawing">
-    <value>335, 21</value>
-  </data>
-  <data name="cb_couleur.TabIndex" type="System.Int32, mscorlib">
+	<data name="&gt;&gt;cb_dispo.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
-  <data name="&gt;&gt;cb_couleur.Name" xml:space="preserve">
-    <value>cb_couleur</value>
-  </data>
-  <data name="&gt;&gt;cb_couleur.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cb_couleur.Parent" xml:space="preserve">
+	<data name="&gt;&gt;lbl_externe.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;cb_couleur.ZOrder" xml:space="preserve">
-    <value>1</value>
+	<data name="&gt;&gt;lbl_externe.Name" xml:space="preserve">
+    <value>lbl_externe</value>
   </data>
-  <data name="labelInfoCouleur.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+	<data name="&gt;&gt;btn_appliquer.Name" xml:space="preserve">
+    <value>btn_appliquer</value>
   </data>
-  <data name="labelInfoCouleur.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+	<data name="&gt;&gt;check_conversion.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="labelInfoCouleur.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 49</value>
+	<data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+		<value>504, 290</value>
+	</data>
+	<data name="cb_dispo.Items3" xml:space="preserve">
+    <value>Center</value>
   </data>
-  <data name="labelInfoCouleur.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 13</value>
+	<data name="check_sousdossier.Location" type="System.Drawing.Point, System.Drawing">
+		<value>15, 226</value>
+	</data>
+	<data name="&gt;&gt;check_sousdossier.Name" xml:space="preserve">
+    <value>check_sousdossier</value>
   </data>
-  <data name="labelInfoCouleur.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="labelInfoCouleur.Text" xml:space="preserve">
-    <value>Couleur d'arrière-plan :</value>
-  </data>
-  <data name="&gt;&gt;labelInfoCouleur.Name" xml:space="preserve">
-    <value>labelInfoCouleur</value>
-  </data>
-  <data name="&gt;&gt;labelInfoCouleur.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelInfoCouleur.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;labelInfoCouleur.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>504, 290</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterParent</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
+	<data name="check_conversion.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
     <value>Configuration...</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+	<data name="txt_externe.Size" type="System.Drawing.Size, System.Drawing">
+		<value>268, 20</value>
+	</data>
+	<data name="&gt;&gt;btn_explorer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;check_rappel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="check_constanteVerif.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="&gt;&gt;lbl_dispo_info.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;btn_reset.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;btn_explorer.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+	<data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+		<value>6, 13</value>
+	</data>
+	<data name="&gt;&gt;check_rappel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+	<data name="labelInfoCouleur.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="&gt;&gt;lbl_dispo_info.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="check_constanteVerif.Location" type="System.Drawing.Point, System.Drawing">
+		<value>15, 203</value>
+	</data>
+	<data name="&gt;&gt;btn_appliquer.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+	<data name="btn_reset.Text" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+	<data name="&gt;&gt;check_constanteVerif.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;check_conversion.Name" xml:space="preserve">
+    <value>check_conversion</value>
+  </data>
+	<data name="&gt;&gt;txt_externe.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+	<data name="&gt;&gt;labelInfoCouleur.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;lbl_dispo_info.Name" xml:space="preserve">
+    <value>lbl_dispo_info</value>
+  </data>
+	<data name="&gt;&gt;cb_dispo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;btn_appliquer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;labelInfoCouleur.Name" xml:space="preserve">
+    <value>labelInfoCouleur</value>
+  </data>
+	<data name="txt_externe.TabIndex" type="System.Int32, mscorlib">
+		<value>2</value>
+	</data>
+	<data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ConfigurationGfe</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+	<data name="&gt;&gt;cb_couleur.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="cb_couleur.Size" type="System.Drawing.Size, System.Drawing">
+		<value>335, 21</value>
+	</data>
+	<data name="&gt;&gt;lbl_info_extension.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;txt_extension.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="cb_dispo.Items" xml:space="preserve">
+    <value>Stretch</value>
+  </data>
+	<data name="labelInfoCouleur.Location" type="System.Drawing.Point, System.Drawing">
+		<value>12, 49</value>
+	</data>
+	<data name="&gt;&gt;btn_reset.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="lbl_info_extension.Text" xml:space="preserve">
+    <value>Allowed file extensions:</value>
+  </data>
+	<data name="check_rappel.Text" xml:space="preserve">
+    <value>Remember the last file number at the next launch.</value>
+  </data>
+	<data name="&gt;&gt;cb_couleur.Name" xml:space="preserve">
+    <value>cb_couleur</value>
+  </data>
+	<data name="btn_explorer.Text" xml:space="preserve">
+    <value>Explore</value>
+  </data>
+	<data name="lbl_info_extension.Location" type="System.Drawing.Point, System.Drawing">
+		<value>12, 123</value>
+	</data>
+	<data name="lbl_externe.TabIndex" type="System.Int32, mscorlib">
+		<value>2</value>
+	</data>
+	<data name="check_sousdossier.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="btn_reset.TabIndex" type="System.Int32, mscorlib">
+		<value>10</value>
+	</data>
+	<data name="&gt;&gt;txt_externe.Name" xml:space="preserve">
+    <value>txt_externe</value>
+  </data>
+	<data name="lbl_info_extension.Size" type="System.Drawing.Size, System.Drawing">
+		<value>120, 13</value>
+	</data>
+	<data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+		<value>CenterParent</value>
+	</data>
+	<data name="lbl_info_extension.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="cb_couleur.Items11" xml:space="preserve">
+    <value>Dark grey</value>
+  </data>
+	<data name="btn_appliquer.Text" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+	<data name="&gt;&gt;txt_extension.Name" xml:space="preserve">
+    <value>txt_extension</value>
+  </data>
+	<data name="&gt;&gt;txt_externe.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="&gt;&gt;check_rappel.Name" xml:space="preserve">
+    <value>check_rappel</value>
+  </data>
+	<data name="check_sousdossier.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="lbl_dispo_info.Location" type="System.Drawing.Point, System.Drawing">
+		<value>12, 13</value>
+	</data>
+	<data name="cb_couleur.Items10" xml:space="preserve">
+    <value>Brown</value>
+  </data>
+	<data name="check_conversion.TabIndex" type="System.Int32, mscorlib">
+		<value>12</value>
+	</data>
+	<data name="cb_dispo.Size" type="System.Drawing.Size, System.Drawing">
+		<value>335, 21</value>
+	</data>
+	<data name="&gt;&gt;cb_couleur.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="lbl_dispo_info.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="cb_dispo.Location" type="System.Drawing.Point, System.Drawing">
+		<value>157, 10</value>
+	</data>
+	<data name="check_rappel.Location" type="System.Drawing.Point, System.Drawing">
+		<value>15, 180</value>
+	</data>
+	<data name="btn_explorer.Size" type="System.Drawing.Size, System.Drawing">
+		<value>61, 23</value>
+	</data>
+	<data name="lbl_externe.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="&gt;&gt;labelInfoCouleur.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+	<data name="lbl_externe.Size" type="System.Drawing.Size, System.Drawing">
+		<value>129, 13</value>
+	</data>
+	<data name="lbl_dispo_info.Text" xml:space="preserve">
+    <value>Wallpaper disposition:</value>
+  </data>
+	<data name="check_conversion.Size" type="System.Drawing.Size, System.Drawing">
+		<value>488, 17</value>
+	</data>
+	<data name="lbl_externe.Location" type="System.Drawing.Point, System.Drawing">
+		<value>12, 85</value>
+	</data>
+	<data name="check_sousdossier.Size" type="System.Drawing.Size, System.Drawing">
+		<value>230, 17</value>
+	</data>
+	<data name="&gt;&gt;btn_reset.Name" xml:space="preserve">
+    <value>btn_reset</value>
+  </data>
+	<data name="btn_explorer.Location" type="System.Drawing.Point, System.Drawing">
+		<value>430, 82</value>
+	</data>
+	<data name="cb_couleur.Items12" xml:space="preserve">
+    <value>Light blue</value>
+  </data>
+	<data name="check_rappel.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="&gt;&gt;check_constanteVerif.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="txt_extension.Location" type="System.Drawing.Point, System.Drawing">
+		<value>156, 120</value>
+	</data>
+	<data name="labelInfoCouleur.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="cb_couleur.Items9" xml:space="preserve">
+    <value>Pink</value>
+  </data>
+	<data name="txt_externe.Location" type="System.Drawing.Point, System.Drawing">
+		<value>156, 83</value>
+	</data>
+	<data name="&gt;&gt;btn_explorer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="lbl_dispo_info.Size" type="System.Drawing.Size, System.Drawing">
+		<value>141, 13</value>
+	</data>
+	<data name="btn_appliquer.TabIndex" type="System.Int32, mscorlib">
+		<value>4</value>
+	</data>
+	<data name="check_constanteVerif.Size" type="System.Drawing.Size, System.Drawing">
+		<value>370, 17</value>
+	</data>
+	<data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+	<data name="&gt;&gt;check_rappel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="labelInfoCouleur.TabIndex" type="System.Int32, mscorlib">
+		<value>14</value>
+	</data>
+	<data name="check_conversion.Location" type="System.Drawing.Point, System.Drawing">
+		<value>15, 157</value>
+	</data>
+	<data name="cb_dispo.TabIndex" type="System.Int32, mscorlib">
+		<value>1</value>
+	</data>
+	<data name="&gt;&gt;lbl_info_extension.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+	<data name="&gt;&gt;lbl_externe.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+	<data name="cb_couleur.Location" type="System.Drawing.Point, System.Drawing">
+		<value>157, 46</value>
+	</data>
+	<data name="&gt;&gt;btn_appliquer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="check_conversion.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+		<value>NoControl</value>
+	</data>
+	<data name="check_conversion.Text" xml:space="preserve">
+    <value>Convert files into bitmap before application. (better compatibility but slower)</value>
+  </data>
+	<data name="btn_reset.Location" type="System.Drawing.Point, System.Drawing">
+		<value>15, 258</value>
+	</data>
+	<data name="check_constanteVerif.AutoSize" type="System.Boolean, mscorlib">
+		<value>True</value>
+	</data>
+	<data name="cb_couleur.Items" xml:space="preserve">
+    <value>Black</value>
+  </data>
+	<data name="&gt;&gt;check_sousdossier.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+	<data name="&gt;&gt;lbl_info_extension.Name" xml:space="preserve">
+    <value>lbl_info_extension</value>
+  </data>
+	<data name="&gt;&gt;txt_externe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="labelInfoCouleur.Size" type="System.Drawing.Size, System.Drawing">
+		<value>112, 13</value>
+	</data>
+	<data name="cb_couleur.Items5" xml:space="preserve">
+    <value>Red</value>
+  </data>
+	<data name="cb_couleur.Items4" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+	<data name="cb_couleur.Items7" xml:space="preserve">
+    <value>Green</value>
+  </data>
+	<data name="cb_couleur.Items6" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+	<data name="cb_couleur.Items1" xml:space="preserve">
+    <value>White</value>
+  </data>
+	<data name="cb_couleur.Items3" xml:space="preserve">
+    <value>Yellow</value>
+  </data>
+	<data name="cb_couleur.Items2" xml:space="preserve">
+    <value>Grey</value>
+  </data>
+	<data name="btn_appliquer.Location" type="System.Drawing.Point, System.Drawing">
+		<value>416, 258</value>
+	</data>
+	<data name="txt_extension.TabIndex" type="System.Int32, mscorlib">
+		<value>3</value>
+	</data>
+	<data name="check_constanteVerif.Text" xml:space="preserve">
+    <value>Constantly check the file list. (can cause performance degradation)</value>
+  </data>
+	<data name="&gt;&gt;lbl_info_extension.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;lbl_externe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="&gt;&gt;check_sousdossier.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+	<data name="cb_dispo.Items2" xml:space="preserve">
+    <value>Extend</value>
+  </data>
+	<data name="check_constanteVerif.TabIndex" type="System.Int32, mscorlib">
+		<value>9</value>
+	</data>
+	<data name="&gt;&gt;lbl_dispo_info.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+	<data name="&gt;&gt;check_conversion.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+	<data name="check_sousdossier.TabIndex" type="System.Int32, mscorlib">
+		<value>8</value>
+	</data>
+	<data name="btn_reset.Size" type="System.Drawing.Size, System.Drawing">
+		<value>69, 23</value>
+	</data>
+	<data name="cb_dispo.Items1" xml:space="preserve">
+    <value>Fill</value>
+  </data>
+	<data name="labelInfoCouleur.Text" xml:space="preserve">
+    <value>Background Colour:</value>
+  </data>
+	<data name="btn_appliquer.Size" type="System.Drawing.Size, System.Drawing">
+		<value>75, 23</value>
+	</data>
+	<data name="&gt;&gt;btn_reset.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+	<data name="&gt;&gt;btn_explorer.Name" xml:space="preserve">
+    <value>btn_explorer</value>
+  </data>
+	<data name="&gt;&gt;txt_extension.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+	<data name="check_rappel.Size" type="System.Drawing.Size, System.Drawing">
+		<value>375, 17</value>
+	</data>
+	<data name="&gt;&gt;cb_couleur.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+	<data name="check_sousdossier.Text" xml:space="preserve">
+    <value>Include wallpapers from subdirectories.</value>
+  </data>
+	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+		<value>True</value>
+	</metadata>
+	<metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+		<value>fr</value>
+	</metadata>
 </root>

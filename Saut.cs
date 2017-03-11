@@ -7,6 +7,8 @@ namespace Gfe
     {
         public Saut()
         {
+            this.Icon = Properties.Resources.icone;
+
             InitializeComponent();
 
             lbl_max.Text = "/ " + Principale.nbFichier.ToString();
@@ -29,12 +31,12 @@ namespace Gfe
                         this.DestroyHandle();
                     }
                     else
-                        MessageBox.Show("Nombre trop grand !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        MessageBox.Show(Texte.SautTropGrand, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 }
                 else
-                    MessageBox.Show("Veuillez choisir un nombre superieur à 0 !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show(Texte.SautTropPetit, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
-            catch { MessageBox.Show("Veuillez rentrer un nombre !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1); }
+            catch { MessageBox.Show(Texte.SautVide, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1); }
         }
     }
 }

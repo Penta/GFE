@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,7 +117,172 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Titre" xml:space="preserve">
+  <data name="btnSuivant.Text" xml:space="preserve">
+    <value>Commencer</value>
+  </data>
+  <data name="btnSuivant.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnSuivant.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="sousmenuSuivant.Text" xml:space="preserve">
+    <value>Suivant</value>
+  </data>
+  <data name="sousmenuPrécédent.Text" xml:space="preserve">
+    <value>Précédent</value>
+  </data>
+  <data name="sousmenuSupprimer.Text" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="sousmenuModifier.Text" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="sousmenuRenommer.Text" xml:space="preserve">
+    <value>Renommer le fichier...</value>
+  </data>
+  <data name="sousmenuRechargerFond.Text" xml:space="preserve">
+    <value>Recharger le fond</value>
+  </data>
+  <data name="sousmenuAppliquer.Text" xml:space="preserve">
+    <value>Appliquer le fond d'écran</value>
+  </data>
+  <data name="sousmenuVoirDossier.Text" xml:space="preserve">
+    <value>Voir le contenu du dossier</value>
+  </data>
+  <data name="sousmenuChangerDossier.Text" xml:space="preserve">
+    <value>Changer de dossier...</value>
+  </data>
+  <data name="sousmenuAllezA.Text" xml:space="preserve">
+    <value>Allez à l'image...</value>
+  </data>
+  <data name="sousmenuMinimiser.Text" xml:space="preserve">
+    <value>Minimiser toutes les fenêtres</value>
+  </data>
+  <data name="sousmenuRechargerListe.Text" xml:space="preserve">
+    <value>Recharger la liste des fichiers</value>
+  </data>
+  <data name="sousmenuQuitter.Text" xml:space="preserve">
+    <value>Quitter</value>
+  </data>
+  <data name="sousmenuMaj.Text" xml:space="preserve">
+    <value>Mettre à Jour</value>
+  </data>
+  <data name="sousmenuContextuel.Text" xml:space="preserve">
+    <value>Ajouter au menu contextuel</value>
+  </data>
+  <data name="sousmenuStatistiques.Text" xml:space="preserve">
+    <value>Statistiques</value>
+  </data>
+  <data name="menuAléatoire.Text" xml:space="preserve">
+    <value>Aléatoire</value>
+  </data>
+  <data name="menuAléatoire.ToolTipText" xml:space="preserve">
+    <value>Raccourci : Ctrl+Bas</value>
+  </data>
+  <data name="sousmenuAide.Text" xml:space="preserve">
+    <value>Aide en ligne</value>
+  </data>
+  <data name="sousmenuVersion.Text" xml:space="preserve">
+    <value>Note de version</value>
+  </data>
+  <data name="sousmenuAbout.Text" xml:space="preserve">
+    <value>À Propos</value>
+  </data>
+  <data name="menu.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="menu.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelInfoChemin.Text" xml:space="preserve">
+    <value>Chemin du dossier :</value>
+  </data>
+  <data name="labelInfoChemin.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelInfoChemin.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelInfoNom.Text" xml:space="preserve">
+    <value>Nom du fichier :</value>
+  </data>
+  <data name="labelInfoNom.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelInfoNom.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnPrécédent.Text" xml:space="preserve">
+    <value>Précédent</value>
+  </data>
+  <data name="btnPrécédent.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnPrécédent.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelChemin.Text" xml:space="preserve">
+    <value>Une erreur est survenue.</value>
+  </data>
+  <data name="labelChemin.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelChemin.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelNom.Text" xml:space="preserve">
+    <value>Aucun fichier n'est selectionné.</value>
+  </data>
+  <data name="labelNom.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelNom.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnSupprimer.Text" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="btnSupprimer.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnSupprimer.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelInfoFichier.Text" xml:space="preserve">
+    <value>Fichier :</value>
+  </data>
+  <data name="labelInfoFichier.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelInfoFichier.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelNuméro.Text" xml:space="preserve">
+    <value>0 sur 0</value>
+  </data>
+  <data name="labelNuméro.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelNuméro.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnModifier.Text" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="btnModifier.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnModifier.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="$this.Text" xml:space="preserve">
     <value>Gestionnaire de Fond d'Écran</value>
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="$this.ToolTip1" xml:space="preserve">
+    <value />
   </data>
 </root>

@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.Win32;
 using System.Windows.Forms;
-using System.Linq;
 
 namespace Gfe
 {
@@ -72,7 +71,7 @@ namespace Gfe
                 }
                 catch
                 {
-                    MessageBox.Show("Une erreur est survenue durant la lecture du registre !\n\nVotre configuration va être réinitialisée.", "Erreur du registre", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(Texte.ErreurRegistre, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                     ResetRegistre();
                 }
@@ -152,7 +151,7 @@ namespace Gfe
             RegistryKey clef = Registry.CurrentUser.CreateSubKey(@"Software\Classes\Directory\shell\" + nomContextuel, RegistryKeyPermissionCheck.ReadWriteSubTree);
             RegistryKey sousClef = clef.CreateSubKey("command", RegistryKeyPermissionCheck.ReadWriteSubTree);
 
-            clef.SetValue("", "Visualiser les fonds d'écran du dossier");
+            clef.SetValue("", Texte.MenuContextuelTexte);
             clef.SetValue("Icon", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Gestionnaire de Fond d'Écran\icone.ico");
             sousClef.SetValue("", "\"" + System.Reflection.Assembly.GetEntryAssembly().Location + "\" /O \"%1\"");
             sousClef.Close();
@@ -181,6 +180,15 @@ namespace Gfe
             catch { resultat = false; }
 
             return resultat;
+        }
+
+        static public string RecupererLangue()
+        {
+            try
+            {
+                return registre.GetValue("Langue").ToString().ToLower();
+            }
+            catch { return string.Empty; }
         }
     }
 }

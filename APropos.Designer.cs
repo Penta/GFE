@@ -37,7 +37,7 @@
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.boutonOK = new System.Windows.Forms.Button();
             this.lbl_link_github = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
@@ -82,18 +82,18 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.richTextBox1, "richTextBox1");
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.Control;
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
             // 
-            // button1
+            // boutonOK
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.BoutonOK_Clic);
+            resources.ApplyResources(this.boutonOK, "boutonOK");
+            this.boutonOK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.boutonOK.Name = "boutonOK";
+            this.boutonOK.UseVisualStyleBackColor = true;
+            this.boutonOK.Click += new System.EventHandler(this.BoutonOK_Clic);
             // 
             // lbl_link_github
             // 
@@ -106,9 +106,9 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.button1;
+            this.CancelButton = this.boutonOK;
             this.Controls.Add(this.lbl_link_github);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.boutonOK);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.linkLabel2);
@@ -137,7 +137,7 @@
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button boutonOK;
         private System.Windows.Forms.LinkLabel lbl_link_github;
     }
 }

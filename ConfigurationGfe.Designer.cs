@@ -53,6 +53,7 @@
             // 
             // cb_dispo
             // 
+            resources.ApplyResources(this.cb_dispo, "cb_dispo");
             this.cb_dispo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_dispo.Items.AddRange(new object[] {
             resources.GetString("cb_dispo.Items"),
@@ -60,7 +61,6 @@
             resources.GetString("cb_dispo.Items2"),
             resources.GetString("cb_dispo.Items3"),
             resources.GetString("cb_dispo.Items4")});
-            resources.ApplyResources(this.cb_dispo, "cb_dispo");
             this.cb_dispo.Name = "cb_dispo";
             // 
             // btn_appliquer
@@ -112,9 +112,9 @@
             // 
             // btn_reset
             // 
+            resources.ApplyResources(this.btn_reset, "btn_reset");
             this.btn_reset.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btn_reset.ForeColor = System.Drawing.Color.Red;
-            resources.ApplyResources(this.btn_reset, "btn_reset");
             this.btn_reset.Name = "btn_reset";
             this.btn_reset.UseVisualStyleBackColor = false;
             this.btn_reset.Click += new System.EventHandler(this.BoutonReset_Clic);
@@ -134,6 +134,7 @@
             // 
             // cb_couleur
             // 
+            resources.ApplyResources(this.cb_couleur, "cb_couleur");
             this.cb_couleur.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_couleur.Items.AddRange(new object[] {
             resources.GetString("cb_couleur.Items"),
@@ -149,7 +150,6 @@
             resources.GetString("cb_couleur.Items10"),
             resources.GetString("cb_couleur.Items11"),
             resources.GetString("cb_couleur.Items12")});
-            resources.ApplyResources(this.cb_couleur, "cb_couleur");
             this.cb_couleur.Name = "cb_couleur";
             // 
             // labelInfoCouleur

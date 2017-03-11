@@ -17,7 +17,7 @@ namespace Gfe
         {
             FolderBrowserDialog selectionDossier = new FolderBrowserDialog()
             {
-                Description = "Veuillez choisir le dossier de vos fonds d'écran.",
+                Description = Texte.DescriptionSelectionDossier,
                 ShowNewFolderButton = false
             };
 
@@ -82,7 +82,7 @@ namespace Gfe
 
             if (!string.IsNullOrEmpty(tempChemin))
             {
-                DialogResult question = MessageBox.Show("Voulez-vous ajoutez ce chemin à celui ou ceux déjà existants ?\n\nAppuyer sur Non remplacera les valeurs déjà existantes !", "Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+                DialogResult question = MessageBox.Show(Texte.QuestionSelection, Texte.ConfirmationTitre, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
                 if (question == DialogResult.Yes)
                     chemin = chemin.TrimEnd('|').TrimEnd(' ') + " | " + tempChemin;
@@ -126,10 +126,10 @@ namespace Gfe
                     this.DestroyHandle();
                 }
                 else
-                    MessageBox.Show("Au moins un des dossiers rentrés n'est pas valide !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show(Texte.DossierInvalide, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
             else
-                MessageBox.Show("Veuillez choisir un dossier !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                MessageBox.Show(Texte.AucunDossier, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
         }
 
         private void LabelInfoMultiDossier_Clic(object sender, EventArgs e) { combo_chemin.Text += " | "; }

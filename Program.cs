@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Net;
+using System.Threading;
 using System.Windows.Forms;
+using System.Reflection;
 
 namespace Gfe
 {
@@ -11,12 +14,11 @@ namespace Gfe
         static public string dossierAppdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Gestionnaire de Fond d'Écran\";
         static public bool nonXP = false;
 
-        /// <summary>
-        /// Point d'entrée principal de l'application.
-        /// </summary>
         [STAThread]
         static void Main(string[] args)
         {
+            ObtenirLangue();
+
             string var = "", chemin = "";
             bool erreur = false;
 
@@ -46,9 +48,9 @@ namespace Gfe
                     try
                     {
                         web.DownloadFile("https://github.com/Penta/GFE/archive/" + Principale.VERSION + ".zip", Environment.CurrentDirectory + @"\source.zip");
-                        MessageBox.Show("Téléchargement des sources via GitHub éffectué !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Texte.TéléchargementSources, Texte.SuccèsTitre, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    catch { MessageBox.Show("Une erreur est survenue durant le téléchargement des sources !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    catch { MessageBox.Show(Texte.ErreurTéléchargementSources, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
                     web.Dispose();
                 }
@@ -72,17 +74,17 @@ namespace Gfe
                             Application.Run(new Principale(chemin));
                         }
                         else
-                            MessageBox.Show("Vous devez spécifier un ou des chemins valides séparés par un | (Alt Gr + 6).", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Texte.MauvaisCheminParamètre, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
-                        MessageBox.Show("Vous devez spécifier un chemin !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Texte.AucunCheminParamètre, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (var == "/R")
                 {
                     ResetLogiciel();
                 }
                 else
-                    MessageBox.Show("Argument invalide.", "Erreur d'argument", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Texte.ArgumentInvalide, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
                 DemarrageNormal();
@@ -101,7 +103,7 @@ namespace Gfe
             if (File.Exists(Path.GetTempPath() + @"wallpaper2.bmp"))
                 File.Delete(Path.GetTempPath() + @"wallpaper2.bmp");
 
-            MessageBox.Show("Tous les fichiers et les données laissés par le Gestionnaire de Fond d'Écran on été supprimés, vous maintenant supprimer cet exécutable pour supprimer totalement le Gestionnaire de Fond d'Écran de votre ordinateur !", "Suppression effectuée", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show(Texte.ToutSupprimé, Texte.SuccèsTitre, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         static private void DemarrageNormal()
@@ -118,6 +120,26 @@ namespace Gfe
             Application.Run(new Selection());
         }
 
+
+
+        static private void ObtenirLangue()
+        {
+            EmbeddedAssembly.Load(@"Gfe.lib.fr.resources.dll", @"Gfe.lib.fr.resources.dll");
+            AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(CurrentDomain_AssemblyResolve);
+
+            string langue = Registre.RecupererLangue();
+
+            if (langue == "fr")
+                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr");
+            else if (langue == "en")
+                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en");
+        }
+
+        static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            return EmbeddedAssembly.Get(args.Name);
+        }
+
         static private void CompatibilitéOS()
         {
             if (Environment.OSVersion.Version.Major >= 6)
@@ -132,7 +154,7 @@ namespace Gfe
             {
                 bool retour = false;
 
-                IntPtr wdwIntPtr = NativeMethods.FindWindow(null, "Gestionnaire de Fond d'Écran");
+                IntPtr wdwIntPtr = NativeMethods.FindWindow(null, Texte.Titre);
 
                 //get the hWnd of the process
                 NativeMethods.Windowplacement placement = new NativeMethods.Windowplacement();
@@ -149,7 +171,7 @@ namespace Gfe
                 retour = NativeMethods.SetForegroundWindow(wdwIntPtr);
 
                 if (!retour)
-                    MessageBox.Show("Seulement une seule instance du logiciel peut être lancée à la fois !", "Gestionnaire de Fond d'Écran", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Texte.SeulementUneInstance, Texte.Titre, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 Environment.Exit(0);
             }
@@ -157,15 +179,7 @@ namespace Gfe
 
         static private void AfficherAide()
         {
-            MessageBox.Show(
-            "/H ou /?       : Affiche cette aide.\n" +
-            "/S                  : Extrait les sources dans le dossier courant.\n" +
-            "/U [<path>] : Télécharge la nouvelle version du logiciel.\n" +
-            "/O <path>   : Ouvre le chemin sans demander à l'utilisateur.\n" +
-            "/R                  : Supprime toutes les données stockées sur le PC.\n" +
-            "\n" +
-            "Pour plus d'aide, allez sur l'aide en ligne : http://github.com/Penta/GFE/wiki",
-            "Aide du Gestionaire de Fond d'écran", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            MessageBox.Show(Texte.Aide, Texte.Titre, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
     }
 }

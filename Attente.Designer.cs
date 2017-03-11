@@ -28,23 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Attente));
             this.lbl_description = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_description
             // 
-            this.lbl_description.AutoSize = true;
-            this.lbl_description.Location = new System.Drawing.Point(10, 10);
+            resources.ApplyResources(this.lbl_description, "lbl_description");
             this.lbl_description.Name = "lbl_description";
-            this.lbl_description.Size = new System.Drawing.Size(240, 13);
-            this.lbl_description.TabIndex = 0;
-            this.lbl_description.Text = "Création de la liste des fichiers de fonds d\'écran...";
             // 
             // Attente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(260, 34);
             this.Controls.Add(this.lbl_description);
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.DoubleBuffered = true;
@@ -52,8 +48,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Attente";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Patientez s\'il vous plaît...";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Attente_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

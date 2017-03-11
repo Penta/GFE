@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Renommer));
             this.btn_valider = new System.Windows.Forms.Button();
             this.lbl_extension = new System.Windows.Forms.Label();
             this.txt_nom = new System.Windows.Forms.TextBox();
@@ -36,45 +37,31 @@
             // 
             // btn_valider
             // 
-            this.btn_valider.Location = new System.Drawing.Point(200, 64);
+            resources.ApplyResources(this.btn_valider, "btn_valider");
             this.btn_valider.Name = "btn_valider";
-            this.btn_valider.Size = new System.Drawing.Size(75, 23);
-            this.btn_valider.TabIndex = 2;
-            this.btn_valider.Text = "Valider";
             this.btn_valider.UseVisualStyleBackColor = true;
             this.btn_valider.Click += new System.EventHandler(this.BoutonValiderClic);
             // 
             // lbl_extension
             // 
-            this.lbl_extension.AutoSize = true;
-            this.lbl_extension.Location = new System.Drawing.Point(240, 37);
+            resources.ApplyResources(this.lbl_extension, "lbl_extension");
             this.lbl_extension.Name = "lbl_extension";
-            this.lbl_extension.Size = new System.Drawing.Size(24, 13);
-            this.lbl_extension.TabIndex = 1;
-            this.lbl_extension.Text = ".ext";
             // 
             // txt_nom
             // 
-            this.txt_nom.Location = new System.Drawing.Point(12, 35);
+            resources.ApplyResources(this.txt_nom, "txt_nom");
             this.txt_nom.Name = "txt_nom";
-            this.txt_nom.Size = new System.Drawing.Size(229, 20);
-            this.txt_nom.TabIndex = 1;
             this.txt_nom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TexteNomTouchePresse);
             // 
             // lbl_description
             // 
-            this.lbl_description.AutoSize = true;
-            this.lbl_description.Location = new System.Drawing.Point(9, 12);
+            resources.ApplyResources(this.lbl_description, "lbl_description");
             this.lbl_description.Name = "lbl_description";
-            this.lbl_description.Size = new System.Drawing.Size(195, 13);
-            this.lbl_description.TabIndex = 3;
-            this.lbl_description.Text = "Tapez le nouveau nom de votre fichier :";
             // 
             // Renommer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 95);
             this.Controls.Add(this.lbl_description);
             this.Controls.Add(this.txt_nom);
             this.Controls.Add(this.lbl_extension);
@@ -85,8 +72,6 @@
             this.Name = "Renommer";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Renommer...";
             this.ResumeLayout(false);
             this.PerformLayout();
 

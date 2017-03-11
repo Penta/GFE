@@ -1,6 +1,11 @@
 ﻿
 ## Changelog du Gestionnaire de Fond d'Écran
 
+### Version à venir :
+ - Corrections de quelques bugs (parce qu'il y en a toujours)
+ - Possibilité de choisir sa couleur de fond.
+ - Ajout de la langue anglaise.
+
 ### Version 0.9.0 (8 Mars 2017) :
  - Suppression des sources intégrées et remplacement par un téléchargement via GitHub.
  - Supression d'un bug si on supprime par le logiciel un fichier déjà supprimé.

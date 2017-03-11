@@ -117,130 +117,25 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
-	<data name="&gt;&gt;btn_valider.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;lbl_extension.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-	<data name="btn_valider.Location" type="System.Drawing.Point, System.Drawing">
-		<value>200, 64</value>
+	<data name="lbl_info_selection.Text" xml:space="preserve">
+		<value>Veuillez choisir le dossier de vos fonds d'écran :</value>
 	</data>
-	<data name="&gt;&gt;lbl_extension.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="&gt;&gt;lbl_extension.Name" xml:space="preserve">
-    <value>lbl_extension</value>
-  </data>
-	<data name="lbl_extension.Size" type="System.Drawing.Size, System.Drawing">
-		<value>24, 13</value>
+	<data name="btn_explorer.Text" xml:space="preserve">
+		<value>Explorer</value>
 	</data>
-	<data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Renommer</value>
-  </data>
-	<data name="&gt;&gt;lbl_description.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-	<data name="btn_valider.Size" type="System.Drawing.Size, System.Drawing">
-		<value>75, 23</value>
-	</data>
-	<data name="&gt;&gt;txt_nom.Name" xml:space="preserve">
-    <value>txt_nom</value>
-  </data>
-	<data name="&gt;&gt;lbl_description.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
 	<data name="btn_valider.Text" xml:space="preserve">
-    <value>Validate</value>
-  </data>
-	<data name="lbl_description.Size" type="System.Drawing.Size, System.Drawing">
-		<value>195, 13</value>
+		<value>Valider</value>
 	</data>
-	<data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-		<value>284, 95</value>
+	<data name="check_sousdossier.Text" xml:space="preserve">
+		<value>Inclure les fonds d'écran des sous-dossiers.</value>
 	</data>
-	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-		<value>CenterParent</value>
+	<data name="lbl_info_multidossier.Text" xml:space="preserve">
+		<value>Vous pouvez séparer plusieurs dossiers par une barre verticale : | (Alt Gr + 6)</value>
 	</data>
-	<data name="lbl_description.Text" xml:space="preserve">
-    <value>Please type here the new filename:</value>
-  </data>
-	<assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="lbl_description.TabIndex" type="System.Int32, mscorlib">
-		<value>3</value>
+	<data name="combo_chemin.Items" xml:space="preserve">
+		<value>Aucun historique pour l'instant.</value>
 	</data>
-	<data name="&gt;&gt;txt_nom.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-	<data name="txt_nom.Location" type="System.Drawing.Point, System.Drawing">
-		<value>12, 35</value>
-	</data>
-	<data name="&gt;&gt;btn_valider.Name" xml:space="preserve">
-    <value>btn_valider</value>
-  </data>
-	<data name="&gt;&gt;lbl_description.Name" xml:space="preserve">
-    <value>lbl_description</value>
-  </data>
-	<data name="lbl_description.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="&gt;&gt;lbl_extension.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-	<data name="&gt;&gt;btn_valider.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-	<data name="txt_nom.TabIndex" type="System.Int32, mscorlib">
-		<value>1</value>
-	</data>
-	<data name="txt_nom.Size" type="System.Drawing.Size, System.Drawing">
-		<value>229, 20</value>
-	</data>
-	<data name="lbl_extension.Location" type="System.Drawing.Point, System.Drawing">
-		<value>240, 37</value>
-	</data>
-	<data name="lbl_description.Location" type="System.Drawing.Point, System.Drawing">
-		<value>9, 12</value>
-	</data>
-	<data name="&gt;&gt;txt_nom.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="lbl_extension.AutoSize" type="System.Boolean, mscorlib">
-		<value>True</value>
-	</data>
-	<data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-		<value>6, 13</value>
-	</data>
-	<data name="btn_valider.TabIndex" type="System.Int32, mscorlib">
-		<value>2</value>
-	</data>
-	<data name="&gt;&gt;txt_nom.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-	<data name="lbl_extension.Text" xml:space="preserve">
-    <value>.ext</value>
-  </data>
-	<data name="lbl_extension.TabIndex" type="System.Int32, mscorlib">
-		<value>1</value>
-	</data>
-	<data name="&gt;&gt;btn_valider.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-	<data name="&gt;&gt;lbl_description.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
 	<data name="$this.Text" xml:space="preserve">
-    <value>Rename...</value>
-  </data>
-	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-		<value>True</value>
-	</metadata>
-	<metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-		<value>fr</value>
-	</metadata>
+		<value>Gestionnaire de Fond d'Écran</value>
+	</data>
 </root>

@@ -23,21 +23,18 @@ namespace Gfe
                 {
                     Registre.registre.SetValue("MiseAJour", true);
 
-                    MessageBox.Show("Une mise à jour est disponible !\n\nLe logiciel doit redémarrer pour se mettre à jour.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show(Texte.MajDispo, Texte.InfoTitre, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
                     Principale.AncienFond();
                     Maj fonc = new Maj();
                     fonc.MiseEnPlace();
                 }
                 else
-                {
-                    File.Delete("ver.txt");
-                    MessageBox.Show("Votre logiciel est déjà à jour !", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                }
+                    MessageBox.Show(Texte.LogicielAJour, Texte.InfoTitre, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             catch
             {
-                MessageBox.Show("Impossible de faire la mise à jour ! Avez-vous encore Internet ? Le serveur de mise à jour est-il encore en ligne ?", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                MessageBox.Show(Texte.ErreurMaj, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
 
             web.Dispose();
@@ -74,7 +71,7 @@ namespace Gfe
                 File.Copy(Path.GetTempPath() + "GFE_updt.exe", chemin);
                 Registre.registre.SetValue("MiseAJour", false);
 
-                MessageBox.Show("Une erreur est survenue durant la mise à jour !\n\nErreur :\n" + e, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Texte.ErreurInstMaj + e, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             web.Dispose();
@@ -87,7 +84,7 @@ namespace Gfe
             File.Delete(Path.GetTempPath() + "GFE_updt.exe");
             Registre.registre.SetValue("MiseAJour", false);
 
-            MessageBox.Show("Votre logiciel a bien été mis à jour vers la version " + Principale.VERSION + " !", "Mise à jour réussite !", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            MessageBox.Show(Texte.MajInstallée + Principale.VERSION + ".", Texte.MajInstalléeTitre, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
     }
 }

@@ -94,12 +94,12 @@ namespace Gfe
                 Principale.rappel = true;
                 Principale.sousDossier = false;
                 Principale.rechargementConstant = false;
-                Principale.conversion = false;
+                Principale.conversion = !Program.nonXP;
 
                 Registre.MiseAjourConfig();
                 ChargerConfig();
 
-                MessageBox.Show("Votre configuration a été réinitialisée !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Votre configuration a été réinitialisée !", Texte.SuccèsTitre, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
                     
         }

@@ -71,10 +71,10 @@
             // 
             // combo_chemin
             // 
+            resources.ApplyResources(this.combo_chemin, "combo_chemin");
             this.combo_chemin.FormattingEnabled = true;
             this.combo_chemin.Items.AddRange(new object[] {
             resources.GetString("combo_chemin.Items")});
-            resources.ApplyResources(this.combo_chemin, "combo_chemin");
             this.combo_chemin.Name = "combo_chemin";
             // 
             // Selection

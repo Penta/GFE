@@ -7,10 +7,8 @@ using Microsoft.Win32;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
-
-// Classe sous licence GNU GPLv3
-using Gulix.Wallpaper;
 using System.Drawing.Imaging;
+using Gulix.Wallpaper;
 
 namespace Gfe
 {
@@ -23,18 +21,18 @@ namespace Gfe
         static public int id = -1, nbFichier = 0, mid = 0;
         static public string couleur = "Noir";
         static public string affichage = "Étirer", logiciel = Environment.SystemDirectory + @"\mspaint.exe";
-        static public string chemin = null, ancienAffichage = null;
+        static public string chemin = string.Empty, ancienAffichage = string.Empty;
         static public bool rappel = true, sousDossier = false, rechargementConstant = false;
         static public string[] mauvaisFichiers = new string[65536];
         static public string extension = "jpg;jpeg;png;bmp;tiff;tif";
         static public bool selectionPremierLancement = true;
-        static public string historique = "";
+        static public string historique = string.Empty;
         static public bool conversion = !Program.nonXP;
 
         FileInfo[] fichiers = new FileInfo[65536];
 
         static private bool premierChargement = true;
-        static private string cheminAncienFond = null;
+        static private string cheminAncienFond = string.Empty;
         static private Color ancienneCouleur = Color.Black;
 
 
@@ -50,8 +48,8 @@ namespace Gfe
                 if (!mauvaisFichiers.Contains(fichiers[id].FullName))
                 {
                     labelNom.ForeColor = Color.Black;
-                    infobulleNom.SetToolTip(this.labelNom, "");
-                    labelNom.Text = "Chargement...";
+                    infobulleNom.SetToolTip(this.labelNom, string.Empty);
+                    labelNom.Text = Texte.Chargement;
                     this.Refresh();
 
                     // On compte le nombre de fond affichés
@@ -116,13 +114,13 @@ namespace Gfe
                 sousmenuAppliquer.Enabled = true;
 
                 btnModifier.Enabled = true;
-                btnModifier.Text = "Modifier";
+                btnModifier.Text = Texte.Modifier;
                 sousmenuModifier.Enabled = true;
                 sousmenuAllezA.Enabled = true;
 
                 menuAléatoire.Enabled = true;
 
-                labelNuméro.Text = (id + 1).ToString() + " sur " + nbFichier;
+                labelNuméro.Text = (id + 1).ToString() + Texte.Fraction + nbFichier;
 
                 infobulleNom.SetToolTip(this.labelNom, fichiers[id].Name);
                 labelNom.Text = Func.TraitementNom(fichiers[id].Name);
@@ -131,13 +129,13 @@ namespace Gfe
 
                 if (id + 1 < nbFichier)
                 {
-                    btnSuivant.Text = "Suivant";
-                    sousmenuSuivant.Text = "Suivant";
+                    btnSuivant.Text = Texte.Suivant;
+                    sousmenuSuivant.Text = Texte.Suivant;
                 }
                 else
                 {
-                    btnSuivant.Text = "Terminer";
-                    sousmenuSuivant.Text = "Terminer";
+                    btnSuivant.Text = Texte.Terminer;
+                    sousmenuSuivant.Text = Texte.Terminer;
                 }
 
                 if (id == 0)
@@ -166,32 +164,32 @@ namespace Gfe
                 sousmenuAppliquer.Enabled = false;
 
                 btnModifier.Enabled = false;
-                btnModifier.Text = "Modifier";
+                btnModifier.Text = Texte.Modifier;
                 sousmenuModifier.Enabled = false;
 
                 sousmenuRechargerFond.Enabled = false;
 
-                labelNom.Text = "Aucun fichier n'est selectionné.";
-                infobulleNom.SetToolTip(this.labelNom, "Cliquez sur commencer pour selectionner un fichier.");
+                labelNom.Text = Texte.AucunFichierAffiché;
+                infobulleNom.SetToolTip(this.labelNom, Texte.InfobulleNomStart);
 
                 if (nbFichier != 0)
                 {
-                    labelNuméro.Text = "0 sur " + nbFichier;
+                    labelNuméro.Text = Texte.ZeroFraction + nbFichier;
 
-                    btnSuivant.Text = "Commencer";
-                    sousmenuSuivant.Text = "Commencer";
+                    btnSuivant.Text = Texte.Commencer;
+                    sousmenuSuivant.Text = Texte.Commencer;
 
                     sousmenuAllezA.Enabled = true;
                     menuAléatoire.Enabled = true;
                 }
                 else
                 {
-                    labelNuméro.Text = "Aucun fichier d'image dans ce dossier !";
+                    labelNuméro.Text = Texte.AucunFichierDossier;
                     labelNom.Text = null;
                     menuAléatoire.Enabled = false;
 
-                    btnSuivant.Text = "Terminer";
-                    sousmenuSuivant.Text = "Terminer";
+                    btnSuivant.Text = Texte.Terminer;
+                    sousmenuSuivant.Text = Texte.Terminer;
 
                     sousmenuAllezA.Enabled = false;
                 }
@@ -295,14 +293,14 @@ namespace Gfe
                     fond.Afficher(false, true);
 
                     if (!string.IsNullOrEmpty(cheminAncienFond))
-                        MessageBox.Show("Le fichier de votre ancien fond d'écran n'existe plus, il n'a donc pas été remit en place.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(Texte.AncienFondSupprimé, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception e) // Si il y a eu une erreur, on l'affiche
             {
-                MessageBox.Show("Une erreur est survenue durant la remise de votre ancien fond d'écran !\n\n" +
-                                "DEBUG :\nFichier : " + cheminAncienFond + "\nMode : " + ancienAffichage + "\n\nErreur :\n" + e
-                                , "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(Texte.ErreurAncienFond + "\n\n" +
+                                "DEBUG :\nFichier : " + cheminAncienFond + "\nMode : " + ancienAffichage + "\nCouleur :" + ancienneCouleur + "\n\n" + Texte.ErreurTitre + " :\n" + e
+                                , Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         
@@ -341,7 +339,7 @@ namespace Gfe
             foreach (string emplacement in Func.ListeChemins(chemin, sousDossier))
             {
                 try { fichiersInfo = new DirectoryInfo(emplacement).GetFiles(); }
-                catch { MessageBox.Show("Impossible de le lire ce dossier !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                catch { MessageBox.Show(Texte.ErreurLectureDossier, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
                 if (sousDossier)
                 {
@@ -351,7 +349,7 @@ namespace Gfe
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show("Une erreur est survenue à la récupération de la liste des fichiers du dossier " + emplacement + " !\n\nErreur :\n" + e.ToString(), "Erreur durant la récupération des fichiers", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Texte.ErreurLectureListe + emplacement + " !\n\n" + Texte.ErreurTitre + " :\n" + e.ToString(), Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
@@ -378,7 +376,7 @@ namespace Gfe
 
             if (erreur > 0 && premierChargement) // Si il y a une erreur durant la lecture d'un sous-dossier
             {
-                MessageBox.Show(erreur.ToString() + " sous-dossier(s) n'a ou n'ont pas été lu(s) !\n\nCette erreur est non fatale.", "Erreur de lecture", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(erreur.ToString() + Texte.ErreurSousDossier, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 erreur = 0;
             }
 
@@ -394,7 +392,7 @@ namespace Gfe
 
         private void ModifierFichier()
         {
-            if (btnModifier.Text == "Modifier")
+            if (btnModifier.Text == Texte.Modifier)
             {
                 ModificationExterne();
             }
@@ -405,7 +403,7 @@ namespace Gfe
                 else
                     ChargerFond(true);
 
-                btnModifier.Text = "Modifier";
+                btnModifier.Text = Texte.Modifier;
             }
         }
 
@@ -426,12 +424,12 @@ namespace Gfe
                 Process proc = new Process() { StartInfo = new ProcessStartInfo(logiciel, "\"" + fichiers[id].FullName + "\"") };
 
                 proc.Start();
-                btnModifier.Text = "Recharger";
+                btnModifier.Text = Texte.Recharger;
             }
             catch
             {
-                MessageBox.Show("Une erreur est survenue durant le lancement du logiciel externe !\n\n" +
-                                "Commande executée :\n\"" + logiciel + " " + fichiers[id].FullName + "\"", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                MessageBox.Show(Texte.ErreurLogicielExterne + "\n\n" +
+                                Texte.CommandeExecutée + "\n\"" + logiciel + " " + fichiers[id].FullName + "\"", Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -459,11 +457,11 @@ namespace Gfe
                             if (mId >= 0)
                                 mauvaisFichiers[mId] = fichiers[id].FullName;
 
-                            MessageBox.Show("Le fichier a bien été renommé !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            MessageBox.Show(Texte.FichierRenommé, Texte.SuccèsTitre, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
                         catch
                         {
-                            MessageBox.Show("Une erreur est survenue durant la modification du nom !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Texte.ErreurModificationNom, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -476,7 +474,7 @@ namespace Gfe
         {
             string parametre = "";
 
-            if (labelChemin.Text != "Une erreur est survenue.")
+            if (labelChemin.Text != Texte.UneErreurSurvenue)
             {
                 if (nbFichier > 0 && id >= 0 && id < nbFichier)
                     parametre = fichiers[id].DirectoryName;
@@ -486,7 +484,7 @@ namespace Gfe
                 if (Directory.Exists(parametre))
                 {
                     try { Process.Start("explorer.exe", "\"" + parametre + "\""); }
-                    catch (Exception err) { MessageBox.Show("Une erreur est survenue à l'ouverture du dossier '" + parametre + "' dans l'explorateur de fichier.\n\nErreur :\n" + err, "Erreur durant l'ouverture de l'explorateur", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    catch (Exception err) { MessageBox.Show(Texte.UneErreurSurvenue + ": " + err, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
             }
         }
@@ -600,7 +598,7 @@ namespace Gfe
             string tempChemin = Program.dossierAppdata + "GFE_fond.bmp";
             Image image;
 
-            reponse = MessageBox.Show("Voulez-vous vraiment appliquer cette image en tant que fond d'écran de votre bureau ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            reponse = MessageBox.Show(Texte.ConfirmationAppliquerTitre, Texte.ConfirmationTitre, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
             if (reponse == DialogResult.Yes)
             {
@@ -623,7 +621,7 @@ namespace Gfe
                 ancienAffichage = affichage;
                 ancienneCouleur = ColorTranslator.FromWin32(Convert.ToInt32(NativeMethods.GetSysColor(1)));
 
-                MessageBox.Show("Le fond d'écran sera actif une fois le logiciel fermé !", "Fond d'écran appliqué.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Texte.FondAppliqué, Texte.SuccèsTitre, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -674,7 +672,7 @@ namespace Gfe
                     sousmenuContextuel.Checked = false;
                     File.Delete(cheminIcone + "icone.ico");
 
-                    MessageBox.Show("L'entrée dans le menu contextuel a bien été supprimée.", "Désactivation de l'entrée", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Texte.MenuContextuelSupprimé, Texte.SuccèsTitre, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -691,10 +689,10 @@ namespace Gfe
                         fs.Close();
                     }
 
-                    MessageBox.Show("Vous pouvez maintenant lancer le Gestionnaire de Fond d'Écran dans le menu contextuel d'un dossier ! (clic droit)\n\nVeuillez désactiver cette option avant de supprimer ou déplacer cet exécutable.", "Bravo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Texte.MenuContextuelAppliqué, Texte.SuccèsTitre, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (Exception err) { MessageBox.Show("Une erreur est surevenue durant la modification du registre !\n\nErreur :\n" + err.ToString(), "Erreur durant l'ajout au menu contextuel", MessageBoxButtons.OK, MessageBoxIcon.Hand); }
+            catch (Exception err) { MessageBox.Show(Texte.ErreurMenuContextuel + err.ToString(), Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Hand); }
         }
 
         private void MenuMettreAJour_Clic(object sender, EventArgs e)

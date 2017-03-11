@@ -7,11 +7,12 @@ namespace Gfe
     public partial class Renommer : Form
     {
         public static string fichier;
-        public static string resultat = "";
+        public static string resultat;
 
         public Renommer()
         {
-            resultat = "";
+            this.Icon = Properties.Resources.icone;
+            resultat = string.Empty;
 
             InitializeComponent();
 
@@ -29,12 +30,12 @@ namespace Gfe
                 this.DestroyHandle();
             }
             else
-                MessageBox.Show("Le nom du fichier ne peut pas être vide !", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Texte.RenommerFichierVide, Texte.ErreurTitre, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void TexteNomTouchePresse(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            if (e.KeyChar == (char) Keys.Enter)
             {
                 e.Handled = true;
                 btn_valider.PerformClick();

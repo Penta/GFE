@@ -14,17 +14,17 @@ namespace Gfe
             Affichage resultat = Affichage.etirer;
             affichage = affichage.ToLower();
 
-            if (affichage == "etirer" || affichage == "étirer")
+            if (affichage == "etirer" || affichage == "étirer" || affichage == "stretch")
                 resultat = Affichage.etirer;
-            else if (affichage == "ajuster")
+            else if (affichage == "ajuster" || affichage == "ajust")
                 resultat = Affichage.ajuster;
-            else if (affichage == "centrer")
+            else if (affichage == "centrer" || affichage == "center")
                 resultat = Affichage.centrer;
-            else if (affichage == "mosaique")
+            else if (affichage == "mosaïque" || affichage == "mosaique")
                 resultat = Affichage.mosaique;
-            else if (affichage == "remplir")
+            else if (affichage == "remplir" || affichage == "fill")
                 resultat = Affichage.remplir;
-            else if (affichage == "etendre" || affichage == "étendre")
+            else if (affichage == "etendre" || affichage == "étendre" || affichage == "extend")
                 resultat = Affichage.etendre;
             else
                 resultat = Affichage.etirer;
@@ -37,31 +37,31 @@ namespace Gfe
             Color resultat = Color.Black;
             couleur = couleur.ToLower();
 
-            if (couleur == "rouge")
+            if (couleur == "rouge" || couleur == "red")
                 resultat = Color.Red;
-            else if (couleur == "noir")
+            else if (couleur == "noir" || couleur == "black")
                 resultat = Color.Black;
-            else if (couleur == "blanc")
+            else if (couleur == "blanc" || couleur == "white")
                 resultat = Color.White;
-            else if (couleur == "gris")
+            else if (couleur == "gris" || couleur == "grey")
                 resultat = Color.Gray;
-            else if (couleur == "jaune")
+            else if (couleur == "jaune" || couleur == "yellow")
                 resultat = Color.Yellow;
-            else if (couleur == "vert")
+            else if (couleur == "vert" || couleur == "green")
                 resultat = Color.Green;
-            else if (couleur == "bleu")
+            else if (couleur == "bleu" || couleur == "blue")
                 resultat = Color.Blue;
-            else if (couleur == "violet")
+            else if (couleur == "violet" || couleur == "purple")
                 resultat = Color.Purple;
-            else if (couleur == "rose")
+            else if (couleur == "rose" || couleur == "pink")
                 resultat = Color.Pink;
-            else if (couleur == "marron")
+            else if (couleur == "marron" || couleur == "brown")
                 resultat = Color.Brown;
             else if (couleur == "orange")
                 resultat = Color.Orange;
-            else if (couleur == "gris foncé")
+            else if (couleur == "gris foncé" || couleur == "dark grey")
                 resultat = Color.DarkGray;
-            else if (couleur == "bleu clair")
+            else if (couleur == "bleu clair" || couleur == "light blue")
                 resultat = Color.LightBlue;
 
             return resultat;
