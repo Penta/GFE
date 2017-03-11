@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,65 +59,65 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<data name="Aide" xml:space="preserve">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Aide" xml:space="preserve">
     <value>/H or /?       : Display this help.
 /S                  : Extract source files in the current directory.
 /U [&lt;path&gt;] : Download the lastest version of the software
@@ -126,180 +126,201 @@
 
 To get more help, go to : http://github.com/Penta/GFE/wiki</value>
   </data>
-	<data name="AncienFondSupprimé" xml:space="preserve">
+  <data name="AncienFondSupprimé" xml:space="preserve">
     <value>The file of your original wallpaper doesn't exist anymore, it can't be reapplied.</value>
   </data>
-	<data name="ArgumentInvalide" xml:space="preserve">
+  <data name="ArgumentInvalide" xml:space="preserve">
     <value>Invalid Argument.</value>
   </data>
-	<data name="AucunCheminParamètre" xml:space="preserve">
+  <data name="AucunCheminParamètre" xml:space="preserve">
     <value>You need to specify a path !</value>
   </data>
-	<data name="AucunDossier" xml:space="preserve">
+  <data name="AucunDossier" xml:space="preserve">
     <value>Please choose a directory!</value>
   </data>
-	<data name="AucunFichierAffiché" xml:space="preserve">
+  <data name="AucunFichierAffiché" xml:space="preserve">
     <value>No file at the moment.</value>
   </data>
-	<data name="AucunFichierDossier" xml:space="preserve">
+  <data name="AucunFichierDossier" xml:space="preserve">
     <value>There is no image file in this directory!</value>
   </data>
-	<data name="Chargement" xml:space="preserve">
+  <data name="Chargement" xml:space="preserve">
     <value>Loading...</value>
   </data>
-	<data name="CommandeExecutée" xml:space="preserve">
+  <data name="CommandeExecutée" xml:space="preserve">
     <value>Command:</value>
   </data>
-	<data name="Commencer" xml:space="preserve">
+  <data name="Commencer" xml:space="preserve">
     <value>Start</value>
   </data>
-	<data name="ConfirmationAppliquerTitre" xml:space="preserve">
+  <data name="ConfirmationAppliquerTitre" xml:space="preserve">
     <value>Do you want to apply this picture as your new desktop wallpaper?</value>
   </data>
-	<data name="ConfirmationTitre" xml:space="preserve">
+  <data name="ConfirmationTitre" xml:space="preserve">
     <value>Confirmation</value>
   </data>
-	<data name="DescriptionSelectionDossier" xml:space="preserve">
+  <data name="DescriptionSelectionDossier" xml:space="preserve">
     <value>Please choose your wallpaper's directory.</value>
   </data>
-	<data name="DossierInvalide" xml:space="preserve">
+  <data name="DossierInvalide" xml:space="preserve">
     <value>At least one of the directories is invalid!</value>
   </data>
-	<data name="ErreurAncienFond" xml:space="preserve">
+  <data name="ErreurAncienFond" xml:space="preserve">
     <value>An error occurred when the Wallpaper Manager tried to reapply your original wallpaper!</value>
   </data>
-	<data name="ErreurInstMaj" xml:space="preserve">
+  <data name="ErreurInstMaj" xml:space="preserve">
     <value>An error occurred when the software was updating!
 
 Error: </value>
   </data>
-	<data name="ErreurLectureDossier" xml:space="preserve">
+  <data name="ErreurLectureDossier" xml:space="preserve">
     <value>Unable to read this directory!</value>
   </data>
-	<data name="ErreurLectureListe" xml:space="preserve">
+  <data name="ErreurLectureListe" xml:space="preserve">
     <value>An error occurred when the software tried to create the file list of the directory </value>
   </data>
-	<data name="ErreurLogicielExterne" xml:space="preserve">
+  <data name="ErreurLogicielExterne" xml:space="preserve">
     <value>An error occurred during the execution of the external software!</value>
   </data>
-	<data name="ErreurMaj" xml:space="preserve">
+  <data name="ErreurMaj" xml:space="preserve">
     <value>The software is unable to check for updates! Do you still have internet? The update server is still online?</value>
   </data>
-	<data name="ErreurMenuContextuel" xml:space="preserve">
+  <data name="ErreurMenuContextuel" xml:space="preserve">
     <value>An error occurred during the modification of the registry!
 
 Error: </value>
   </data>
-	<data name="ErreurModificationNom" xml:space="preserve">
+  <data name="ErreurModificationNom" xml:space="preserve">
     <value>An error occurred during the modification of the name !</value>
   </data>
-	<data name="ErreurRegistre" xml:space="preserve">
+  <data name="ErreurRegistre" xml:space="preserve">
     <value>An error occurred when the software was reading the registry!
 
 Your configuration has been reset.</value>
   </data>
-	<data name="ErreurSousDossier" xml:space="preserve">
+  <data name="ErreurSousDossier" xml:space="preserve">
     <value> sub-directory(ies) cannot be read!
  
 This error is not fatal.</value>
   </data>
-	<data name="ErreurTitre" xml:space="preserve">
+  <data name="ErreurTitre" xml:space="preserve">
     <value>Error</value>
   </data>
-	<data name="ErreurTéléchargementSources" xml:space="preserve">
+  <data name="ErreurTéléchargementSources" xml:space="preserve">
     <value>An error occurred during the download of the source files.</value>
   </data>
-	<data name="FichierRenommé" xml:space="preserve">
+  <data name="FichierRenommé" xml:space="preserve">
     <value>The file has been renamed!</value>
   </data>
-	<data name="FondAppliqué" xml:space="preserve">
+  <data name="FondAppliqué" xml:space="preserve">
     <value>This wallpaper will be displayed as your main wallpaper when you will close the Wallpaper Manager.</value>
   </data>
-	<data name="Fraction" xml:space="preserve">
+  <data name="Fraction" xml:space="preserve">
     <value> / </value>
   </data>
-	<data name="InfobulleNomStart" xml:space="preserve">
+  <data name="InfobulleNomStart" xml:space="preserve">
     <value>Click on Start to display the first file.</value>
   </data>
-	<data name="InfoTitre" xml:space="preserve">
+  <data name="InfoTitre" xml:space="preserve">
     <value>Information</value>
   </data>
-	<data name="LogicielAJour" xml:space="preserve">
+  <data name="LogicielAJour" xml:space="preserve">
     <value>You software is up to date!</value>
   </data>
-	<data name="MajDispo" xml:space="preserve">
+  <data name="MajDispo" xml:space="preserve">
     <value>An update is available!
 
 The software needs to restart to download the update.</value>
   </data>
-	<data name="MajInstallée" xml:space="preserve">
+  <data name="MajInstallée" xml:space="preserve">
     <value>Your software has been updated to the version </value>
   </data>
-	<data name="MajInstalléeTitre" xml:space="preserve">
+  <data name="MajInstalléeTitre" xml:space="preserve">
     <value>Update done!</value>
   </data>
-	<data name="MauvaisCheminParamètre" xml:space="preserve">
+  <data name="MauvaisCheminParamètre" xml:space="preserve">
     <value>Your specified path is not valid !</value>
   </data>
-	<data name="MenuContextuelAppliqué" xml:space="preserve">
+  <data name="MenuContextuelAppliqué" xml:space="preserve">
     <value>You can now start the Wallpaper Manager with the context menu of a directory! (right click)
 
 Please desactivate this option if you move or delete this executable file.</value>
   </data>
-	<data name="MenuContextuelSupprimé" xml:space="preserve">
+  <data name="MenuContextuelSupprimé" xml:space="preserve">
     <value>The entry in your context menu has been deleted.</value>
   </data>
-	<data name="MenuContextuelTexte" xml:space="preserve">
+  <data name="MenuContextuelTexte" xml:space="preserve">
     <value>Try all the wallpapers in this directory</value>
   </data>
-	<data name="Modifier" xml:space="preserve">
+  <data name="Modifier" xml:space="preserve">
     <value>Edit</value>
   </data>
-	<data name="QuestionSelection" xml:space="preserve">
+  <data name="QuestionSelection" xml:space="preserve">
     <value>Do you want to add this path to the existing one(s)?
 
 Press No will replace all the current values !</value>
   </data>
-	<data name="Recharger" xml:space="preserve">
+  <data name="Recharger" xml:space="preserve">
     <value>Reload</value>
   </data>
-	<data name="RenommerFichierVide" xml:space="preserve">
+  <data name="RenommerFichierVide" xml:space="preserve">
     <value>The filename cannot be empty!</value>
   </data>
-	<data name="SautTropGrand" xml:space="preserve">
+  <data name="SautTropGrand" xml:space="preserve">
     <value>The number is too high!</value>
   </data>
-	<data name="SautTropPetit" xml:space="preserve">
+  <data name="SautTropPetit" xml:space="preserve">
     <value>Please type a positive number!</value>
   </data>
-	<data name="SautVide" xml:space="preserve">
+  <data name="SautVide" xml:space="preserve">
     <value>Please type a number!</value>
   </data>
-	<data name="SeulementUneInstance" xml:space="preserve">
+  <data name="SeulementUneInstance" xml:space="preserve">
     <value>Seulement une seule instance du logiciel peut être lancée à la fois !</value>
   </data>
-	<data name="SuccèsTitre" xml:space="preserve">
+  <data name="SuccèsTitre" xml:space="preserve">
     <value>Success!</value>
   </data>
-	<data name="Suivant" xml:space="preserve">
+  <data name="Suivant" xml:space="preserve">
     <value>Next</value>
   </data>
-	<data name="Terminer" xml:space="preserve">
+  <data name="Terminer" xml:space="preserve">
     <value>Finish</value>
   </data>
-	<data name="Titre" xml:space="preserve">
+  <data name="Titre" xml:space="preserve">
     <value>Wallpaper Manager</value>
   </data>
-	<data name="ToutSupprimé" xml:space="preserve">
+  <data name="ToutSupprimé" xml:space="preserve">
     <value>Every single file created by the Wallpaper Manager has been deleted, you can now delete this executable to totally remove the Wallpaper Manager from your computer!</value>
   </data>
-	<data name="TéléchargementSources" xml:space="preserve">
+  <data name="TéléchargementSources" xml:space="preserve">
     <value>The source files has been downloaded from GitHub!</value>
   </data>
-	<data name="UneErreurSurvenue" xml:space="preserve">
+  <data name="UneErreurSurvenue" xml:space="preserve">
     <value>An error occurred.</value>
   </data>
-	<data name="ZeroFraction" xml:space="preserve">
+  <data name="ZeroFraction" xml:space="preserve">
     <value>0 /</value>
+  </data>
+  <data name="ErreurChargementFichier" xml:space="preserve">
+    <value>: this file cannot be read, do you want to delete it?</value>
+  </data>
+  <data name="Suppression" xml:space="preserve">
+    <value>Do you really want to delete this wallpaper?</value>
+  </data>
+  <data name="ChoixExterneTitre" xml:space="preserve">
+    <value>Please choose the external software for the file edition...</value>
+  </data>
+  <data name="ExtensionsExterne" xml:space="preserve">
+    <value>Executables (*.exe)|*.exe|All files (*.*)|*.*</value>
+  </data>
+  <data name="MessageReinitialisation" xml:space="preserve">
+    <value>Are you sure you want to reset your configuration?</value>
+  </data>
+  <data name="ReinitialisationFaite" xml:space="preserve">
+    <value>Your configuration has been reset!</value>
+  </data>
+  <data name="RedémarrageLangue" xml:space="preserve">
+    <value>You need to restart the application to change the language!</value>
   </data>
 </root>

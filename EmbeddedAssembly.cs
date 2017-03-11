@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
 using System.Reflection;
 using System.Security.Cryptography;
@@ -21,6 +20,7 @@ public class EmbeddedAssembly
     /// <param name="fileName">File Name. Example: SomeTools.dll</param>
     public static void Load(string embeddedResource, string fileName)
     {
+
         if (dic == null)
             dic = new Dictionary<string, Assembly>();
 
@@ -42,7 +42,9 @@ public class EmbeddedAssembly
                 asm = Assembly.Load(ba);
 
                 // Add the assembly/dll into dictionary
-                dic.Add(asm.FullName, asm);
+                if (!dic.ContainsKey(asm.FullName))
+                    dic.Add(asm.FullName, asm);
+
                 return;
             }
             catch

@@ -12,9 +12,13 @@ namespace Gfe
 
         private string logiciel = null;
         private bool desactivation = false;
+        private int ancienneLangue;
+
 
         private void ChargerConfig()
         {
+            Langue.TraduireValeur();
+
             cb_couleur.Text = Principale.couleur;
             cb_dispo.Text = Principale.affichage;
             txt_externe.Text = Principale.logiciel;
@@ -23,9 +27,25 @@ namespace Gfe
             check_constanteVerif.Checked = Principale.rechargementConstant;
             check_sousdossier.Checked = Principale.sousDossier;
             check_conversion.Checked = Principale.conversion;
+            comboLangue.SelectedIndex = ancienneLangue = ConvertionLangueEnID(Registre.RecupererLangue());
+
 
             if(!Program.nonXP)
                 check_conversion.Enabled = false;
+        }
+
+        private int ConvertionLangueEnID(string valeur)
+        {
+            int resultat = 0;
+
+            if (valeur == "fr")
+                resultat = 1;
+            else if (valeur == "en" || valeur == "gb" || valeur == "au")
+                resultat = 2;
+            else
+                resultat = 0;
+
+            return resultat;
         }
 
         private void ChangerDossier()
@@ -35,8 +55,8 @@ namespace Gfe
             OpenFileDialog selectionFichier = new OpenFileDialog()
             {
                 InitialDirectory = Path.GetPathRoot(Environment.SystemDirectory),
-                Filter = "Exécutables (*.exe)|*.exe|Tous les fichiers (*.*)|*.*",
-                Title = "Choisissez le logiciel externe pour la modification des fichiers...",
+                Filter = Texte.ExtensionsExterne,
+                Title = Texte.ChoixExterneTitre,
                 FilterIndex = 1,
                 RestoreDirectory = true
             };
@@ -59,6 +79,8 @@ namespace Gfe
 
         private void BoutonAppliquer_Clic(object sender, EventArgs e)
         {
+            string valeurRegistreLangue = string.Empty;
+
             if (Principale.extension != txt_extension.Text | Principale.sousDossier != check_sousdossier.Checked)
                 changementFichier = true;
 
@@ -75,12 +97,26 @@ namespace Gfe
 
             Registre.MiseAjourConfig();
 
+            if(ancienneLangue != comboLangue.SelectedIndex)
+            {
+                if (comboLangue.SelectedIndex == 1)
+                    valeurRegistreLangue = "fr";
+                else if (comboLangue.SelectedIndex == 2)
+                    valeurRegistreLangue = "en";
+
+                Registre.registre.SetValue("Langue", valeurRegistreLangue);
+                Program.ObtenirLangue();
+
+                MessageBox.Show(Texte.RedémarrageLangue, Texte.ConfirmationTitre, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Application.Exit();
+            }
+
             this.DestroyHandle();
         }
 
         private void BoutonReset_Clic(object sender, EventArgs e)
         {
-            DialogResult question = MessageBox.Show("Voulez-vous perdre votre configuration et remettre celle par défaut ?", "Réinitialisation de la configuration", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            DialogResult question = MessageBox.Show(Texte.MessageReinitialisation, Texte.ConfirmationTitre, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
 
             if (question == DialogResult.Yes)
             {
@@ -99,7 +135,7 @@ namespace Gfe
                 Registre.MiseAjourConfig();
                 ChargerConfig();
 
-                MessageBox.Show("Votre configuration a été réinitialisée !", Texte.SuccèsTitre, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show(Texte.ReinitialisationFaite, Texte.SuccèsTitre, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
                     
         }

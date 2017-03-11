@@ -186,7 +186,7 @@ namespace Gfe
         {
             try
             {
-                return registre.GetValue("Langue").ToString().ToLower();
+                return registre.GetValue("Langue").ToString().ToLower().Substring(0, 2);
             }
             catch { return string.Empty; }
         }

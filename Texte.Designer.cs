@@ -76,7 +76,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Le fichier de votre ancien fond d&apos;écran n&apos;existe plus, il n&apos;a donc pas été remit en place..
+        ///   Recherche une chaîne localisée semblable à The file of your original wallpaper doesn&apos;t exist anymore, it can&apos;t be reapplied..
         /// </summary>
         public static string AncienFondSupprimé {
             get {
@@ -112,7 +112,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Aucun fichier n&apos;est selectionné..
+        ///   Recherche une chaîne localisée semblable à No file at the moment..
         /// </summary>
         public static string AucunFichierAffiché {
             get {
@@ -121,7 +121,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Aucun fichier d&apos;image dans ce dossier !.
+        ///   Recherche une chaîne localisée semblable à There is no image file in this directory!.
         /// </summary>
         public static string AucunFichierDossier {
             get {
@@ -130,7 +130,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Chargement....
+        ///   Recherche une chaîne localisée semblable à Loading....
         /// </summary>
         public static string Chargement {
             get {
@@ -139,7 +139,16 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Commande executée :.
+        ///   Recherche une chaîne localisée semblable à Please choose the external software for the file edition....
+        /// </summary>
+        public static string ChoixExterneTitre {
+            get {
+                return ResourceManager.GetString("ChoixExterneTitre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Command:.
         /// </summary>
         public static string CommandeExecutée {
             get {
@@ -148,7 +157,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Commencer.
+        ///   Recherche une chaîne localisée semblable à Start.
         /// </summary>
         public static string Commencer {
             get {
@@ -157,7 +166,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Voulez-vous vraiment appliquer cette image en tant que fond d&apos;écran de votre bureau ?.
+        ///   Recherche une chaîne localisée semblable à Do you want to apply this picture as your new desktop wallpaper?.
         /// </summary>
         public static string ConfirmationAppliquerTitre {
             get {
@@ -193,11 +202,20 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Une erreur est survenue durant la remise de votre ancien fond d&apos;écran !.
+        ///   Recherche une chaîne localisée semblable à An error occurred when the Wallpaper Manager tried to reapply your original wallpaper!.
         /// </summary>
         public static string ErreurAncienFond {
             get {
                 return ResourceManager.GetString("ErreurAncienFond", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à : this file cannot be read, do you want to delete it?.
+        /// </summary>
+        public static string ErreurChargementFichier {
+            get {
+                return ResourceManager.GetString("ErreurChargementFichier", resourceCulture);
             }
         }
         
@@ -213,7 +231,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Impossible de le lire ce dossier !.
+        ///   Recherche une chaîne localisée semblable à Unable to read this directory!.
         /// </summary>
         public static string ErreurLectureDossier {
             get {
@@ -222,7 +240,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Une erreur est survenue à la récupération de la liste des fichiers du dossier .
+        ///   Recherche une chaîne localisée semblable à An error occurred when the software tried to create the file list of the directory .
         /// </summary>
         public static string ErreurLectureListe {
             get {
@@ -231,7 +249,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Une erreur est survenue durant le lancement du logiciel externe !.
+        ///   Recherche une chaîne localisée semblable à An error occurred during the execution of the external software!.
         /// </summary>
         public static string ErreurLogicielExterne {
             get {
@@ -249,7 +267,9 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Une erreur est surevenue durant la modification du registre !\n\nErreur :\n.
+        ///   Recherche une chaîne localisée semblable à An error occurred during the modification of the registry!
+        ///
+        ///Error: .
         /// </summary>
         public static string ErreurMenuContextuel {
             get {
@@ -258,7 +278,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Une erreur est survenue durant la modification du nom !.
+        ///   Recherche une chaîne localisée semblable à An error occurred during the modification of the name !.
         /// </summary>
         public static string ErreurModificationNom {
             get {
@@ -278,7 +298,9 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à  sous-dossier(s) n&apos;a ou n&apos;ont pas été lu(s) !\n\nCette erreur est non fatale..
+        ///   Recherche une chaîne localisée semblable à  sub-directory(ies) cannot be read!
+        /// 
+        ///This error is not fatal..
         /// </summary>
         public static string ErreurSousDossier {
             get {
@@ -305,7 +327,16 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Le fichier a bien été renommé !.
+        ///   Recherche une chaîne localisée semblable à Executables (*.exe)|*.exe|All files (*.*)|*.*.
+        /// </summary>
+        public static string ExtensionsExterne {
+            get {
+                return ResourceManager.GetString("ExtensionsExterne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The file has been renamed!.
         /// </summary>
         public static string FichierRenommé {
             get {
@@ -314,7 +345,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Le fond d&apos;écran sera actif une fois le logiciel fermé !.
+        ///   Recherche une chaîne localisée semblable à This wallpaper will be displayed as your main wallpaper when you will close the Wallpaper Manager..
         /// </summary>
         public static string FondAppliqué {
             get {
@@ -323,7 +354,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à  sur .
+        ///   Recherche une chaîne localisée semblable à  / .
         /// </summary>
         public static string Fraction {
             get {
@@ -332,7 +363,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Cliquez sur commencer pour selectionner un fichier..
+        ///   Recherche une chaîne localisée semblable à Click on Start to display the first file..
         /// </summary>
         public static string InfobulleNomStart {
             get {
@@ -397,7 +428,9 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Vous pouvez maintenant lancer le Gestionnaire de Fond d&apos;Écran dans le menu contextuel d&apos;un dossier ! (clic droit)\n\nVeuillez désactiver cette option avant de supprimer ou déplacer cet exécutable..
+        ///   Recherche une chaîne localisée semblable à You can now start the Wallpaper Manager with the context menu of a directory! (right click)
+        ///
+        ///Please desactivate this option if you move or delete this executable file..
         /// </summary>
         public static string MenuContextuelAppliqué {
             get {
@@ -406,7 +439,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à L&apos;entrée dans le menu contextuel a bien été supprimée..
+        ///   Recherche une chaîne localisée semblable à The entry in your context menu has been deleted..
         /// </summary>
         public static string MenuContextuelSupprimé {
             get {
@@ -415,7 +448,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Display wallpapers in this directory.
+        ///   Recherche une chaîne localisée semblable à Try all the wallpapers in this directory.
         /// </summary>
         public static string MenuContextuelTexte {
             get {
@@ -424,7 +457,16 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Modifier.
+        ///   Recherche une chaîne localisée semblable à Are you sure you want to reset your configuration?.
+        /// </summary>
+        public static string MessageReinitialisation {
+            get {
+                return ResourceManager.GetString("MessageReinitialisation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Edit.
         /// </summary>
         public static string Modifier {
             get {
@@ -444,11 +486,29 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Recharger.
+        ///   Recherche une chaîne localisée semblable à Reload.
         /// </summary>
         public static string Recharger {
             get {
                 return ResourceManager.GetString("Recharger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à You need to restart the application to change the language!.
+        /// </summary>
+        public static string RedémarrageLangue {
+            get {
+                return ResourceManager.GetString("RedémarrageLangue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Your configuration has been reset!.
+        /// </summary>
+        public static string ReinitialisationFaite {
+            get {
+                return ResourceManager.GetString("ReinitialisationFaite", resourceCulture);
             }
         }
         
@@ -507,11 +567,20 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Suivant.
+        ///   Recherche une chaîne localisée semblable à Next.
         /// </summary>
         public static string Suivant {
             get {
                 return ResourceManager.GetString("Suivant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Do you really want to delete this wallpaper?.
+        /// </summary>
+        public static string Suppression {
+            get {
+                return ResourceManager.GetString("Suppression", resourceCulture);
             }
         }
         
@@ -525,7 +594,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Terminer.
+        ///   Recherche une chaîne localisée semblable à Finish.
         /// </summary>
         public static string Terminer {
             get {
@@ -552,7 +621,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Une erreur est survenue..
+        ///   Recherche une chaîne localisée semblable à An error occurred..
         /// </summary>
         public static string UneErreurSurvenue {
             get {
@@ -561,7 +630,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à 0 sur .
+        ///   Recherche une chaîne localisée semblable à 0 /.
         /// </summary>
         public static string ZeroFraction {
             get {

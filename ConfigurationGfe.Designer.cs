@@ -44,6 +44,8 @@
             this.check_conversion = new System.Windows.Forms.CheckBox();
             this.cb_couleur = new System.Windows.Forms.ComboBox();
             this.labelInfoCouleur = new System.Windows.Forms.Label();
+            this.comboLangue = new System.Windows.Forms.ComboBox();
+            this.labelLanguage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_dispo_info
@@ -53,7 +55,6 @@
             // 
             // cb_dispo
             // 
-            resources.ApplyResources(this.cb_dispo, "cb_dispo");
             this.cb_dispo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_dispo.Items.AddRange(new object[] {
             resources.GetString("cb_dispo.Items"),
@@ -61,6 +62,7 @@
             resources.GetString("cb_dispo.Items2"),
             resources.GetString("cb_dispo.Items3"),
             resources.GetString("cb_dispo.Items4")});
+            resources.ApplyResources(this.cb_dispo, "cb_dispo");
             this.cb_dispo.Name = "cb_dispo";
             // 
             // btn_appliquer
@@ -112,9 +114,9 @@
             // 
             // btn_reset
             // 
-            resources.ApplyResources(this.btn_reset, "btn_reset");
             this.btn_reset.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btn_reset.ForeColor = System.Drawing.Color.Red;
+            resources.ApplyResources(this.btn_reset, "btn_reset");
             this.btn_reset.Name = "btn_reset";
             this.btn_reset.UseVisualStyleBackColor = false;
             this.btn_reset.Click += new System.EventHandler(this.BoutonReset_Clic);
@@ -134,7 +136,6 @@
             // 
             // cb_couleur
             // 
-            resources.ApplyResources(this.cb_couleur, "cb_couleur");
             this.cb_couleur.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_couleur.Items.AddRange(new object[] {
             resources.GetString("cb_couleur.Items"),
@@ -150,6 +151,7 @@
             resources.GetString("cb_couleur.Items10"),
             resources.GetString("cb_couleur.Items11"),
             resources.GetString("cb_couleur.Items12")});
+            resources.ApplyResources(this.cb_couleur, "cb_couleur");
             this.cb_couleur.Name = "cb_couleur";
             // 
             // labelInfoCouleur
@@ -157,10 +159,27 @@
             resources.ApplyResources(this.labelInfoCouleur, "labelInfoCouleur");
             this.labelInfoCouleur.Name = "labelInfoCouleur";
             // 
+            // comboLangue
+            // 
+            this.comboLangue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboLangue.Items.AddRange(new object[] {
+            resources.GetString("comboLangue.Items"),
+            resources.GetString("comboLangue.Items1"),
+            resources.GetString("comboLangue.Items2")});
+            resources.ApplyResources(this.comboLangue, "comboLangue");
+            this.comboLangue.Name = "comboLangue";
+            // 
+            // labelLanguage
+            // 
+            resources.ApplyResources(this.labelLanguage, "labelLanguage");
+            this.labelLanguage.Name = "labelLanguage";
+            // 
             // ConfigurationGfe
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelLanguage);
+            this.Controls.Add(this.comboLangue);
             this.Controls.Add(this.labelInfoCouleur);
             this.Controls.Add(this.cb_couleur);
             this.Controls.Add(this.check_conversion);
@@ -204,5 +223,7 @@
         private System.Windows.Forms.CheckBox check_conversion;
         private System.Windows.Forms.ComboBox cb_couleur;
         private System.Windows.Forms.Label labelInfoCouleur;
+        private System.Windows.Forms.ComboBox comboLangue;
+        private System.Windows.Forms.Label labelLanguage;
     }
 }

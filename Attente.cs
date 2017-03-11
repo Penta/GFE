@@ -23,7 +23,12 @@ namespace Gfe
             t.Abort();
         }
 
-        static public void ThreadProc() { Application.Run(new Attente()); }
+        static public void ThreadProc()
+        {
+            Program.ObtenirLangue();
+
+            Application.Run(new Attente());
+        }
 
         public Attente()
         {

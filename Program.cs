@@ -122,7 +122,7 @@ namespace Gfe
 
 
 
-        static private void ObtenirLangue()
+        static public void ObtenirLangue()
         {
             EmbeddedAssembly.Load(@"Gfe.lib.fr.resources.dll", @"Gfe.lib.fr.resources.dll");
             AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(CurrentDomain_AssemblyResolve);

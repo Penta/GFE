@@ -239,9 +239,9 @@ namespace Gfe
 
             // Selon le cas, on affiche un message different
             if (!mode)
-                reponse = MessageBox.Show("Voulez-vous vraiment supprimer ce fond d'écran ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                reponse = MessageBox.Show(Texte.Suppression, Texte.ConfirmationTitre, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             else
-                reponse = MessageBox.Show("Le fichier '" + fichiers[id].Name + "' n'a pas pu être chargé, voulez-vous le supprimer ?", "Erreur", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                reponse = MessageBox.Show(fichiers[id].Name + Texte.ErreurChargementFichier, Texte.ErreurTitre, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
 
             if (reponse == DialogResult.Yes) // Si la réponse est oui
             {
@@ -409,6 +409,8 @@ namespace Gfe
 
         public Principale(string pChemin)
         {
+            Program.ObtenirLangue();
+
             chemin = pChemin;
             this.Icon = Properties.Resources.icone;
 
@@ -733,7 +735,6 @@ namespace Gfe
                     if (rechargementConstant)
                         RecupererFichiers(false);
                 }
-
                 RechargerInfo();
             }
         }
