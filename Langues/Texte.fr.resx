@@ -154,7 +154,7 @@
 Pour plus d'aide, allez sur l'aide en ligne : http://github.com/Penta/GFE/wiki</value>
   </data>
   <data name="SeulementUneInstance" xml:space="preserve">
-    <value>Only one instance of the software is allowed at the same time!</value>
+    <value>Seulement une seule instance du logiciel peut être lancée à la fois !</value>
   </data>
   <data name="SautTropGrand" xml:space="preserve">
     <value>Le nombre est trop grand !</value>

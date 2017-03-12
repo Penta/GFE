@@ -276,7 +276,7 @@ Press No will replace all the current values !</value>
     <value>Please type a number!</value>
   </data>
   <data name="SeulementUneInstance" xml:space="preserve">
-    <value>Seulement une seule instance du logiciel peut être lancée à la fois !</value>
+    <value>Only one instance of the software is allowed at the same time!</value>
   </data>
   <data name="SuccèsTitre" xml:space="preserve">
     <value>Success!</value>

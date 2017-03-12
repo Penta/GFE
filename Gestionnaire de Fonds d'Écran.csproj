@@ -28,12 +28,12 @@
     <InstallUrl>http://penta.fr.cr/GFE/depot/publish/</InstallUrl>
     <SupportUrl>http://github.com/Penta/GFE</SupportUrl>
     <TargetCulture>fr</TargetCulture>
-    <ProductName>Gestionnaire de Fond d%27Écran</ProductName>
+    <ProductName>Gestionnaire de Fonds d%27Écran</ProductName>
     <PublisherName>Andy Esnard</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
     <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>0.9.24.1</ApplicationVersion>
+    <ApplicationVersion>0.9.26.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -119,38 +119,38 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="APropos.cs">
+    <Compile Include="Fenetres\APropos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="APropos.Designer.cs">
+    <Compile Include="Fenetres\APropos.Designer.cs">
       <DependentUpon>APropos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Attente.cs">
+    <Compile Include="Fenetres\Attente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Attente.Designer.cs">
+    <Compile Include="Fenetres\Attente.Designer.cs">
       <DependentUpon>Attente.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConfigurationGfe.cs">
+    <Compile Include="Fenetres\ConfigurationGfe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConfigurationGfe.Designer.cs">
+    <Compile Include="Fenetres\ConfigurationGfe.Designer.cs">
       <DependentUpon>ConfigurationGfe.cs</DependentUpon>
     </Compile>
     <Compile Include="EmbeddedAssembly.cs" />
     <Compile Include="Func.cs" />
     <Compile Include="Langue.cs" />
-    <Compile Include="Texte.Designer.cs">
+    <Compile Include="Langues\Texte.Designer.cs">
       <DependentUpon>Texte.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Maj.cs" />
     <Compile Include="NativeMethods.cs" />
-    <Compile Include="Principale.cs">
+    <Compile Include="Fenetres\Principale.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principale.Designer.cs">
+    <Compile Include="Fenetres\Principale.Designer.cs">
       <DependentUpon>Principale.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -159,82 +159,82 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Registre.cs" />
-    <Compile Include="Renommer.cs">
+    <Compile Include="Fenetres\Renommer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Renommer.Designer.cs">
+    <Compile Include="Fenetres\Renommer.Designer.cs">
       <DependentUpon>Renommer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Saut.cs">
+    <Compile Include="Fenetres\Saut.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Saut.Designer.cs">
+    <Compile Include="Fenetres\Saut.Designer.cs">
       <DependentUpon>Saut.cs</DependentUpon>
     </Compile>
-    <Compile Include="Selection.cs">
+    <Compile Include="Fenetres\Selection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Selection.Designer.cs">
+    <Compile Include="Fenetres\Selection.Designer.cs">
       <DependentUpon>Selection.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="Texte.fr.Designer.cs">
+    <Compile Include="Langues\Texte.fr.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Texte.fr.resx</DependentUpon>
     </Compile>
     <Compile Include="Wallpaper.cs" />
-    <EmbeddedResource Include="APropos.fr.resx">
+    <EmbeddedResource Include="Fenetres\APropos.fr.resx">
       <DependentUpon>APropos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="APropos.resx">
+    <EmbeddedResource Include="Fenetres\APropos.resx">
       <DependentUpon>APropos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Attente.fr.resx">
+    <EmbeddedResource Include="Fenetres\Attente.fr.resx">
       <DependentUpon>Attente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Attente.resx">
+    <EmbeddedResource Include="Fenetres\Attente.resx">
       <DependentUpon>Attente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConfigurationGfe.fr.resx">
+    <EmbeddedResource Include="Fenetres\ConfigurationGfe.fr.resx">
       <DependentUpon>ConfigurationGfe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConfigurationGfe.resx">
+    <EmbeddedResource Include="Fenetres\ConfigurationGfe.resx">
       <DependentUpon>ConfigurationGfe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Texte.resx">
+    <EmbeddedResource Include="Langues\Texte.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Texte.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Texte.fr.resx">
+    <EmbeddedResource Include="Langues\Texte.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Texte.fr.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principale.fr.resx">
+    <EmbeddedResource Include="Fenetres\Principale.fr.resx">
       <DependentUpon>Principale.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principale.resx">
+    <EmbeddedResource Include="Fenetres\Principale.resx">
       <DependentUpon>Principale.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Renommer.fr.resx">
+    <EmbeddedResource Include="Fenetres\Renommer.fr.resx">
       <DependentUpon>Renommer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Renommer.resx">
+    <EmbeddedResource Include="Fenetres\Renommer.resx">
       <DependentUpon>Renommer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Saut.fr.resx">
+    <EmbeddedResource Include="Fenetres\Saut.fr.resx">
       <DependentUpon>Saut.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Saut.resx">
+    <EmbeddedResource Include="Fenetres\Saut.resx">
       <DependentUpon>Saut.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Selection.fr.resx">
+    <EmbeddedResource Include="Fenetres\Selection.fr.resx">
       <DependentUpon>Selection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Selection.resx">
+    <EmbeddedResource Include="Fenetres\Selection.resx">
       <DependentUpon>Selection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

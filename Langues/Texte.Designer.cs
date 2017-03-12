@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Gfe {
+namespace Gfe.Langues {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Gfe {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Gfe.Texte", typeof(Texte).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Gfe.Langues.Texte", typeof(Texte).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -560,7 +560,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Seulement une seule instance du logiciel peut être lancée à la fois !.
+        ///   Recherche une chaîne localisée semblable à Only one instance of the software is allowed at the same time!.
         /// </summary>
         public static string SeulementUneInstance {
             get {

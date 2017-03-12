@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Windows.Forms;
+using Gfe.Langues;
 
 namespace Gfe
 {

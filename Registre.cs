@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Win32;
 using System.Windows.Forms;
+using Gfe.Langues;
 
 namespace Gfe
 {

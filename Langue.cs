@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Threading;
+using Gfe.Langues;
 
 namespace Gfe
 {
@@ -16,7 +17,7 @@ namespace Gfe
             CultureInfo langue = Thread.CurrentThread.CurrentUICulture;
             string affichage = Principale.affichage.ToLower();
 
-            if (Texte.Titre == "Gestionnaire de Fond d'Écran")
+            if (Texte.Titre == "Gestionnaire de Fonds d'Écran")
             {
                 if (affichage == "etirer" || affichage == "étirer" || affichage == "stretch")
                     Principale.affichage = "Étirer";
@@ -53,7 +54,7 @@ namespace Gfe
             CultureInfo langue = Thread.CurrentThread.CurrentUICulture;
             string couleur = Principale.couleur.ToLower();
 
-            if (Texte.Titre == "Gestionnaire de Fond d'Écran")
+            if (Texte.Titre == "Gestionnaire de Fonds d'Écran")
             {
                 if (couleur == "rouge" || couleur == "red")
                     Principale.couleur = "Rouge";
