@@ -11,7 +11,7 @@ namespace Gfe
 {
     static class Program
     {
-        static public string dossierAppdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Gestionnaire de Fond d'Écran\";
+        static public string dossierAppdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Gestionnaire de Fonds d'Écran\";
         static public bool nonXP = false;
 
         [STAThread]

@@ -6,11 +6,11 @@ using System;
 // Les informations générales relatives à un assembly dépendent de 
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("Gestionnaire de Fond d'Écran")]
+[assembly: AssemblyTitle("Gestionnaire de Fonds d'Écran")]
 [assembly: AssemblyDescription("Permet de gérer plus facilement ses dossiers de fonds d'écran.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Andy Esnard")]
-[assembly: AssemblyProduct("Gestionnaire de Fond d'Écran")]
+[assembly: AssemblyProduct("Gestionnaire de Fonds d'Écran")]
 [assembly: AssemblyCopyright("Copyright Andy Esnard © 2014/2017")]
 [assembly: AssemblyTrademark("Andy Esnard")]
 [assembly: AssemblyCulture("")]
@@ -33,6 +33,6 @@ using System;
 // Vous pouvez spécifier toutes les valeurs ou indiquer les numéros de build et de révision par défaut 
 // en utilisant '*', comme indiqué ci-dessous :
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.9.1.24")]
+[assembly: AssemblyVersion("0.9.1.25")]
 //[assembly: AssemblyFileVersion("0.8.2")]
 [assembly: NeutralResourcesLanguage("en")]

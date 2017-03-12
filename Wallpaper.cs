@@ -312,12 +312,7 @@ namespace Gulix.Wallpaper
             NativeMethods.SetSysColors(1, elementArray, elementValues);
 
             if (conversion)
-            {
-                if (binaire && File.Exists(Path.GetTempPath() + @"wallpaper2.bmp"))
-                    File.Delete(Path.GetTempPath() + @"wallpaper2.bmp");
-                else if (!binaire && File.Exists(Path.GetTempPath() + @"wallpaper.bmp"))
-                    File.Delete(Path.GetTempPath() + @"wallpaper.bmp");
-            }
+                File.Delete(fichierTemporaire);
         }
         
         /// <summary>

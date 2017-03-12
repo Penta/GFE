@@ -6,8 +6,8 @@ namespace Gfe
 {
     public class Registre
     {
-        public const string emplacement = @"SOFTWARE\Gestionnaire de Fond d'Écran";
-        private const string nomContextuel = "Gestionnaire de Fond d'Écran";
+        public const string emplacement = @"SOFTWARE\Gestionnaire de Fonds d'Écran";
+        private const string nomContextuel = "Gestionnaire de Fonds d'Écran";
 
         static public RegistryKey registre = Registry.CurrentUser.OpenSubKey(emplacement, RegistryKeyPermissionCheck.ReadWriteSubTree);
         public static string ancienChemin = null;
@@ -152,7 +152,7 @@ namespace Gfe
             RegistryKey sousClef = clef.CreateSubKey("command", RegistryKeyPermissionCheck.ReadWriteSubTree);
 
             clef.SetValue("", Texte.MenuContextuelTexte);
-            clef.SetValue("Icon", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Gestionnaire de Fond d'Écran\icone.ico");
+            clef.SetValue("Icon", Program.dossierAppdata + "icone.ico");
             sousClef.SetValue("", "\"" + System.Reflection.Assembly.GetEntryAssembly().Location + "\" /O \"%1\"");
             sousClef.Close();
             clef.Close();

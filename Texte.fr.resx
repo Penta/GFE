@@ -127,7 +127,7 @@
     <value>Succès !</value>
   </data>
   <data name="Titre" xml:space="preserve">
-    <value>Gestionnaire de Fond d'Écran</value>
+    <value>Gestionnaire de Fonds d'Écran</value>
   </data>
   <data name="TéléchargementSources" xml:space="preserve">
     <value>Téléchargement des sources via GitHub éffectué !</value>
@@ -277,7 +277,7 @@ Erreur : </value>
     <value>Cliquez sur commencer pour selectionner un fichier.</value>
   </data>
   <data name="MenuContextuelAppliqué" xml:space="preserve">
-    <value>Vous pouvez maintenant lancer le Gestionnaire de Fond d'Écran dans le menu contextuel d'un dossier ! (clic droit)
+    <value>Vous pouvez maintenant lancer le Gestionnaire de Fonds d'Écran dans le menu contextuel d'un dossier ! (clic droit)
 
 Veuillez désactiver cette option avant de supprimer ou déplacer cet exécutable.</value>
   </data>
