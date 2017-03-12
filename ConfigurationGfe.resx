@@ -538,13 +538,13 @@
     <value>12, 85</value>
   </data>
   <data name="labelInfoCouleur.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 13</value>
+    <value>100, 13</value>
   </data>
   <data name="labelInfoCouleur.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
   <data name="labelInfoCouleur.Text" xml:space="preserve">
-    <value>Background Colour:</value>
+    <value>Background colour:</value>
   </data>
   <data name="&gt;&gt;labelInfoCouleur.Name" xml:space="preserve">
     <value>labelInfoCouleur</value>

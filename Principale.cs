@@ -103,11 +103,13 @@ namespace Gfe
             if (id >= 0)
             {
                 labelNom.Cursor = Cursors.Hand;
+                labelChemin.Cursor = Cursors.Hand;
+                labelNuméro.Cursor = Cursors.Hand;
+
                 sousmenuRenommer.Enabled = true;
 
                 labelChemin.Text = Func.TraitementChemin(fichiers[id].DirectoryName);
                 infobulleChemin.SetToolTip(this.labelChemin, fichiers[id].DirectoryName);
-                labelChemin.Cursor = Cursors.Hand;
 
                 btnSupprimer.Enabled = true;
                 sousmenuSupprimer.Enabled = true;
@@ -157,7 +159,16 @@ namespace Gfe
 
                 labelChemin.Text = Func.TraitementChemin(chemin);
                 infobulleChemin.SetToolTip(this.labelChemin, chemin);
-                labelChemin.Cursor = Cursors.Default;
+
+                if (Directory.Exists(labelChemin.Text))
+                    labelChemin.Cursor = Cursors.Hand;
+                else
+                    labelChemin.Cursor = Cursors.Default;
+
+                if (nbFichier > 0)
+                    labelNuméro.Cursor = Cursors.Hand;
+                else
+                    labelNuméro.Cursor = Cursors.Default;
 
                 btnSupprimer.Enabled = false;
                 sousmenuSupprimer.Enabled = false;
@@ -206,14 +217,13 @@ namespace Gfe
         {
             DialogResult question = new DialogResult();
 
-            if (btnSuivant.Text == "Terminer")
+            if (btnSuivant.Text == Texte.Terminer)
             {
-                question = MessageBox.Show("Vous avez fini le dossier !\n\nVoulez-vous fermer le programme ?", "Dossier terminé", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                question = MessageBox.Show(Texte.DossierTerminé, Texte.ConfirmationTitre, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
                 if (question == DialogResult.Yes)
                     FermerProgramme();
             }
-                
             else
             {
                 id++;
@@ -390,6 +400,25 @@ namespace Gfe
             }
         }
 
+        private void SautNuméro()
+        {
+            if (nbFichier > 0)
+            {
+                int ancientId = id;
+
+                Saut fenetre = new Saut();
+                fenetre.ShowDialog();
+
+                if (ancientId != id)
+                {
+                    if (!sousmenuRechargerFond.Enabled && id != -1)
+                        sousmenuRechargerFond.Enabled = true;
+
+                    ChargerFond(false);
+                }
+            }
+        }
+
         private void ModifierFichier()
         {
             if (btnModifier.Text == Texte.Modifier)
@@ -537,21 +566,7 @@ namespace Gfe
             }
         }
 
-        private void MenuAllezÀ_Clic (object sender, EventArgs e)
-        {
-            int ancientId = id;
-
-            Saut fenetre = new Saut();
-            fenetre.ShowDialog();
-
-            if (ancientId != id)
-            {
-                if (!sousmenuRechargerFond.Enabled && id != -1)
-                    sousmenuRechargerFond.Enabled = true;
-
-                ChargerFond(false);
-            }
-        }
+        private void MenuAllezÀ_Clic (object sender, EventArgs e) { SautNuméro(); }
 
         private void MenuChangerDossier_Clic (object sender, EventArgs e)
         {
@@ -748,6 +763,7 @@ namespace Gfe
         private void LabelCheminClic (object sender, EventArgs e) { VoirDossier(); }
         private void BoutonSuivant_Clic (object sender, EventArgs e) { FichierSuivant(); }
         private void BoutonPrécédent_Clic (object sender, EventArgs e) { FichierPrecedent(); }
+        private void LabelNuméro_Clic(object sender, EventArgs e) { SautNuméro(); }
         private void BoutonSupprimer_Clic (object sender, EventArgs e) { SupprimerFichier(false); }
         private void MenuSuivant_Clic (object sender, EventArgs e) { FichierSuivant(); }
         private void MenuQuitter_Clic (object sender, EventArgs e) { FermerProgramme(); }

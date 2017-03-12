@@ -202,6 +202,17 @@ namespace Gfe {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à This directory is done!
+        ///
+        ///Do you want to close this software?.
+        /// </summary>
+        public static string DossierTerminé {
+            get {
+                return ResourceManager.GetString("DossierTerminé", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à An error occurred when the Wallpaper Manager tried to reapply your original wallpaper!.
         /// </summary>
         public static string ErreurAncienFond {
@@ -630,7 +641,7 @@ namespace Gfe {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à 0 /.
+        ///   Recherche une chaîne localisée semblable à 0 / .
         /// </summary>
         public static string ZeroFraction {
             get {

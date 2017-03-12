@@ -323,4 +323,9 @@ Veuillez désactiver cette option avant de supprimer ou déplacer cet exécutabl
   <data name="RedémarrageLangue" xml:space="preserve">
     <value>Vous devez redémarrer l'application pour changer la langue !</value>
   </data>
+  <data name="DossierTerminé" xml:space="preserve">
+    <value>Vous avez fini le dossier !
+
+Voulez-vous fermer le programme ?</value>
+  </data>
 </root>

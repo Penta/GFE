@@ -300,7 +300,7 @@ Press No will replace all the current values !</value>
     <value>An error occurred.</value>
   </data>
   <data name="ZeroFraction" xml:space="preserve">
-    <value>0 /</value>
+    <value>0 / </value>
   </data>
   <data name="ErreurChargementFichier" xml:space="preserve">
     <value>: this file cannot be read, do you want to delete it?</value>
@@ -322,5 +322,10 @@ Press No will replace all the current values !</value>
   </data>
   <data name="RedémarrageLangue" xml:space="preserve">
     <value>You need to restart the application to change the language!</value>
+  </data>
+  <data name="DossierTerminé" xml:space="preserve">
+    <value>This directory is done!
+
+Do you want to close this software?</value>
   </data>
 </root>
