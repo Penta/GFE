@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Gfe</RootNamespace>
     <AssemblyName>Gfe</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -86,7 +86,7 @@
     </CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -137,16 +137,16 @@
     <Compile Include="Fenetres\ConfigurationGfe.Designer.cs">
       <DependentUpon>ConfigurationGfe.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmbeddedAssembly.cs" />
-    <Compile Include="Func.cs" />
-    <Compile Include="Langue.cs" />
+    <Compile Include="Core\EmbeddedAssembly.cs" />
+    <Compile Include="Core\Func.cs" />
+    <Compile Include="Core\Langue.cs" />
     <Compile Include="Langues\Texte.Designer.cs">
       <DependentUpon>Texte.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Maj.cs" />
-    <Compile Include="NativeMethods.cs" />
+    <Compile Include="Core\Maj.cs" />
+    <Compile Include="Core\NativeMethods.cs" />
     <Compile Include="Fenetres\Principale.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,7 +158,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Registre.cs" />
+    <Compile Include="Core\Registre.cs" />
     <Compile Include="Fenetres\Renommer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,7 +185,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Texte.fr.resx</DependentUpon>
     </Compile>
-    <Compile Include="Wallpaper.cs" />
+    <Compile Include="Core\Wallpaper.cs" />
     <EmbeddedResource Include="Fenetres\APropos.fr.resx">
       <DependentUpon>APropos.cs</DependentUpon>
     </EmbeddedResource>
