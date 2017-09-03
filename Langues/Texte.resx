@@ -300,7 +300,7 @@ Press No will replace all the current values !</value>
     <value>An error occurred.</value>
   </data>
   <data name="ZeroFraction" xml:space="preserve">
-    <value>0 / </value>
+    <value>0 on </value>
   </data>
   <data name="ErreurChargementFichier" xml:space="preserve">
     <value>: this file cannot be read, do you want to delete it?</value>
@@ -333,5 +333,62 @@ Do you want to close this software?</value>
   </data>
   <data name="NombreFichierListe" xml:space="preserve">
     <value>File number:</value>
+  </data>
+  <data name="ValeurAjuster" xml:space="preserve">
+    <value>Ajust</value>
+  </data>
+  <data name="ValeurBlanc" xml:space="preserve">
+    <value>White</value>
+  </data>
+  <data name="ValeurBleu" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="ValeurBleuClair" xml:space="preserve">
+    <value>Light blue</value>
+  </data>
+  <data name="ValeurCentrer" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="ValeurEtendre" xml:space="preserve">
+    <value>Extend</value>
+  </data>
+  <data name="ValeurEtirer" xml:space="preserve">
+    <value>Stretch</value>
+  </data>
+  <data name="ValeurGris" xml:space="preserve">
+    <value>Grey</value>
+  </data>
+  <data name="ValeurGrisFoncé" xml:space="preserve">
+    <value>Dark grey</value>
+  </data>
+  <data name="ValeurJaune" xml:space="preserve">
+    <value>Yellow</value>
+  </data>
+  <data name="ValeurMarron" xml:space="preserve">
+    <value>Marron</value>
+  </data>
+  <data name="ValeurMosaique" xml:space="preserve">
+    <value>Mosaique</value>
+  </data>
+  <data name="ValeurNoir" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="ValeurOrange" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="ValeurRemplir" xml:space="preserve">
+    <value>Fill</value>
+  </data>
+  <data name="ValeurRose" xml:space="preserve">
+    <value>Pink</value>
+  </data>
+  <data name="ValeurRouge" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="ValeurVert" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="ValeurViolet" xml:space="preserve">
+    <value>Purple</value>
   </data>
 </root>

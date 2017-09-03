@@ -126,7 +126,7 @@ namespace Gfe.Fenetres
                 changementFichier = true;
 
                 Principale.logiciel = Environment.SystemDirectory + @"\mspaint.exe";
-                Principale.affichage = "étirer";
+                Principale.affichage = Texte.ValeurEtirer;
                 Principale.couleur = "Noir";
                 Principale.extension = "png;jpg;jpeg;bmp;tiff;tif";
                 Principale.rappel = true;

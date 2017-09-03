@@ -334,4 +334,61 @@ Voulez-vous fermer le programme ?</value>
   <data name="NombreFichierListe" xml:space="preserve">
     <value>Numéro de fichier :</value>
   </data>
+  <data name="ValeurAjuster" xml:space="preserve">
+    <value>Ajuster</value>
+  </data>
+  <data name="ValeurBlanc" xml:space="preserve">
+    <value>Blanc</value>
+  </data>
+  <data name="ValeurBleu" xml:space="preserve">
+    <value>Bleu</value>
+  </data>
+  <data name="ValeurBleuClair" xml:space="preserve">
+    <value>Bleu clair</value>
+  </data>
+  <data name="ValeurCentrer" xml:space="preserve">
+    <value>Centrer</value>
+  </data>
+  <data name="ValeurEtendre" xml:space="preserve">
+    <value>Etendre</value>
+  </data>
+  <data name="ValeurEtirer" xml:space="preserve">
+    <value>Etirer</value>
+  </data>
+  <data name="ValeurGris" xml:space="preserve">
+    <value>Gris</value>
+  </data>
+  <data name="ValeurGrisFoncé" xml:space="preserve">
+    <value>Gris foncé</value>
+  </data>
+  <data name="ValeurJaune" xml:space="preserve">
+    <value>Jaune</value>
+  </data>
+  <data name="ValeurMarron" xml:space="preserve">
+    <value>Marron</value>
+  </data>
+  <data name="ValeurMosaique" xml:space="preserve">
+    <value>Mosaïque</value>
+  </data>
+  <data name="ValeurNoir" xml:space="preserve">
+    <value>Noir</value>
+  </data>
+  <data name="ValeurOrange" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="ValeurRemplir" xml:space="preserve">
+    <value>Remplir</value>
+  </data>
+  <data name="ValeurRose" xml:space="preserve">
+    <value>Rose</value>
+  </data>
+  <data name="ValeurRouge" xml:space="preserve">
+    <value>Rouge</value>
+  </data>
+  <data name="ValeurVert" xml:space="preserve">
+    <value>Vert</value>
+  </data>
+  <data name="ValeurViolet" xml:space="preserve">
+    <value>Violet</value>
+  </data>
 </root>

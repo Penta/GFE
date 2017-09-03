@@ -659,7 +659,178 @@ namespace Gfe.Langues {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à 0 / .
+        ///   Recherche une chaîne localisée semblable à Ajust.
+        /// </summary>
+        public static string ValeurAjuster {
+            get {
+                return ResourceManager.GetString("ValeurAjuster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à White.
+        /// </summary>
+        public static string ValeurBlanc {
+            get {
+                return ResourceManager.GetString("ValeurBlanc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Blue.
+        /// </summary>
+        public static string ValeurBleu {
+            get {
+                return ResourceManager.GetString("ValeurBleu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Light blue.
+        /// </summary>
+        public static string ValeurBleuClair {
+            get {
+                return ResourceManager.GetString("ValeurBleuClair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Center.
+        /// </summary>
+        public static string ValeurCentrer {
+            get {
+                return ResourceManager.GetString("ValeurCentrer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Extend.
+        /// </summary>
+        public static string ValeurEtendre {
+            get {
+                return ResourceManager.GetString("ValeurEtendre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Stretch.
+        /// </summary>
+        public static string ValeurEtirer {
+            get {
+                return ResourceManager.GetString("ValeurEtirer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Grey.
+        /// </summary>
+        public static string ValeurGris {
+            get {
+                return ResourceManager.GetString("ValeurGris", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Dark grey.
+        /// </summary>
+        public static string ValeurGrisFoncé {
+            get {
+                return ResourceManager.GetString("ValeurGrisFoncé", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Yellow.
+        /// </summary>
+        public static string ValeurJaune {
+            get {
+                return ResourceManager.GetString("ValeurJaune", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Marron.
+        /// </summary>
+        public static string ValeurMarron {
+            get {
+                return ResourceManager.GetString("ValeurMarron", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Mosaique.
+        /// </summary>
+        public static string ValeurMosaique {
+            get {
+                return ResourceManager.GetString("ValeurMosaique", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Black.
+        /// </summary>
+        public static string ValeurNoir {
+            get {
+                return ResourceManager.GetString("ValeurNoir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Orange.
+        /// </summary>
+        public static string ValeurOrange {
+            get {
+                return ResourceManager.GetString("ValeurOrange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Fill.
+        /// </summary>
+        public static string ValeurRemplir {
+            get {
+                return ResourceManager.GetString("ValeurRemplir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Pink.
+        /// </summary>
+        public static string ValeurRose {
+            get {
+                return ResourceManager.GetString("ValeurRose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Red.
+        /// </summary>
+        public static string ValeurRouge {
+            get {
+                return ResourceManager.GetString("ValeurRouge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Green.
+        /// </summary>
+        public static string ValeurVert {
+            get {
+                return ResourceManager.GetString("ValeurVert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Purple.
+        /// </summary>
+        public static string ValeurViolet {
+            get {
+                return ResourceManager.GetString("ValeurViolet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à 0 on .
         /// </summary>
         public static string ZeroFraction {
             get {
