@@ -3,8 +3,9 @@ using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 using Gfe.Langues;
+using Gfe.Core;
 
-namespace Gfe
+namespace Gfe.Fenetres
 {
     public partial class ConfigurationGfe : Form
     {

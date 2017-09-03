@@ -1,8 +1,9 @@
 ﻿using System.Globalization;
 using System.Threading;
 using Gfe.Langues;
+using Gfe.Fenetres;
 
-namespace Gfe
+namespace Gfe.Core
 {
     class Langue
     {

@@ -5,8 +5,9 @@ using System.Net;
 using System.Threading;
 using System.Windows.Forms;
 using Gfe.Langues;
+using Gfe.Fenetres;
 
-namespace Gfe
+namespace Gfe.Core
 {
     public partial class Maj
     {
@@ -55,14 +56,20 @@ namespace Gfe
         static public void InstallerMaj(string chemin)
         {
             WebClient web = new WebClient();
-            string nouvelleVersion = web.DownloadString("http://penta.fr.cr/GFE/ver").Substring(0, 3); ;
+            string nouvelleVersion = web.DownloadString("http://penta.fr.cr/GFE/ver").Substring(0, 3);
+            string fichierCible = "gfe.exe";
 
             Thread.Sleep(250);
             File.Delete(chemin);
 
+            if (Environment.Is64BitProcess)
+                fichierCible = "gfe_x64.exe";
+            else if (!Program.nonXP)
+                fichierCible = "gfe_xp.exe";
+
             try
             {
-                web.DownloadFile("http://penta.fr.cr/GFE/depot/" + nouvelleVersion + "/gfe.exe", chemin);
+                web.DownloadFile("http://penta.fr.cr/GFE/depot/" + nouvelleVersion + "/" + fichierCible, chemin);
                 Process.Start(chemin);
 
                 Environment.Exit(0);

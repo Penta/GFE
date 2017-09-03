@@ -2,8 +2,9 @@
 using Microsoft.Win32;
 using System.Windows.Forms;
 using Gfe.Langues;
+using Gfe.Fenetres;
 
-namespace Gfe
+namespace Gfe.Core
 {
     public class Registre
     {

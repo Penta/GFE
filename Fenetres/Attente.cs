@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Gfe
+namespace Gfe.Fenetres
 {
     public partial class Attente : Form
     {

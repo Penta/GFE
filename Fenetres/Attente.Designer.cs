@@ -1,4 +1,4 @@
-﻿namespace Gfe
+﻿namespace Gfe.Fenetres
 {
     partial class Attente
     {

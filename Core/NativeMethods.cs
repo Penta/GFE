@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Gfe
+namespace Gfe.Core
 {
     internal static class NativeMethods
     {

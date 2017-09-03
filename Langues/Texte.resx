@@ -225,7 +225,7 @@ This error is not fatal.</value>
     <value>Information</value>
   </data>
   <data name="LogicielAJour" xml:space="preserve">
-    <value>You software is up to date!</value>
+    <value>Your software is up to date!</value>
   </data>
   <data name="MajDispo" xml:space="preserve">
     <value>An update is available!

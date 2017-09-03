@@ -5,6 +5,7 @@
  - Réorganisation interne des fichiers.
  - Passage au framework .NET 4.7
  - Ajout d'une option pour obtenir la liste des fichiers et pour sélectionner un fichier précis dans la liste.
+ - Correction du système de mise à jour si utilisation d'une version x64 ou XP.
 
 ### Version 0.9.1 (12 Mars 2017) :
  - Corrections de quelques bugs (parce qu'il y en a toujours).

@@ -3,8 +3,9 @@ using System.Windows.Forms;
 using System.Threading;
 using System.IO;
 using Gfe.Langues;
+using Gfe.Core;
 
-namespace Gfe
+namespace Gfe.Fenetres
 {
     public partial class Selection : Form
     {

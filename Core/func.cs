@@ -5,7 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 
-namespace Gfe
+namespace Gfe.Core
 {
     internal class Func
     {

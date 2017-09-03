@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace Gfe
+namespace Gfe.Fenetres
 {
     public partial class APropos : Form
     {

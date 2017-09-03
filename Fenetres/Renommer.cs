@@ -3,7 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using Gfe.Langues;
 
-namespace Gfe
+namespace Gfe.Fenetres
 {
     public partial class Renommer : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace Gfe
+﻿namespace Gfe.Fenetres
 {
     partial class Principale
     {
@@ -80,26 +80,21 @@
             // 
             resources.ApplyResources(this.btnSuivant, "btnSuivant");
             this.btnSuivant.Name = "btnSuivant";
-            this.infobulleNom.SetToolTip(this.btnSuivant, resources.GetString("btnSuivant.ToolTip"));
-            this.infobulleChemin.SetToolTip(this.btnSuivant, resources.GetString("btnSuivant.ToolTip1"));
             this.btnSuivant.UseVisualStyleBackColor = true;
             this.btnSuivant.Click += new System.EventHandler(this.BoutonSuivant_Clic);
             // 
             // menu
             // 
-            resources.ApplyResources(this.menu, "menu");
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuAction,
             this.menuOption,
             this.menuAléatoire,
             this.menuQuestion});
+            resources.ApplyResources(this.menu, "menu");
             this.menu.Name = "menu";
-            this.infobulleChemin.SetToolTip(this.menu, resources.GetString("menu.ToolTip"));
-            this.infobulleNom.SetToolTip(this.menu, resources.GetString("menu.ToolTip1"));
             // 
             // menuAction
             // 
-            resources.ApplyResources(this.menuAction, "menuAction");
             this.menuAction.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sousmenuSuivant,
             this.sousmenuPrécédent,
@@ -118,11 +113,12 @@
             this.toolStripSeparator2,
             this.sousmenuQuitter});
             this.menuAction.Name = "menuAction";
+            resources.ApplyResources(this.menuAction, "menuAction");
             // 
             // sousmenuSuivant
             // 
-            resources.ApplyResources(this.sousmenuSuivant, "sousmenuSuivant");
             this.sousmenuSuivant.Name = "sousmenuSuivant";
+            resources.ApplyResources(this.sousmenuSuivant, "sousmenuSuivant");
             this.sousmenuSuivant.Click += new System.EventHandler(this.MenuSuivant_Clic);
             // 
             // sousmenuPrécédent
@@ -145,13 +141,13 @@
             // 
             // toolStripSeparator4
             // 
-            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
             this.toolStripSeparator4.Name = "toolStripSeparator4";
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
             // 
             // sousmenuRenommer
             // 
-            resources.ApplyResources(this.sousmenuRenommer, "sousmenuRenommer");
             this.sousmenuRenommer.Name = "sousmenuRenommer";
+            resources.ApplyResources(this.sousmenuRenommer, "sousmenuRenommer");
             this.sousmenuRenommer.Click += new System.EventHandler(this.MenuRenommer_Clic);
             // 
             // sousmenuRechargerFond
@@ -162,59 +158,58 @@
             // 
             // sousmenuAppliquer
             // 
-            resources.ApplyResources(this.sousmenuAppliquer, "sousmenuAppliquer");
             this.sousmenuAppliquer.Name = "sousmenuAppliquer";
+            resources.ApplyResources(this.sousmenuAppliquer, "sousmenuAppliquer");
             this.sousmenuAppliquer.Click += new System.EventHandler(this.MenuAppliquerFond_Clic);
             // 
             // toolStripSeparator1
             // 
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // sousmenuVoirDossier
             // 
-            resources.ApplyResources(this.sousmenuVoirDossier, "sousmenuVoirDossier");
             this.sousmenuVoirDossier.Name = "sousmenuVoirDossier";
+            resources.ApplyResources(this.sousmenuVoirDossier, "sousmenuVoirDossier");
             this.sousmenuVoirDossier.Click += new System.EventHandler(this.MenuVoirLeContenu_Clic);
             // 
             // sousmenuChangerDossier
             // 
-            resources.ApplyResources(this.sousmenuChangerDossier, "sousmenuChangerDossier");
             this.sousmenuChangerDossier.Name = "sousmenuChangerDossier";
+            resources.ApplyResources(this.sousmenuChangerDossier, "sousmenuChangerDossier");
             this.sousmenuChangerDossier.Click += new System.EventHandler(this.MenuChangerDossier_Clic);
             // 
             // sousmenuAllezA
             // 
-            resources.ApplyResources(this.sousmenuAllezA, "sousmenuAllezA");
             this.sousmenuAllezA.Name = "sousmenuAllezA";
+            resources.ApplyResources(this.sousmenuAllezA, "sousmenuAllezA");
             this.sousmenuAllezA.Click += new System.EventHandler(this.MenuAllezÀ_Clic);
             // 
             // sousmenuMinimiser
             // 
-            resources.ApplyResources(this.sousmenuMinimiser, "sousmenuMinimiser");
             this.sousmenuMinimiser.Name = "sousmenuMinimiser";
+            resources.ApplyResources(this.sousmenuMinimiser, "sousmenuMinimiser");
             this.sousmenuMinimiser.Click += new System.EventHandler(this.MenuMinimiser_Clic);
             // 
             // sousmenuRechargerListe
             // 
-            resources.ApplyResources(this.sousmenuRechargerListe, "sousmenuRechargerListe");
             this.sousmenuRechargerListe.Name = "sousmenuRechargerListe";
+            resources.ApplyResources(this.sousmenuRechargerListe, "sousmenuRechargerListe");
             this.sousmenuRechargerListe.Click += new System.EventHandler(this.MenuRechargerListe_Clic);
             // 
             // toolStripSeparator2
             // 
-            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             this.toolStripSeparator2.Name = "toolStripSeparator2";
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             // 
             // sousmenuQuitter
             // 
-            resources.ApplyResources(this.sousmenuQuitter, "sousmenuQuitter");
             this.sousmenuQuitter.Name = "sousmenuQuitter";
+            resources.ApplyResources(this.sousmenuQuitter, "sousmenuQuitter");
             this.sousmenuQuitter.Click += new System.EventHandler(this.MenuQuitter_Clic);
             // 
             // menuOption
             // 
-            resources.ApplyResources(this.menuOption, "menuOption");
             this.menuOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sousmenuConfiguration,
             this.showFileListToolStripMenuItem,
@@ -224,23 +219,24 @@
             this.toolStripSeparator5,
             this.sousmenuStatistiques});
             this.menuOption.Name = "menuOption";
+            resources.ApplyResources(this.menuOption, "menuOption");
             // 
             // sousmenuConfiguration
             // 
-            resources.ApplyResources(this.sousmenuConfiguration, "sousmenuConfiguration");
             this.sousmenuConfiguration.Name = "sousmenuConfiguration";
+            resources.ApplyResources(this.sousmenuConfiguration, "sousmenuConfiguration");
             this.sousmenuConfiguration.Click += new System.EventHandler(this.MenuConfiguration_Clic);
             // 
             // showFileListToolStripMenuItem
             // 
-            resources.ApplyResources(this.showFileListToolStripMenuItem, "showFileListToolStripMenuItem");
             this.showFileListToolStripMenuItem.Name = "showFileListToolStripMenuItem";
+            resources.ApplyResources(this.showFileListToolStripMenuItem, "showFileListToolStripMenuItem");
             this.showFileListToolStripMenuItem.Click += new System.EventHandler(this.showFileListToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
-            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             this.toolStripSeparator3.Name = "toolStripSeparator3";
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             // 
             // sousmenuMaj
             // 
@@ -250,14 +246,14 @@
             // 
             // sousmenuContextuel
             // 
-            resources.ApplyResources(this.sousmenuContextuel, "sousmenuContextuel");
             this.sousmenuContextuel.Name = "sousmenuContextuel";
+            resources.ApplyResources(this.sousmenuContextuel, "sousmenuContextuel");
             this.sousmenuContextuel.Click += new System.EventHandler(this.MenuAjouterContextuel_Clic);
             // 
             // toolStripSeparator5
             // 
-            resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
             this.toolStripSeparator5.Name = "toolStripSeparator5";
+            resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
             // 
             // sousmenuStatistiques
             // 
@@ -273,51 +269,45 @@
             // 
             // menuQuestion
             // 
-            resources.ApplyResources(this.menuQuestion, "menuQuestion");
             this.menuQuestion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sousmenuAide,
             this.sousmenuVersion,
             this.sousmenuAbout});
             this.menuQuestion.Name = "menuQuestion";
+            resources.ApplyResources(this.menuQuestion, "menuQuestion");
             // 
             // sousmenuAide
             // 
-            resources.ApplyResources(this.sousmenuAide, "sousmenuAide");
             this.sousmenuAide.Name = "sousmenuAide";
+            resources.ApplyResources(this.sousmenuAide, "sousmenuAide");
             this.sousmenuAide.Click += new System.EventHandler(this.MenuAide_Clic);
             // 
             // sousmenuVersion
             // 
-            resources.ApplyResources(this.sousmenuVersion, "sousmenuVersion");
             this.sousmenuVersion.Name = "sousmenuVersion";
+            resources.ApplyResources(this.sousmenuVersion, "sousmenuVersion");
             this.sousmenuVersion.Click += new System.EventHandler(this.MenuNoteDeVersion_Clic);
             // 
             // sousmenuAbout
             // 
-            resources.ApplyResources(this.sousmenuAbout, "sousmenuAbout");
             this.sousmenuAbout.Name = "sousmenuAbout";
+            resources.ApplyResources(this.sousmenuAbout, "sousmenuAbout");
             this.sousmenuAbout.Click += new System.EventHandler(this.MenuAPropos_Clic);
             // 
             // labelInfoChemin
             // 
             resources.ApplyResources(this.labelInfoChemin, "labelInfoChemin");
             this.labelInfoChemin.Name = "labelInfoChemin";
-            this.infobulleNom.SetToolTip(this.labelInfoChemin, resources.GetString("labelInfoChemin.ToolTip"));
-            this.infobulleChemin.SetToolTip(this.labelInfoChemin, resources.GetString("labelInfoChemin.ToolTip1"));
             // 
             // labelInfoNom
             // 
             resources.ApplyResources(this.labelInfoNom, "labelInfoNom");
             this.labelInfoNom.Name = "labelInfoNom";
-            this.infobulleNom.SetToolTip(this.labelInfoNom, resources.GetString("labelInfoNom.ToolTip"));
-            this.infobulleChemin.SetToolTip(this.labelInfoNom, resources.GetString("labelInfoNom.ToolTip1"));
             // 
             // btnPrécédent
             // 
             resources.ApplyResources(this.btnPrécédent, "btnPrécédent");
             this.btnPrécédent.Name = "btnPrécédent";
-            this.infobulleNom.SetToolTip(this.btnPrécédent, resources.GetString("btnPrécédent.ToolTip"));
-            this.infobulleChemin.SetToolTip(this.btnPrécédent, resources.GetString("btnPrécédent.ToolTip1"));
             this.btnPrécédent.UseVisualStyleBackColor = true;
             this.btnPrécédent.Click += new System.EventHandler(this.BoutonPrécédent_Clic);
             // 
@@ -326,8 +316,6 @@
             resources.ApplyResources(this.labelChemin, "labelChemin");
             this.labelChemin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelChemin.Name = "labelChemin";
-            this.infobulleNom.SetToolTip(this.labelChemin, resources.GetString("labelChemin.ToolTip"));
-            this.infobulleChemin.SetToolTip(this.labelChemin, resources.GetString("labelChemin.ToolTip1"));
             this.labelChemin.Click += new System.EventHandler(this.LabelCheminClic);
             // 
             // labelNom
@@ -335,16 +323,12 @@
             resources.ApplyResources(this.labelNom, "labelNom");
             this.labelNom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelNom.Name = "labelNom";
-            this.infobulleNom.SetToolTip(this.labelNom, resources.GetString("labelNom.ToolTip"));
-            this.infobulleChemin.SetToolTip(this.labelNom, resources.GetString("labelNom.ToolTip1"));
             this.labelNom.Click += new System.EventHandler(this.LabelNomClic);
             // 
             // btnSupprimer
             // 
             resources.ApplyResources(this.btnSupprimer, "btnSupprimer");
             this.btnSupprimer.Name = "btnSupprimer";
-            this.infobulleNom.SetToolTip(this.btnSupprimer, resources.GetString("btnSupprimer.ToolTip"));
-            this.infobulleChemin.SetToolTip(this.btnSupprimer, resources.GetString("btnSupprimer.ToolTip1"));
             this.btnSupprimer.UseVisualStyleBackColor = true;
             this.btnSupprimer.Click += new System.EventHandler(this.BoutonSupprimer_Clic);
             // 
@@ -352,24 +336,18 @@
             // 
             resources.ApplyResources(this.labelInfoFichier, "labelInfoFichier");
             this.labelInfoFichier.Name = "labelInfoFichier";
-            this.infobulleNom.SetToolTip(this.labelInfoFichier, resources.GetString("labelInfoFichier.ToolTip"));
-            this.infobulleChemin.SetToolTip(this.labelInfoFichier, resources.GetString("labelInfoFichier.ToolTip1"));
             // 
             // labelNuméro
             // 
             resources.ApplyResources(this.labelNuméro, "labelNuméro");
             this.labelNuméro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelNuméro.Name = "labelNuméro";
-            this.infobulleNom.SetToolTip(this.labelNuméro, resources.GetString("labelNuméro.ToolTip"));
-            this.infobulleChemin.SetToolTip(this.labelNuméro, resources.GetString("labelNuméro.ToolTip1"));
             this.labelNuméro.Click += new System.EventHandler(this.LabelNuméro_Clic);
             // 
             // btnModifier
             // 
             resources.ApplyResources(this.btnModifier, "btnModifier");
             this.btnModifier.Name = "btnModifier";
-            this.infobulleNom.SetToolTip(this.btnModifier, resources.GetString("btnModifier.ToolTip"));
-            this.infobulleChemin.SetToolTip(this.btnModifier, resources.GetString("btnModifier.ToolTip1"));
             this.btnModifier.UseVisualStyleBackColor = true;
             this.btnModifier.Click += new System.EventHandler(this.BoutonModifier_Clic);
             // 
@@ -393,8 +371,6 @@
             this.MainMenuStrip = this.menu;
             this.MaximizeBox = false;
             this.Name = "Principale";
-            this.infobulleNom.SetToolTip(this, resources.GetString("$this.ToolTip"));
-            this.infobulleChemin.SetToolTip(this, resources.GetString("$this.ToolTip1"));
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Principale_FormClosed);
             this.Load += new System.EventHandler(this.Principale_Load);
             this.Resize += new System.EventHandler(this.Principale_Resize);

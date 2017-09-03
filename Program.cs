@@ -7,6 +7,8 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Reflection;
 using Gfe.Langues;
+using Gfe.Fenetres;
+using Gfe.Core;
 
 namespace Gfe
 {

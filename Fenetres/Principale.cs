@@ -10,9 +10,9 @@ using System.Threading;
 using System.Drawing.Imaging;
 using Gulix.Wallpaper;
 using Gfe.Langues;
-using Gfe.Fenetres;
+using Gfe.Core;
 
-namespace Gfe
+namespace Gfe.Fenetres
 {
     public partial class Principale : Form
     {
@@ -447,6 +447,9 @@ namespace Gfe
 
             Registre.MiseAjourConfig();
             InitializeComponent();
+
+            if (Program.nonXP)
+                sousmenuMaj.Enabled = true;
         }
 
         private void ModificationExterne()
@@ -528,7 +531,7 @@ namespace Gfe
             RegistryKey registre = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
             int tmpId = 0;
 
-            ancienneCouleur = ColorTranslator.FromWin32(Convert.ToInt32(NativeMethods.GetSysColor(1)));
+            ancienneCouleur = ColorTranslator.FromWin32(Convert.ToInt32(Core.NativeMethods.GetSysColor(1)));
 
             sousmenuContextuel.Checked = Registre.VerifierContextuel();
 
@@ -638,7 +641,7 @@ namespace Gfe
                     cheminAncienFond = fichiers[id].FullName;
 
                 ancienAffichage = affichage;
-                ancienneCouleur = ColorTranslator.FromWin32(Convert.ToInt32(NativeMethods.GetSysColor(1)));
+                ancienneCouleur = ColorTranslator.FromWin32(Convert.ToInt32(Core.NativeMethods.GetSysColor(1)));
 
                 MessageBox.Show(Texte.FondAppliqué, Texte.SuccèsTitre, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

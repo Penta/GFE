@@ -401,7 +401,7 @@ namespace Gfe.Langues {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à You software is up to date!.
+        ///   Recherche une chaîne localisée semblable à Your software is up to date!.
         /// </summary>
         public static string LogicielAJour {
             get {
