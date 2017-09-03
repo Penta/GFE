@@ -328,4 +328,10 @@ Press No will replace all the current values !</value>
 
 Do you want to close this software?</value>
   </data>
+  <data name="ErreurListeFichier" xml:space="preserve">
+    <value>You have to choose a valid file!</value>
+  </data>
+  <data name="NombreFichierListe" xml:space="preserve">
+    <value>File number:</value>
+  </data>
 </root>

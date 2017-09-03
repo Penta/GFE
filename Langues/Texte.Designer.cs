@@ -19,7 +19,7 @@ namespace Gfe.Langues {
     // à l'aide d'un outil, tel que ResGen ou Visual Studio.
     // Pour ajouter ou supprimer un membre, modifiez votre fichier .ResX, puis réexécutez ResGen
     // avec l'option /str ou régénérez votre projet VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Texte {
@@ -260,6 +260,15 @@ namespace Gfe.Langues {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à You have to choose a valid file!.
+        /// </summary>
+        public static string ErreurListeFichier {
+            get {
+                return ResourceManager.GetString("ErreurListeFichier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à An error occurred during the execution of the external software!.
         /// </summary>
         public static string ErreurLogicielExterne {
@@ -482,6 +491,15 @@ namespace Gfe.Langues {
         public static string Modifier {
             get {
                 return ResourceManager.GetString("Modifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à File number:.
+        /// </summary>
+        public static string NombreFichierListe {
+            get {
+                return ResourceManager.GetString("NombreFichierListe", resourceCulture);
             }
         }
         

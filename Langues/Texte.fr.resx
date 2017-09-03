@@ -328,4 +328,10 @@ Veuillez désactiver cette option avant de supprimer ou déplacer cet exécutabl
 
 Voulez-vous fermer le programme ?</value>
   </data>
+  <data name="ErreurListeFichier" xml:space="preserve">
+    <value>Vous devez choisir un fichier valide !</value>
+  </data>
+  <data name="NombreFichierListe" xml:space="preserve">
+    <value>Numéro de fichier :</value>
+  </data>
 </root>

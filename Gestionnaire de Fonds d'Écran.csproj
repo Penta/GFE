@@ -115,8 +115,10 @@
       <HintPath>lib\fr.resources.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fenetres\APropos.cs">
@@ -140,6 +142,12 @@
     <Compile Include="Core\EmbeddedAssembly.cs" />
     <Compile Include="Core\Func.cs" />
     <Compile Include="Core\Langue.cs" />
+    <Compile Include="Fenetres\ListeFichier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fenetres\ListeFichier.Designer.cs">
+      <DependentUpon>ListeFichier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Langues\Texte.Designer.cs">
       <DependentUpon>Texte.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -203,6 +211,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\ConfigurationGfe.resx">
       <DependentUpon>ConfigurationGfe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\ListeFichier.fr.resx">
+      <DependentUpon>ListeFichier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\ListeFichier.resx">
+      <DependentUpon>ListeFichier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Langues\Texte.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

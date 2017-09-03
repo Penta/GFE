@@ -10,6 +10,7 @@ using System.Threading;
 using System.Drawing.Imaging;
 using Gulix.Wallpaper;
 using Gfe.Langues;
+using Gfe.Fenetres;
 
 namespace Gfe
 {
@@ -30,7 +31,7 @@ namespace Gfe
         static public string historique = string.Empty;
         static public bool conversion = !Program.nonXP;
 
-        FileInfo[] fichiers = new FileInfo[65536];
+        static public FileInfo[] fichiers = new FileInfo[65536];
 
         static private bool premierChargement = true;
         static private string cheminAncienFond = string.Empty;
@@ -765,6 +766,21 @@ namespace Gfe
         private void BoutonSuivant_Clic (object sender, EventArgs e) { FichierSuivant(); }
         private void BoutonPrécédent_Clic (object sender, EventArgs e) { FichierPrecedent(); }
         private void LabelNuméro_Clic(object sender, EventArgs e) { SautNuméro(); }
+
+        private void showFileListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int ancienId = id;
+
+            ListeFichier fenetre = new ListeFichier(fichiers);
+            fenetre.ShowDialog();
+
+            if  (ancienId != id)
+            {
+                ChargerFond(false);
+                RechargerInfo();
+            }
+        }
+
         private void BoutonSupprimer_Clic (object sender, EventArgs e) { SupprimerFichier(false); }
         private void MenuSuivant_Clic (object sender, EventArgs e) { FichierSuivant(); }
         private void MenuQuitter_Clic (object sender, EventArgs e) { FermerProgramme(); }
