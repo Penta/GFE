@@ -391,4 +391,7 @@ Do you want to close this software?</value>
   <data name="ValeurViolet" xml:space="preserve">
     <value>Purple</value>
   </data>
+  <data name="ErreurDossierVide" xml:space="preserve">
+    <value>No file in this directory selection.</value>
+  </data>
 </root>

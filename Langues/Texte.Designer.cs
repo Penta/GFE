@@ -231,6 +231,15 @@ namespace Gfe.Langues {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à No file in this directory selection..
+        /// </summary>
+        public static string ErreurDossierVide {
+            get {
+                return ResourceManager.GetString("ErreurDossierVide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à An error occurred when the software was updating!
         ///
         ///Error: .

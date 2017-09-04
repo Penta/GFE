@@ -7,11 +7,13 @@ namespace Gfe.Fenetres
 {
     public partial class ListeFichier : Form
     {
+        bool doubleClic = true;
+
         public ListeFichier(FileInfo[] fichiers)
         {
             string[] listeFichier = new string[65536];
 
-            for (int i = 0; i < fichiers.Length; i++)
+            for (int i = 0; i < Principale.nbFichier; i++)
             {
                 if(fichiers[i] != null)
                     listeFichier[i] = fichiers[i].Name;
@@ -21,15 +23,22 @@ namespace Gfe.Fenetres
 
             lbl_nombre.Text = Texte.NombreFichierListe + " 0 / " + Principale.nbFichier;
 
-            if (listeFichier.Length > 0)
-            {
-                liste.Items.Clear();
+            liste.Items.Clear();
 
-                for (int i = 0; i < listeFichier.Length; i++)
+            if (Principale.nbFichier > 1)
+            {
+                for (int i = 0; i < Principale.nbFichier; i++)
                 {
-                    if(listeFichier[i] != null)
+                    if (listeFichier[i] != null)
                         liste.Items.Add(listeFichier[i].ToString());
                 }
+            }
+            else
+            {
+                liste.Items.Add(Texte.ErreurDossierVide);
+
+                doubleClic = false;
+                btn_goto.Enabled = false;
             }
         }
 
@@ -45,15 +54,18 @@ namespace Gfe.Fenetres
 
         void Goto()
         {
-            if (liste.SelectedIndex < 0 || liste.SelectedIndex >= Principale.nbFichier)
+            if (doubleClic)
             {
-                MessageBox.Show(Texte.ErreurListeFichier);
-            }
-            else
-            {
-                Principale.id = liste.SelectedIndex;
+                if (liste.SelectedIndex < 0 || liste.SelectedIndex >= Principale.nbFichier)
+                {
+                    MessageBox.Show(Texte.ErreurListeFichier);
+                }
+                else
+                {
+                    Principale.id = liste.SelectedIndex;
 
-                this.DestroyHandle();
+                    this.DestroyHandle();
+                }
             }
         }
     }
