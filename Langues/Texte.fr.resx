@@ -350,10 +350,10 @@ Voulez-vous fermer le programme ?</value>
     <value>Centrer</value>
   </data>
   <data name="ValeurEtendre" xml:space="preserve">
-    <value>Etendre</value>
+    <value>Étendre</value>
   </data>
   <data name="ValeurEtirer" xml:space="preserve">
-    <value>Etirer</value>
+    <value>Étirer</value>
   </data>
   <data name="ValeurGris" xml:space="preserve">
     <value>Gris</value>
