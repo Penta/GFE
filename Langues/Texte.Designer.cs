@@ -383,7 +383,7 @@ namespace Gfe.Langues {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à  / .
+        ///   Recherche une chaîne localisée semblable à  on .
         /// </summary>
         public static string Fraction {
             get {

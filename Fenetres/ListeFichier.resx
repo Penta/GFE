@@ -120,34 +120,38 @@
   <data name="lbl_nombre.Text" xml:space="preserve">
     <value>File number: 0 / 0</value>
   </data>
-  <data name="&gt;&gt;lbl_nombre.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;lbl_nombre.Name" xml:space="preserve">
+    <value>lbl_nombre</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
   </data>
   <data name="&gt;&gt;btn_goto.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btn_annuler.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 300</value>
-  </data>
   <data name="liste.Size" type="System.Drawing.Size, System.Drawing">
-    <value>582, 277</value>
+    <value>579, 277</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="liste.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;lbl_nombre.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>ListeFichier</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="liste.HorizontalScrollbar" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="btn_goto.Location" type="System.Drawing.Point, System.Drawing">
-    <value>513, 300</value>
+    <value>510, 300</value>
   </data>
   <data name="&gt;&gt;liste.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>400, 250</value>
   </data>
   <data name="btn_goto.Text" xml:space="preserve">
     <value>Go to this file</value>
@@ -159,14 +163,13 @@
     <value>$this</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>607, 329</value>
+    <value>604, 329</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterParent</value>
+  <data name="btn_annuler.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 300</value>
   </data>
-  <data name="lbl_nombre.Location" type="System.Drawing.Point, System.Drawing">
-    <value>251, 305</value>
+  <data name="btn_goto.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;btn_annuler.Parent" xml:space="preserve">
     <value>$this</value>
@@ -174,8 +177,8 @@
   <data name="&gt;&gt;lbl_nombre.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbl_nombre.Name" xml:space="preserve">
-    <value>lbl_nombre</value>
+  <data name="btn_goto.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="lbl_nombre.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 13</value>
@@ -192,6 +195,9 @@
   <data name="&gt;&gt;btn_annuler.Name" xml:space="preserve">
     <value>btn_annuler</value>
   </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ListeFichier</value>
+  </data>
   <data name="liste.Items" xml:space="preserve">
     <value>An error has occured while the wallpaper manager loaded the file list, please try again.</value>
   </data>
@@ -207,17 +213,20 @@
   <data name="&gt;&gt;btn_annuler.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btn_goto.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="&gt;&gt;btn_goto.Name" xml:space="preserve">
     <value>btn_goto</value>
+  </data>
+  <data name="btn_annuler.Text" xml:space="preserve">
+    <value>Cancel</value>
   </data>
   <data name="btn_annuler.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="btn_annuler.Text" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="lbl_nombre.Location" type="System.Drawing.Point, System.Drawing">
+    <value>251, 305</value>
+  </data>
+  <data name="liste.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;btn_goto.Parent" xml:space="preserve">
     <value>$this</value>

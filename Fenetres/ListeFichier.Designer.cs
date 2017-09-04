@@ -38,7 +38,6 @@
             // liste
             // 
             resources.ApplyResources(this.liste, "liste");
-            this.liste.FormattingEnabled = true;
             this.liste.Items.AddRange(new object[] {
             resources.GetString("liste.Items")});
             this.liste.Name = "liste";
@@ -72,12 +71,10 @@
             this.Controls.Add(this.btn_annuler);
             this.Controls.Add(this.btn_goto);
             this.Controls.Add(this.liste);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ListeFichier";
-            this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.SizeChanged += new System.EventHandler(this.ListeFichier_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

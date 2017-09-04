@@ -39,7 +39,7 @@ namespace Gfe.Fenetres
 
 
         // Fonction chargeant le fond lié à la variable id dans l'array fichiers
-        private void ChargerFond(bool retry)
+        private void ChargerFond(bool retry = false)
         {
             if (id >= 0 && id < fichiers.Length)
             {
@@ -783,7 +783,7 @@ namespace Gfe.Fenetres
                 RechargerInfo();
             }
         }
-
+        
         private void BoutonSupprimer_Clic (object sender, EventArgs e) { SupprimerFichier(false); }
         private void MenuSuivant_Clic (object sender, EventArgs e) { FichierSuivant(); }
         private void MenuQuitter_Clic (object sender, EventArgs e) { FermerProgramme(); }
