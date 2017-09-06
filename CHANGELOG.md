@@ -1,6 +1,9 @@
 ﻿
 ## Changelog du Gestionnaire de Fond d'Écran
 
+### Version 0.9.3 (à venir) :
+ - Fenêtre de la liste des fichiers redimentionable.
+
 ### Version 0.9.2 (4 Septembre 2017) :
  - Réorganisation interne des fichiers.
  - Passage au framework .NET 4.7
