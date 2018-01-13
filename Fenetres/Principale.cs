@@ -684,15 +684,13 @@ namespace Gfe.Fenetres
 
         private void MenuAjouterContextuel_Clic(object sender, EventArgs e)
         {
-            string cheminIcone = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Gestionnaire de Fond d'Écran\";
-
             try
             {
                 if (sousmenuContextuel.Checked)
                 {
                     Registre.RetirerContextuel();
                     sousmenuContextuel.Checked = false;
-                    File.Delete(cheminIcone + "icone.ico");
+                    File.Delete(Program.dossierAppdata + "icone.ico");
 
                     MessageBox.Show(Texte.MenuContextuelSupprimé, Texte.SuccèsTitre, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -701,12 +699,9 @@ namespace Gfe.Fenetres
                     Registre.AjouterContextuel();
                     sousmenuContextuel.Checked = true;
 
-                    if (!Directory.Exists(cheminIcone))
-                        Directory.CreateDirectory(cheminIcone);
-
-                    if (!File.Exists(cheminIcone + "icone.ico"))
+                    if (!File.Exists(Program.dossierAppdata + "icone.ico"))
                     {
-                        FileStream fs = new FileStream(cheminIcone + "icone.ico", FileMode.Create);
+                        FileStream fs = new FileStream(Program.dossierAppdata + "icone.ico", FileMode.Create);
                         Properties.Resources.icone.Save(fs);
                         fs.Close();
                     }

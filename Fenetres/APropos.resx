@@ -171,7 +171,7 @@
     <value>1</value>
   </data>
   <data name="lbl_link_github.Text" xml:space="preserve">
-    <value>Project's GitHub</value>
+    <value>GitHub's Project</value>
   </data>
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
@@ -202,7 +202,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lbl_version.Text" xml:space="preserve">
-    <value>- 2014/2017 - Version </value>
+    <value>- 2014/2018 - Version </value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -349,8 +349,8 @@
     <value>103, 12</value>
   </data>
   <data name="richTextBox1.Text" xml:space="preserve">
-    <value>Wallpaper Manager - Gestionnaire de Fond d'Écran (GFE).
-Copyright (C) 2014/2017 Andy Esnard
+    <value>Wallpaper Manager - Gestionnaire de Fonds d'Écran (GFE).
+Copyright (C) 2014/2018 Andy Esnard
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

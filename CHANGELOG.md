@@ -3,6 +3,8 @@
 
 ### Version 0.9.3 (à venir) :
  - Fenêtre de la liste des fichiers redimentionable.
+ - Correction de l'icone du menu contextuel.
+ - Correction de plusieurs fautes.
 
 ### Version 0.9.2 (4 Septembre 2017) :
  - Réorganisation interne des fichiers.
